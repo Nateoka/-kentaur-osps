@@ -1,4 +1,5 @@
-"""KentaurMind v3.0.0-alpha.6 — Quantum Gate / OSPS Central Nervous System."""
+"""KentaurMind v3.2.1 — Quantum Gate / OSPS Central Nervous System."""
+import logging
 from dataclasses import dataclass
 from typing import Dict, Any, List
 from .core import KentaurCore, TriageReport, Vector
@@ -7,6 +8,9 @@ from .governor import KentaurGovernor, EnforcementLevel
 from .navigator import KentaurNavigator
 from .abstractor import KentaurAbstractor
 from .memory import KentaurMemory
+
+logger = logging.getLogger("kentaur-mind")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 
 @dataclass(frozen=True)
@@ -60,6 +64,11 @@ class KentaurMind:
 
         # === 1. INPUT PORT: Triage ===
         report = self.core.report(current_vector)
+        logger.info(
+            f"Vector: AcOr={current_vector['AcOr']:.2f}, "
+            f"IP={current_vector['IP']:.2f}, "
+            f"Tension={report.tension:.3f}"
+        )
 
         # === 2. SELECTOR: Profiler ===
         new_profile = self.profiler.determine_profile(
@@ -77,9 +86,12 @@ class KentaurMind:
             directives.append(
                 f"[PROFILE SHIFT]: {new_profile.name} - {new_profile.description}"
             )
+            logger.warning(f"PROFILE SHIFT -> {new_profile.name}")
 
         # === 3. SELECTOR: Governor (Fuses) ===
         gov_verdict = self.governor.judge(report)
+        if gov_verdict.level != EnforcementLevel.NONE:
+            logger.warning(f"GOVERNOR {gov_verdict.level.value.upper()} triggered")
         if gov_verdict.level in (EnforcementLevel.HALT, EnforcementLevel.RESTRICT):
             self.core.fuse_conflicts += 1
             report = self.core.report(current_vector)  # Recalculate with lower Phi

@@ -1,6 +1,27 @@
 # Changelog
 
-## [3.0.0] - 2026-05-22
+## [3.2.1] - 2026-05-22
+
+### Added
+- Contextual lesson generation in KentaurMemory (auto-generated lessons from context + vector).
+- Improved reflex injection with formatted warnings.
+- Logging in KentaurMind (INFO on vector, WARNING on profile shift / governor trigger).
+- Professional README with ASCII architecture diagram and ReActLoop example.
+
+### Changed
+- Package stabilized for production use.
+- All docstrings and comments in English.
+
+## [3.2.0] - 2026-05-22
+
+### Added
+- Episodic memory with contextual lesson generation.
+
+## [3.1.0] - 2026-05-22
+
+### Added
+- KentaurMemory with episodic traces and reflex prompts.
+- Memory integrated into KentaurMind process cycle.
 
 ### Added
 - Full OSPS v18.0 integration (ATTR_0, ATTR_T, Phi_OSPS, Archetypes, Quantum Gate Mind).
