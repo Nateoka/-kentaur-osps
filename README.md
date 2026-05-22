@@ -1,6 +1,6 @@
 # KentaurOSPS
 
-![Version](https://img.shields.io/badge/version-3.2.1-blue.svg)
+![Version](https://img.shields.io/badge/version-3.4.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
