@@ -24,6 +24,13 @@ from .mind import (
     MindVerdict,
 )
 
+from .abstractor import KentaurAbstractor
+
+from .memory import (
+    KentaurMemory,
+    EpisodicTrace,
+)
+
 from .navigator import (
     KentaurNavigator,
     NavigationPrescription,
@@ -35,7 +42,7 @@ from .profiler import (
     ProfileData,
 )
 
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 __all__ = [
     "KentaurCore",
     "RiskThresholds",
@@ -46,4 +53,15 @@ __all__ = [
     "triage_inject_prompt",
     "KentaurMind",
     "MindVerdict",
+    "KentaurMemory",
+    "EpisodicTrace",
+    "KentaurAbstractor",
+    "KentaurProfiler",
+    "AgentProfile",
+    "ProfileData",
+    "KentaurGovernor",
+    "EnforcementLevel",
+    "GovernorVerdict",
+    "KentaurNavigator",
+    "NavigationPrescription",
 ]

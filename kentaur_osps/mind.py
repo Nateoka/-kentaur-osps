@@ -6,6 +6,7 @@ from .profiler import KentaurProfiler
 from .governor import KentaurGovernor, EnforcementLevel
 from .navigator import KentaurNavigator
 from .abstractor import KentaurAbstractor
+from .memory import KentaurMemory
 
 
 @dataclass(frozen=True)
@@ -24,11 +25,12 @@ class KentaurMind:
     Closes the full cycle: Triage -> Profiler -> Governor -> Navigator -> Abstractor.
     """
 
-    def __init__(self, initial_profile: str = "sleeper"):
+    def __init__(self, initial_profile: str = "sleeper", memory_size: int = 100):
         self.profiler = KentaurProfiler()
         self.governor = KentaurGovernor()
         self.navigator = KentaurNavigator()
         self.abstractor = KentaurAbstractor()
+        self.memory = KentaurMemory(similarity_threshold=0.82, max_episodes=memory_size)
 
         # Determine initial profile
         profile = self.profiler.determine_profile(0.0, 0.0)
@@ -48,7 +50,8 @@ class KentaurMind:
 
     def process(self,
                 current_vector: Vector,
-                agent_loop_state: Dict[str, Any]) -> MindVerdict:
+                agent_loop_state: Dict[str, Any],
+                context: str = "") -> MindVerdict:
         """
         Full Quantum Gate cycle (Input -> Collapse -> Output).
         """
@@ -97,6 +100,20 @@ class KentaurMind:
             directives.append(gov_verdict.override_prompt)
         if gov_verdict.level == EnforcementLevel.HALT:
             modified_state["force_stop"] = True
+
+        # === MEMORY: Check reflexes after Governor ===
+        reflex = self.memory.get_reflex_prompt(current_vector)
+        if reflex:
+            directives.append(reflex)
+
+        # === Record crisis in memory ===
+        if gov_verdict.level in (EnforcementLevel.HALT, EnforcementLevel.RESTRICT):
+            self.memory.record(
+                context=context or "Agent loop step",
+                state_vector=dict(current_vector),
+                outcome=gov_verdict.level.value,
+                lesson=f"At vector {current_vector} triggered {gov_verdict.level.value.upper()}."
+            )
 
         # === 4. SELECTOR: Navigator (Cognitive Therapy) ===
         nav_prescription = self.navigator.prescribe(report, self.current_profile_name)

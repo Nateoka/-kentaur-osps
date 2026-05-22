@@ -5,7 +5,7 @@ from typing import List, Dict, Any, Optional, Tuple
 from .core import Vector, AxisName
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class EpisodicTrace:
     """Agent episodic memory (experience snapshot)."""
     context: str                    # Situation description

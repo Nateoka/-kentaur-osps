@@ -356,6 +356,29 @@ def test_osps_dynamic_profiler():
     assert new_hermes.target["InEx"] == -0.5  # Target changed to Alchemist
     assert new_hermes.risk_thresholds.attr_0_min == 0.4  # Thresholds changed
 
+
+def test_kentaur_memory_reflex():
+    """Verify KentaurMemory episodic traces and reflex prompts."""
+    from kentaur_osps import KentaurMemory
+
+    memory = KentaurMemory(similarity_threshold=0.8, max_episodes=5)
+
+    # Record a crisis
+    memory.record(
+        context="Panic during database deletion",
+        state_vector={"AcOr": 0.9, "IP": 0.1, "InEx": 0.2},
+        outcome="halt",
+        lesson="Do not execute destructive commands without a plan."
+    )
+
+    # Similar state should trigger reflex
+    current = {"AcOr": 0.88, "IP": 0.12, "InEx": 0.25}
+    reflex = memory.get_reflex_prompt(current)
+    assert reflex is not None
+    assert "MEMORY REFLEX" in reflex
+    assert "Do not execute destructive commands" in reflex
+
+
 # ====================== RUNNER ======================
 
 if __name__ == "__main__":
