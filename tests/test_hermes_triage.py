@@ -235,6 +235,31 @@ def test_osps_mind_integration():
     assert "Zoom out" in verdict_panic.directives_for_prompt
 
 
+def test_osps_mind_fuse_conflicts_and_phi():
+    """Verify Quantum Gate: fuse conflict growth and Phi_OSPS drop on crisis."""
+    from hermes_triage import HermesMind
+
+    mind = HermesMind(initial_profile="sleeper")
+
+    # Normal state
+    verdict1 = mind.process(
+        current_vector={"AcOr": 0.3, "IP": 0.8, "InEx": 0.0},
+        agent_loop_state={"temperature": 0.5, "available_tools": ["execute_bash"], "system_prompt": "Test"}
+    )
+    initial_phi = verdict1.report.phi_osps
+    assert verdict1.report.fuse_conflicts == 0
+
+    # Provoke crisis (overheat -> RESTRICT/HALT)
+    verdict2 = mind.process(
+        current_vector={"AcOr": 1.0, "IP": 0.0, "InEx": 1.0},
+        agent_loop_state={"temperature": 0.9, "available_tools": ["execute_bash"], "system_prompt": "Test"}
+    )
+    # Conflict counter should increase
+    assert mind.core.fuse_conflicts > 0
+    # Phi_OSPS should drop due to crisis
+    assert verdict2.report.phi_osps < initial_phi
+
+
 # ====================== SERIALIZATION ======================
 
 def test_serialization_roundtrip(default_hermes):

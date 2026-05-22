@@ -57,6 +57,7 @@ class TriageReport:
     k_flow: float               # Flow conductivity (adapted Ohm's law)
     phi_osps: float             # Anti-fragmentation index
     abstraction_level: str      # CONCRETE / TACTICAL / STRATEGIC / PHILOSOPHICAL
+    fuse_conflicts: int         # Number of OSPS fuse activations (for Phi calculation)
 
     advice: str
 
@@ -85,6 +86,7 @@ class HermesTriageModule:
         self.use_ema = use_ema
         self.ema_alpha = max(0.01, min(0.99, ema_alpha))
         self.forecast_steps = max(1, forecast_steps)
+        self.fuse_conflicts: int = 0  # OSPS fuse conflict counter (HALT/RESTRICT)
         self.history: List[Vector] = []
 
     # ====================== VALIDATION ======================
@@ -206,12 +208,12 @@ class HermesTriageModule:
             tension = 1e-9  # protect from div-by-zero
         return abs(attr_t - attr_0) + (k_res ** 2) / (tension + 0.1)
 
-    def _compute_phi_osps(self, current: Vector, tension: float, k_res: float, attr_t: float) -> float:
+    def _compute_phi_osps(self, tension: float, k_res: float, attr_t: float, fuse_conflicts: int) -> float:
         """
-        Anti-Fragmentation Index (Phi). Measure of integrated information.
-        Grok adaptation: (k_res^1.5) * max(0, 1 - tension) * (attr_t + 0.1)
+        Anti-Fragmentation Index (Phi). OSPS formula with fuse conflict tracking.
+        Formula: (k_res * (1 - tension) * (attr_t + 0.1)) / (fuse_conflicts + 1)
         """
-        return (k_res ** 1.5) * max(0.0, 1.0 - tension) * (attr_t + 0.1)
+        return (k_res * (1.0 - tension) * (attr_t + 0.1)) / (fuse_conflicts + 1)
 
     def _determine_abstraction_level(self, current: Vector) -> str:
         """
@@ -247,7 +249,7 @@ class HermesTriageModule:
 
         # === OSPS v18.0 Computations ===
         attr_0, attr_t = self._compute_attr(current, tens, k_res)
-        phi_osps = self._compute_phi_osps(current, tens, k_res, attr_t)
+        phi_osps = self._compute_phi_osps(tens, k_res, attr_t, self.fuse_conflicts)
         k_flow = self._compute_k_flow(attr_0, attr_t, k_res, tens)
         abstraction_level = self._determine_abstraction_level(current)
 
@@ -285,6 +287,7 @@ class HermesTriageModule:
             k_flow=round(k_flow, 4),
             phi_osps=round(phi_osps, 4),
             abstraction_level=abstraction_level,
+            fuse_conflicts=self.fuse_conflicts,
             advice=advice
         )
 

@@ -1,39 +1,43 @@
-"""HermesMind v3.0.0-alpha.3 — Agent Nervous System Orchestrator."""
+"""HermesMind v3.0.0-alpha.6 — Quantum Gate / OSPS Central Nervous System."""
 from dataclasses import dataclass
 from typing import Dict, Any, List
 from .triage import HermesTriageModule, TriageReport, Vector
 from .profiler import HermesProfiler
+from .governor import HermesGovernor, EnforcementLevel
+from .navigator import HermesNavigator
+from .abstractor import HermesAbstractor
 
 
 @dataclass(frozen=True)
 class MindVerdict:
-    """Unified verdict of the agent nervous system."""
+    """Unified verdict of the agent nervous system (Quantum Gate output)."""
     report: TriageReport
-    current_profile: str               # Current OSPS profile name
-    profile_shifted: bool              # Whether profile changed this cycle
-    directives_for_prompt: str         # Concatenated injection string
+    current_profile: str
+    profile_shifted: bool
+    directives_for_prompt: str
     modified_agent_state: Dict[str, Any]
 
 
 class HermesMind:
     """
-    Unified agent nervous system (Orchestrator / Quantum Gateway).
-    Manages oscillation between attractors Ø and T.
-    Dynamically changes profile and abstraction level.
+    Quantum Gate / OSPS Central Nervous System.
+    Closes the full cycle: Triage -> Profiler -> Governor -> Navigator -> Abstractor.
     """
 
     def __init__(self, initial_profile: str = "sleeper"):
         self.profiler = HermesProfiler()
+        self.governor = HermesGovernor()
+        self.navigator = HermesNavigator()
+        self.abstractor = HermesAbstractor()
 
-        # Initialize core via Profiler
+        # Determine initial profile
+        profile = self.profiler.determine_profile(0.0, 0.0)
         if initial_profile == "master":
             profile = self.profiler.determine_profile(1.0, 1.0)
         elif initial_profile == "alchemist":
             profile = self.profiler.determine_profile(1.0, 0.0)
         elif initial_profile == "integrator":
             profile = self.profiler.determine_profile(0.0, 1.0)
-        else:
-            profile = self.profiler.determine_profile(0.0, 0.0)
 
         self.core = HermesTriageModule(
             target=profile.target,
@@ -46,40 +50,69 @@ class HermesMind:
                 current_vector: Vector,
                 agent_loop_state: Dict[str, Any]) -> MindVerdict:
         """
-        Main processing cycle (System Breathing).
+        Full Quantum Gate cycle (Input -> Collapse -> Output).
         """
         directives: List[str] = []
         modified_state = dict(agent_loop_state)
 
-        # 1. TRIAGE: Get report
+        # === 1. INPUT PORT: Triage ===
         report = self.core.report(current_vector)
 
-        # 2. DYNAMIC PROFILING
-        # Use getattr for fault tolerance (protection against missing OSPS fields in old reports)
-        attr_0 = getattr(report, 'attr_0', 0.0)
-        attr_t = getattr(report, 'attr_t', 0.0)
-
+        # === 2. SELECTOR: Profiler ===
         new_profile = self.profiler.determine_profile(
-            attr_0=attr_0,
-            attr_t=attr_t,
-            current_profile=self.current_profile_name
+            getattr(report, 'attr_0', 0.0),
+            getattr(report, 'attr_t', 0.0),
+            self.current_profile_name
         )
 
         profile_shifted = False
         if new_profile.name != self.current_profile_name:
             profile_shifted = True
             self.current_profile_name = new_profile.name
-            # Reconfigure core to new profile
             self.core = self.profiler.apply(self.core, new_profile)
-            # Recompute report with new thresholds
             report = self.core.report(current_vector)
-
             directives.append(
-                f"[OSPS PROFILE SHIFT]: Transition to archetype "
-                f"'{new_profile.name}'. {new_profile.description}"
+                f"[PROFILE SHIFT]: {new_profile.name} - {new_profile.description}"
             )
 
-        # 3. META-COGNITION (Abstractor)
+        # === 3. SELECTOR: Governor (Fuses) ===
+        gov_verdict = self.governor.judge(report)
+        if gov_verdict.level in (EnforcementLevel.HALT, EnforcementLevel.RESTRICT):
+            self.core.fuse_conflicts += 1
+            report = self.core.report(current_vector)  # Recalculate with lower Phi
+
+        if gov_verdict.forced_temperature is not None:
+            modified_state["temperature"] = gov_verdict.forced_temperature
+
+        if gov_verdict.blocked_tools:
+            current_tools = list(modified_state.get("available_tools", []))
+            if "all" in gov_verdict.blocked_tools:
+                modified_state["available_tools"] = []
+            else:
+                modified_state["available_tools"] = [
+                    t for t in current_tools if t not in gov_verdict.blocked_tools
+                ]
+
+        if gov_verdict.override_prompt:
+            directives.append(gov_verdict.override_prompt)
+        if gov_verdict.level == EnforcementLevel.HALT:
+            modified_state["force_stop"] = True
+
+        # === 4. SELECTOR: Navigator (Cognitive Therapy) ===
+        nav_prescription = self.navigator.prescribe(report, self.current_profile_name)
+        if nav_prescription.forced_thought_pattern:
+            directives.append(f"[NAVIGATOR]: {nav_prescription.forced_thought_pattern}")
+
+        available_tools = list(modified_state.get("available_tools", []))
+        if nav_prescription.blocked_tools:
+            available_tools = [t for t in available_tools
+                               if t not in nav_prescription.blocked_tools]
+        if nav_prescription.recommended_tools:
+            available_tools = list(set(available_tools +
+                                       list(nav_prescription.recommended_tools)))
+        modified_state["available_tools"] = available_tools
+
+        # === 5. META-COGNITION: Abstractor ===
         abstraction_level = getattr(report, 'abstraction_level', 'TACTICAL')
         if abstraction_level == "CONCRETE":
             directives.append(
@@ -90,7 +123,7 @@ class HermesMind:
                 "[ABSTRACTOR]: Come back to earth. You are detached from reality."
             )
 
-        # 4. BUILD UNIFIED PROMPT
+        # === 6. OUTPUT PORT: Build unified prompt ===
         if directives:
             unified_directive = "\n".join(directives)
             modified_state["system_prompt"] = (
