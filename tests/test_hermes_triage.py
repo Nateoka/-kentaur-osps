@@ -238,6 +238,27 @@ def test_inter_agent_tension():
     assert isinstance(result["coherent"], bool)
 
 
+def test_osps_v18_metrics():
+    """Verify OSPS v18.0 attractor, conductivity, and anti-fragmentation metrics."""
+    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.8, "InEx": 0.0})
+
+    # Deep reflection state: high IP, moderate AcOr → T coupling > Ø coupling
+    report = hermes.report({"AcOr": 0.3, "IP": 0.9, "InEx": -0.2})
+    assert report.attr_t > report.attr_0  # High IP → T coupling stronger
+    assert report.abstraction_level in ("STRATEGIC", "PHILOSOPHICAL")
+    assert report.k_flow > 0.0
+    assert report.phi_osps > 0.0
+    assert hasattr(report, 'attr_0')
+    assert hasattr(report, 'attr_t')
+    assert hasattr(report, 'k_flow')
+    assert hasattr(report, 'phi_osps')
+    assert hasattr(report, 'abstraction_level')
+
+    # Panic state: high AcOr, very low IP → Ø coupling stronger
+    report_panic = hermes.report({"AcOr": 0.9, "IP": 0.05, "InEx": 0.5})
+    assert report_panic.attr_0 > report_panic.attr_t  # High AcOr → Ø coupling stronger
+    assert report_panic.abstraction_level == "CONCRETE"
+
 # ====================== RUNNER ======================
 
 if __name__ == "__main__":

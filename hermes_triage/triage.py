@@ -1,6 +1,6 @@
 """
-Hermes Triage Module v1.5.1 — Three-axis diagnostic system for agents.
-Fully typed, mypy --strict compatible, zero dependencies.
+Hermes Triage Module — Three-axis diagnostic system for agents.
+OSPS v18.0 integrated. Attractor metrics, K_flow, Phi, abstraction levels.
 """
 
 import math
@@ -30,6 +30,8 @@ class RiskThresholds:
     high: float = 0.6
     medium: float = 0.3
     low: float = 0.20
+    # OSPS v18.0: minimum attractor coupling threshold
+    attr_min: float = 0.3
 
 
 @dataclass(frozen=True)
@@ -47,17 +49,25 @@ class TriageReport:
     forecast: List[Vector]
     stable: bool
     k_res: float
+
+    # === OSPS v18.0 Metrics ===
+    attr_0: float               # Attractor Ø (Void/Zeroing) coupling
+    attr_t: float               # Attractor T (Spirit/Synthesis) coupling
+    k_flow: float               # Flow conductivity (adapted Ohm's law)
+    phi_osps: float             # Anti-fragmentation index
+    abstraction_level: str      # CONCRETE / TACTICAL / STRATEGIC / PHILOSOPHICAL
+
     advice: str
 
 
 class HermesTriageModule:
     """
-    Three-axis diagnostic module for Hermes agent (v1.5.1).
-    Clean architecture, fully deterministic, mypy --strict compatible.
+    Three-axis diagnostic module for Hermes agent (v3.0.0-alpha.1).
+    Clean architecture, fully deterministic, OSPS v18.0 metrics integrated.
     """
 
     AXES: Tuple[AxisName, ...] = ("AcOr", "IP", "InEx")
-    SCHEMA_VERSION = "1.5.1"
+    SCHEMA_VERSION = "3.0.0-alpha.1"
 
     def __init__(self,
                  target: Optional[InputVector] = None,
@@ -173,6 +183,53 @@ class HermesTriageModule:
     def k_resilience(self, tension_val: float) -> float:
         return 1.0 / (1.0 + tension_val)
 
+    # ====================== OSPS v18.0 METHODS ======================
+
+    def _compute_attr(self, current: Vector, tension: float, k_res: float) -> Tuple[float, float]:
+        """
+        Compute attractor coupling for Ø (0) and T.
+        OSPS v18.0 adaptation without biometrics.
+        """
+        # ATTR_Ø (Zeroing ability): High when agent isn't thrashing (low AcOr) and resilient.
+        attr_0 = (1.0 - current.get("AcOr", 0.5)) * k_res
+        # ATTR_T (Synthesis ability): High when agent deeply analyzes (high IP) and resilient.
+        attr_t = current.get("IP", 0.5) * k_res
+        return max(0.0, min(1.0, attr_0)), max(0.0, min(1.0, attr_t))
+
+    def _compute_k_flow(self, attr_0: float, attr_t: float, k_res: float, tension: float) -> float:
+        """
+        Energy conductivity coefficient (Psychodynamic Ohm's law).
+        Formula: |ATTR_T - ATTR_0| + (k_res^2) / (tension + 0.1)
+        """
+        if tension < 1e-9:
+            tension = 1e-9  # protect from div-by-zero
+        return abs(attr_t - attr_0) + (k_res ** 2) / (tension + 0.1)
+
+    def _compute_phi_osps(self, current: Vector, tension: float, k_res: float) -> float:
+        """
+        Anti-Fragmentation Index (Phi). Measure of integrated information.
+        Adaptation: k_res * (1 - tension) * mean(IP, AcOr)
+        """
+        avg_power = (current.get("IP", 0.0) + current.get("AcOr", 0.0)) / 2.0
+        return k_res * (1.0 - tension) * avg_power
+
+    def _determine_abstraction_level(self, current: Vector) -> str:
+        """
+        Determine abstraction level (Abstraction Ladder).
+        Projection of Hermes axes onto OSPS Octant.
+        """
+        acor = current.get("AcOr", 0.5)
+        ip = current.get("IP", 0.5)
+        inex = current.get("InEx", 0.0)
+        if acor > 0.7 and ip < 0.3:
+            return "CONCRETE"       # Concrete swamp
+        elif ip > 0.7 and inex < -0.4:
+            return "PHILOSOPHICAL"  # Detached from reality
+        elif ip > 0.6:
+            return "STRATEGIC"      # Architectural overview
+        else:
+            return "TACTICAL"       # Working mode
+
     def update_history(self, new_obs: InputVector) -> None:
         self.history.append(self._validate_observation(new_obs))
         if len(self.history) > self.history_limit:
@@ -187,6 +244,13 @@ class HermesTriageModule:
         axis, delta, direction = self.lever(current)
         risk = self.risk_level(tens)
         k_res = self.k_resilience(tens)
+
+        # === OSPS v18.0 Computations ===
+        attr_0, attr_t = self._compute_attr(current, tens, k_res)
+        k_flow = self._compute_k_flow(attr_0, attr_t, k_res, tens)
+        phi_osps = self._compute_phi_osps(current, tens, k_res)
+        abstraction_level = self._determine_abstraction_level(current)
+
         stable = (tens < self.risk_thresholds.low and direction == "balanced") or (tens < 1e-6)
 
         if direction == "balanced":
@@ -216,6 +280,11 @@ class HermesTriageModule:
             forecast=self.forecast(current),
             stable=stable,
             k_res=round(k_res, 4),
+            attr_0=round(attr_0, 4),
+            attr_t=round(attr_t, 4),
+            k_flow=round(k_flow, 4),
+            phi_osps=round(phi_osps, 4),
+            abstraction_level=abstraction_level,
             advice=advice
         )
 
@@ -236,7 +305,7 @@ class HermesTriageModule:
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "HermesTriageModule":
-        if data.get("schema_version") not in (cls.SCHEMA_VERSION, "1.5.0", "1.4.0"):
+        if data.get("schema_version") not in (cls.SCHEMA_VERSION, "3.0.0-alpha.1", "1.5.1", "1.5.0", "1.4.0"):
             raise ValueError(f"Schema mismatch: expected {cls.SCHEMA_VERSION}, got {data.get('schema_version')}")
         thresholds = RiskThresholds(**data["risk_thresholds"])
         module = cls(
