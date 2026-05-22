@@ -106,13 +106,13 @@ class KentaurMind:
         if reflex:
             directives.append(reflex)
 
-        # === Record crisis in memory ===
+        # === Record crisis in memory with auto-generated lesson ===
         if gov_verdict.level in (EnforcementLevel.HALT, EnforcementLevel.RESTRICT):
             self.memory.record(
                 context=context or "Agent loop step",
                 state_vector=dict(current_vector),
                 outcome=gov_verdict.level.value,
-                lesson=f"At vector {current_vector} triggered {gov_verdict.level.value.upper()}."
+                lesson=None  # Auto-generate contextual lesson
             )
 
         # === 4. SELECTOR: Navigator (Cognitive Therapy) ===

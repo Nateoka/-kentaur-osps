@@ -1,94 +1,107 @@
-"""KentaurMemory v2.3.0 — Episodic memory module (vector similarity-based reflex)."""
-import math
+"""KentaurMemory v3.2.0 — Episodic memory with contextual lesson generation."""
 from dataclasses import dataclass
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Optional, Tuple
+import math
 from .core import Vector, AxisName
 
 
 @dataclass(frozen=False)
 class EpisodicTrace:
-    """Agent episodic memory (experience snapshot)."""
-    context: str                    # Situation description
-    state_vector: Vector            # Agent state vector at that moment
-    outcome: str                    # Outcome: "halt", "restrict", "success", "caution"
-    lesson: str                     # Formulated lesson for the future
-    similarity: float = 0.0        # Computed on search
+    """Kentaur memory episode."""
+    context: str                     # Brief situation/task description
+    state_vector: Vector             # State vector at event time
+    outcome: str                     # "halt", "restrict", "success", "caution"
+    lesson: str                      # Meaningful lesson (context-formed)
+    similarity: float = 0.0
 
 
 class KentaurMemory:
     """
-    Episodic memory module.
-    Enables the agent to form conditioned reflexes based on past corrections.
+    Episodic memory with contextual lesson generation.
     """
 
-    def __init__(self, similarity_threshold: float = 0.85, max_episodes: int = 100):
-        """
-        Args:
-            similarity_threshold: Cosine similarity threshold [0..1].
-            max_episodes: Maximum memory size (FIFO).
-        """
+    def __init__(self, similarity_threshold: float = 0.82, max_episodes: int = 120):
         self.similarity_threshold = max(0.0, min(1.0, similarity_threshold))
-        self.max_episodes = max(1, max_episodes)
+        self.max_episodes = max(20, max_episodes)
         self._episodes: List[EpisodicTrace] = []
 
     @staticmethod
     def _cosine_similarity(v1: Vector, v2: Vector) -> float:
-        """Compute cosine similarity between two vectors."""
+        """Cosine similarity between two vectors."""
         axes: Tuple[AxisName, ...] = ("AcOr", "IP", "InEx")
-        dot_product = sum(v1[ax] * v2[ax] for ax in axes)
+        dot = sum(v1[ax] * v2[ax] for ax in axes)
         norm1 = math.sqrt(sum(v1[ax] ** 2 for ax in axes))
         norm2 = math.sqrt(sum(v2[ax] ** 2 for ax in axes))
-        if norm1 == 0.0 or norm2 == 0.0:
+        if norm1 == 0 or norm2 == 0:
             return 0.0
-        return dot_product / (norm1 * norm2)
+        return dot / (norm1 * norm2)
 
-    def record(self, context: str, state_vector: Vector, outcome: str, lesson: str) -> None:
-        """Record a new episode in memory."""
-        episode = EpisodicTrace(
+    def record(self,
+               context: str,
+               state_vector: Vector,
+               outcome: str,
+               lesson: Optional[str] = None):
+        """
+        Record a new episode.
+        If lesson is not provided, auto-generates one from context.
+        """
+        if lesson is None:
+            lesson = self._generate_default_lesson(context, outcome, state_vector)
+        trace = EpisodicTrace(
             context=context,
-            state_vector=state_vector,
+            state_vector=dict(state_vector),
             outcome=outcome,
-            lesson=lesson,
+            lesson=lesson
         )
-        self._episodes.append(episode)
+        self._episodes.append(trace)
         if len(self._episodes) > self.max_episodes:
             self._episodes.pop(0)
 
-    def recall(self, query_vector: Vector, top_k: int = 3) -> List[EpisodicTrace]:
-        """Find top_k most similar episodes by cosine similarity."""
+    def _generate_default_lesson(self, context: str, outcome: str, vector: Vector) -> str:
+        """Auto-generate a contextual lesson from event data."""
+        if outcome == "halt":
+            return (
+                f"In '{context}' (AcOr={vector['AcOr']:.2f}) the system was halted. "
+                f"Avoid similar actions without thorough analysis."
+            )
+        elif outcome == "restrict":
+            return (
+                f"In '{context}' tools were restricted. "
+                f"Reduce impulsivity (AcOr) and increase analysis (IP)."
+            )
+        return (
+            f"In '{context}' the experience was successful. "
+            f"Repeat under similar conditions."
+        )
+
+    def recall(self, current_vector: Vector, top_k: int = 3) -> List[EpisodicTrace]:
+        """Find similar past episodes by cosine similarity."""
         scored = []
         for ep in self._episodes:
-            sim = self._cosine_similarity(query_vector, ep.state_vector)
-            scored.append((sim, ep))
-        scored.sort(key=lambda x: -x[0])
-        results = []
-        for sim, ep in scored[:top_k]:
-            ep.similarity = round(sim, 4)
-            results.append(ep)
-        return results
+            sim = self._cosine_similarity(current_vector, ep.state_vector)
+            if sim >= self.similarity_threshold:
+                scored.append(EpisodicTrace(
+                    context=ep.context,
+                    state_vector=ep.state_vector,
+                    outcome=ep.outcome,
+                    lesson=ep.lesson,
+                    similarity=round(sim, 4)
+                ))
+        scored.sort(key=lambda x: x.similarity, reverse=True)
+        return scored[:top_k]
 
     def get_reflex_prompt(self, current_vector: Vector) -> Optional[str]:
-        """
-        Generate a reflex prompt if a similar past episode is found
-        with a negative outcome.
-        """
-        matches = self.recall(current_vector, top_k=1)
-        if not matches:
+        """Generate a subconscious reflex based on past crises."""
+        negative_outcomes = {"halt", "restrict", "caution"}
+        traumas = [ep for ep in self.recall(current_vector, top_k=3)
+                   if ep.outcome in negative_outcomes]
+        if not traumas:
             return None
-        best = matches[0]
-        if best.similarity < self.similarity_threshold:
-            return None
-        if best.outcome in ("halt", "restrict"):
-            return (
-                f"[MEMORY REFLEX]: Past situation similar ({best.similarity:.0%}). "
-                f"Lesson: {best.lesson}"
-            )
-        return None
-
-    def clear(self) -> None:
-        """Clear all episodes."""
-        self._episodes = []
-
-    @property
-    def size(self) -> int:
-        return len(self._episodes)
+        warnings = "\n".join(
+            f"- ({ep.similarity:.0%} match) {ep.lesson}" for ep in traumas
+        )
+        return (
+            f"KENTAUR REFLEX: Warning! Current state resembles past crises:\n"
+            f"{warnings}\n"
+            f"Act cautiously. Consider past experience."
+        )

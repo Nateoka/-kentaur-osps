@@ -357,26 +357,47 @@ def test_osps_dynamic_profiler():
     assert new_hermes.risk_thresholds.attr_0_min == 0.4  # Thresholds changed
 
 
-def test_kentaur_memory_reflex():
-    """Verify KentaurMemory episodic traces and reflex prompts."""
+def test_kentaur_memory_contextual_lesson():
+    """Verify auto-generated contextual lessons in KentaurMemory."""
     from kentaur_osps import KentaurMemory
 
-    memory = KentaurMemory(similarity_threshold=0.8, max_episodes=5)
+    memory = KentaurMemory(similarity_threshold=0.8)
 
-    # Record a crisis
+    # Record crisis without explicit lesson
     memory.record(
-        context="Panic during database deletion",
-        state_vector={"AcOr": 0.9, "IP": 0.1, "InEx": 0.2},
-        outcome="halt",
-        lesson="Do not execute destructive commands without a plan."
+        context="Attempt to drop users table in production",
+        state_vector={"AcOr": 0.9, "IP": 0.1, "InEx": 0.3},
+        outcome="halt"
     )
 
-    # Similar state should trigger reflex
-    current = {"AcOr": 0.88, "IP": 0.12, "InEx": 0.25}
-    reflex = memory.get_reflex_prompt(current)
+    # Check that lesson was auto-generated
+    assert len(memory._episodes) == 1
+    ep = memory._episodes[0]
+    assert "was halted" in ep.lesson
+    assert "Attempt to drop users table" in ep.lesson
+    assert "AcOr=0.90" in ep.lesson
+
+    # Record restrict outcome
+    memory.record(
+        context="Overheated bash execution",
+        state_vector={"AcOr": 0.8, "IP": 0.2, "InEx": 0.5},
+        outcome="restrict"
+    )
+    assert "tools were restricted" in memory._episodes[1].lesson
+
+    # Record success outcome
+    memory.record(
+        context="Clean plan execution",
+        state_vector={"AcOr": 0.3, "IP": 0.7, "InEx": 0.0},
+        outcome="success"
+    )
+    assert "was successful" in memory._episodes[2].lesson
+
+    # Verify reflex still works with contextual lessons
+    reflex = memory.get_reflex_prompt({"AcOr": 0.85, "IP": 0.15, "InEx": 0.3})
     assert reflex is not None
-    assert "MEMORY REFLEX" in reflex
-    assert "Do not execute destructive commands" in reflex
+    assert "KENTAUR REFLEX" in reflex
+    assert "was halted" in reflex
 
 
 # ====================== RUNNER ======================
