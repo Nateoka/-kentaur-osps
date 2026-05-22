@@ -30,8 +30,9 @@ class RiskThresholds:
     high: float = 0.6
     medium: float = 0.3
     low: float = 0.20
-    # OSPS v18.0: minimum attractor coupling threshold
-    attr_min: float = 0.3
+    # OSPS v18.0: attractor coupling thresholds (separated)
+    attr_0_min: float = 0.3
+    attr_t_min: float = 0.3
 
 
 @dataclass(frozen=True)

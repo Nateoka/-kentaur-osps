@@ -48,7 +48,7 @@ class HermesMind:
 
     def switch_profile(self, profile_name: str) -> None:
         """Сменить роль агента на лету."""
-        self.core = self.profiler.apply(self.core, profile_name)
+        self.core = self.profiler.apply_by_name(self.core, profile_name)
 
     def process(self, 
                 current_vector: Vector, 

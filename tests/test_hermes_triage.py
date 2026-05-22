@@ -238,26 +238,29 @@ def test_inter_agent_tension():
     assert isinstance(result["coherent"], bool)
 
 
-def test_osps_v18_metrics():
-    """Verify OSPS v18.0 attractor, conductivity, and anti-fragmentation metrics."""
-    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.8, "InEx": 0.0})
+def test_osps_dynamic_profiler():
+    """Verify dynamic OSPS v18.0 profiling with hysteresis and apply."""
+    from hermes_triage.profiler import HermesProfiler
+    from hermes_triage import HermesTriageModule
 
-    # Deep reflection state: high IP, moderate AcOr → T coupling > Ø coupling
-    report = hermes.report({"AcOr": 0.3, "IP": 0.9, "InEx": -0.2})
-    assert report.attr_t > report.attr_0  # High IP → T coupling stronger
-    assert report.abstraction_level in ("STRATEGIC", "PHILOSOPHICAL")
-    assert report.k_flow > 0.0
-    assert report.phi_osps > 0.0
-    assert hasattr(report, 'attr_0')
-    assert hasattr(report, 'attr_t')
-    assert hasattr(report, 'k_flow')
-    assert hasattr(report, 'phi_osps')
-    assert hasattr(report, 'abstraction_level')
+    profiler = HermesProfiler()
 
-    # Panic state: high AcOr, very low IP → Ø coupling stronger
-    report_panic = hermes.report({"AcOr": 0.9, "IP": 0.05, "InEx": 0.5})
-    assert report_panic.attr_0 > report_panic.attr_t  # High AcOr → Ø coupling stronger
-    assert report_panic.abstraction_level == "CONCRETE"
+    # Basic archetype checks
+    assert profiler.determine_profile(attr_0=0.7, attr_t=0.8).name == "master"
+    assert profiler.determine_profile(attr_0=0.6, attr_t=0.2).name == "alchemist"
+    assert profiler.determine_profile(attr_0=0.2, attr_t=0.7).name == "integrator"
+    assert profiler.determine_profile(attr_0=0.1, attr_t=0.2).name == "sleeper"
+
+    # Hysteresis check: if already master, profile shouldn't drop on slight ATTR decrease
+    profile = profiler.determine_profile(attr_0=0.47, attr_t=0.8, current_profile="master")
+    assert profile.name == "master"  # Held by buffer
+
+    # Apply method check
+    hermes = HermesTriageModule(target={"AcOr": 0.5, "IP": 0.5, "InEx": 0.0})
+    alchemist_profile = profiler.determine_profile(attr_0=0.6, attr_t=0.2)
+    new_hermes = profiler.apply(hermes, alchemist_profile)
+    assert new_hermes.target["InEx"] == -0.5  # Target changed to Alchemist
+    assert new_hermes.risk_thresholds.attr_0_min == 0.4  # Thresholds changed
 
 # ====================== RUNNER ======================
 
