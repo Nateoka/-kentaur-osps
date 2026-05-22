@@ -4,18 +4,42 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kentaur-osps"
-version = "3.4.0"
-description = "Kentaur Triage - A Psycho-Cybernetic Operating System for Autonomous AI Agents based on OSPS v18.0"
+version = "3.5.0"
+description = "KentaurOSPS - A Psycho-Cybernetic Operating System for Autonomous AI Agents (OSPS v18.0 implementation)"
+readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
+keywords = ["ai", "agent", "osps", "diagnostics", "self-regulation", "cognitive-architecture"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = []
 
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",
     "ruff>=0.4.0",
-    "mypy>=1.9"
+    "mypy>=1.9",
+    "openai>=1.0",
+    "streamlit>=1.30",
 ]
+
+[project.urls]
+Homepage = "https://github.com/olegpogozhikh/kentaur-osps"
+Repository = "https://github.com/olegpogozhikh/kentaur-osps"
+Documentation = "https://github.com/olegpogozhikh/kentaur-osps#readme"
+
+[tool.setuptools.packages.find]
+include = ["kentaur_osps*"]
 
 [tool.setuptools.package-data]
 kentaur_osps = ["py.typed"]

@@ -1,12 +1,18 @@
 # KentaurOSPS
 
-![Version](https://img.shields.io/badge/version-3.4.0-blue.svg)
+![Version](https://img.shields.io/badge/version-3.5.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 **A Psycho-Cybernetic Operating System for Autonomous AI Agents based on OSPS v18.0.**
 
-KentaurOSPS gives AI agents introspection, self-regulation, abstract thinking, episodic memory, and existential safety. It models the agent's connection to Source (Ø) and Spirit (T) attractors using a three-axis diagnostic space.
+KentaurOSPS gives AI agents introspection, self-regulation, abstract thinking, episodic memory, and existential safety.
+
+## Installation
+
+```bash
+pip install kentaur-osps
+```
 
 ---
 

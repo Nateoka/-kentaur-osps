@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0] - 2026-05-22
+
+### Added
+- First public PyPI release — `pip install kentaur-osps`.
+- Full README with installation guide, quick start, dashboard and runtime sections.
+- PyPI metadata with classifiers, keywords, and project URLs.
+
 ## [3.4.0] - 2026-05-22
 
 ### Added

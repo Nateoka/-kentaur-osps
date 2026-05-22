@@ -42,7 +42,7 @@ from .profiler import (
     ProfileData,
 )
 
-__version__ = "3.4.0"
+__version__ = "3.5.0"
 __all__ = [
     "KentaurCore",
     "RiskThresholds",
