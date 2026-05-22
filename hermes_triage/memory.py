@@ -45,7 +45,7 @@ class HermesMemory:
             
         return dot_product / (norm1 * norm2)
 
-    def record(self, context: str, state_vector: Vector, outcome: str, lesson: str):
+    def record(self, context: str, state_vector: Vector, outcome: str, lesson: str) -> None:
         """Записать новый эпизод в память."""
         episode = EpisodicTrace(
             context=context,

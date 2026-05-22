@@ -1,8 +1,7 @@
 from enum import Enum
 from dataclasses import dataclass
-from typing import List, Dict, Any, Tuple, Optional
-
-from .triage import TriageReport, Vector, HermesTriageModule
+from typing import List, Dict, Optional, Any, Tuple, cast
+from .triage import HermesTriageModule, TriageReport, Vector, InputVector
 
 
 class ConsensusState(Enum):
@@ -127,7 +126,7 @@ class HermesConsensus:
 
         # Пересоздаём модуль с новой целью (strict_target=False на случай, если цель якоря была вне дефолта)
         aligned_module = HermesTriageModule(
-            target=verdict.alignment_target,
+            target=cast(InputVector, verdict.alignment_target),
             history_limit=agent_module.history_limit,
             use_ema=agent_module.use_ema,
             ema_alpha=agent_module.ema_alpha,

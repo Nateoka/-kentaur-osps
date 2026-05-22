@@ -28,7 +28,7 @@ class HermesProfiler:
         "architect": {"AcOr": 0.3, "IP": 0.7, "InEx": 0.2},
     }
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.history: List[Dict[str, float]] = []
 
     def profile(self, vector: Dict[str, float]) -> str:
@@ -56,6 +56,19 @@ class HermesProfiler:
         """Get profile config by name."""
         vec = self.PROFILES.get(name, self.PROFILES["balanced"])
         return ProfileData(target=dict(vec))
+
+    def apply(self, module: Any, profile_name: str) -> Any:
+        """Apply a profile to a triage module (switch target)."""
+        from .triage import HermesTriageModule
+        profile = self.get(profile_name)
+        return HermesTriageModule(
+            target=profile.target,
+            history_limit=module.history_limit,
+            use_ema=module.use_ema,
+            ema_alpha=module.ema_alpha,
+            risk_thresholds=module.risk_thresholds,
+            strict_target=False,
+        )
 
 
 @dataclass

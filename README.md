@@ -1,126 +1,83 @@
 # Hermes Triage Module
 
-[![Version](https://img.shields.io/badge/version-1.5.1-blue.svg)](https://github.com/yourusername/hermes-triage)
-[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Mypy](https://img.shields.io/badge/mypy-strict-blue.svg)](https://mypy-lang.org/)
-[![Ruff](https://img.shields.io/badge/linter-ruff-%2311AA66.svg)](https://ruff.rs/)
-[![CI](https://github.com/yourusername/hermes-triage/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/hermes-triage/actions)
+![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
+![Tests](https://img.shields.io/badge/tests-20%20passed-brightgreen.svg)
 
-**Trehosevaya sistema diagnostiki i samokontrolya** dlya avtonomnykh LLM-agentov.
+**A Psycho-Cybernetic Operating System for Autonomous AI Agents.**
 
----
-
-## Filosofiya
-
-**Hermes Triage** -- eto diagnosticheskii modul, vdokhnovlyonnyi meditsinskoi sistemoi triazha. On otsenivaet sostoyanie agenta po trem nezavisimym osyam:
-
-| Os | Nazvanie | Chto izmeryaet | Primer vysokogo znacheniya |
-|---------|-----------------------|---------------------------------------|--------------------------------|
-| **AcOr** | Action Orientation | Skorost i reshitelnost deistvii | "Srochno", "generiruyu", "delayu" |
-| **IP** | Inner Process | Glubina analiza i sistemnoe myshlenie | "Analiziruyu", "arkhitektura" |
-| **InEx** | Internal-External | Fokus vnimaniya (vnutrennii <-> vneshnii) | "Klient", "rynok" vs "refleksiya" |
-
-Modul izmeryaet **napryazhenie** sistemy (tension), opredelyaet **glavnyi rychag** vozdeistviya (lever) i vydaet konkretnye rekomendatsii.
+Hermes Triage is a diagnostic and control framework that provides AI agents with introspection, self-regulation, and abstract thinking capabilities. It moves beyond simple prompt engineering by giving agents a mathematical model of their own internal state.
 
 ---
 
-## Kogda i zachem eto ispolzovat
+## Core Architecture
 
-Etot modul osobenno polezen v sleduyushchikh stsenariyakh:
+The system operates as a layered nervous system:
 
-### Dlya odinochnykh agentov
-- **Long-running agenty** -- kogda agent rabotaet chasami ili dnyami i mozhet postepenno "razboltatsya".
-- **Kriticheski vazhnye zadachi** -- gde vazhno sokhranyat balans mezhdu skorostyu, kachestvom i fokusom.
-- **Eksperimenty** -- obektivnoe sravnenie raznykh promptov, temperatur i strategii po metrikam tension i k_res.
-
-### Dlya multi-agent sistem
-- Otsenka **kogerentnosti** komandy agentov cherez inter_agent_tension().
-- Vyyavlenie agentov, kotorye "vybivayutsya" iz obshchego tona.
-- Koordinatsiya i svoevremennaya korrektirovka povedeniya.
-
-### V produktshene
-- Realnyi observability agentov (eksport v Prometheus/Grafana).
-- Avtomaticheskie alerty pri critical riske.
-- Logirovanie sostoyaniya agenta vmeste s kazhdym deistviem.
-
-### Dlya razrabotchikov
-- Bystraya otladka: pochemu agent nachal vesti sebya stranno?
-- Ponimanie "vnutrennego sostoyaniya" agenta, a ne tolko finalnogo otveta.
-- Sozdanie self-healing i self-correcting agentov.
-
-**Prostymi slovami**: Poka bolshinstvo razrabotchikov upravlyayut agentami "vslepuyu", Hermes Triage dayot vam **pribornuyu panel i bortovoi kompyuter** -- vy vidite ne tolko rezultat, no i **v kakom sostoyanii** agent etot rezultat vydaet.
+1. **Triage (Receptors):** Measures the agent's state along 3 axes: AcOr (Action Orientation), IP (Inner Process), and InEx (Internal-External focus). Calculates tension, resilience, and risk.
+2. **Governor (Immune System):** Enforces boundaries. Blocks dangerous tools and interrupts loops when risk is critical.
+3. **Navigator (Prefrontal Cortex):** Prescribes specific tools and cognitive patterns to restore balance.
+4. **Profiler (Endocrine System):** Switches behavioral profiles (Analyst, Executor, Crisis) on the fly.
+5. **Memory (Scars):** Episodic memory based on vector similarity. Prevents the agent from repeating past mistakes.
+6. **Abstractor (Meta-cognition):** Detects if the agent is stuck in details (Concrete Swamp) or lost in philosophy, and forces a zoom shift.
+7. **Mind (Central Nervous System):** A unified facade orchestrating all modules in a single `process()` call.
 
 ---
 
-## Bystryi start
+## Quick Start
 
-### Ustanovka
+### Installation
 
 ```bash
 pip install hermes-triage
 ```
 
-### Minimalnyi primer
+### Usage
 
 ```python
-from hermes_triage import HermesTriageModule, action_to_vector
+from hermes_triage import HermesMind
 
-hermes = HermesTriageModule(
-    target={"AcOr": 0.3, "IP": 0.6, "InEx": -0.2},
-    use_ema=True,
-    ema_alpha=0.4
+# Initialize the agent's nervous system
+mind = HermesMind(profile="executor")
+
+# Process agent state in a loop
+verdict = mind.process(
+    current_vector={"AcOr": 0.9, "IP": 0.1, "InEx": 0.5},  # Agent is panicking
+    agent_loop_state={
+        "temperature": 0.8,
+        "available_tools": ["execute_bash", "think_step_by_step"],
+        "system_prompt": "You are a helpful assistant."
+    }
 )
 
-hermes.update_history({"AcOr": 0.9, "IP": 0.2, "InEx": 0.4})
+# Apply system directives
+if verdict.modified_state.get("force_stop"):
+    raise SystemExit("Agent halted by Governor")
 
-report = hermes.report()
-
-print(f"Napryazhenie: {report.tension:.3f} | Risk: {report.risk}")
-print(f"Rekomendatsiya: {report.advice}")
+print(f"Risk: {verdict.report.risk}")
+print(f"Directives: {verdict.modified_state}")
 ```
 
 ---
 
-## Osnovnye vozmozhnosti
+## Development
 
-1. **Kastomizatsiya** -- RiskThresholds, strict_target, forecast_steps
-2. **Konsilium agentov** -- inter_agent_tension()
-3. **Integratsiya s LLM** -- triage_inject_prompt()
-4. **Eksport metrik** dlya Prometheus / Grafana
-
----
-
-## Arkhitektura
-
-- Zero dependencies -- tolko standartnaya biblioteka
-- Polnaya tipizatsiya -- prokhodit mypy --strict
-- Determinizm i immunitabelnost
-- Zashchita ot gryaznykh dannykh
-- Obratnaya sovmestimost skhem
-
----
-
-## Changelog
-
-Podrobnaya istoriya izmenenii -- v [CHANGELOG.md](CHANGELOG.md)
-
----
-
-## Zapusk proverok
+### Setup
 
 ```bash
 pip install -e ".[dev]"
-ruff check --fix .
-mypy hermes_triage
+```
+
+### Testing & Linting
+
+```bash
 pytest tests/ -v
+ruff check .
+mypy hermes_triage
 ```
 
 ---
 
-## Litsenziya
+## License
 
-MIT License -- ispolzuite svobodno v kommercheskikh i otkrytykh proektakh.
-
-**Avtor**: Oleg (nateoka)
-**Versiya**: 1.5.1 (2026)
+MIT License.

@@ -1,7 +1,6 @@
-from dataclasses import dataclass
-from typing import Dict, Any, Optional, List
-
-from .triage import HermesTriageModule, TriageReport, Vector
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional, Any, cast
+from .triage import HermesTriageModule, TriageReport, Vector, InputVector
 from .governor import HermesGovernor, GovernorVerdict
 from .navigator import HermesNavigator, NavigationPrescription
 from .abstractor import HermesAbstractor, AbstractionShift

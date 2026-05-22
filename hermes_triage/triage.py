@@ -4,7 +4,7 @@ Fully typed, mypy --strict compatible, zero dependencies.
 """
 
 import math
-from typing import List, Dict, Tuple, Optional, Literal, Any
+from typing import List, Dict, Tuple, Optional, Literal, Any, cast
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from itertools import combinations
@@ -12,7 +12,8 @@ from itertools import combinations
 # ====================== TYPES ======================
 
 AxisName = Literal["AcOr", "IP", "InEx"]
-Vector = Dict[AxisName, float]
+Vector = Dict[AxisName, float]          # Strict internal (validated)
+InputVector = Dict[str, float]          # External input format for API compatibility
 
 
 @dataclass(frozen=True)
@@ -59,7 +60,7 @@ class HermesTriageModule:
     SCHEMA_VERSION = "1.5.1"
 
     def __init__(self,
-                 target: Optional[Dict[str, float]] = None,
+                 target: Optional[InputVector] = None,
                  history_limit: int = 5,
                  use_ema: bool = False,
                  ema_alpha: float = 0.3,
@@ -77,7 +78,7 @@ class HermesTriageModule:
 
     # ====================== VALIDATION ======================
 
-    def _validate_target(self, target: Dict[str, float]) -> Vector:
+    def _validate_target(self, target: InputVector) -> Vector:
         validated: Vector = {}
         for ax in self.AXES:
             val = target.get(ax, 0.0)
@@ -89,21 +90,21 @@ class HermesTriageModule:
             validated[ax] = max(-1.0, min(1.0, val))
         return validated
 
-    def _normalize(self, vec: Dict[str, float]) -> Vector:
+    def _normalize(self, vec: InputVector) -> Vector:
         return {ax: max(-1.0, min(1.0, float(vec.get(ax, 0.0)))) for ax in self.AXES}
 
-    def _validate_observation(self, obs: Dict[str, float]) -> Vector:
+    def _validate_observation(self, obs: InputVector) -> Vector:
         validated = {}
         for ax in self.AXES:
             val = obs.get(ax, 0.0)
             if not isinstance(val, (int, float)):
                 raise ValueError(f"Observation axis {ax}: expected number, got {type(val).__name__}")
             validated[ax] = float(val)
-        return self._normalize(validated)
+        return self._normalize(cast(InputVector, validated))
 
     # ====================== CORE LOGIC ======================
 
-    def compute_state(self, observations: List[Dict[str, float]]) -> Vector:
+    def compute_state(self, observations: List[InputVector]) -> Vector:
         if not observations:
             return {ax: 0.0 for ax in self.AXES}
         validated = [self._validate_observation(obs) for obs in observations]
@@ -130,12 +131,12 @@ class HermesTriageModule:
         return ema_state
 
     def tension(self, current: Vector) -> float:
-        current = self._validate_observation(current)
+        current = self._validate_observation(cast(InputVector, current))
         delta_sq = sum((current[ax] - self.target[ax]) ** 2 for ax in self.AXES)
         return math.sqrt(delta_sq)
 
     def lever(self, current: Vector) -> Tuple[Optional[AxisName], float, str]:
-        current = self._validate_observation(current)
+        current = self._validate_observation(cast(InputVector, current))
         candidates = [(abs(current[ax] - self.target[ax]), current[ax] - self.target[ax], ax)
                       for ax in self.AXES]
         candidates.sort(key=lambda x: (-x[0], self.AXES.index(x[2])))
@@ -149,7 +150,7 @@ class HermesTriageModule:
         steps = self.forecast_steps if steps is None else steps
         if steps <= 0:
             return []
-        current = self._validate_observation(current)
+        current = self._validate_observation(cast(InputVector, current))
         base_rate = 0.3
         adaptive_rate = base_rate * min(1.0, self.k_resilience(self.tension(current)) + 0.2)
         trajectory: List[Vector] = []
@@ -172,16 +173,16 @@ class HermesTriageModule:
     def k_resilience(self, tension_val: float) -> float:
         return 1.0 / (1.0 + tension_val)
 
-    def update_history(self, new_obs: Dict[str, float]):
+    def update_history(self, new_obs: InputVector) -> None:
         self.history.append(self._validate_observation(new_obs))
         if len(self.history) > self.history_limit:
             self.history.pop(0)
 
     def report(self, current: Optional[Vector] = None) -> TriageReport:
         if current is None:
-            current = self.compute_state(self.history) if self.history else {ax: 0.0 for ax in self.AXES}
+            current = self.compute_state(cast(List[InputVector], self.history)) if self.history else {ax: 0.0 for ax in self.AXES}
         else:
-            current = self._validate_observation(current)
+            current = self._validate_observation(cast(InputVector, current))
         tens = self.tension(current)
         axis, delta, direction = self.lever(current)
         risk = self.risk_level(tens)
