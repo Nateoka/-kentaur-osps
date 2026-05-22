@@ -102,43 +102,29 @@ class HermesMind:
         nav_prescription = self.navigator.prescribe(report, self.current_profile_name)
         if nav_prescription.forced_thought_pattern:
             directives.append(f"[NAVIGATOR]: {nav_prescription.forced_thought_pattern}")
-
-        available_tools = list(modified_state.get("available_tools", []))
-        if nav_prescription.blocked_tools:
-            available_tools = [t for t in available_tools
-                               if t not in nav_prescription.blocked_tools]
-        if nav_prescription.recommended_tools:
-            available_tools = list(set(available_tools +
-                                       list(nav_prescription.recommended_tools)))
-        modified_state["available_tools"] = available_tools
+        modified_state = self.navigator.apply_guidance(
+            report, modified_state, self.current_profile_name
+        )
 
         # === 5. META-COGNITION: Abstractor ===
-        abstraction_level = getattr(report, 'abstraction_level', 'TACTICAL')
-        if abstraction_level == "CONCRETE":
-            directives.append(
-                "[ABSTRACTOR]: Zoom out. You are stuck in details."
-            )
-        elif abstraction_level == "PHILOSOPHICAL":
-            directives.append(
-                "[ABSTRACTOR]: Come back to earth. You are detached from reality."
-            )
+        shift = self.abstractor.prescribe_shift(report)
+        if shift:
+            directives.append(shift.shift_command)
 
         # === 6. OUTPUT PORT: Build unified prompt ===
         if directives:
             unified_directive = "\n".join(directives)
             modified_state["system_prompt"] = (
-                f"=== HERMES SYSTEM DIRECTIVES ===\n"
+                f"=== HERMES DIRECTIVES ===\n"
                 f"{unified_directive}\n"
-                f"=== END OF DIRECTIVES ===\n\n"
+                f"=== END ===\n\n"
                 f"{modified_state.get('system_prompt', '')}"
             )
-        else:
-            unified_directive = "No directives."
 
         return MindVerdict(
             report=report,
             current_profile=self.current_profile_name,
             profile_shifted=profile_shifted,
-            directives_for_prompt=unified_directive,
+            directives_for_prompt=unified_directive if directives else "No directives.",
             modified_agent_state=modified_state
         )

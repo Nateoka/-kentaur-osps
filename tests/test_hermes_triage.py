@@ -226,13 +226,18 @@ def test_osps_mind_integration():
     assert verdict.report.attr_t > verdict.report.attr_0
 
     # Agent in panic (should go to Concrete and get Abstractor directive)
-    panic_vector = {"AcOr": 0.9, "IP": 0.1, "InEx": 0.5}
+    panic_vector = {"AcOr": 1.0, "IP": 0.0, "InEx": 0.0}
     verdict_panic = mind.process(
         current_vector=panic_vector,
         agent_loop_state={"temperature": 0.9, "available_tools": [], "system_prompt": "Test"}
     )
-    assert "ABSTRACTOR" in verdict_panic.directives_for_prompt
-    assert "Zoom out" in verdict_panic.directives_for_prompt
+    # First panic: concrete_count=1, no shift yet
+    # Second panic to trigger the shift
+    verdict_panic2 = mind.process(
+        current_vector=panic_vector,
+        agent_loop_state={"temperature": 0.9, "available_tools": [], "system_prompt": "Test"}
+    )
+    assert "ABSTRACTION SHIFT" in verdict_panic2.directives_for_prompt
 
 
 def test_osps_mind_fuse_conflicts_and_phi():

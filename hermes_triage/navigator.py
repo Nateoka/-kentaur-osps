@@ -1,6 +1,6 @@
 """HermesNavigator v3.0.0-alpha.5 — OSPS Cognitive Therapy (Archetype + Abstraction routing)."""
 from dataclasses import dataclass
-from typing import Tuple, Optional
+from typing import Tuple, Optional, Dict, Any
 from .triage import TriageReport
 
 
@@ -91,3 +91,27 @@ class HermesNavigator:
                 rationale="Fallback: AcOr excess."
             )
         return NavigationPrescription(rationale="Fallback: Balanced.")
+
+    def apply_guidance(self, report: TriageReport,
+                       agent_loop_state: Dict[str, Any],
+                       current_profile: str = "sleeper") -> Dict[str, Any]:
+        """Apply navigation prescription to agent loop state."""
+        presc = self.prescribe(report, current_profile)
+        modified = dict(agent_loop_state)
+
+        # Inject thought pattern into system prompt
+        if presc.forced_thought_pattern:
+            modified["system_prompt"] = (
+                f"[NAVI-GUIDANCE]: {presc.forced_thought_pattern}\n\n"
+                f"{modified.get('system_prompt', '')}"
+            )
+
+        # Filter tools
+        current_tools = list(modified.get("available_tools", []))
+        if presc.blocked_tools:
+            current_tools = [t for t in current_tools if t not in presc.blocked_tools]
+        if presc.recommended_tools:
+            current_tools = list(set(current_tools + list(presc.recommended_tools)))
+        modified["available_tools"] = current_tools
+
+        return modified
