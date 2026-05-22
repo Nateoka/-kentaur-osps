@@ -125,6 +125,18 @@ result = loop.run(
 
 ---
 
+## Persistent Runtime
+
+To run Kentaur as a daemon:
+
+```bash
+python -m kentaur_osps.runtime
+```
+
+This will keep the agent alive 24/7, accumulating memory and self-regulating via periodic heartbeat diagnostics.
+
+---
+
 ## Development
 
 ```bash

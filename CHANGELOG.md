@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.3.0] - 2026-05-22
+
+### Added
+- Persistent Runtime (KentaurRuntime) — immortal daemon with heartbeat.
+- JSON persistence for episodic memory (save/load across restarts).
+- `python -m kentaur_osps.runtime` for 24/7 operation.
+
+### Changed
+- Memory auto-saves on every record() call.
+- Memory auto-loads on initialization.
+
 ## [3.2.1] - 2026-05-22
 
 ### Added

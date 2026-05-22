@@ -360,8 +360,14 @@ def test_osps_dynamic_profiler():
 def test_kentaur_memory_contextual_lesson():
     """Verify auto-generated contextual lessons in KentaurMemory."""
     from kentaur_osps import KentaurMemory
+    import os
 
-    memory = KentaurMemory(similarity_threshold=0.8)
+    # Use a temp path to avoid loading saved data from other tests
+    test_path = "_test_memory.json"
+    if os.path.exists(test_path):
+        os.remove(test_path)
+
+    memory = KentaurMemory(similarity_threshold=0.8, persistence_path=test_path)
 
     # Record crisis without explicit lesson
     memory.record(

@@ -1,7 +1,9 @@
-"""KentaurMemory v3.2.0 — Episodic memory with contextual lesson generation."""
-from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple
+"""KentaurMemory v3.3.0 — Persistent episodic memory with contextual lessons."""
+import json
 import math
+from dataclasses import dataclass
+from pathlib import Path
+from typing import List, Dict, Optional, Tuple
 from .core import Vector, AxisName
 
 
@@ -20,10 +22,13 @@ class KentaurMemory:
     Episodic memory with contextual lesson generation.
     """
 
-    def __init__(self, similarity_threshold: float = 0.82, max_episodes: int = 120):
+    def __init__(self, similarity_threshold: float = 0.82, max_episodes: int = 200,
+                 persistence_path: str = "kentaur_memory.json"):
         self.similarity_threshold = max(0.0, min(1.0, similarity_threshold))
         self.max_episodes = max(3, max_episodes)
+        self.persistence_path = Path(persistence_path)
         self._episodes: List[EpisodicTrace] = []
+        self.load()
 
     @staticmethod
     def _cosine_similarity(v1: Vector, v2: Vector) -> float:
@@ -56,6 +61,40 @@ class KentaurMemory:
         self._episodes.append(trace)
         if len(self._episodes) > self.max_episodes:
             self._episodes.pop(0)
+        self.save()
+
+    def load(self):
+        """Load memory from persistence file."""
+        if self.persistence_path.exists():
+            try:
+                with open(self.persistence_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                for item in data:
+                    self._episodes.append(EpisodicTrace(
+                        context=item["context"],
+                        state_vector=item["state_vector"],
+                        outcome=item["outcome"],
+                        lesson=item["lesson"],
+                    ))
+            except Exception:
+                self._episodes = []
+
+    def save(self):
+        """Save memory to persistence file."""
+        data = [
+            {
+                "context": ep.context,
+                "state_vector": ep.state_vector,
+                "outcome": ep.outcome,
+                "lesson": ep.lesson,
+            }
+            for ep in self._episodes
+        ]
+        try:
+            with open(self.persistence_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
 
     def _generate_default_lesson(self, context: str, outcome: str, vector: Vector) -> str:
         """Auto-generate a contextual lesson from event data."""
