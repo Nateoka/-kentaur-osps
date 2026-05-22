@@ -1,114 +1,111 @@
-from dataclasses import dataclass, field
-from typing import List, Dict, Optional, Any, cast
-from .triage import HermesTriageModule, TriageReport, Vector, InputVector
-from .governor import HermesGovernor, GovernorVerdict
-from .navigator import HermesNavigator, NavigationPrescription
-from .abstractor import HermesAbstractor, AbstractionShift
-from .memory import HermesMemory
+"""HermesMind v3.0.0-alpha.3 — Agent Nervous System Orchestrator."""
+from dataclasses import dataclass
+from typing import Dict, Any, List
+from .triage import HermesTriageModule, TriageReport, Vector
 from .profiler import HermesProfiler
 
 
 @dataclass(frozen=True)
 class MindVerdict:
-    """Единый вердикт нервной системы агента. Всё, что нужно знать агентному циклу."""
+    """Unified verdict of the agent nervous system."""
     report: TriageReport
-    governor_verdict: GovernorVerdict
-    navigator_prescription: NavigationPrescription
-    abstraction_shift: Optional[AbstractionShift]
-    subconscious_reflex: Optional[str]
-    
+    current_profile: str               # Current OSPS profile name
+    profile_shifted: bool              # Whether profile changed this cycle
+    directives_for_prompt: str         # Concatenated injection string
     modified_agent_state: Dict[str, Any]
-    directives_for_prompt: str # Единая склеенная строка всех инъекций
 
 
 class HermesMind:
     """
-    Единая нервная система агента (Оркестратор/Facade).
-    Объединяет Триаж, Губернатора, Навигатор, Профайлер, Память и Абстрактор.
+    Unified agent nervous system (Orchestrator / Quantum Gateway).
+    Manages oscillation between attractors Ø and T.
+    Dynamically changes profile and abstraction level.
     """
 
-    def __init__(self, 
-                 target: Optional[Dict[str, float]] = None,
-                 profile: str = "analyst",
-                 tool_mapping: Optional[Dict[str, List[str]]] = None):
-        
+    def __init__(self, initial_profile: str = "sleeper"):
         self.profiler = HermesProfiler()
-        self.memory = HermesMemory(similarity_threshold=0.8)
-        self.abstractor = HermesAbstractor()
-        self.navigator = HermesNavigator(tool_mapping=tool_mapping)
-        self.governor = HermesGovernor()
-        
-        # Инициализируем ядро с нужным профилем
-        profile_data = self.profiler.get(profile)
+
+        # Initialize core via Profiler
+        if initial_profile == "master":
+            profile = self.profiler.determine_profile(1.0, 1.0)
+        elif initial_profile == "alchemist":
+            profile = self.profiler.determine_profile(1.0, 0.0)
+        elif initial_profile == "integrator":
+            profile = self.profiler.determine_profile(0.0, 1.0)
+        else:
+            profile = self.profiler.determine_profile(0.0, 0.0)
+
         self.core = HermesTriageModule(
-            target=profile_data.target,
-            risk_thresholds=profile_data.risk_thresholds,
+            target=profile.target,
+            risk_thresholds=profile.risk_thresholds,
             strict_target=False
         )
+        self.current_profile_name = profile.name
 
-    def switch_profile(self, profile_name: str) -> None:
-        """Сменить роль агента на лету."""
-        self.core = self.profiler.apply_by_name(self.core, profile_name)
-
-    def process(self, 
-                current_vector: Vector, 
-                agent_loop_state: Dict[str, Any],
-                context: str = "") -> MindVerdict:
+    def process(self,
+                current_vector: Vector,
+                agent_loop_state: Dict[str, Any]) -> MindVerdict:
         """
-        Главный цикл обработки состояния агента.
-        Принимает текущий вектор и состояние цикла, возвращает вердикт и модифицированное состояние.
+        Main processing cycle (System Breathing).
         """
         directives: List[str] = []
         modified_state = dict(agent_loop_state)
 
-        # 1. ТРИАЖ: Измеряем пульс
+        # 1. TRIAGE: Get report
         report = self.core.report(current_vector)
 
-        # 2. ПАМЯТЬ: Проверяем подсознательные рефлексы (были ли ожоги?)
-        reflex = self.memory.get_reflex_prompt(current_vector)
-        if reflex:
-            directives.append(reflex)
+        # 2. DYNAMIC PROFILING
+        # Use getattr for fault tolerance (protection against missing OSPS fields in old reports)
+        attr_0 = getattr(report, 'attr_0', 0.0)
+        attr_t = getattr(report, 'attr_t', 0.0)
 
-        # 3. АБСТРАКТОР: Не зависли ли мы в деталях или в философии?
-        shift = self.abstractor.prescribe_shift(report)
-        if shift:
-            directives.append(shift.shift_command)
+        new_profile = self.profiler.determine_profile(
+            attr_0=attr_0,
+            attr_t=attr_t,
+            current_profile=self.current_profile_name
+        )
 
-        # 4. ГУБЕРНАТОР: Удар током (если риск высок)
-        gov_verdict = self.governor.judge(report)
-        if gov_verdict.level.name != "NONE":
-            directives.append(f"[GOVERNOR]: {gov_verdict.reason}")
-            modified_state = self.governor.apply_shock(report, modified_state)
+        profile_shifted = False
+        if new_profile.name != self.current_profile_name:
+            profile_shifted = True
+            self.current_profile_name = new_profile.name
+            # Reconfigure core to new profile
+            self.core = self.profiler.apply(self.core, new_profile)
+            # Recompute report with new thresholds
+            report = self.core.report(current_vector)
 
-        # 5. НАВИГАТОР: Когнитивная терапия (какие инструменты использовать)
-        nav_prescription = self.navigator.prescribe(report)
-        if nav_prescription.forced_thought_pattern:
-            directives.append(f"[NAVIGATOR]: {nav_prescription.forced_thought_pattern}")
-            modified_state = self.navigator.apply_guidance(report, modified_state)
+            directives.append(
+                f"[OSPS PROFILE SHIFT]: Transition to archetype "
+                f"'{new_profile.name}'. {new_profile.description}"
+            )
 
-        # 6. ФОРМИРОВАНИЕ ЕДИНОГО ПРОМПТА
+        # 3. META-COGNITION (Abstractor)
+        abstraction_level = getattr(report, 'abstraction_level', 'TACTICAL')
+        if abstraction_level == "CONCRETE":
+            directives.append(
+                "[ABSTRACTOR]: Zoom out. You are stuck in details."
+            )
+        elif abstraction_level == "PHILOSOPHICAL":
+            directives.append(
+                "[ABSTRACTOR]: Come back to earth. You are detached from reality."
+            )
+
+        # 4. BUILD UNIFIED PROMPT
         if directives:
             unified_directive = "\n".join(directives)
             modified_state["system_prompt"] = (
-                f"=== СИСТЕМНЫЕ ДИРЕКТИВЫ HERMES ===\n{unified_directive}\n"
-                f"=== КОНЕЦ ДИРЕКТИВ ===\n\n" + modified_state.get("system_prompt", "")
+                f"=== HERMES SYSTEM DIRECTIVES ===\n"
+                f"{unified_directive}\n"
+                f"=== END OF DIRECTIVES ===\n\n"
+                f"{modified_state.get('system_prompt', '')}"
             )
-
-        # 7. ЗАПИСЬ В ПАМЯТЬ (Если было наказание, запишем на будущее)
-        if gov_verdict.level.name in ["HALT", "RESTRICT"]:
-            self.memory.record(
-                context=context or "Agent loop iteration",
-                state_vector=current_vector,
-                outcome=gov_verdict.level.name.lower(),
-                lesson=f"При векторе {current_vector} получил {gov_verdict.level.name}. Рычаг: {report.lever_axis}."
-            )
+        else:
+            unified_directive = "No directives."
 
         return MindVerdict(
             report=report,
-            governor_verdict=gov_verdict,
-            navigator_prescription=nav_prescription,
-            abstraction_shift=shift,
-            subconscious_reflex=reflex,
-            modified_agent_state=modified_state,
-            directives_for_prompt=directives[-1] if directives else "No directives."
+            current_profile=self.current_profile_name,
+            profile_shifted=profile_shifted,
+            directives_for_prompt=unified_directive,
+            modified_agent_state=modified_state
         )

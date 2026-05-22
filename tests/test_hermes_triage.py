@@ -205,15 +205,34 @@ def test_triage_inject_prompt(default_hermes):
     assert "Directive:" in prompt
 
 
-def test_full_mind_integration():
-    """Verify that the basic Mind assembles without errors."""
-    mind = HermesMind(profile="analyst")
+def test_osps_mind_integration():
+    """Verify Mind orchestrator with dynamic Profiler and Abstractor."""
+    from hermes_triage import HermesMind
+
+    # Start as Sleeper (low ATTR)
+    mind = HermesMind(initial_profile="sleeper")
+    assert mind.current_profile_name == "sleeper"
+
+    # Agent in deep reflection: high IP, moderate AcOr → integrator (high T, low Ø)
+    calm_vector = {"AcOr": 0.6, "IP": 0.9, "InEx": 0.0}
     verdict = mind.process(
-        current_vector={"AcOr": 0.3, "IP": 0.6, "InEx": 0.0},
-        agent_loop_state={"temperature": 0.7, "available_tools": [], "system_prompt": "Test"}
+        current_vector=calm_vector,
+        agent_loop_state={"temperature": 0.5, "available_tools": [], "system_prompt": "Test"}
     )
-    assert isinstance(verdict, MindVerdict)
-    assert verdict.report is not None
+
+    # Profile should shift to Integrator
+    assert verdict.profile_shifted is True
+    assert verdict.current_profile == "integrator"
+    assert verdict.report.attr_t > verdict.report.attr_0
+
+    # Agent in panic (should go to Concrete and get Abstractor directive)
+    panic_vector = {"AcOr": 0.9, "IP": 0.1, "InEx": 0.5}
+    verdict_panic = mind.process(
+        current_vector=panic_vector,
+        agent_loop_state={"temperature": 0.9, "available_tools": [], "system_prompt": "Test"}
+    )
+    assert "ABSTRACTOR" in verdict_panic.directives_for_prompt
+    assert "Zoom out" in verdict_panic.directives_for_prompt
 
 
 # ====================== SERIALIZATION ======================
