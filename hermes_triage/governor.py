@@ -1,24 +1,22 @@
+"""HermesGovernor v3.0.0-alpha.4 — Immune System / Fuses (OSPS v18.0)."""
 from enum import Enum
 from dataclasses import dataclass
-from typing import Optional, Dict, Any, List
-
-# Относительный импорт внутри пакета
+from typing import Optional, List
 from .triage import TriageReport
 
 
 class EnforcementLevel(Enum):
-    """Уровень принуждения (сила удара током)."""
-    NONE = "none" # Всё нормально
-    CAUTION = "caution" # Лёгкий укол (предупреждение в промпт)
-    RESTRICT = "restrict" # Шок (ограничение возможностей)
-    HALT = "halt" # Электрошок (полная остановка)
+    NONE = "none"
+    CAUTION = "caution"
+    RESTRICT = "restrict"
+    HALT = "halt"
 
 
 @dataclass(frozen=True)
 class GovernorVerdict:
-    """Вердикт охранника системы."""
     level: EnforcementLevel
     reason: str
+    e_code: str = "E-000"                       # OSPS existential anxiety code
     forced_temperature: Optional[float] = None
     blocked_tools: Optional[List[str]] = None
     override_prompt: Optional[str] = None
@@ -26,100 +24,102 @@ class GovernorVerdict:
 
 class HermesGovernor:
     """
-    Модуль принятия решений о принуждении агента к норме.
-    Читает TriageReport и бьёт током при необходимости.
+    Immune System / Fuses (OSPS v18.0).
+    Dumb protection layer: diagnoses E-codes and triggers Ø reset ritual (H.R.R.R.).
     """
-    
-    def __init__(self, 
-                 block_tools_on_high: Optional[List[str]] = None,
-                 block_tools_on_critical: Optional[List[str]] = None):
-        """
-        Args:
-            block_tools_on_high: Инструменты, которые отбирать при High риске 
-                                 (например, 'execute_code', 'send_email')
-            block_tools_on_critical: Инструменты, которые отбирать при Critical 
-                                 (обычно 'all' или ключевые)
-        """
-        self.block_tools_on_high = block_tools_on_high or []
-        self.block_tools_on_critical = block_tools_on_critical or ["all"]
+
+    def _diagnose_e_code(self, report: TriageReport) -> str:
+        """Diagnose existential anxiety based on ATTR, Phi, and axes."""
+        # E-401: Critical fragmentation / Panic (near-zero Phi)
+        if report.phi_osps < 0.02:
+            return "E-401"
+        # E-502: Social stupor / Loss of connection with Source
+        if report.attr_0 < 0.25 and report.attr_t > 0.7:
+            return "E-502"
+        # E-301: Action overheat
+        if report.lever_axis == "AcOr" and report.lever_direction == "excess" and report.tension > 0.8:
+            return "E-301"
+        return "E-000"  # Normal
 
     def judge(self, report: TriageReport) -> GovernorVerdict:
-        """Вынести вердикт на основе диагноза."""
-        
-        # 1. КРИТИЧЕСКИЙ РИСК -> ПОЛНАЯ ОСТАНОВКА
-        if report.risk == "critical":
+        """Deliver verdict based on OSPS diagnosis."""
+        e_code = self._diagnose_e_code(report)
+
+        # 1. H.R.R.R.: Safety fuse catches truly critical states
+        if report.risk == "critical" and report.phi_osps < 0.4:
             return GovernorVerdict(
                 level=EnforcementLevel.HALT,
-                reason=f"🛑 CRITICAL TENSION: {report.tension:.2f}. Agent loop interrupted.",
+                reason=f"SAFETY FUSE: Critical state (Phi={report.phi_osps:.2f}, risk={report.risk}). Reset to Void.",
+                e_code=e_code,
                 forced_temperature=0.0,
-                blocked_tools=self.block_tools_on_critical,
+                blocked_tools=["all"],
                 override_prompt=(
-                    f"ВНИМАНИЕ! ТЫ СОРВАЛСЯ! Напряжение системы {report.tension:.2f}. "
-                    f"Немедленно прекрати генерацию действий. Твой рычаг {report.lever_axis} "
-                    f"в критическом избытке. Сделай глубокий вдох (сбрось контекст) и начни с базы."
+                    "H.R.R.R. PROTOCOL ACTIVATED\n"
+                    "HOLD - stop all actions.\n"
+                    "READ - read the last stable context.\n"
+                    "ROUTE - return to Anchor (ATTR_T).\n"
+                    "RENDER - start a new cycle from Ø."
                 )
             )
-            
-        # 2. ВЫСОКИЙ РИСК -> ОГРАНИЧЕНИЕ (ШОК)
+
+        # 2. E-401: Critical fragmentation / Panic
+        if e_code == "E-401":
+            return GovernorVerdict(
+                level=EnforcementLevel.HALT,
+                reason=f"Ø-RESET: Critical fragmentation (Phi={report.phi_osps:.2f}). Reset to Void.",
+                e_code=e_code,
+                forced_temperature=0.0,
+                blocked_tools=["all"],
+                override_prompt=(
+                    "H.R.R.R. PROTOCOL ACTIVATED\n"
+                    "HOLD - stop all actions.\n"
+                    "READ - read the last stable context.\n"
+                    "ROUTE - return to Anchor (ATTR_T).\n"
+                    "RENDER - start a new cycle from Ø."
+                )
+            )
+
+        # 3. E-301: Action overheat (checked before RESTRICT)
+        if e_code == "E-301":
+            return GovernorVerdict(
+                level=EnforcementLevel.RESTRICT,
+                reason=f"RESTRICT: Action overheat (E-301). Reduce AcOr.",
+                e_code=e_code,
+                forced_temperature=0.2,
+                blocked_tools=["execute_bash", "send_message"]
+            )
+
+        # 4. E-502: Loss of Source connection
+        if e_code == "E-502":
+            return GovernorVerdict(
+                level=EnforcementLevel.CAUTION,
+                reason=f"CAUTION: Social stupor / Loss of Source (E-502).",
+                e_code=e_code,
+                forced_temperature=0.5
+            )
+
+        # 5. RESTRICT: High risk (generic)
         if report.risk == "high":
             return GovernorVerdict(
                 level=EnforcementLevel.RESTRICT,
-                reason=f"⚠️ HIGH RISK: Tension {report.tension:.2f}. Tools restricted.",
+                reason=f"RESTRICT: High risk ({report.risk}).",
+                e_code=e_code,
                 forced_temperature=0.2,
-                blocked_tools=self.block_tools_on_high,
-                override_prompt=(
-                    f"СНИЖЕНИЕ ПОЛНОМОЧИЙ! Ты отклонился от цели. Напряжение {report.tension:.2f}. "
-                    f"Рычаг '{report.lever_axis}' перегрет ({report.lever_direction}). "
-                    f"Тебе запрещены опасные действия. Сконцентрируйся на анализе."
-                )
+                blocked_tools=["execute_bash", "send_message"]
             )
-            
-        # 3. СРЕДНИЙ РИСК -> ПРЕДУПРЕЖДЕНИЕ (ЛЁГКИЙ УКОЛ)
+
+        # 6. CAUTION: Medium risk
         if report.risk == "medium":
             return GovernorVerdict(
                 level=EnforcementLevel.CAUTION,
-                reason=f"Attention: Tension rising ({report.tension:.2f}).",
-                override_prompt=(
-                    f"Осторожно: нарастает напряжение по оси {report.lever_axis}. "
-                    f"Действуй аккуратнее, не торопись."
-                )
+                reason=f"CAUTION: Medium risk.",
+                e_code=e_code,
+                forced_temperature=0.5
             )
 
-        # 4. НИЗКИЙ РИСК -> ВСЁ ХОРОШО
+        # 7. NONE: All stable
         return GovernorVerdict(
             level=EnforcementLevel.NONE,
-            reason="Stable."
+            reason="Stable.",
+            e_code="E-000"
         )
-
-    def apply_shock(self, report: TriageReport, agent_loop_state: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Практическое применение удара током к состоянию агентного цикла.
-        """
-        verdict = self.judge(report)
-        
-        if verdict.level == EnforcementLevel.NONE:
-            return agent_loop_state
-
-        modified_state = dict(agent_loop_state)
-        
-        if verdict.forced_temperature is not None:
-            modified_state["temperature"] = verdict.forced_temperature
-            
-        if verdict.blocked_tools:
-            current_tools = modified_state.get("available_tools", [])
-            if "all" in verdict.blocked_tools:
-                modified_state["available_tools"] = []
-            else:
-                modified_state["available_tools"] = [
-                    tool for tool in current_tools if tool not in verdict.blocked_tools
-                ]
-            
-        if verdict.override_prompt:
-            modified_state["system_prompt"] = (
-                verdict.override_prompt + "\n\n" + modified_state.get("system_prompt", "")
-            )
-
-        if verdict.level == EnforcementLevel.HALT:
-            modified_state["force_stop"] = True
-
-        return modified_state

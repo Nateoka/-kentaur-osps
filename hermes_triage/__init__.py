@@ -13,12 +13,18 @@ from .triage import (
     triage_inject_prompt,
 )
 
+from .governor import (
+    HermesGovernor,
+    EnforcementLevel,
+    GovernorVerdict,
+)
+
 from .mind import (
     HermesMind,
     MindVerdict,
 )
 
-__version__ = "2.3.0"
+__version__ = "3.0.0-alpha.4"
 __all__ = [
     "HermesTriageModule",
     "RiskThresholds",

@@ -246,6 +246,35 @@ def test_serialization_roundtrip(default_hermes):
     assert restored.SCHEMA_VERSION == default_hermes.SCHEMA_VERSION
 
 
+def test_osps_governor_e_codes():
+    """Verify Governor E-codes and H.R.R.R. protocol."""
+    from hermes_triage import HermesTriageModule, HermesGovernor, RiskThresholds
+
+    governor = HermesGovernor()
+    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.5, "InEx": 0.0})
+
+    # 1. Normal state -> E-000, NONE
+    report_normal = hermes.report({"AcOr": 0.3, "IP": 0.6, "InEx": 0.0})
+    verdict = governor.judge(report_normal)
+    assert verdict.e_code == "E-000"
+    assert verdict.level.name == "NONE"
+
+    # 2. Action overheat (AcOr > 0.8, Tension > 0.8) -> E-301, RESTRICT
+    report_overheat = hermes.report({"AcOr": 1.0, "IP": 0.4, "InEx": 0.0})
+    verdict = governor.judge(report_overheat)
+    assert verdict.e_code == "E-301"
+    assert verdict.level.name == "RESTRICT"
+
+    # 3. Critical fragmentation (very low Phi) -> E-401, HALT, H.R.R.R.
+    # Create zero vector against non-zero target -> chaos
+    hermes_crit = HermesTriageModule(
+        target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0},
+        risk_thresholds=RiskThresholds(critical=0.5)
+    )
+    report_crit = hermes_crit.report({"AcOr": 0.9, "IP": 0.9, "InEx": 0.9})
+    verdict = governor.judge(report_crit)
+    assert verdict.level.name == "HALT"
+    assert "H.R.R.R." in verdict.override_prompt
 def test_inter_agent_tension():
     vectors = [
         {"AcOr": 0.8, "IP": 0.1, "InEx": 0.3},

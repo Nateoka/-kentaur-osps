@@ -206,13 +206,12 @@ class HermesTriageModule:
             tension = 1e-9  # protect from div-by-zero
         return abs(attr_t - attr_0) + (k_res ** 2) / (tension + 0.1)
 
-    def _compute_phi_osps(self, current: Vector, tension: float, k_res: float) -> float:
+    def _compute_phi_osps(self, current: Vector, tension: float, k_res: float, attr_t: float) -> float:
         """
         Anti-Fragmentation Index (Phi). Measure of integrated information.
-        Adaptation: k_res * (1 - tension) * mean(IP, AcOr)
+        Grok adaptation: (k_res^1.5) * max(0, 1 - tension) * (attr_t + 0.1)
         """
-        avg_power = (current.get("IP", 0.0) + current.get("AcOr", 0.0)) / 2.0
-        return k_res * (1.0 - tension) * avg_power
+        return (k_res ** 1.5) * max(0.0, 1.0 - tension) * (attr_t + 0.1)
 
     def _determine_abstraction_level(self, current: Vector) -> str:
         """
@@ -248,8 +247,8 @@ class HermesTriageModule:
 
         # === OSPS v18.0 Computations ===
         attr_0, attr_t = self._compute_attr(current, tens, k_res)
+        phi_osps = self._compute_phi_osps(current, tens, k_res, attr_t)
         k_flow = self._compute_k_flow(attr_0, attr_t, k_res, tens)
-        phi_osps = self._compute_phi_osps(current, tens, k_res)
         abstraction_level = self._determine_abstraction_level(current)
 
         stable = (tens < self.risk_thresholds.low and direction == "balanced") or (tens < 1e-6)
