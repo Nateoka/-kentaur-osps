@@ -22,7 +22,7 @@ class KentaurMemory:
 
     def __init__(self, similarity_threshold: float = 0.82, max_episodes: int = 120):
         self.similarity_threshold = max(0.0, min(1.0, similarity_threshold))
-        self.max_episodes = max(20, max_episodes)
+        self.max_episodes = max(3, max_episodes)
         self._episodes: List[EpisodicTrace] = []
 
     @staticmethod

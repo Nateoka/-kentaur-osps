@@ -63,7 +63,7 @@ def test_reflex_prompt_triggers_on_trauma(memory):
     reflex = memory.get_reflex_prompt(current_vec)
     
     assert reflex is not None
-    assert "[SUBCONSCIOUS REFLEX]" in reflex
+    assert "KENTAUR REFLEX" in reflex
     assert "Снизить полномочия" in reflex
 
 def test_memory_fifo_limit(memory):
