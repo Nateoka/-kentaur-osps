@@ -1,8 +1,8 @@
-"""HermesConsensus v2.3.0 — Swarm policy and multi-agent alignment module."""
+"""KentaurConsensus v2.3.0 — Swarm policy and multi-agent alignment module."""
 from enum import Enum
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Any, Tuple, cast
-from .triage import HermesTriageModule, TriageReport, Vector, InputVector
+from .core import KentaurCore, TriageReport, Vector, InputVector
 
 
 class ConsensusState(Enum):
@@ -23,10 +23,10 @@ class ConsensusVerdict:
     summary: str = ""
 
 
-class HermesConsensus:
+class KentaurConsensus:
     """
     Swarm consensus / multi-agent alignment module.
-    Mediates between multiple HermesTriageModule instances (agents)
+    Mediates between multiple KentaurCore instances (agents)
     to find a common alignment target.
     """
 
@@ -34,7 +34,7 @@ class HermesConsensus:
         self.quorum = max(0.1, min(1.0, quorum))
         self.max_rounds = max(1, max_rounds)
 
-    def align(self, agents: List[HermesTriageModule]) -> ConsensusVerdict:
+    def align(self, agents: List[KentaurCore]) -> ConsensusVerdict:
         """
         Run a consensus round across agents.
         Returns an alignment target that satisfies the quorum.
@@ -97,13 +97,13 @@ class HermesConsensus:
             summary=f"Consensus: {agreeing}/{n} agents aligned (quorum={self.quorum})."
         )
 
-    def apply_alignment(self, agent_module: HermesTriageModule,
-                        verdict: ConsensusVerdict) -> HermesTriageModule:
+    def apply_alignment(self, agent_module: KentaurCore,
+                        verdict: ConsensusVerdict) -> KentaurCore:
         """Apply consensus verdict to an agent module (re-target)."""
         if verdict.state != ConsensusState.REACHED:
             return agent_module
 
-        aligned_module = HermesTriageModule(
+        aligned_module = KentaurCore(
             target=cast(InputVector, verdict.alignment_target),
             history_limit=agent_module.history_limit,
             use_ema=agent_module.use_ema,

@@ -1,10 +1,10 @@
 """
-Hermes Triage Module - Three-axis diagnostic system for agents.
+Kentaur Triage Module - Three-axis diagnostic system for agents.
 Version: 2.3.0
 """
 
-from .triage import (
-    HermesTriageModule,
+from .core import (
+    KentaurCore,
     RiskThresholds,
     TriageReport,
     Vector,
@@ -14,36 +14,36 @@ from .triage import (
 )
 
 from .governor import (
-    HermesGovernor,
+    KentaurGovernor,
     EnforcementLevel,
     GovernorVerdict,
 )
 
 from .mind import (
-    HermesMind,
+    KentaurMind,
     MindVerdict,
 )
 
 from .navigator import (
-    HermesNavigator,
+    KentaurNavigator,
     NavigationPrescription,
 )
 
 from .profiler import (
-    HermesProfiler,
+    KentaurProfiler,
     AgentProfile,
     ProfileData,
 )
 
 __version__ = "3.0.0"
 __all__ = [
-    "HermesTriageModule",
+    "KentaurCore",
     "RiskThresholds",
     "TriageReport",
     "Vector",
     "AxisName",
     "action_to_vector",
     "triage_inject_prompt",
-    "HermesMind",
+    "KentaurMind",
     "MindVerdict",
 ]

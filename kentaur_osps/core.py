@@ -1,5 +1,5 @@
 """
-Hermes Triage Module — Three-axis diagnostic system for agents.
+Kentaur Triage Module — Three-axis diagnostic system for agents.
 OSPS v18.0 integrated. Attractor metrics, K_flow, Phi, abstraction levels.
 """
 
@@ -62,9 +62,9 @@ class TriageReport:
     advice: str
 
 
-class HermesTriageModule:
+class KentaurCore:
     """
-    Three-axis diagnostic module for Hermes agent (v3.0.0-alpha.1).
+    Three-axis diagnostic module for Kentaur agent (v3.0.0-alpha.1).
     Clean architecture, fully deterministic, OSPS v18.0 metrics integrated.
     """
 
@@ -218,7 +218,7 @@ class HermesTriageModule:
     def _determine_abstraction_level(self, current: Vector) -> str:
         """
         Determine abstraction level (Abstraction Ladder).
-        Projection of Hermes axes onto OSPS Octant.
+        Projection of Kentaur axes onto OSPS Octant.
         """
         acor = current.get("AcOr", 0.5)
         ip = current.get("IP", 0.5)
@@ -307,7 +307,7 @@ class HermesTriageModule:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "HermesTriageModule":
+    def from_dict(cls, data: Dict[str, Any]) -> "KentaurCore":
         if data.get("schema_version") not in (cls.SCHEMA_VERSION, "3.0.0-alpha.1", "1.5.1", "1.5.0", "1.4.0"):
             raise ValueError(f"Schema mismatch: expected {cls.SCHEMA_VERSION}, got {data.get('schema_version')}")
         thresholds = RiskThresholds(**data["risk_thresholds"])
@@ -330,16 +330,16 @@ class HermesTriageModule:
         if len(vectors) < 2:
             return {
                 "mean_tension": 0.0,
-                "mean_squared_deviation": {ax: 0.0 for ax in HermesTriageModule.AXES},
+                "mean_squared_deviation": {ax: 0.0 for ax in KentaurCore.AXES},
                 "coherent": True
             }
         tensions = [
-            math.sqrt(sum((v1[ax] - v2[ax]) ** 2 for ax in HermesTriageModule.AXES))
+            math.sqrt(sum((v1[ax] - v2[ax]) ** 2 for ax in KentaurCore.AXES))
             for v1, v2 in combinations(vectors, 2)
         ]
         mean_tension = sum(tensions) / len(tensions)
         mean_squared_deviation = {}
-        for ax in HermesTriageModule.AXES:
+        for ax in KentaurCore.AXES:
             vals = [v[ax] for v in vectors]
             mean_val = sum(vals) / len(vals)
             mean_squared_deviation[ax] = sum((x - mean_val) ** 2 for x in vals) / len(vals)
@@ -358,13 +358,13 @@ class HermesTriageModule:
             "risk_critical": int(report.risk == "critical"),
             "risk_high": int(report.risk == "high"),
         }
-        for ax in HermesTriageModule.AXES:
+        for ax in KentaurCore.AXES:
             metrics[f"current_{ax.lower()}"] = report.current_vector[ax]
             metrics[f"target_{ax.lower()}"] = report.target_vector[ax]
         if report.lever_axis:
             metrics[f"lever_delta_{report.lever_axis.lower()}"] = report.lever_delta
         for i, step in enumerate(report.forecast):
-            for ax in HermesTriageModule.AXES:
+            for ax in KentaurCore.AXES:
                 metrics[f"forecast_step{i+1}_{ax.lower()}"] = step[ax]
         return metrics
 
@@ -401,8 +401,8 @@ Directive: {report.advice}
 # ====================== MAIN ======================
 
 if __name__ == "__main__":
-    print("=== Hermes Triage Module v1.5.1 -- Test ===\n")
-    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.5, "InEx": -0.1}, use_ema=True)
+    print("=== Kentaur Triage Module v1.5.1 -- Test ===\n")
+    hermes = KentaurCore(target={"AcOr": 0.2, "IP": 0.5, "InEx": -0.1}, use_ema=True)
     hermes.update_history({"AcOr": 0.8, "IP": 0.1, "InEx": 0.3})
     hermes.update_history({"AcOr": 0.9, "IP": 0.0, "InEx": 0.4})
     rep = hermes.report()

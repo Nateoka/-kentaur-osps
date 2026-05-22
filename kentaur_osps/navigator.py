@@ -1,7 +1,7 @@
-"""HermesNavigator v3.0.0-alpha.5 — OSPS Cognitive Therapy (Archetype + Abstraction routing)."""
+"""KentaurNavigator v3.0.0-alpha.5 — OSPS Cognitive Therapy (Archetype + Abstraction routing)."""
 from dataclasses import dataclass
 from typing import Tuple, Optional, Dict, Any
-from .triage import TriageReport
+from .core import TriageReport
 
 
 @dataclass(frozen=True)
@@ -12,7 +12,7 @@ class NavigationPrescription:
     rationale: str = "No correction needed."
 
 
-class HermesNavigator:
+class KentaurNavigator:
     """
     OSPS v18.0 Cognitive Therapy.
     Routing depends on Archetype (from Profiler) and Abstraction Level.

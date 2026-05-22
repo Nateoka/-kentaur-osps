@@ -1,19 +1,19 @@
 """
-Pre-flight Triage check for Hermes Orchestrator.
+Pre-flight Triage check for Kentaur Orchestrator.
 Runs before each response to ensure balanced state.
 """
 import sys, os
 
 # Add project to path
 sys.path.insert(0, r'D:\HermesTriage')
-from hermes_triage import HermesTriageModule
+from kentaur_osps import KentaurCore
 
 # Target state for an orchestrator: balanced action/analysis, moderate external focus
 TARGET = {'AcOr': 0.5, 'IP': 0.5, 'InEx': 0.3}
 
 def check_state(current_vector: dict) -> dict:
     """Run triage and return verdict."""
-    triage = HermesTriageModule(target=TARGET, use_ema=True)
+    triage = KentaurCore(target=TARGET, use_ema=True)
     triage.update_history(current_vector)
     rep = triage.report(current_vector)
     return {

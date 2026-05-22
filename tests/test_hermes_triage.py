@@ -1,16 +1,16 @@
 """
-Tests for HermesTriageModule v2.3.0
+Tests for KentaurCore v2.3.0
 Full coverage + hardened production edge-cases + Mind integration
 """
 
 import pytest
-from hermes_triage import (
-    HermesTriageModule,
+from kentaur_osps import (
+    KentaurCore,
     RiskThresholds,
     TriageReport,
     action_to_vector,
     triage_inject_prompt,
-    HermesMind,
+    KentaurMind,
     MindVerdict,
 )
 
@@ -19,7 +19,7 @@ from hermes_triage import (
 
 @pytest.fixture
 def default_hermes():
-    return HermesTriageModule(
+    return KentaurCore(
         target={"AcOr": 0.2, "IP": 0.5, "InEx": -0.1},
         use_ema=False,
         forecast_steps=3
@@ -28,7 +28,7 @@ def default_hermes():
 
 @pytest.fixture
 def ema_hermes():
-    return HermesTriageModule(
+    return KentaurCore(
         target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0},
         use_ema=True,
         ema_alpha=0.5
@@ -39,11 +39,11 @@ def ema_hermes():
 
 def test_validate_target_strict_mode():
     with pytest.raises(ValueError, match="out of bounds"):
-        HermesTriageModule(target={"AcOr": 1.5}, strict_target=True)
+        KentaurCore(target={"AcOr": 1.5}, strict_target=True)
 
 
 def test_validate_target_non_strict_clamping():
-    hermes = HermesTriageModule(target={"AcOr": 1.5, "IP": -2.0}, strict_target=False)
+    hermes = KentaurCore(target={"AcOr": 1.5, "IP": -2.0}, strict_target=False)
     assert hermes.target["AcOr"] == 1.0
     assert hermes.target["IP"] == -1.0
 
@@ -56,7 +56,7 @@ def test_observation_invalid_type(default_hermes):
 # ====================== STATISTICS ======================
 
 def test_median_odd_and_even():
-    hermes = HermesTriageModule(use_ema=False)
+    hermes = KentaurCore(use_ema=False)
     # odd
     state = hermes.compute_state([
         {"AcOr": -0.5, "IP": 0.0, "InEx": 0.0},
@@ -84,7 +84,7 @@ def test_ema_calculation(ema_hermes):
 
 
 def test_empty_history():
-    hermes = HermesTriageModule(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0})
+    hermes = KentaurCore(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0})
     state = hermes.compute_state([])
     assert all(v == 0.0 for v in state.values())
     rep = hermes.report()
@@ -96,7 +96,7 @@ def test_empty_history():
 
 def test_lever_priority_when_deltas_equal():
     """Priority: AcOr > IP > InEx when delta magnitudes are equal."""
-    hermes = HermesTriageModule(target={"AcOr": 0, "IP": 0, "InEx": 0})
+    hermes = KentaurCore(target={"AcOr": 0, "IP": 0, "InEx": 0})
     current = {"AcOr": 0.5, "IP": 0.5, "InEx": 0.5}
     axis, delta, direction = hermes.lever(current)
     assert axis == "AcOr"
@@ -104,7 +104,7 @@ def test_lever_priority_when_deltas_equal():
 
 
 def test_lever_balanced():
-    hermes = HermesTriageModule(target={"AcOr": 0.3, "IP": 0.4, "InEx": -0.2})
+    hermes = KentaurCore(target={"AcOr": 0.3, "IP": 0.4, "InEx": -0.2})
     axis, delta, direction = hermes.lever({"AcOr": 0.3, "IP": 0.4, "InEx": -0.2})
     assert axis is None
     assert direction == "balanced"
@@ -135,15 +135,15 @@ def test_forecast_convergence(default_hermes):
 
 def test_ema_alpha_clamping():
     """EMA alpha must be clamped to [0.01, 0.99]."""
-    h1 = HermesTriageModule(use_ema=True, ema_alpha=-10)
-    h2 = HermesTriageModule(use_ema=True, ema_alpha=999)
+    h1 = KentaurCore(use_ema=True, ema_alpha=-10)
+    h2 = KentaurCore(use_ema=True, ema_alpha=999)
     assert h1.ema_alpha == 0.01
     assert h2.ema_alpha == 0.99
 
 
 def test_observation_clamping():
     """Values outside [-1, 1] in observations must be silently clamped."""
-    hermes = HermesTriageModule()
+    hermes = KentaurCore()
     dirty = {"AcOr": 2.7, "IP": -1.8, "InEx": 0.5}
     state = hermes.compute_state([dirty])
     assert state["AcOr"] == 1.0
@@ -167,7 +167,7 @@ def test_from_dict_dirty_history():
         "strict_target": True,
         "forecast_steps": 2
     }
-    restored = HermesTriageModule.from_dict(dirty_data)
+    restored = KentaurCore.from_dict(dirty_data)
     assert restored.history[0]["AcOr"] == 1.0   # 5.0 -> 1.0
     assert restored.history[0]["IP"] == 0.0     # default
     assert restored.history[0]["InEx"] == 0.0   # default
@@ -186,7 +186,7 @@ def test_from_dict_invalid_schema():
         "strict_target": True
     }
     with pytest.raises(ValueError, match="Schema mismatch"):
-        HermesTriageModule.from_dict(invalid)
+        KentaurCore.from_dict(invalid)
 
 
 # ====================== INTEGRATIONS ======================
@@ -207,10 +207,10 @@ def test_triage_inject_prompt(default_hermes):
 
 def test_osps_mind_integration():
     """Verify Mind orchestrator with dynamic Profiler and Abstractor."""
-    from hermes_triage import HermesMind
+    from kentaur_osps import KentaurMind
 
     # Start as Sleeper (low ATTR)
-    mind = HermesMind(initial_profile="sleeper")
+    mind = KentaurMind(initial_profile="sleeper")
     assert mind.current_profile_name == "sleeper"
 
     # Agent in deep reflection: high IP, moderate AcOr → integrator (high T, low Ø)
@@ -242,9 +242,9 @@ def test_osps_mind_integration():
 
 def test_osps_mind_fuse_conflicts_and_phi():
     """Verify Quantum Gate: fuse conflict growth and Phi_OSPS drop on crisis."""
-    from hermes_triage import HermesMind
+    from kentaur_osps import KentaurMind
 
-    mind = HermesMind(initial_profile="sleeper")
+    mind = KentaurMind(initial_profile="sleeper")
 
     # Normal state
     verdict1 = mind.process(
@@ -270,7 +270,7 @@ def test_osps_mind_fuse_conflicts_and_phi():
 def test_serialization_roundtrip(default_hermes):
     default_hermes.update_history({"AcOr": 0.9, "IP": 0.1, "InEx": 0.3})
     data = default_hermes.to_dict()
-    restored = HermesTriageModule.from_dict(data)
+    restored = KentaurCore.from_dict(data)
     assert restored.target == default_hermes.target
     assert restored.history == default_hermes.history
     assert restored.SCHEMA_VERSION == default_hermes.SCHEMA_VERSION
@@ -278,10 +278,10 @@ def test_serialization_roundtrip(default_hermes):
 
 def test_osps_governor_e_codes():
     """Verify Governor E-codes and H.R.R.R. protocol."""
-    from hermes_triage import HermesTriageModule, HermesGovernor, RiskThresholds
+    from kentaur_osps import KentaurCore, KentaurGovernor, RiskThresholds
 
-    governor = HermesGovernor()
-    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.5, "InEx": 0.0})
+    governor = KentaurGovernor()
+    hermes = KentaurCore(target={"AcOr": 0.2, "IP": 0.5, "InEx": 0.0})
 
     # 1. Normal state -> E-000, NONE
     report_normal = hermes.report({"AcOr": 0.3, "IP": 0.6, "InEx": 0.0})
@@ -297,7 +297,7 @@ def test_osps_governor_e_codes():
 
     # 3. Critical fragmentation (very low Phi) -> E-401, HALT, H.R.R.R.
     # Create zero vector against non-zero target -> chaos
-    hermes_crit = HermesTriageModule(
+    hermes_crit = KentaurCore(
         target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0},
         risk_thresholds=RiskThresholds(critical=0.5)
     )
@@ -310,7 +310,7 @@ def test_inter_agent_tension():
         {"AcOr": 0.8, "IP": 0.1, "InEx": 0.3},
         {"AcOr": 0.1, "IP": 0.8, "InEx": -0.5},
     ]
-    result = HermesTriageModule.inter_agent_tension(vectors)
+    result = KentaurCore.inter_agent_tension(vectors)
     assert "mean_tension" in result
     assert "mean_squared_deviation" in result
     assert isinstance(result["coherent"], bool)
@@ -318,10 +318,10 @@ def test_inter_agent_tension():
 
 def test_osps_navigator_profiles():
     """Verify Navigator routing by archetype + abstraction level."""
-    from hermes_triage import HermesTriageModule, HermesNavigator
+    from kentaur_osps import KentaurCore, KentaurNavigator
 
-    navigator = HermesNavigator()
-    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.8, "InEx": 0.0})
+    navigator = KentaurNavigator()
+    hermes = KentaurCore(target={"AcOr": 0.2, "IP": 0.8, "InEx": 0.0})
 
     # Alchemist in Concrete
     report = hermes.report({"AcOr": 0.9, "IP": 0.1, "InEx": 0.5})
@@ -334,10 +334,10 @@ def test_osps_navigator_profiles():
     assert "Land" in presc.forced_thought_pattern
 def test_osps_dynamic_profiler():
     """Verify dynamic OSPS v18.0 profiling with hysteresis and apply."""
-    from hermes_triage.profiler import HermesProfiler
-    from hermes_triage import HermesTriageModule
+    from kentaur_osps.profiler import KentaurProfiler
+    from kentaur_osps import KentaurCore
 
-    profiler = HermesProfiler()
+    profiler = KentaurProfiler()
 
     # Basic archetype checks
     assert profiler.determine_profile(attr_0=0.7, attr_t=0.8).name == "master"
@@ -350,7 +350,7 @@ def test_osps_dynamic_profiler():
     assert profile.name == "master"  # Held by buffer
 
     # Apply method check
-    hermes = HermesTriageModule(target={"AcOr": 0.5, "IP": 0.5, "InEx": 0.0})
+    hermes = KentaurCore(target={"AcOr": 0.5, "IP": 0.5, "InEx": 0.0})
     alchemist_profile = profiler.determine_profile(attr_0=0.6, attr_t=0.2)
     new_hermes = profiler.apply(hermes, alchemist_profile)
     assert new_hermes.target["InEx"] == -0.5  # Target changed to Alchemist

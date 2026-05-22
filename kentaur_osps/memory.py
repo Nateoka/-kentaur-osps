@@ -1,8 +1,8 @@
-"""HermesMemory v2.3.0 — Episodic memory module (vector similarity-based reflex)."""
+"""KentaurMemory v2.3.0 — Episodic memory module (vector similarity-based reflex)."""
 import math
 from dataclasses import dataclass
 from typing import List, Dict, Any, Optional, Tuple
-from .triage import Vector, AxisName
+from .core import Vector, AxisName
 
 
 @dataclass(frozen=True)
@@ -15,7 +15,7 @@ class EpisodicTrace:
     similarity: float = 0.0        # Computed on search
 
 
-class HermesMemory:
+class KentaurMemory:
     """
     Episodic memory module.
     Enables the agent to form conditioned reflexes based on past corrections.

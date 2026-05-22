@@ -1,8 +1,8 @@
-"""HermesGovernor v3.0.0-alpha.4 — Immune System / Fuses (OSPS v18.0)."""
+"""KentaurGovernor v3.0.0-alpha.4 — Immune System / Fuses (OSPS v18.0)."""
 from enum import Enum
 from dataclasses import dataclass
 from typing import Optional, List
-from .triage import TriageReport
+from .core import TriageReport
 
 
 class EnforcementLevel(Enum):
@@ -22,7 +22,7 @@ class GovernorVerdict:
     override_prompt: Optional[str] = None
 
 
-class HermesGovernor:
+class KentaurGovernor:
     """
     Immune System / Fuses (OSPS v18.0).
     Dumb protection layer: diagnoses E-codes and triggers Ø reset ritual (H.R.R.R.).

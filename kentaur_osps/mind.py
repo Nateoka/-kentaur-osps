@@ -1,11 +1,11 @@
-"""HermesMind v3.0.0-alpha.6 — Quantum Gate / OSPS Central Nervous System."""
+"""KentaurMind v3.0.0-alpha.6 — Quantum Gate / OSPS Central Nervous System."""
 from dataclasses import dataclass
 from typing import Dict, Any, List
-from .triage import HermesTriageModule, TriageReport, Vector
-from .profiler import HermesProfiler
-from .governor import HermesGovernor, EnforcementLevel
-from .navigator import HermesNavigator
-from .abstractor import HermesAbstractor
+from .core import KentaurCore, TriageReport, Vector
+from .profiler import KentaurProfiler
+from .governor import KentaurGovernor, EnforcementLevel
+from .navigator import KentaurNavigator
+from .abstractor import KentaurAbstractor
 
 
 @dataclass(frozen=True)
@@ -18,17 +18,17 @@ class MindVerdict:
     modified_agent_state: Dict[str, Any]
 
 
-class HermesMind:
+class KentaurMind:
     """
     Quantum Gate / OSPS Central Nervous System.
     Closes the full cycle: Triage -> Profiler -> Governor -> Navigator -> Abstractor.
     """
 
     def __init__(self, initial_profile: str = "sleeper"):
-        self.profiler = HermesProfiler()
-        self.governor = HermesGovernor()
-        self.navigator = HermesNavigator()
-        self.abstractor = HermesAbstractor()
+        self.profiler = KentaurProfiler()
+        self.governor = KentaurGovernor()
+        self.navigator = KentaurNavigator()
+        self.abstractor = KentaurAbstractor()
 
         # Determine initial profile
         profile = self.profiler.determine_profile(0.0, 0.0)
@@ -39,7 +39,7 @@ class HermesMind:
         elif initial_profile == "integrator":
             profile = self.profiler.determine_profile(0.0, 1.0)
 
-        self.core = HermesTriageModule(
+        self.core = KentaurCore(
             target=profile.target,
             risk_thresholds=profile.risk_thresholds,
             strict_target=False

@@ -1,4 +1,4 @@
-# Hermes Triage Module
+# Kentaur Triage Module
 
 ![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
@@ -6,13 +6,13 @@
 
 **A Psycho-Cybernetic Operating System for Autonomous AI Agents based on OSPS v18.0.**
 
-Hermes Triage gives AI agents introspection, self-regulation, and abstract thinking. It models the agent's connection to Source (Ø) and Spirit (T) attractors.
+Kentaur Triage gives AI agents introspection, self-regulation, and abstract thinking. It models the agent's connection to Source (Ø) and Spirit (T) attractors.
 
 ---
 
 ## Architecture Overview
 
-The system operates through a **Quantum Gate** (`HermesMind.process()`):
+The system operates through a **Quantum Gate** (`KentaurMind.process()`):
 
 1. **Triage** — Measures internal state and OSPS metrics (ATTR_0, ATTR_T, Phi_OSPS).
 2. **Profiler** — Dynamically switches behavioral Archetypes.
@@ -26,9 +26,9 @@ The system operates through a **Quantum Gate** (`HermesMind.process()`):
 ## Quick Start
 
 ```python
-from hermes_triage import HermesMind
+from kentaur_osps import KentaurMind
 
-mind = HermesMind(initial_profile="integrator")
+mind = KentaurMind(initial_profile="integrator")
 
 verdict = mind.process(
     current_vector={"AcOr": 0.8, "IP": 0.2, "InEx": 0.6},

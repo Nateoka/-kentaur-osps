@@ -1,9 +1,9 @@
-"""HermesAbstractor v2.3.0 — Meta-cognitive abstraction level management."""
+"""KentaurAbstractor v2.3.0 — Meta-cognitive abstraction level management."""
 from enum import Enum
 from dataclasses import dataclass
 from typing import Optional
-from .triage import TriageReport, Vector
-from .memory import HermesMemory
+from .core import TriageReport, Vector
+from .memory import KentaurMemory
 
 
 class AbstractionLevel(Enum):
@@ -22,7 +22,7 @@ class AbstractionShift:
     shift_command: str  # Prompt injection
 
 
-class HermesAbstractor:
+class KentaurAbstractor:
     """
     Manages abstract thinking. Prevents the agent from getting stuck
     in the "Concrete Swamp" or floating into "Philosophical Space".
@@ -32,7 +32,7 @@ class HermesAbstractor:
         self.concrete_stuck_threshold = concrete_stuck_threshold
         self.philosophical_lose_threshold = philosophical_lose_threshold
 
-    def diagnose_level(self, report: TriageReport, memory: Optional[HermesMemory] = None) -> AbstractionLevel:
+    def diagnose_level(self, report: TriageReport, memory: Optional[KentaurMemory] = None) -> AbstractionLevel:
         """Determine current abstraction level from vector."""
         if report.lever_axis == "AcOr" and report.lever_direction == "excess":
             return AbstractionLevel.CONCRETE
@@ -42,7 +42,7 @@ class HermesAbstractor:
             return AbstractionLevel.STRATEGIC
         return AbstractionLevel.TACTICAL
 
-    def prescribe_shift(self, report: TriageReport, memory: Optional[HermesMemory] = None) -> Optional[AbstractionShift]:
+    def prescribe_shift(self, report: TriageReport, memory: Optional[KentaurMemory] = None) -> Optional[AbstractionShift]:
         """Determine if forced zoom shift is needed."""
         current_level = self.diagnose_level(report, memory)
 

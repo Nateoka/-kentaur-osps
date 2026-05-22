@@ -1,7 +1,7 @@
-"""HermesProfiler v3.0.0-alpha.2 — Dynamic OSPS v18.0 Profile Manager."""
+"""KentaurProfiler v3.0.0-alpha.2 — Dynamic OSPS v18.0 Profile Manager."""
 from dataclasses import dataclass
 from typing import Optional
-from .triage import Vector, RiskThresholds, HermesTriageModule
+from .core import Vector, RiskThresholds, KentaurCore
 
 
 @dataclass(frozen=True)
@@ -13,7 +13,7 @@ class AgentProfile:
     risk_thresholds: RiskThresholds
 
 
-class HermesProfiler:
+class KentaurProfiler:
     """
     Dynamic OSPS v18.0 Profile Manager.
 
@@ -84,10 +84,10 @@ class HermesProfiler:
         else:
             return self._sleeper_profile()
 
-    def apply(self, triage_module: HermesTriageModule,
-              profile: AgentProfile) -> HermesTriageModule:
+    def apply(self, triage_module: KentaurCore,
+              profile: AgentProfile) -> KentaurCore:
         """Apply a profile to an existing module (returns new instance)."""
-        new_module = HermesTriageModule(
+        new_module = KentaurCore(
             target=profile.target,
             history_limit=triage_module.history_limit,
             use_ema=triage_module.use_ema,
@@ -99,8 +99,8 @@ class HermesProfiler:
         new_module.history = list(triage_module.history)
         return new_module
 
-    def apply_by_name(self, triage_module: HermesTriageModule,
-                      profile_name: str) -> HermesTriageModule:
+    def apply_by_name(self, triage_module: KentaurCore,
+                      profile_name: str) -> KentaurCore:
         """Apply a profile by name (backward-compatible wrapper)."""
         profile = self.determine_profile(
             attr_0=self.PROFILES.get(profile_name, {}).get("AcOr", 0.5),
@@ -155,6 +155,6 @@ class HermesProfiler:
 
 @dataclass
 class ProfileData:
-    """Profile configuration for HermesMind (backward-compatible)."""
+    """Profile configuration for KentaurMind (backward-compatible)."""
     target: Vector
     risk_thresholds: Optional[RiskThresholds] = None

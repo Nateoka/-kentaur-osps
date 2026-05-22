@@ -7,8 +7,8 @@
 - Dynamic profiling based on attractor balance.
 - Governor with E-codes and H.R.R.R. protocol.
 - Navigator with Archetype + Abstraction routing.
-- Central orchestrator (HermesMind).
-- Basic ReAct adapter (HermesReActLoop).
+- Central orchestrator (KentaurMind).
+- Basic ReAct adapter (KentaurReActLoop).
 
 ## [2.3.0] - 2026-05-21
 

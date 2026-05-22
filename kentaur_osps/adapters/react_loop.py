@@ -1,18 +1,18 @@
-"""HermesReActLoop v3.0.0 — Production-ready ReAct Loop integrated with HermesMind (OSPS v18.0)."""
+"""KentaurReActLoop v3.0.0 — Production-ready ReAct Loop integrated with KentaurMind (OSPS v18.0)."""
 from typing import List, Dict, Any, Callable
 import json
-from ..mind import HermesMind
-from ..triage import Vector
+from ..mind import KentaurMind
+from ..core import Vector
 
 
-class HermesReActLoop:
+class KentaurReActLoop:
     """
-    Production-ready ReAct Loop integrated with HermesMind (OSPS v18.0).
+    Production-ready ReAct Loop integrated with KentaurMind (OSPS v18.0).
     This is the main runtime for agents.
     """
 
     def __init__(self,
-                 mind: HermesMind,
+                 mind: KentaurMind,
                  llm_client: Any,
                  tools: List[Dict[str, Any]],
                  max_iterations: int = 8):
