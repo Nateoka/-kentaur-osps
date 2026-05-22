@@ -108,10 +108,10 @@ class KentaurNavigator:
 
         # Filter tools
         current_tools = list(modified.get("available_tools", []))
+        # Filter tools by name
         if presc.blocked_tools:
-            current_tools = [t for t in current_tools if t not in presc.blocked_tools]
-        if presc.recommended_tools:
-            current_tools = list(set(current_tools + list(presc.recommended_tools)))
+            current_tools = [t for t in current_tools
+                             if t.get("function", {}).get("name", str(t)) not in presc.blocked_tools]
         modified["available_tools"] = current_tools
 
         return modified

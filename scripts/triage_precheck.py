@@ -5,7 +5,7 @@ Runs before each response to ensure balanced state.
 import sys, os
 
 # Add project to path
-sys.path.insert(0, r'D:\HermesTriage')
+sys.path.insert(0, r'D:\KentaurOSPS')
 from kentaur_osps import KentaurCore
 
 # Target state for an orchestrator: balanced action/analysis, moderate external focus
