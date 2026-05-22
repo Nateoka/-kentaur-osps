@@ -1,9 +1,16 @@
 import pytest
+import os
 from kentaur_osps import KentaurMemory, EpisodicTrace
 
 @pytest.fixture
-def memory():
-    return KentaurMemory(similarity_threshold=0.8, max_episodes=3)
+def memory(tmp_path):
+    """Create KentaurMemory with isolated temp persistence path."""
+    mem_path = os.path.join(tmp_path, "test_memory.json")
+    return KentaurMemory(
+        similarity_threshold=0.8,
+        max_episodes=3,
+        persistence_path=mem_path
+    )
 
 def test_record_and_recall(memory):
     # Записываем травму

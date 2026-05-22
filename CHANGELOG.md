@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.4.0] - 2026-05-22
+
+### Added
+- Kentaur Dashboard — real-time Streamlit monitoring for the immortal Kentaur.
+- Live display of Archetype, Tension, Phi_OSPS, ATTR_0/ATTR_T, K_flow, Fuse Conflicts.
+- Recent reflexes panel showing memory traces.
+- Phi_OSPS history chart (up to 50 heartbeats).
+- Auto-refresh mode for continuous observation.
+
 ## [3.3.0] - 2026-05-22
 
 ### Added

@@ -125,6 +125,18 @@ result = loop.run(
 
 ---
 
+## Live Dashboard
+
+Run the real-time monitoring:
+
+```bash
+streamlit run dashboard/app.py
+```
+
+This shows live Archetype, Tension, Phi_OSPS, ATTR_0, ATTR_T, Fuse Conflicts, recent reflexes, and a Phi_OSPS history chart.
+
+---
+
 ## Persistent Runtime
 
 To run Kentaur as a daemon:
