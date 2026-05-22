@@ -24,7 +24,18 @@ from .mind import (
     MindVerdict,
 )
 
-__version__ = "3.0.0-alpha.4"
+from .navigator import (
+    HermesNavigator,
+    NavigationPrescription,
+)
+
+from .profiler import (
+    HermesProfiler,
+    AgentProfile,
+    ProfileData,
+)
+
+__version__ = "3.0.0-alpha.5"
 __all__ = [
     "HermesTriageModule",
     "RiskThresholds",

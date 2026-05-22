@@ -286,6 +286,22 @@ def test_inter_agent_tension():
     assert isinstance(result["coherent"], bool)
 
 
+def test_osps_navigator_profiles():
+    """Verify Navigator routing by archetype + abstraction level."""
+    from hermes_triage import HermesTriageModule, HermesNavigator
+
+    navigator = HermesNavigator()
+    hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.8, "InEx": 0.0})
+
+    # Alchemist in Concrete
+    report = hermes.report({"AcOr": 0.9, "IP": 0.1, "InEx": 0.5})
+    presc = navigator.prescribe(report, "alchemist")
+    assert "Break the form" in presc.forced_thought_pattern
+
+    # Integrator in Philosophical
+    report = hermes.report({"AcOr": 0.1, "IP": 0.9, "InEx": -0.8})
+    presc = navigator.prescribe(report, "integrator")
+    assert "Land" in presc.forced_thought_pattern
 def test_osps_dynamic_profiler():
     """Verify dynamic OSPS v18.0 profiling with hysteresis and apply."""
     from hermes_triage.profiler import HermesProfiler
