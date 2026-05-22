@@ -1,15 +1,15 @@
 import pytest
-from hermes_triage import (
-    HermesTriageModule, 
+from kentaur_osps import (
+    KentaurCore, 
     TriageReport, 
-    HermesNavigator, 
+    KentaurNavigator, 
     NavigationPrescription
 )
 
 @pytest.fixture
 def navigator():
     # Используем кастомный маппинг для чистоты тестов
-    return HermesNavigator(tool_mapping={
+    return KentaurNavigator(tool_mapping={
         "planning": ["plan_tool"],
         "action": ["act_tool"],
         "analysis": ["analyze_tool"],
@@ -25,7 +25,7 @@ def agent_state():
     }
 
 def test_navigator_acor_excess(navigator, agent_state):
-    hermes = HermesTriageModule(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0})
+    hermes = KentaurCore(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0})
     # Агент паникует
     report = hermes.report({"AcOr": 0.8, "IP": 0.1, "InEx": 0.0})
     
@@ -41,7 +41,7 @@ def test_navigator_acor_excess(navigator, agent_state):
     assert "[NAVI-GUIDANCE]" in guided_state["system_prompt"]
 
 def test_navigator_ip_deficit(navigator, agent_state):
-    hermes = HermesTriageModule(target={"AcOr": 0.0, "IP": 0.8, "InEx": 0.0})
+    hermes = KentaurCore(target={"AcOr": 0.0, "IP": 0.8, "InEx": 0.0})
     # Агент действует бездумно (IP ниже цели)
     report = hermes.report({"AcOr": 0.1, "IP": 0.1, "InEx": 0.0})
     
@@ -51,7 +51,7 @@ def test_navigator_ip_deficit(navigator, agent_state):
     assert "act_tool" in prescription.blocked_tools
 
 def test_navigator_inex_deficit(navigator, agent_state):
-    hermes = HermesTriageModule(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.5})
+    hermes = KentaurCore(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.5})
     # Агент оторван от реальности (InEx ниже цели)
     report = hermes.report({"AcOr": 0.1, "IP": 0.1, "InEx": -0.5})
     
@@ -61,7 +61,7 @@ def test_navigator_inex_deficit(navigator, agent_state):
     assert "reflect_tool" in prescription.blocked_tools
 
 def test_navigator_balanced(navigator, agent_state):
-    hermes = HermesTriageModule(target={"AcOr": 0.5, "IP": 0.5, "InEx": 0.0})
+    hermes = KentaurCore(target={"AcOr": 0.5, "IP": 0.5, "InEx": 0.0})
     report = hermes.report({"AcOr": 0.5, "IP": 0.5, "InEx": 0.0})
     
     prescription = navigator.prescribe(report)

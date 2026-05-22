@@ -1,9 +1,9 @@
 import pytest
-from hermes_triage import HermesMemory, EpisodicTrace
+from kentaur_osps import KentaurMemory, EpisodicTrace
 
 @pytest.fixture
 def memory():
-    return HermesMemory(similarity_threshold=0.8, max_episodes=3)
+    return KentaurMemory(similarity_threshold=0.8, max_episodes=3)
 
 def test_record_and_recall(memory):
     # Записываем травму

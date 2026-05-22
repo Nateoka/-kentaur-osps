@@ -1,9 +1,9 @@
 import pytest
-from hermes_triage import HermesMind, EnforcementLevel
+from kentaur_osps import KentaurMind, EnforcementLevel
 
 @pytest.fixture
 def mind():
-    return HermesMind(profile="analyst")
+    return KentaurMind(profile="analyst")
 
 @pytest.fixture
 def agent_state():

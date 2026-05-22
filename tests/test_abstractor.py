@@ -1,13 +1,13 @@
 import pytest
-from hermes_triage import (
+from kentaur_osps import (
     HermesTriageModule, 
-    HermesAbstractor, 
+    KentaurAbstractor, 
     AbstractionLevel
 )
 
 @pytest.fixture
 def abstractor():
-    return HermesAbstractor()
+    return KentaurAbstractor()
 
 def test_diagnose_concrete(abstractor):
     hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.5, "InEx": 0.0})
@@ -57,15 +57,15 @@ def test_no_shift_when_tactical(abstractor):
     assert shift is None
 
 import pytest
-from hermes_triage import (
+from kentaur_osps import (
     HermesTriageModule, 
-    HermesAbstractor, 
+    KentaurAbstractor, 
     AbstractionLevel
 )
 
 @pytest.fixture
 def abstractor():
-    return HermesAbstractor()
+    return KentaurAbstractor()
 
 def test_diagnose_concrete(abstractor):
     hermes = HermesTriageModule(target={"AcOr": 0.2, "IP": 0.5, "InEx": 0.0})

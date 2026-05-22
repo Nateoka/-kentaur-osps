@@ -1,14 +1,14 @@
 import pytest
-from hermes_triage import (
+from kentaur_osps import (
     HermesTriageModule, 
     TriageReport, 
-    HermesGovernor, 
+    KentaurGovernor, 
     EnforcementLevel
 )
 
 @pytest.fixture
 def governor():
-    return HermesGovernor(
+    return KentaurGovernor(
         block_tools_on_high=["execute_bash", "delete_db"],
         block_tools_on_critical=["all"]
     )

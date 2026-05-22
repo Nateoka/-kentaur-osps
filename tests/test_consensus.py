@@ -1,13 +1,13 @@
 import pytest
-from hermes_triage import (
+from kentaur_osps import (
     HermesTriageModule, 
-    HermesConsensus, 
+    KentaurConsensus, 
     ConsensusState
 )
 
 @pytest.fixture
 def consensus():
-    return HermesConsensus(tension_threshold=0.5)
+    return KentaurConsensus(tension_threshold=0.5)
 
 def test_consensus_autonomous(consensus):
     """Агенты близко друг к другу — работают автономно"""
@@ -61,7 +61,7 @@ def test_consensus_alignment_modification(consensus):
     hermes = HermesTriageModule(target={"AcOr": 0.0, "IP": 0.0, "InEx": 0.0})
     report = hermes.report({"AcOr": 0.5, "IP": 0.5, "InEx": 0.5})
     
-    from hermes_triage import ConsensusVerdict
+    from kentaur_osps import ConsensusVerdict
     fake_verdict = ConsensusVerdict(
         state=ConsensusState.ALIGNING,
         is_anchor=False,

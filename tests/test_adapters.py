@@ -1,11 +1,11 @@
 import pytest
-from hermes_triage import (
-    HermesMind, HermesToolFilter, HermesReActLoop, 
+from kentaur_osps import (
+    KentaurMind, KentaurToolFilter, HermesReActLoop, 
     GovernorVerdict, NavigationPrescription, EnforcementLevel
 )
 
 def test_tool_filter_halts_all():
-    filter_engine = HermesToolFilter()
+    filter_engine = KentaurToolFilter()
     tools = [
         {"type": "function", "function": {"name": "search_web"}},
         {"type": "function", "function": {"name": "execute_bash"}}
@@ -17,7 +17,7 @@ def test_tool_filter_halts_all():
     assert result == []
 
 def test_tool_filter_blocks_specific():
-    filter_engine = HermesToolFilter()
+    filter_engine = KentaurToolFilter()
     tools = [
         {"type": "function", "function": {"name": "search_web"}},
         {"type": "function", "function": {"name": "execute_bash"}}
@@ -31,7 +31,7 @@ def test_tool_filter_blocks_specific():
 
 def test_react_loop_governor_halt():
     # Создаем разум в кризисном профиле
-    mind = HermesMind(profile="crisis")
+    mind = KentaurMind(profile="crisis")
     loop = HermesReActLoop(
         mind=mind,
         llm_client=None, # Используем мок
