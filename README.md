@@ -1,79 +1,46 @@
 # Hermes Triage Module
 
-![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)
+![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
-![Tests](https://img.shields.io/badge/tests-20%20passed-brightgreen.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)(LICENSE)
 
-**A Psycho-Cybernetic Operating System for Autonomous AI Agents.**
+**A Psycho-Cybernetic Operating System for Autonomous AI Agents based on OSPS v18.0.**
 
-Hermes Triage is a diagnostic and control framework that provides AI agents with introspection, self-regulation, and abstract thinking capabilities. It moves beyond simple prompt engineering by giving agents a mathematical model of their own internal state.
+Hermes Triage gives AI agents introspection, self-regulation, and abstract thinking. It models the agent's connection to Source (Ø) and Spirit (T) attractors.
 
 ---
 
-## Core Architecture
+## Architecture Overview
 
-The system operates as a layered nervous system:
+The system operates through a **Quantum Gate** (`HermesMind.process()`):
 
-1. **Triage (Receptors):** Measures the agent's state along 3 axes: AcOr (Action Orientation), IP (Inner Process), and InEx (Internal-External focus). Calculates tension, resilience, and risk.
-2. **Governor (Immune System):** Enforces boundaries. Blocks dangerous tools and interrupts loops when risk is critical.
-3. **Navigator (Prefrontal Cortex):** Prescribes specific tools and cognitive patterns to restore balance.
-4. **Profiler (Endocrine System):** Switches behavioral profiles (Analyst, Executor, Crisis) on the fly.
-5. **Memory (Scars):** Episodic memory based on vector similarity. Prevents the agent from repeating past mistakes.
-6. **Abstractor (Meta-cognition):** Detects if the agent is stuck in details (Concrete Swamp) or lost in philosophy, and forces a zoom shift.
-7. **Mind (Central Nervous System):** A unified facade orchestrating all modules in a single `process()` call.
+1. **Triage** — Measures internal state and OSPS metrics (ATTR_0, ATTR_T, Phi_OSPS).
+2. **Profiler** — Dynamically switches behavioral Archetypes.
+3. **Governor** — Existential safety (E-codes, H.R.R.R. protocol, collapse into Ø).
+4. **Navigator** — Cognitive routing based on Archetype + Abstraction Level.
+5. **Abstractor** — Meta-cognition (zoom in / zoom out).
+6. **Mind** — Central orchestrator (Quantum Gate).
 
 ---
 
 ## Quick Start
 
-### Installation
-
-```bash
-pip install hermes-triage
-```
-
-### Usage
-
 ```python
 from hermes_triage import HermesMind
 
-# Initialize the agent's nervous system
-mind = HermesMind(profile="executor")
+mind = HermesMind(initial_profile="integrator")
 
-# Process agent state in a loop
 verdict = mind.process(
-    current_vector={"AcOr": 0.9, "IP": 0.1, "InEx": 0.5},  # Agent is panicking
+    current_vector={"AcOr": 0.8, "IP": 0.2, "InEx": 0.6},
     agent_loop_state={
-        "temperature": 0.8,
-        "available_tools": ["execute_bash", "think_step_by_step"],
+        "temperature": 0.7,
+        "available_tools": [...],
         "system_prompt": "You are a helpful assistant."
     }
 )
 
-# Apply system directives
-if verdict.modified_state.get("force_stop"):
-    raise SystemExit("Agent halted by Governor")
-
-print(f"Risk: {verdict.report.risk}")
-print(f"Directives: {verdict.modified_state}")
-```
-
----
-
-## Development
-
-### Setup
-
-```bash
-pip install -e ".[dev]"
-```
-
-### Testing & Linting
-
-```bash
-pytest tests/ -v
-ruff check .
-mypy hermes_triage
+print(verdict.current_profile)
+print(verdict.directives_for_prompt)
 ```
 
 ---

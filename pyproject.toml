@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hermes-triage"
-version = "2.3.0"
-description = "Three-axis diagnostic system for Hermes agent"
+version = "3.0.0"
+description = "Hermes Triage - A Psycho-Cybernetic Operating System for Autonomous AI Agents based on OSPS v18.0"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 dependencies = []
