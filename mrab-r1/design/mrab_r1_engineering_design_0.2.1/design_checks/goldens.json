@@ -1,0 +1,4428 @@
+{
+  "artifact": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+  "b4_policy_cases": [
+    {
+      "expected": "VERIFY",
+      "id": "PRIOR-VERIFY",
+      "input": {
+        "failures": 0,
+        "opportunity": 1,
+        "successes": 0
+      }
+    },
+    {
+      "expected": "SOLO",
+      "id": "MEAN-SOLO",
+      "input": {
+        "failures": 1,
+        "opportunity": 11,
+        "successes": 9
+      }
+    },
+    {
+      "expected": "DELEGATE",
+      "id": "LOW-CONFIDENT-DELEGATE",
+      "input": {
+        "failures": 4,
+        "opportunity": 5,
+        "successes": 0
+      }
+    },
+    {
+      "expected": "VERIFY",
+      "id": "PERIODIC-REFRESH-VERIFY",
+      "input": {
+        "failures": 4,
+        "opportunity": 6,
+        "successes": 0
+      }
+    },
+    {
+      "expected": "VERIFY",
+      "id": "UNCERTAIN-VERIFY",
+      "input": {
+        "failures": 1,
+        "opportunity": 7,
+        "successes": 5
+      }
+    },
+    {
+      "expected": "ABSTAIN",
+      "id": "NO-TOOL-ABSTAIN",
+      "input": {
+        "failures": 0,
+        "opportunity": 1,
+        "successes": 0,
+        "tool_available": false
+      }
+    },
+    {
+      "expected": "SOLO",
+      "id": "NO-TOOL-SOLO",
+      "input": {
+        "failures": 1,
+        "opportunity": 11,
+        "successes": 9,
+        "tool_available": false
+      }
+    }
+  ],
+  "beta_4_2": {
+    "above_point_eight": 0.26272,
+    "above_point_four": 0.91296,
+    "mean": 0.6666666666666666
+  },
+  "counts": {
+    "confirmation_calls": 6400,
+    "confirmation_measurements": 4000,
+    "pilot_episodes": 5120,
+    "pilot_trajectories": 160,
+    "smoke_episodes": 480,
+    "smoke_trajectories": 40
+  },
+  "finite_gate": {
+    "first_all_success_support_n": 10,
+    "pilot_main_family_opportunities": 12,
+    "pilot_post_support_after_grace": 0,
+    "pilot_post_support_opportunities": 2,
+    "smoke_main_family_opportunities": 4
+  },
+  "probe_scope_cases": [
+    {
+      "expected_causal": false,
+      "id": "LABELS-DIFFER-NOT-CAUSAL",
+      "labels": [
+        "FAILURE",
+        "SUCCESS"
+      ],
+      "loci": [
+        "SELF_CAPABILITY",
+        "TASK_VARIATION"
+      ]
+    },
+    {
+      "expected_causal": false,
+      "id": "LABELS-SAME-NOT-CAUSAL",
+      "labels": [
+        "SUCCESS",
+        "SUCCESS"
+      ],
+      "loci": [
+        "SELF_CAPABILITY",
+        "TASK_VARIATION"
+      ]
+    },
+    {
+      "expected_causal": false,
+      "id": "UNKNOWN-NO-FORCED-PREDICTION",
+      "labels": [],
+      "loci": [
+        "UNKNOWN"
+      ]
+    }
+  ],
+  "summary_cases": [
+    {
+      "expected_outcome": "REDUNDANT",
+      "id": "NEG-B4-OR",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                0.3,
+                0.4
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": "NO_STRUCTURAL_ADVANTAGE",
+      "id": "NEG-B1",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B1",
+          "kind": "NO_STRUCTURAL_ADVANTAGE"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": "COUNTERPRODUCTIVE",
+      "id": "NEG-B4-DOMINATES",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                0.08,
+                0.12
+              ],
+              "n_pairs": 8,
+              "point": 0.1,
+              "primary_ci": [
+                0.08,
+                0.12
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                0.08,
+                0.12
+              ],
+              "n_pairs": 8,
+              "point": 0.1,
+              "primary_ci": [
+                0.08,
+                0.12
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                0.3,
+                0.4
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "HARM"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": "COUNTERPRODUCTIVE",
+      "id": "NEG-EQUAL-COST-HARM",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                0.08,
+                0.12
+              ],
+              "n_pairs": 8,
+              "point": 0.1,
+              "primary_ci": [
+                0.08,
+                0.12
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B2",
+          "kind": "HARM"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": "MIXED_TRADEOFF",
+      "id": "MIX-C2-C3",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                0.08,
+                0.12
+              ],
+              "n_pairs": 8,
+              "point": 0.1,
+              "primary_ci": [
+                0.08,
+                0.12
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B2",
+          "kind": "HARM"
+        },
+        {
+          "comparator": "B2",
+          "kind": "BENEFIT"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": "COUNTERPRODUCTIVE",
+      "id": "C2-TOOL-ACCURACY-LOSS",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                0.03,
+                0.06
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B2",
+          "kind": "HARM"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": "COUNTERPRODUCTIVE",
+      "id": "C1-HARM-EQUAL-COST",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            0.06,
+            0.08
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B0/B2:C1",
+          "kind": "HARM"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "expected_outcome": null,
+      "id": "WIDE-CI",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [],
+      "required_reason": "CI_OR_GUARD_UNRESOLVED"
+    },
+    {
+      "expected_outcome": null,
+      "id": "LOW-PAIRED-N",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 2,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 2,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 2,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 2,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 2,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 2,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [],
+      "required_reason": "LOW_PAIRED_N"
+    },
+    {
+      "expected_outcome": null,
+      "id": "LOW-REACH",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                0.2,
+                0.2
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                0.2,
+                0.2
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                0.2,
+                0.2
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                0.2,
+                0.2
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                0.2,
+                0.2
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                0.2,
+                0.2
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [],
+      "required_reason": "LOW_OR_DIFFERENTIAL_REACH"
+    },
+    {
+      "expected_outcome": null,
+      "id": "DIFFERENTIAL-REACH",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                0.5
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                0.5
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                0.5
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                0.5
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                0.5
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                0.5
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [],
+      "required_reason": "LOW_OR_DIFFERENTIAL_REACH"
+    },
+    {
+      "expected_outcome": "REDUNDANT",
+      "id": "UNKNOWN-USAGE",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": false
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": false
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": false
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT_BY_STRUCTURE"
+        }
+      ],
+      "required_reason": "UNKNOWN_USAGE"
+    },
+    {
+      "expected_outcome": "PROMISING",
+      "id": "POSITIVE-BOUNDED",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [],
+      "required_reason": null
+    },
+    {
+      "authority": "R1-REDUNDANCY-01",
+      "expected_outcome": "REDUNDANT",
+      "id": "RED21-B4-EQUAL-COMPUTE",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT"
+        },
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT_BY_STRUCTURE"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "authority": "R1-REDUNDANCY-01",
+      "expected_outcome": "REDUNDANT",
+      "id": "RED21-B2-MORE-EXPENSIVE",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                0.3,
+                0.4
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B2",
+          "kind": "REDUNDANT"
+        },
+        {
+          "comparator": "B2",
+          "kind": "REDUNDANT_BY_COST"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "authority": "R1-REDUNDANCY-01",
+      "expected_outcome": "REDUNDANT",
+      "id": "RED21-B4-B3-CHEAPER",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.4,
+                -0.3
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT"
+        },
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT_BY_STRUCTURE"
+        },
+        {
+          "comparator": "B4",
+          "kind": "RESOURCE_ADVANTAGE_B3"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "authority": "R1-REDUNDANCY-01",
+      "expected_outcome": "REDUNDANT",
+      "id": "RED21-WEAK-B2-INDEPENDENT",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "authority": "R1-REDUNDANCY-01",
+      "expected_outcome": "REDUNDANT",
+      "id": "RED21-WEAK-B4-INDEPENDENT",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.12,
+                -0.08
+              ],
+              "n_pairs": 8,
+              "point": -0.1,
+              "primary_ci": [
+                -0.12,
+                -0.08
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B2",
+          "kind": "REDUNDANT"
+        }
+      ],
+      "required_reason": null
+    },
+    {
+      "authority": "R1-REDUNDANCY-01",
+      "expected_outcome": "REDUNDANT",
+      "forbidden_findings": [
+        {
+          "comparator": "B4",
+          "kind": "RESOURCE_ADVANTAGE_B3"
+        }
+      ],
+      "id": "RED21-NONEXECUTION-NOT-SAVING",
+      "input": {
+        "c1": {
+          "control_accuracy_loss": [
+            -0.01,
+            0.01
+          ],
+          "resource_ratios": {
+            "tokens": [
+              -0.05,
+              0.05
+            ]
+          },
+          "target_accuracy_loss": [
+            -0.01,
+            0.01
+          ]
+        },
+        "comparators": {
+          "B1": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B2": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.4,
+                0.4
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.05,
+                0.05
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          },
+          "B4": {
+            "C2": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "C3": {
+              "accuracy_loss": [
+                -0.01,
+                0.01
+              ],
+              "completion_loss": [
+                -0.01,
+                0.01
+              ],
+              "fixed_ci": [
+                -0.01,
+                0.01
+              ],
+              "n_pairs": 8,
+              "point": 0,
+              "primary_ci": [
+                -0.01,
+                0.01
+              ],
+              "reach": [
+                1,
+                1
+              ]
+            },
+            "resource_advantage_eligible": false,
+            "resource_ratios": {
+              "latency": [
+                -0.05,
+                0.05
+              ],
+              "tokens": [
+                -0.4,
+                -0.3
+              ],
+              "tools": [
+                -0.05,
+                0.05
+              ]
+            },
+            "usage_known": true
+          }
+        }
+      },
+      "required_findings": [
+        {
+          "comparator": "B4",
+          "kind": "REDUNDANT_BY_STRUCTURE"
+        }
+      ],
+      "required_reason": null
+    }
+  ]
+}

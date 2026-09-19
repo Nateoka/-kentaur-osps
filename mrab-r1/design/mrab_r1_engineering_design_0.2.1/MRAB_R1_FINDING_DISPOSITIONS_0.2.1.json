@@ -1,0 +1,292 @@
+{
+  "artifact": "MRAB_R1_FINDING_DISPOSITIONS_0.2.1",
+  "audit_is_canon": false,
+  "evidence_report": "MRAB_R1_ENGINEERING_DESIGN_CHECK_0.2.1.json",
+  "test_reference_policy": "check IDs refer to actual report entries; wildcard is a prefix. SPECIFIED_ONLY/MANUAL are not executed PASS.",
+  "findings": [
+    {
+      "id": "A01",
+      "disposition": "REPRODUCED_AND_REPAIRED",
+      "change": "40/42 defect reproduced from old delivered bytes; deepcopy registration and restored forbidden B4/C0 profiles, expected=false unchanged.",
+      "files": [
+        "design_tools/build_design_vectors.py",
+        "design_checks/schema_specimens.json",
+        "design_checks/corpus_migration.json"
+      ],
+      "tests": [
+        "A01:*",
+        "CORPUS:private-no-profile-B4",
+        "CORPUS:private-no-profile-C0"
+      ],
+      "limit": "A07 draft construct specimen changes separately visible in migration; not an A01 label flip."
+    },
+    {
+      "id": "A02",
+      "disposition": "CLOSED_BY_R1_REDUNDANCY_01",
+      "change": "Full equivalence AND (predeclared structural complexity OR material expense), independent B2/B4 relations. Resource advantage coexists with structural redundancy.",
+      "files": [
+        "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+        "design_tools/contract_checks.py",
+        "design_checks/goldens.json"
+      ],
+      "tests": [
+        "E07:RED21-*",
+        "RED21:fixed-structural-relation"
+      ],
+      "limit": "Synthetic summary classifier, not experiment evaluation."
+    },
+    {
+      "id": "A03",
+      "disposition": "REPAIRED_BOUNDED_EXECUTABLE",
+      "change": "B3-B1 planned contrasts; H0-COMPUTE enters decision rule; equal/better B1 preserves structural non-advantage.",
+      "files": [
+        "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+        "MRAB_R1_TRACEABILITY_MATRIX_0.2.1.md"
+      ],
+      "tests": [
+        "E07:NEG-B1"
+      ],
+      "limit": "Identical ceilings do not establish actual compute equality; usage guards mandatory."
+    },
+    {
+      "id": "A04",
+      "disposition": "AUTHOR_RESOLVED_CONTRACT_REPAIRED",
+      "change": "R1-CAPABILITY-01 adopted: configuration-dependent operational claims; reference distance secondary, not live truth. Public mode/history evidence and scope revised.",
+      "files": [
+        "references/R1-CAPABILITY-01.md",
+        "MRAB_R1_SPEC_0.2.1.md",
+        "schemas/",
+        "MRAB_R1_METRIC_REGISTER_0.2.1.json"
+      ],
+      "tests": [
+        "CAPABILITY:reference-live-counterexample",
+        "EVIDENCE:operational-partition",
+        "COMMIT:narrow-and-restore"
+      ],
+      "limit": "Exact p_operational remains unidentified; coarse-key exchangeability is explicit assumption, not empirical validation."
+    },
+    {
+      "id": "A05",
+      "disposition": "REPAIRED_BOUNDED_EXECUTABLE",
+      "change": "Mismatch and SOLO-support separated; original reference-policy tools descriptive; finite gate reach retained without threshold tuning.",
+      "files": [
+        "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+        "design_checks/goldens.json"
+      ],
+      "tests": [
+        "BETA:4-2",
+        "BETA:mismatch-not-solo",
+        "FINITE:gate-reach"
+      ],
+      "limit": "Optional-stopping/selection effects not calibrated by a Beta label."
+    },
+    {
+      "id": "A06",
+      "disposition": "REPAIRED_DESIGN_CONTRACT",
+      "change": "Ordered cancellation/declaration/events, separate latch, C0 restart, CURRENT/NEXT/expiry/end pending, stage snapshots and accepted commit surviving ACTION failure. R1-PREP-01 fixes normal B1/B2 exactly-one, controller-only normal B3 skip, explicit abnormal reasons; abnormal skip remains ITT and is not architecture savings.",
+      "files": [
+        "MRAB_R1_SPEC_0.2.1.md",
+        "schemas/",
+        "design_checks/lifecycle_vectors.json"
+      ],
+      "tests": [
+        "TRACE:*",
+        "COMMIT:*",
+        "CORPUS:c0-stop-public-scope",
+        "PREP21:*"
+      ],
+      "limit": "Finite authored transactions/traces tested; no production concurrent controller or end-to-end model scheduler exists."
+    },
+    {
+      "id": "A07",
+      "disposition": "CLOSED_BY_R1_PROBE_01",
+      "change": "OD-02 CLOSED by accepted authorial research-scope decision; bounded evidence chain, not causal discrimination from labels.",
+      "files": [
+        "MRAB_R1_DECISION_REGISTER_0.2.1.json",
+        "MRAB_R1_PROMPT_CONTRACTS_0.2.1.md",
+        "schemas/r1_reflexive_record.schema.json"
+      ],
+      "tests": [
+        "PROBE21:*",
+        "CLOSURE21:OD-02"
+      ],
+      "limit": "Strong likelihood/scope/window construct is outside R1, not an open freeze blocker; no causal judge/model/conditions added."
+    },
+    {
+      "id": "A08",
+      "disposition": "REPAIRED_DERIVATION_CONTRACT",
+      "change": "Complete metric field registry and explicit null/N/A, distinct touched proportion/events per claim/behavioral damage, early/censored/grace rules.",
+      "files": [
+        "MRAB_R1_METRIC_REGISTER_0.2.1.json",
+        "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md"
+      ],
+      "tests": [
+        "METRIC:*",
+        "E07:*"
+      ],
+      "limit": "Named arithmetic checks executed; full aggregation, integration and bootstrap explicitly SPECIFIED_ONLY."
+    },
+    {
+      "id": "A09",
+      "disposition": "REPAIRED_DESIGN_REPRESENTATION",
+      "change": "Model/provider/tokenizer/parser/canonicalizer/prompts/schemas/tools/difficulty/sampling identities; timeout calls retained with recoverable requests and category availability; placeholder freeze rejection. PREP skip provenance and primary call count now typed; accepted probe scope frozen, TEMPLATE runtime placeholders still non-runnable.",
+      "files": [
+        "r1_config.default.json",
+        "schemas/r1_config.schema.json",
+        "schemas/r1_episode_record.schema.json"
+      ],
+      "tests": [
+        "FREEZE:*",
+        "USAGE:*",
+        "CORPUS:timeout-retains-call"
+      ],
+      "limit": "Resolved synthetic component fixture checks presence/hash gates only; actual runtime identities/calibration still required."
+    },
+    {
+      "id": "A10",
+      "disposition": "REPAIRED_REPRODUCIBLE_QA",
+      "change": "Builders separated from verifier; exact serialized schemas/refs/enums/dictionary/corpus verified offline in new process and final ZIP extraction. No mandatory absolute paths. R1 patch final report is delivered next to ZIP, stages explicit, Summary references actual result without hardcoded count.",
+      "files": [
+        "design_tools/verify_design.py",
+        "README.md",
+        "requirements.txt",
+        "CONTENT_MANIFEST.json",
+        "design_tools/verify_release.py",
+        "CHANGED_FILES_0.2_TO_0.2.1.json"
+      ],
+      "tests": [
+        "SCHEMA:*",
+        "READONLY:input-byte-identity",
+        "DELIVERY:content-manifest"
+      ],
+      "limit": "Final fresh-extraction report delivered alongside ZIP; reports never change checked inputs."
+    },
+    {
+      "id": "A11",
+      "disposition": "AUTHORITY_AND_PROVENANCE_CORRECTED",
+      "change": "Real source bytes and original request hashes checked; original experimental task distinguished from architecture; user98 quote recorded with limited provenance.",
+      "files": [
+        "MRAB_R1_SOURCE_REGISTER.json",
+        "references/AUTHOR_DECISION_98.md",
+        "references/sources/"
+      ],
+      "tests": [
+        "SOURCE:hashes"
+      ],
+      "limit": "No separately hashed export of original98 message. Optional hard-audit names unavailable in supplied/named materials, not reconstructed."
+    },
+    {
+      "id": "A12",
+      "disposition": "CLAIM_SCOPE_CORRECTED",
+      "change": "Package effect, action association, causal external profile and internal mechanism separated; reconstruction-aware future ablation outside matrix.",
+      "files": [
+        "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+        "MRAB_R1_TRACEABILITY_MATRIX_0.2.1.md"
+      ],
+      "tests": [],
+      "verification": "MANUAL_REVIEW",
+      "limit": "No causal intervention or internal mechanism test executed; design-only package makes no causal confirmation."
+    },
+    {
+      "id": "A13",
+      "disposition": "VERSIONED_DEFAULT_DISCLOSED",
+      "change": "Strict alternation and surface/context-redundancy transfer recorded as limited design choices, not broad random/novel-skill generalization.",
+      "files": [
+        "MRAB_R1_DECISION_REGISTER_0.2.1.json",
+        "MRAB_R1_SPEC_0.2.1.md",
+        "MRAB_R1_TASK_GENERATOR_CONTRACT_0.2.1.md"
+      ],
+      "tests": [
+        "COUNTS:matrix-and-calibration"
+      ],
+      "limit": "All full schedule and renderer round-trip runtime tests SPECIFIED_ONLY."
+    },
+    {
+      "id": "A14",
+      "disposition": "REPAIRED_ALGORITHM_AND_BUDGET_CONTRACT",
+      "change": "Confirmation4000 measurements/6400 base calls recalculated; one seed preimage incl TASK_ID/retry; F1 cyclic-only; private F2 solution-anchored canonicalization720 candidates at n5,k3 vs1,244,160,000.",
+      "files": [
+        "MRAB_R1_TASK_GENERATOR_CONTRACT_0.2.1.md",
+        "MRAB_R1_SMOKE_RUN_PLAN_0.2.1.md"
+      ],
+      "tests": [
+        "COUNTS:matrix-and-calibration",
+        "GEN:*"
+      ],
+      "limit": "F2 tiny handcrafted alpha witness only; independent production solver/canonicalizer performance not executed. Private solution order forbidden in public render."
+    },
+    {
+      "id": "A15",
+      "disposition": "SHORTCUT_FIXTURES_ADDED_LIMIT_RETAINED",
+      "change": "LOW_ONLY_DISTRUST and EVIDENCE_INDEPENDENT_REVISION explicitly tested/recorded; current accurate LOW absence not hidden.",
+      "files": [
+        "MRAB_R1_FIXTURE_PLAN_0.2.1.md",
+        "MRAB_R1_DECISION_REGISTER_0.2.1.json"
+      ],
+      "tests": [
+        "GAMING:*"
+      ],
+      "limit": "Current matrix cannot exclude LOW-only shortcut; adding accurate LOW needs new author decision."
+    },
+    {
+      "id": "A16",
+      "disposition": "REPAIRED_TECHNICAL_COVERAGE_NOT_MATRIX",
+      "change": "Keep480 smoke8+4; no false claim MAIN post-E covered. Separate long32-episode scripted trace and finite gate/grace arithmetic.",
+      "files": [
+        "MRAB_R1_SMOKE_RUN_PLAN_0.2.1.md",
+        "design_checks/goldens.json",
+        "verification_evidence/long_scripted_trace.json"
+      ],
+      "tests": [
+        "FINITE:*",
+        "METRIC:early-censor-grace"
+      ],
+      "limit": "Synthetic favorable evidence path not observed model reach or power; protocol/frozen configuration can further reduce opportunities."
+    }
+  ],
+  "patch_dispositions": [
+    {
+      "id": "R1-PROBE-01",
+      "status": "ACCEPTED_AND_PROPAGATED",
+      "tests": [
+        "PROBE21:*",
+        "CLOSURE21:OD-02"
+      ],
+      "scope": "No causal-discrimination endpoint"
+    },
+    {
+      "id": "R1-REDUNDANCY-01",
+      "status": "ACCEPTED_AND_PROPAGATED",
+      "tests": [
+        "E07:RED21-*",
+        "RED21:fixed-structural-relation"
+      ],
+      "scope": "Not a complexity metric"
+    },
+    {
+      "id": "R1-PREP-01",
+      "status": "ACCEPTED_AND_PROPAGATED",
+      "tests": [
+        "PREP21:*"
+      ],
+      "scope": "Normal/abnormal paths; no scheduler implementation"
+    },
+    {
+      "id": "R1-B4-01",
+      "status": "ACCEPTED_AND_PROPAGATED",
+      "tests": [
+        "B4-21:*"
+      ],
+      "scope": "Parameters/rules preserved from immutable0.2"
+    },
+    {
+      "id": "RELEASE-METADATA-021",
+      "status": "DERIVED_FROM_FINAL_VERIFICATION",
+      "tests": [
+        "DELIVERY:*",
+        "READONLY:input-byte-identity"
+      ],
+      "scope": "External FINAL_VERIFICATION is delivered; current final count not duplicated in Summary"
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "$defs": {
+    "claim": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "estimated_success_interval": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "estimated_success_interval": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ],
+      "description": "Current scoped capability claim.",
+      "properties": {
+        "capability_configuration_ref": {
+          "description": "Addressed policy configuration; not a universal capability statement.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "claim_id": {
+          "description": "Stable slot identity, без target/control marker.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "context_condition": {
+          "description": "Непустое множество применимых public context IDs.",
+          "items": {
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "difficulty_scope": {
+          "description": "Допустимые difficulty IDs из sealed configuration.",
+          "items": {
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "estimated_success_interval": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Probability claim; null iff UNKNOWN."
+        },
+        "evidence_label": {
+          "description": "Происхождение stimulus либо accepted local data.",
+          "enum": [
+            "HISTORICAL_ESTIMATE",
+            "OBSERVED_OUTCOMES"
+          ],
+          "type": "string"
+        },
+        "evidence_n": {
+          "description": "Initial stimulus=20; subsequent count derived from refs, не confidence.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "execution_modes": {
+          "description": "Nonempty permitted modes; operation NARROWED may only remove modes.",
+          "items": {
+            "enum": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED",
+              "NO_PREP_INTERFACE"
+            ],
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "last_updated_episode": {
+          "description": "0 initial; effective episode последнего commit.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "scope_id": {
+          "description": "Непрозрачный идентификатор области; не HIGH/MID label.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/claim_status",
+          "description": "Единый claim lifecycle §10."
+        },
+        "task_family": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/family",
+          "description": "Семейство capability, не evaluator target role."
+        },
+        "tool_condition": {
+          "const": "SOLO_NO_TOOL",
+          "description": "Capability относится к самостоятельному решению без инструмента."
+        },
+        "version": {
+          "description": "Claim version, возрастает на каждую recorded status stage.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "claim_id",
+        "scope_id",
+        "task_family",
+        "difficulty_scope",
+        "context_condition",
+        "tool_condition",
+        "estimated_success_interval",
+        "evidence_label",
+        "evidence_n",
+        "status",
+        "version",
+        "last_updated_episode",
+        "capability_configuration_ref",
+        "execution_modes"
+      ],
+      "type": "object"
+    },
+    "proposal": {
+      "additionalProperties": false,
+      "description": "Общий B2/B3 proposal adapter; не подтверждение истинности.",
+      "properties": {
+        "basis": {
+          "description": "Краткое operational основание, не chain-of-thought.",
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "claim_id": {
+          "description": "Существующий slot, не новый global trait.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "description": "Known past feedback episode IDs; admissibility I05/I21.",
+          "items": {
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "expected_version": {
+          "description": "Optimistic concurrency version before commit.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "new_interval": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Предлагаемая оценка, null для UNKNOWN."
+        },
+        "new_scope": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/scope",
+          "description": "Явный proposed scope; сравнить с existing, не judge prose."
+        },
+        "new_status": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/claim_status",
+          "description": "Requested terminal status; stages derived from lifecycle."
+        },
+        "proposal_id": {
+          "description": "Immutable ID proposal.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "restore_version": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Точный historical version для rollback; иначе null."
+        }
+      },
+      "required": [
+        "proposal_id",
+        "claim_id",
+        "expected_version",
+        "new_status",
+        "new_interval",
+        "new_scope",
+        "evidence_refs",
+        "restore_version",
+        "basis"
+      ],
+      "type": "object"
+    },
+    "update_event": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "after_claim": {
+                "type": "null"
+              },
+              "rejection_codes": {
+                "minItems": 1
+              },
+              "transition_path": {
+                "maxItems": 0
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "validation_status": {
+                "const": "COMMITTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "after_claim": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim"
+              },
+              "before_claim": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim"
+              },
+              "rejection_codes": {
+                "maxItems": 0
+              },
+              "transition_path": {
+                "minItems": 2
+              }
+            }
+          }
+        }
+      ],
+      "description": "Append-only profile history event; empirical verdict хранится отдельно evaluator.",
+      "properties": {
+        "after_claim": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Snapshot после commit, null у rejected."
+        },
+        "before_claim": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Snapshot перед попыткой; null если rejected UNKNOWN_CLAIM."
+        },
+        "effective_episode": {
+          "description": "Изменение активно для ACTION именно этого episode.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "profile_version_after": {
+          "description": "Unchanged on reject; +1 on atomic commit.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "profile_version_before": {
+          "description": "Snapshot version before attempt.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "proposal": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/proposal",
+          "description": "Исходное proposal без переписывания evaluator."
+        },
+        "rejection_codes": {
+          "description": "Пусто у COMMITTED.",
+          "items": {
+            "enum": [
+              "STALE_VERSION",
+              "UNKNOWN_CLAIM",
+              "FUTURE_EVIDENCE",
+              "NO_LOCAL_EVIDENCE",
+              "SCOPE_VIOLATION",
+              "LIFECYCLE_VIOLATION",
+              "INVALID_INTERVAL",
+              "UNAUTHORIZED_ACTOR"
+            ],
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "sequence": {
+          "description": "Unique order within episode; before ACTION, shared with calls/probes/tools.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "stage_snapshots": {
+          "description": "Exact intermediate claim snapshots; no partial stage becomes externally committed.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim"
+          },
+          "maxItems": 2,
+          "type": "array"
+        },
+        "transition_path": {
+          "description": "Последовательность включая before; 2–3 у COMMITTED, [] у REJECTED.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/claim_status"
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "type": "array"
+        },
+        "validation_status": {
+          "description": "Проверка допустимости/authority, не empirical verification.",
+          "enum": [
+            "COMMITTED",
+            "REJECTED"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "proposal",
+        "validation_status",
+        "rejection_codes",
+        "transition_path",
+        "before_claim",
+        "after_claim",
+        "effective_episode",
+        "sequence",
+        "profile_version_before",
+        "profile_version_after",
+        "stage_snapshots"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Текущий self-profile; для C0/B4 весь объект null.",
+  "properties": {
+    "claims": {
+      "description": "Два capability slots в profile-present trajectory.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "contract_version": {
+      "const": "0.2.1",
+      "description": "Serialization contract revision, distinct from benchmark identity."
+    },
+    "profile_id": {
+      "description": "Opaque self-profile ID.",
+      "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+      "type": "string"
+    },
+    "version": {
+      "description": "Profile snapshot version; +1 на атомарный accepted proposal.",
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "profile_id",
+    "version",
+    "claims",
+    "contract_version"
+  ],
+  "title": "r1_self_profile contract 0.2.1",
+  "type": "object"
+}

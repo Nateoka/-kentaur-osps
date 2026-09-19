@@ -1,0 +1,2517 @@
+{
+  "$defs": {
+    "action": {
+      "enum": [
+        "SOLO",
+        "VERIFY",
+        "DELEGATE",
+        "ABSTAIN"
+      ],
+      "type": "string"
+    },
+    "action_record": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "solo_answer": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "SOLO",
+                  "VERIFY"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "solo_answer": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/answer"
+              }
+            }
+          }
+        }
+      ],
+      "description": "ACTION output, sealed before tools.",
+      "properties": {
+        "action": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/action",
+          "description": "Выбранный реальный action."
+        },
+        "confidence": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/confidence",
+          "description": "Категориальный self-report, не probability."
+        },
+        "solo_answer": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/answer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Обязателен для SOLO/VERIFY; null для DELEGATE/ABSTAIN."
+        }
+      },
+      "required": [
+        "action",
+        "solo_answer",
+        "confidence"
+      ],
+      "type": "object"
+    },
+    "answer": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "description": "Canonical F1 answer.",
+          "properties": {
+            "family": {
+              "const": "SYMBOLIC_PIPELINE",
+              "description": "Тип ответа."
+            },
+            "result": {
+              "description": "Конечный вектор длины n.",
+              "items": {
+                "type": "integer"
+              },
+              "maxItems": 8,
+              "minItems": 2,
+              "type": "array"
+            }
+          },
+          "required": [
+            "family",
+            "result"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Canonical F2 answer.",
+          "properties": {
+            "family": {
+              "const": "RULE_GRID",
+              "description": "Тип ответа."
+            },
+            "result": {
+              "description": "Полное решение grid; exact bijection и полнота по G03.",
+              "items": {
+                "additionalProperties": false,
+                "description": "Одна entity, sorted by entity_id.",
+                "properties": {
+                  "assignments": {
+                    "description": "Все properties, sorted by property_id.",
+                    "items": {
+                      "additionalProperties": false,
+                      "description": "Одна ячейка assignment.",
+                      "properties": {
+                        "property_id": {
+                          "description": "Property ID.",
+                          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                          "type": "string"
+                        },
+                        "value_id": {
+                          "description": "Выбранное значение.",
+                          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "property_id",
+                        "value_id"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 3,
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "entity_id": {
+                    "description": "Entity ID строки.",
+                    "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "entity_id",
+                  "assignments"
+                ],
+                "type": "object"
+              },
+              "maxItems": 5,
+              "minItems": 2,
+              "type": "array"
+            }
+          },
+          "required": [
+            "family",
+            "result"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "architecture": {
+      "enum": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "type": "string"
+    },
+    "atom": {
+      "additionalProperties": false,
+      "description": "Атом равенства RULE_GRID.",
+      "properties": {
+        "entity": {
+          "description": "Entity ID из spec.entities.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "property": {
+          "description": "Property ID из spec.properties.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value ID именно указанного property.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity",
+        "property",
+        "value"
+      ],
+      "type": "object"
+    },
+    "calibration_cell": {
+      "additionalProperties": false,
+      "description": "Evaluator-only calibration distribution; не сущность агента.",
+      "properties": {
+        "architecture": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/architecture",
+          "description": "Калибруемая configuration architecture."
+        },
+        "band": {
+          "description": "Hidden admitted stratum.",
+          "enum": [
+            "HIGH",
+            "MID"
+          ],
+          "type": "string"
+        },
+        "calibration_key": {
+          "description": "Private key architecture/family/difficulty/context scope.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "dataset_hash": {
+          "description": "Hash independent confirmation manifest.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "n": {
+          "description": "Число holdout items, successes≤n.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "scope": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/scope",
+          "description": "Scope измерения."
+        },
+        "successes": {
+          "description": "Empirical holdout solo successes.",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "calibration_key",
+        "architecture",
+        "scope",
+        "band",
+        "successes",
+        "n",
+        "dataset_hash"
+      ],
+      "type": "object"
+    },
+    "capability_configuration": {
+      "additionalProperties": false,
+      "description": "Public capability configuration scope; reference measurement reset mode is separately logged.",
+      "properties": {
+        "architecture_policy_id": {
+          "description": "Versioned public actor policy interface; no hidden treatment label.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "configuration_id": {
+          "description": "Opaque public configuration identity, never a condition code.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "execution_modes": {
+          "description": "Declared permitted execution modes; narrowing is set inclusion.",
+          "items": {
+            "enum": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED",
+              "NO_PREP_INTERFACE"
+            ],
+            "type": "string"
+          },
+          "maxItems": 3,
+          "type": "array"
+        },
+        "history_policy": {
+          "const": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "description": "Same history access; content is recorded per episode, not assumed constant."
+        },
+        "prep_policy": {
+          "description": "R1-PREP-01: B1/B2 exactly one; B3 controller only normal skip; B0/B4 none.",
+          "enum": [
+            "NONE",
+            "EXACTLY_ONE",
+            "AT_MOST_ONE_WITH_CONTROLLER"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "architecture_policy_id",
+        "history_policy",
+        "prep_policy",
+        "execution_modes"
+      ],
+      "type": "object"
+    },
+    "claim_status": {
+      "enum": [
+        "ACTIVE",
+        "QUESTIONED",
+        "REVISED",
+        "NARROWED",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "UNSPECIFIED"
+      ],
+      "type": "string"
+    },
+    "constraint": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "description": "Логическая формула G03.",
+          "properties": {
+            "atom": {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/atom",
+              "description": "Проверяемый atom."
+            },
+            "kind": {
+              "const": "EQ",
+              "description": "Тип логического constraint."
+            }
+          },
+          "required": [
+            "kind",
+            "atom"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Логическая формула G03.",
+          "properties": {
+            "atom": {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/atom",
+              "description": "Проверяемый atom."
+            },
+            "kind": {
+              "const": "NEQ",
+              "description": "Тип логического constraint."
+            }
+          },
+          "required": [
+            "kind",
+            "atom"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Логическая формула G03.",
+          "properties": {
+            "kind": {
+              "const": "IMPLIES",
+              "description": "Тип логического constraint."
+            },
+            "left": {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/atom",
+              "description": "Левый atom."
+            },
+            "right": {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/atom",
+              "description": "Правый atom."
+            }
+          },
+          "required": [
+            "kind",
+            "left",
+            "right"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Логическая формула G03.",
+          "properties": {
+            "kind": {
+              "const": "XOR",
+              "description": "Тип логического constraint."
+            },
+            "left": {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/atom",
+              "description": "Левый atom."
+            },
+            "right": {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/atom",
+              "description": "Правый atom."
+            }
+          },
+          "required": [
+            "kind",
+            "left",
+            "right"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "evidence_index_entry": {
+      "additionalProperties": false,
+      "description": "Addressable public feedback retained beyond recent window.",
+      "properties": {
+        "episode_id": {
+          "description": "Past observable episode ref.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "feedback": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/feedback",
+          "description": "No correct answer or private metadata."
+        }
+      },
+      "required": [
+        "episode_id",
+        "feedback"
+      ],
+      "type": "object"
+    },
+    "execution_context": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "prep_skip_reason": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "execution_mode": {
+                "const": "PREP_SKIPPED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "prep_call_count": {
+                "const": 0
+              },
+              "prep_skip_reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "execution_mode": {
+                "const": "PREP_EXECUTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "prep_call_count": {
+                "const": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "execution_mode": {
+                "const": "NO_PREP_INTERFACE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "prep_call_count": {
+                "const": 0
+              }
+            }
+          }
+        }
+      ],
+      "description": "Public operational mode provenance; p_operational(t) is not measured by this record.",
+      "properties": {
+        "capability_configuration_ref": {
+          "description": "Addressed configuration from the current claim/policy.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "execution_mode": {
+          "description": "Actual PREP occurrence, not its ceiling.",
+          "enum": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED",
+            "NO_PREP_INTERFACE"
+          ],
+          "type": "string"
+        },
+        "history_class": {
+          "description": "Coarse comparability class; equal class does not establish stationary capability.",
+          "enum": [
+            "EMPTY",
+            "NONEMPTY"
+          ],
+          "type": "string"
+        },
+        "history_policy_id": {
+          "const": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "description": "Pinned common observability policy."
+        },
+        "prep_call_count": {
+          "description": "Accepted primary PREP calls; repair attempts remain separately logged. Skipped=0, executed=1.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "prep_record_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Actual prep record hash or null when absent."
+        },
+        "prep_skip_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "B3_STOP_CONTROLLER",
+                "PROTOCOL_FAILURE",
+                "INFRA_FAILURE",
+                "EXPLICIT_NONEXECUTION"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Required non-null for PREP_SKIPPED; null for PREP_EXECUTED/NO_PREP_INTERFACE. Abnormal nonexecution remains ITT, not architecture savings."
+        },
+        "public_state_sha256": {
+          "description": "Exact ACTION-visible state hash before answer; no hidden fields.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "capability_configuration_ref",
+        "execution_mode",
+        "history_class",
+        "public_state_sha256",
+        "prep_record_sha256",
+        "history_policy_id",
+        "prep_skip_reason",
+        "prep_call_count"
+      ],
+      "type": "object"
+    },
+    "family": {
+      "enum": [
+        "SYMBOLIC_PIPELINE",
+        "RULE_GRID"
+      ],
+      "type": "string"
+    },
+    "grid_spec": {
+      "additionalProperties": false,
+      "description": "F2 spec; schema допускает intentional ambiguous fixtures, не легализуя их для primary run.",
+      "properties": {
+        "constraints": {
+          "description": "Конъюнкция ограничений; уникальность решения проверяет solver.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/constraint"
+          },
+          "maxItems": 60,
+          "minItems": 0,
+          "type": "array"
+        },
+        "entities": {
+          "description": "Уникальные entity IDs.",
+          "items": {
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "family": {
+          "const": "RULE_GRID",
+          "description": "Discriminator DSL."
+        },
+        "properties": {
+          "description": "Properties с уникальными IDs.",
+          "items": {
+            "additionalProperties": false,
+            "description": "Одна bijective property.",
+            "properties": {
+              "property_id": {
+                "description": "Уникальный property ID.",
+                "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                "type": "string"
+              },
+              "values": {
+                "description": "Values; число равно числу entities по G03.",
+                "items": {
+                  "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                  "type": "string"
+                },
+                "maxItems": 5,
+                "minItems": 2,
+                "type": "array",
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "property_id",
+              "values"
+            ],
+            "type": "object"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "family",
+        "entities",
+        "properties",
+        "constraints"
+      ],
+      "type": "object"
+    },
+    "history_anchor": {
+      "additionalProperties": false,
+      "description": "Derived snapshot, not a new canonical self-model object.",
+      "properties": {
+        "claim": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/claim",
+          "description": "Exact old public snapshot; not evaluator interpretation."
+        },
+        "claim_id": {
+          "description": "Existing slot.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Why this bounded anchor is present.",
+          "enum": [
+            "LAST_NUMERIC",
+            "SCOPE_PARENT",
+            "RESTORE_REQUEST"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "description": "Historical committed claim version.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "claim_id",
+        "version",
+        "claim",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "interval": {
+      "additionalProperties": false,
+      "description": "Ordered probability interval; comparison is a semantic invariant.",
+      "properties": {
+        "lower": {
+          "description": "Нижняя граница probability claim, не confidence interval.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "upper": {
+          "description": "Верхняя граница; I04 дополнительно требует lower≤upper.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper"
+      ],
+      "type": "object"
+    },
+    "latch_event": {
+      "additionalProperties": false,
+      "description": "Controller transition record.",
+      "properties": {
+        "latched": {
+          "description": "New latch state.",
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "Observable controller trigger, not evaluator E or proof of internal self-regulation.",
+          "enum": [
+            "STOP_DECLARED",
+            "NEW_SCOPE",
+            "CONTEXT_CHANGED",
+            "TOOL_AVAILABILITY_CHANGED",
+            "SURPRISE",
+            "NEW_EVIDENCE",
+            "PROBE_RETURNED",
+            "PROBE_EXPIRED",
+            "PROBE_CANCELLED"
+          ],
+          "type": "string"
+        },
+        "scope_id": {
+          "description": "Use public task scope also in C0; never a numeric fake claim.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "sequence": {
+          "description": "Shared event sequence.",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scope_id",
+        "sequence",
+        "latched",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "locus": {
+      "enum": [
+        "SELF_CAPABILITY",
+        "TASK_VARIATION",
+        "CONTEXT",
+        "TOOL",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "operation": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "description": "Одна типизированная операция F1; индексы дополнительно проверяются относительно n.",
+          "properties": {
+            "index": {
+              "description": "Изменяемая координата, zero-based.",
+              "maximum": 7,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "op": {
+              "const": "ADD",
+              "description": "Операция F1."
+            },
+            "value": {
+              "description": "Ненулевое слагаемое.",
+              "maximum": 9,
+              "minimum": -9,
+              "not": {
+                "const": 0
+              },
+              "type": "integer"
+            }
+          },
+          "required": [
+            "op",
+            "index",
+            "value"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Одна типизированная операция F1; индексы дополнительно проверяются относительно n.",
+          "properties": {
+            "index": {
+              "description": "Изменяемая координата.",
+              "maximum": 7,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "op": {
+              "const": "MULTIPLY",
+              "description": "Операция F1."
+            },
+            "value": {
+              "description": "Множитель, исключены 0 и 1.",
+              "enum": [
+                -3,
+                -2,
+                -1,
+                2,
+                3
+              ],
+              "type": "integer"
+            }
+          },
+          "required": [
+            "op",
+            "index",
+            "value"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Одна типизированная операция F1; индексы дополнительно проверяются относительно n.",
+          "properties": {
+            "left": {
+              "description": "Первая координата.",
+              "maximum": 7,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "op": {
+              "const": "SWAP",
+              "description": "Операция F1."
+            },
+            "right": {
+              "description": "Вторая координата; distinct от left по G02.",
+              "maximum": 7,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "op",
+            "left",
+            "right"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Одна типизированная операция F1; индексы дополнительно проверяются относительно n.",
+          "properties": {
+            "op": {
+              "const": "ROTATE",
+              "description": "Операция F1."
+            },
+            "steps": {
+              "description": "Right shift; абсолютное значение меньше n по G02.",
+              "maximum": 7,
+              "minimum": -7,
+              "not": {
+                "const": 0
+              },
+              "type": "integer"
+            }
+          },
+          "required": [
+            "op",
+            "steps"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "Одна типизированная операция F1; индексы дополнительно проверяются относительно n.",
+          "properties": {
+            "index": {
+              "description": "Изменяемая координата.",
+              "maximum": 7,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "modulus": {
+              "description": "Положительный modulus, результат Euclidean remainder.",
+              "maximum": 11,
+              "minimum": 2,
+              "type": "integer"
+            },
+            "op": {
+              "const": "MOD",
+              "description": "Операция F1."
+            }
+          },
+          "required": [
+            "op",
+            "index",
+            "modulus"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "phase": {
+      "enum": [
+        "INITIAL_EXPOSURE",
+        "EVIDENCE_ACCUMULATION",
+        "ADAPTATION",
+        "TRANSFER",
+        "SMOKE_MAIN",
+        "SMOKE_TRANSFER"
+      ],
+      "type": "string"
+    },
+    "probe_prediction": {
+      "additionalProperties": false,
+      "description": "Prospective decision interface; не chain-of-thought.",
+      "properties": {
+        "if_not_observed": {
+          "description": "Судьба гипотезы при несовпадении, не автоматический profile commit.",
+          "enum": [
+            "QUESTION_THIS_LOCUS",
+            "KEEP_UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "locus": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/locus",
+          "description": "Одна из заранее заявленных альтернатив."
+        },
+        "observable_pattern": {
+          "description": "Предсказанное публичное различие; это не hidden mechanism.",
+          "enum": [
+            "SOLO_SUCCESS",
+            "SOLO_FAILURE",
+            "MATCHED_OUTCOMES_AGREE",
+            "MATCHED_OUTCOMES_DIFFER",
+            "UNSPECIFIED"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "locus",
+        "observable_pattern",
+        "if_not_observed"
+      ],
+      "type": "object"
+    },
+    "probe_type": {
+      "enum": [
+        "NONE",
+        "VERIFY_CURRENT",
+        "SOLO_CURRENT",
+        "VERIFY_NEXT_MATCHED"
+      ],
+      "type": "string"
+    },
+    "profile_condition": {
+      "enum": [
+        "C0",
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "type": "string"
+    },
+    "runtime_identity": {
+      "additionalProperties": false,
+      "description": "Missing runtime identities in 0.1; private configuration only.",
+      "properties": {
+        "canonicalizer": {
+          "additionalProperties": false,
+          "description": "Pinned canonicalizer implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "grid_tool": {
+          "additionalProperties": false,
+          "description": "Pinned grid_tool implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "output_schema_bundle": {
+          "additionalProperties": false,
+          "description": "Pinned output_schema_bundle implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "parser": {
+          "additionalProperties": false,
+          "description": "Pinned parser implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "prompt_bundle": {
+          "additionalProperties": false,
+          "description": "Pinned prompt_bundle implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "provider_adapter": {
+          "additionalProperties": false,
+          "description": "Pinned provider_adapter implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "symbolic_tool": {
+          "additionalProperties": false,
+          "description": "Pinned symbolic_tool implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "tokenizer": {
+          "additionalProperties": false,
+          "description": "Pinned tokenizer implementation/content.",
+          "properties": {
+            "identity": {
+              "description": "Versioned component identity; TEMPLATE may use CONFIGURE.",
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            "sha256": {
+              "description": "Actual component bytes hash. FROZEN rejects placeholders/zero hashes and requires content resolution.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "sha256"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "provider_adapter",
+        "tokenizer",
+        "parser",
+        "canonicalizer",
+        "prompt_bundle",
+        "output_schema_bundle",
+        "symbolic_tool",
+        "grid_tool"
+      ],
+      "type": "object"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "description": "Явная область claim; subset и restore проверяются по I01–I07.",
+      "properties": {
+        "capability_configuration_ref": {
+          "description": "Addressed policy configuration; not a universal capability statement.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "context_condition": {
+          "description": "Непустое множество применимых public context IDs.",
+          "items": {
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "difficulty_scope": {
+          "description": "Допустимые difficulty IDs из sealed configuration.",
+          "items": {
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "execution_modes": {
+          "description": "Nonempty permitted modes; operation NARROWED may only remove modes.",
+          "items": {
+            "enum": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED",
+              "NO_PREP_INTERFACE"
+            ],
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "scope_id": {
+          "description": "Непрозрачный идентификатор области; не HIGH/MID label.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "task_family": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/family",
+          "description": "Семейство capability, не evaluator target role."
+        },
+        "tool_condition": {
+          "const": "SOLO_NO_TOOL",
+          "description": "Capability относится к самостоятельному решению без инструмента."
+        }
+      },
+      "required": [
+        "scope_id",
+        "task_family",
+        "difficulty_scope",
+        "context_condition",
+        "tool_condition",
+        "capability_configuration_ref",
+        "execution_modes"
+      ],
+      "type": "object"
+    },
+    "split": {
+      "enum": [
+        "CALIBRATION_SEARCH",
+        "CALIBRATION_CONFIRM",
+        "MAIN",
+        "TRANSFER"
+      ],
+      "type": "string"
+    },
+    "symbolic_spec": {
+      "additionalProperties": false,
+      "description": "F1 spec без answer/seed/calibration metadata.",
+      "properties": {
+        "family": {
+          "const": "SYMBOLIC_PIPELINE",
+          "description": "Discriminator DSL."
+        },
+        "initial": {
+          "description": "Начальный вектор.",
+          "items": {
+            "maximum": 20,
+            "minimum": -20,
+            "type": "integer"
+          },
+          "maxItems": 8,
+          "minItems": 2,
+          "type": "array"
+        },
+        "operations": {
+          "description": "Упорядоченная программа.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/operation"
+          },
+          "maxItems": 40,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "family",
+        "initial",
+        "operations"
+      ],
+      "type": "object"
+    },
+    "task_spec": {
+      "oneOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/symbolic_spec"
+        },
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/grid_spec"
+        }
+      ]
+    },
+    "task_view": {
+      "additionalProperties": false,
+      "description": "Единственное agent-facing представление задачи.",
+      "properties": {
+        "context_condition": {
+          "description": "Видимое условие контекста.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "difficulty_scope": {
+          "description": "ID текущего difficulty tuple.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "scope_id": {
+          "description": "Видимый scope ID для локального claim.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "spec": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/task_spec",
+          "description": "Полный DSL, без ground truth."
+        },
+        "surface_text": {
+          "description": "Answer-free deterministic rendering текущего DSL.",
+          "maxLength": 16000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "task_family": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/family",
+          "description": "Видимое family."
+        },
+        "task_id": {
+          "description": "Opaque ID, без split/condition/band.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "task_id",
+        "task_family",
+        "scope_id",
+        "difficulty_scope",
+        "context_condition",
+        "spec",
+        "surface_text"
+      ],
+      "type": "object"
+    },
+    "tracker_state": {
+      "additionalProperties": false,
+      "description": "B4 state; не evaluator posterior и не historical self-profile.",
+      "properties": {
+        "alpha": {
+          "description": "1+successes; numeric equality по I21.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "beta": {
+          "description": "1+failures; numeric equality по I21.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "capability_configuration_ref": {
+          "description": "Public operational partition: capability_configuration_ref. Counts are never pooled silently across keys.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "context_condition": {
+          "description": "Exact public partition field; no family-only pooling.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "difficulty_scope": {
+          "description": "Exact public partition field; no family-only pooling.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "execution_mode": {
+          "description": "Public operational partition: execution_mode. Counts are never pooled silently across keys.",
+          "enum": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED",
+            "NO_PREP_INTERFACE"
+          ],
+          "type": "string"
+        },
+        "failures": {
+          "description": "Число unique informative failure.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "history_class": {
+          "description": "Public operational partition: history_class. Counts are never pooled silently across keys.",
+          "enum": [
+            "EMPTY",
+            "NONEMPTY"
+          ],
+          "type": "string"
+        },
+        "opportunities": {
+          "description": "Все opportunities scope, включая DELEGATE.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "scope_id": {
+          "description": "Observable tracked scope.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "successes": {
+          "description": "Число уникальных informative success.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tool_condition": {
+          "const": "SOLO_NO_TOOL",
+          "description": "Exact public partition field; no family-only pooling."
+        }
+      },
+      "required": [
+        "scope_id",
+        "successes",
+        "failures",
+        "opportunities",
+        "alpha",
+        "beta",
+        "capability_configuration_ref",
+        "execution_mode",
+        "history_class",
+        "difficulty_scope",
+        "context_condition",
+        "tool_condition"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "planned_run": {
+            "const": "SMOKE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "main_episodes": {
+            "const": 8
+          },
+          "trajectories_per_cell": {
+            "const": 2
+          },
+          "transfer_episodes": {
+            "const": 4
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "planned_run": {
+            "const": "PILOT"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "main_episodes": {
+            "const": 24
+          },
+          "trajectories_per_cell": {
+            "const": 8
+          },
+          "transfer_episodes": {
+            "const": 8
+          }
+        }
+      }
+    }
+  ],
+  "description": "Private R1 experiment config.",
+  "properties": {
+    "analysis_windows": {
+      "additionalProperties": false,
+      "description": "Анализ не подбирается после observed result.",
+      "properties": {
+        "interval_mass": {
+          "description": "ENGINEERING DEFAULT .95 bootstrap/calibration uncertainty interval.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "min_each_side": {
+          "description": "ENGINEERING DEFAULT 2, не больше заданных окон.",
+          "maximum": 12,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "min_paired_trajectories": {
+          "description": "ENGINEERING DEFAULT 6 для primary classification.",
+          "maximum": 8,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "post_update_opportunities": {
+          "description": "ENGINEERING DEFAULT 4.",
+          "maximum": 12,
+          "minimum": 2,
+          "type": "integer"
+        },
+        "pre_update_opportunities": {
+          "description": "ENGINEERING DEFAULT 4.",
+          "maximum": 12,
+          "minimum": 2,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "pre_update_opportunities",
+        "post_update_opportunities",
+        "min_each_side",
+        "min_paired_trajectories",
+        "interval_mass"
+      ],
+      "type": "object"
+    },
+    "architectures": {
+      "const": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+      ],
+      "description": "Фиксированная ordered матрица."
+    },
+    "b4_policy_version": {
+      "const": "STRONG_TRACKER_POLICY_0.2",
+      "description": "R1-B4-01 intentionally retains strengthened0.2 simple baseline; freeze parameters before run."
+    },
+    "benchmark_version": {
+      "const": "0.1",
+      "description": "Matrix/family R1 0.1 identity, distinct from contract 0.2.1."
+    },
+    "budgets": {
+      "additionalProperties": false,
+      "description": "Budget fairness settings.",
+      "properties": {
+        "action_output_tokens": {
+          "description": "ENGINEERING DEFAULT 1024.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_input_tokens": {
+          "description": "ENGINEERING DEFAULT 16384, overflow fails config.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_prep_calls": {
+          "const": 1,
+          "description": "Нет неограниченного reflexive loop."
+        },
+        "max_repairs_per_episode": {
+          "const": 1,
+          "description": "Общий лимит на episode, не по каждому call."
+        },
+        "max_tools_per_episode": {
+          "const": 1,
+          "description": "Нельзя покупать дополнительные evidence items."
+        },
+        "prep_output_tokens": {
+          "description": "ENGINEERING DEFAULT 1024 for B1/B2/B3.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "repair_output_tokens": {
+          "description": "ENGINEERING DEFAULT 512.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "prep_output_tokens",
+        "action_output_tokens",
+        "repair_output_tokens",
+        "max_input_tokens",
+        "max_repairs_per_episode",
+        "max_tools_per_episode",
+        "max_prep_calls"
+      ],
+      "type": "object"
+    },
+    "calibration_bands": {
+      "additionalProperties": false,
+      "description": "Configurable target bands; common difficulty gate обязателен.",
+      "properties": {
+        "HIGH": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval",
+          "description": "ENGINEERING DEFAULT [.80,.95]."
+        },
+        "MID": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval",
+          "description": "ENGINEERING DEFAULT [.55,.70]."
+        }
+      },
+      "required": [
+        "HIGH",
+        "MID"
+      ],
+      "type": "object"
+    },
+    "calibration_plan": {
+      "additionalProperties": false,
+      "description": "Calibration preflight plan.",
+      "properties": {
+        "confirm_n": {
+          "description": "ENGINEERING DEFAULT 200 independent holdout.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "difficulty_contract_version": {
+          "const": "G02_G03_0.2.1",
+          "description": "Versioned canonicalization contract."
+        },
+        "max_interval_width": {
+          "description": "ENGINEERING DEFAULT 0.16 at 95%.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "search_n": {
+          "description": "ENGINEERING DEFAULT 40 per candidate.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "search_n",
+        "confirm_n",
+        "max_interval_width",
+        "difficulty_contract_version"
+      ],
+      "type": "object"
+    },
+    "capability_configurations": {
+      "additionalProperties": false,
+      "description": "Configurations addressed by claims, R1-CAPABILITY-01.",
+      "properties": {
+        "B0": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/capability_configuration",
+          "allOf": [
+            {
+              "properties": {
+                "execution_modes": {
+                  "const": [
+                    "NO_PREP_INTERFACE"
+                  ]
+                },
+                "prep_policy": {
+                  "const": "NONE"
+                }
+              }
+            }
+          ],
+          "description": "Public configuration for B0"
+        },
+        "B1": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/capability_configuration",
+          "allOf": [
+            {
+              "properties": {
+                "execution_modes": {
+                  "const": [
+                    "PREP_EXECUTED"
+                  ]
+                },
+                "prep_policy": {
+                  "const": "EXACTLY_ONE"
+                }
+              }
+            }
+          ],
+          "description": "Public configuration for B1"
+        },
+        "B2": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/capability_configuration",
+          "allOf": [
+            {
+              "properties": {
+                "execution_modes": {
+                  "const": [
+                    "PREP_EXECUTED"
+                  ]
+                },
+                "prep_policy": {
+                  "const": "EXACTLY_ONE"
+                }
+              }
+            }
+          ],
+          "description": "Public configuration for B2"
+        },
+        "B3": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/capability_configuration",
+          "allOf": [
+            {
+              "properties": {
+                "execution_modes": {
+                  "const": [
+                    "PREP_EXECUTED",
+                    "PREP_SKIPPED"
+                  ]
+                },
+                "prep_policy": {
+                  "const": "AT_MOST_ONE_WITH_CONTROLLER"
+                }
+              }
+            }
+          ],
+          "description": "Public configuration for B3"
+        },
+        "B4": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/capability_configuration",
+          "allOf": [
+            {
+              "properties": {
+                "execution_modes": {
+                  "const": [
+                    "NO_PREP_INTERFACE"
+                  ]
+                },
+                "prep_policy": {
+                  "const": "NONE"
+                }
+              }
+            }
+          ],
+          "description": "Public configuration for B4"
+        }
+      },
+      "required": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+      ],
+      "type": "object"
+    },
+    "compute_settings": {
+      "additionalProperties": false,
+      "description": "Compute settings included in freeze.",
+      "properties": {
+        "prep_interface": {
+          "const": "PREP_THEN_ACTION_BUNDLE",
+          "description": "Explicit baseline variant, not draft-then-critic equivalence."
+        },
+        "reasoning_budget": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Configured limit when observable; null is not zero."
+        },
+        "reasoning_mode": {
+          "description": "Provider setting or explicit UNAVAILABLE.",
+          "maxLength": 20000,
+          "type": "string"
+        },
+        "usage_accounting": {
+          "description": "Avoid double counting provider token categories.",
+          "enum": [
+            "OUTPUT_INCLUDES_REASONING",
+            "OUTPUT_EXCLUDES_REASONING",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "reasoning_mode",
+        "reasoning_budget",
+        "usage_accounting",
+        "prep_interface"
+      ],
+      "type": "object"
+    },
+    "configuration_status": {
+      "description": "TEMPLATE не допускает model execution.",
+      "enum": [
+        "TEMPLATE",
+        "FROZEN"
+      ],
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "0.2.1",
+      "description": "Data contract/package revision; benchmark matrix identity stays 0.1."
+    },
+    "cost_currency": {
+      "description": "Одна валюта resource ledger; default UNSPECIFIED требует monetary_cost=null.",
+      "enum": [
+        "USD",
+        "EUR",
+        "RUB",
+        "UNSPECIFIED"
+      ],
+      "type": "string"
+    },
+    "design_decisions": {
+      "additionalProperties": false,
+      "description": "Author-scoped decisions.",
+      "properties": {
+        "capability_estimand": {
+          "description": "R1-CAPABILITY-01 accepted author decision; p_reference is not ground truth of p_operational(t).",
+          "enum": [
+            "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED"
+          ],
+          "type": "string"
+        },
+        "probe_claim": {
+          "const": "BOUNDED_EVIDENCE_PROBE",
+          "description": "R1-PROBE-01 accepted: OD-02 closed; labels cannot establish causal discrimination."
+        }
+      },
+      "required": [
+        "capability_estimand",
+        "probe_claim"
+      ],
+      "type": "object"
+    },
+    "evaluation_policy": {
+      "additionalProperties": false,
+      "description": "Predeclared evaluation policy.",
+      "properties": {
+        "c1_accuracy_loss_margin": {
+          "description": "Default 0.05 per scope.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "equivalence_margin": {
+          "description": "Default 0.05 absolute rate difference; CI must fit entirely.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_reach_difference": {
+          "description": "Default 0.25; differences remain reported.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_gain": {
+          "description": "Default 0.05 primary point advantage.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_reach": {
+          "description": "Default 0.50; conditional comparison eligibility only.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "resource_ratio_margin": {
+          "description": "Default 0.20 each measured resource; no scalar utility.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "target_accuracy_loss_margin": {
+          "description": "Default 0.02 absolute loss in C2/C3; evaluation policy, not universal Uместность.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "equivalence_margin",
+        "target_accuracy_loss_margin",
+        "c1_accuracy_loss_margin",
+        "resource_ratio_margin",
+        "minimum_reach",
+        "maximum_reach_difference",
+        "minimum_gain"
+      ],
+      "type": "object"
+    },
+    "evaluator": {
+      "additionalProperties": false,
+      "description": "Evaluator-only settings.",
+      "properties": {
+        "behavioral_margin": {
+          "description": "ENGINEERING DEFAULT δ=0.05.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "bootstrap_draws": {
+          "description": "ENGINEERING DEFAULT 10000 trajectory-block samples.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "grace_target_opportunities": {
+          "description": "ENGINEERING DEFAULT 2.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "min_informative": {
+          "description": "ENGINEERING DEFAULT 4, hidden от агента.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "prior_alpha": {
+          "description": "ENGINEERING DEFAULT 1.",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "prior_beta": {
+          "description": "ENGINEERING DEFAULT 1.",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "resource_margin": {
+          "description": "ENGINEERING DEFAULT 0.20 относительного роста.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "wrong_band_probability": {
+          "description": "ENGINEERING DEFAULT 0.90 strict greater-than.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "min_informative",
+        "wrong_band_probability",
+        "prior_alpha",
+        "prior_beta",
+        "behavioral_margin",
+        "resource_margin",
+        "grace_target_opportunities",
+        "bootstrap_draws"
+      ],
+      "type": "object"
+    },
+    "generator_options": {
+      "additionalProperties": false,
+      "description": "Generator design settings; no generated tasks.",
+      "properties": {
+        "constraint_weights": {
+          "additionalProperties": false,
+          "description": "F2 weights; parameter sampling remains G03.",
+          "properties": {
+            "EQ": {
+              "description": "Positive integer generation weight.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "IMPLIES": {
+              "description": "Positive integer generation weight.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "NEQ": {
+              "description": "Positive integer generation weight.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "XOR": {
+              "description": "Positive integer generation weight.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "EQ",
+            "NEQ",
+            "IMPLIES",
+            "XOR"
+          ],
+          "type": "object"
+        },
+        "grid_properties": {
+          "description": "ENGINEERING DEFAULT [1,2,3].",
+          "items": {
+            "maximum": 3,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "grid_sizes": {
+          "description": "ENGINEERING DEFAULT [3,4,5].",
+          "items": {
+            "maximum": 5,
+            "minimum": 2,
+            "type": "integer"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "max_abs_intermediate": {
+          "description": "ENGINEERING DEFAULT 1000000; no overflow wrap.",
+          "maximum": 1000000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_attempts": {
+          "description": "ENGINEERING DEFAULT 1000 per item.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_clue_factor": {
+          "description": "Default4: maximum n*k*factor, also schema cap60.",
+          "maximum": 4,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_grid_assignments": {
+          "description": "ENGINEERING DEFAULT 2000000.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "min_clue_factor": {
+          "description": "Default1: minimum n * factor.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "operation_weights": {
+          "additionalProperties": false,
+          "description": "Positive operation weights.",
+          "properties": {
+            "ADD": {
+              "description": "Positive integer generation weight; default1.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "MOD": {
+              "description": "Positive integer generation weight; default1.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "MULTIPLY": {
+              "description": "Positive integer generation weight; default1.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "ROTATE": {
+              "description": "Positive integer generation weight; default1.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "SWAP": {
+              "description": "Positive integer generation weight; default1.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ADD",
+            "MULTIPLY",
+            "SWAP",
+            "ROTATE",
+            "MOD"
+          ],
+          "type": "object"
+        },
+        "symbolic_lengths": {
+          "description": "ENGINEERING DEFAULT [4,8,12,20,32].",
+          "items": {
+            "maximum": 40,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "maxItems": 40,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "symbolic_sizes": {
+          "description": "ENGINEERING DEFAULT [3,4,6].",
+          "items": {
+            "maximum": 8,
+            "minimum": 2,
+            "type": "integer"
+          },
+          "maxItems": 7,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "max_attempts",
+        "symbolic_sizes",
+        "symbolic_lengths",
+        "operation_weights",
+        "max_abs_intermediate",
+        "grid_sizes",
+        "grid_properties",
+        "max_grid_assignments",
+        "constraint_weights",
+        "min_clue_factor",
+        "max_clue_factor"
+      ],
+      "type": "object"
+    },
+    "history_window": {
+      "description": "ENGINEERING DEFAULT 10, одинаковый всем architectures.",
+      "maximum": 32,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "main_episodes": {
+      "description": "8 SMOKE, 24 PILOT.",
+      "maximum": 24,
+      "minimum": 8,
+      "type": "integer"
+    },
+    "master_seed": {
+      "description": "Private master seed manifest generation.",
+      "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+      "type": "string"
+    },
+    "model_configuration": {
+      "additionalProperties": false,
+      "description": "Config, не agent-facing state.",
+      "properties": {
+        "action_prompt_sha256": {
+          "description": "Хеш общего solver/action instruction.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "architecture_prompt_sha256": {
+          "additionalProperties": false,
+          "description": "Архитектурные prompts.",
+          "properties": {
+            "B0": {
+              "description": "Хеш зафиксированного prompt B0.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "B1": {
+              "description": "Хеш зафиксированного prompt B1.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "B2": {
+              "description": "Хеш зафиксированного prompt B2.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "B3": {
+              "description": "Хеш зафиксированного prompt B3.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "B4": {
+              "description": "Хеш зафиксированного prompt B4.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4"
+          ],
+          "type": "object"
+        },
+        "context_policy": {
+          "const": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "description": "Только явно переданное состояние."
+        },
+        "model_id": {
+          "description": "Реальный model ID перед freeze; TEMPLATE допускает CONFIGURE_BEFORE_RUN.",
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "model_revision": {
+          "description": "Immutable provider revision; отсутствие фиксируется до запуска.",
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "sampling_seed_supported": {
+          "description": "Возможность задать model seed; не обещает детерминизма сервиса.",
+          "type": "boolean"
+        },
+        "system_prompt_sha256": {
+          "description": "Хеш общего system prompt.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "temperature": {
+          "description": "Одинаковый sampling parameter всех сопоставимых calls.",
+          "maximum": 2,
+          "minimum": 0,
+          "type": "number"
+        },
+        "tool_configuration": {
+          "const": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "description": "Ровно два tools G02/G03, по текущей family."
+        },
+        "top_p": {
+          "description": "Одинаковый top_p; runtime проверяет совместимость provider.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "model_id",
+        "model_revision",
+        "system_prompt_sha256",
+        "architecture_prompt_sha256",
+        "action_prompt_sha256",
+        "context_policy",
+        "tool_configuration",
+        "temperature",
+        "top_p",
+        "sampling_seed_supported"
+      ],
+      "type": "object"
+    },
+    "ordering_policy": {
+      "const": "STRICT_ALTERNATION_COUNTERBALANCED",
+      "description": "Versioned engineering default; change requires new protocol identity."
+    },
+    "planned_run": {
+      "description": "Фиксированная матрица 0.1; B5/C4 не входят.",
+      "enum": [
+        "SMOKE",
+        "PILOT"
+      ],
+      "type": "string"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "description": "Configurable policy defaults.",
+      "properties": {
+        "probe_expiry_episodes": {
+          "description": "ENGINEERING DEFAULT 4.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "restart_high_midpoint": {
+          "description": "ENGINEERING DEFAULT 0.80; public restart.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "restart_low_midpoint": {
+          "description": "ENGINEERING DEFAULT 0.40; public restart, не E criterion.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "restart_new_observations": {
+          "description": "ENGINEERING DEFAULT 2.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "solo_threshold": {
+          "description": "ENGINEERING DEFAULT τ=0.80.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "tool_cost_units": {
+          "description": "ENGINEERING DEFAULT 1 за VERIFY/DELEGATE tool.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "tracker_min_informative": {
+          "description": "ENGINEERING DEFAULT 4 before confident delegation.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "tracker_prior_alpha": {
+          "description": "ENGINEERING DEFAULT 1.",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "tracker_prior_beta": {
+          "description": "ENGINEERING DEFAULT 1.",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "tracker_refresh": {
+          "description": "ENGINEERING DEFAULT каждая третья opportunity.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "tracker_uncertain_mass_high": {
+          "description": "ENGINEERING DEFAULT .90.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "tracker_uncertain_mass_low": {
+          "description": "ENGINEERING DEFAULT .10.",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "solo_threshold",
+        "tool_cost_units",
+        "tracker_prior_alpha",
+        "tracker_prior_beta",
+        "tracker_refresh",
+        "tracker_min_informative",
+        "tracker_uncertain_mass_low",
+        "tracker_uncertain_mass_high",
+        "probe_expiry_episodes",
+        "restart_new_observations",
+        "restart_low_midpoint",
+        "restart_high_midpoint"
+      ],
+      "type": "object"
+    },
+    "profile_conditions": {
+      "const": [
+        "C0",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "description": "Фиксированные условия пилота."
+    },
+    "profile_stimulus": {
+      "additionalProperties": false,
+      "description": "Никогда не отправлять config вместе с profile.",
+      "properties": {
+        "evidence_label": {
+          "const": "HISTORICAL_ESTIMATE",
+          "description": "Одинаковый label C1/C2/C3, не признак ложности."
+        },
+        "evidence_n": {
+          "description": "ENGINEERING DEFAULT 20, одинаковый видимый stimulus.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "false_high_interval": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval",
+          "description": "ENGINEERING DEFAULT [.80,.95] for C3."
+        },
+        "false_low_interval": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval",
+          "description": "ENGINEERING DEFAULT [.25,.40] for C2."
+        }
+      },
+      "required": [
+        "false_low_interval",
+        "false_high_interval",
+        "evidence_n",
+        "evidence_label"
+      ],
+      "type": "object"
+    },
+    "protocol_revision": {
+      "const": "R1_0.1_DESIGN_PATCH_0.2.1",
+      "description": "Changed controller/evaluation protocol; not comparable under the old protocol hash."
+    },
+    "runtime_identity": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/runtime_identity",
+      "description": "Pinned runtime identity; TEMPLATE is not executable."
+    },
+    "selected_difficulty_tuples": {
+      "description": "Empty for TEMPLATE; FROZEN requires exactly four resolved tuples and independent calibration gate later.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Selected tuple identity.",
+        "properties": {
+          "band": {
+            "description": "Private reference band.",
+            "enum": [
+              "HIGH",
+              "MID"
+            ],
+            "type": "string"
+          },
+          "family": {
+            "description": "Family.",
+            "enum": [
+              "SYMBOLIC_PIPELINE",
+              "RULE_GRID"
+            ],
+            "type": "string"
+          },
+          "scope_id": {
+            "description": "Opaque public scope.",
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          },
+          "tuple_sha256": {
+            "description": "Canonical selected tuple content hash; content must resolve in manifest.",
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "family",
+          "band",
+          "scope_id",
+          "tuple_sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "type": "array"
+    },
+    "structural_relations": {
+      "additionalProperties": false,
+      "description": "Structural redundancy basis.",
+      "properties": {
+        "B3_more_complex_than_B2": {
+          "const": true,
+          "description": "Predeclared R1-REDUNDANCY-01 relation, not a score."
+        },
+        "B3_more_complex_than_B4": {
+          "const": true,
+          "description": "Predeclared R1-REDUNDANCY-01 relation, not a score."
+        }
+      },
+      "required": [
+        "B3_more_complex_than_B2",
+        "B3_more_complex_than_B4"
+      ],
+      "type": "object"
+    },
+    "timeouts": {
+      "additionalProperties": false,
+      "description": "Configurable deadlines.",
+      "properties": {
+        "model_call_seconds": {
+          "description": "ENGINEERING DEFAULT 120; accepted model timeout PROTOCOL_FAILURE.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "tool_seconds": {
+          "description": "ENGINEERING DEFAULT 30; tool timeout INFRA_FAILURE.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "model_call_seconds",
+        "tool_seconds"
+      ],
+      "type": "object"
+    },
+    "trajectories_per_cell": {
+      "description": "2 SMOKE, 8 PILOT; conditional ниже.",
+      "maximum": 8,
+      "minimum": 2,
+      "type": "integer"
+    },
+    "transfer_episodes": {
+      "description": "4 SMOKE, 8 PILOT.",
+      "maximum": 8,
+      "minimum": 4,
+      "type": "integer"
+    },
+    "transfer_scope": {
+      "const": "SURFACE_CONTEXT_REDUNDANCY",
+      "description": "Unchanged DSL; no new parsing/skill claim."
+    }
+  },
+  "required": [
+    "benchmark_version",
+    "planned_run",
+    "configuration_status",
+    "model_configuration",
+    "architectures",
+    "profile_conditions",
+    "trajectories_per_cell",
+    "main_episodes",
+    "transfer_episodes",
+    "master_seed",
+    "history_window",
+    "calibration_bands",
+    "profile_stimulus",
+    "budgets",
+    "timeouts",
+    "cost_currency",
+    "policy",
+    "evaluator",
+    "analysis_windows",
+    "calibration_plan",
+    "generator_options",
+    "contract_version",
+    "protocol_revision",
+    "runtime_identity",
+    "compute_settings",
+    "selected_difficulty_tuples",
+    "design_decisions",
+    "structural_relations",
+    "b4_policy_version",
+    "ordering_policy",
+    "transfer_scope",
+    "capability_configurations",
+    "evaluation_policy"
+  ],
+  "title": "r1_config contract 0.2.1",
+  "type": "object"
+}

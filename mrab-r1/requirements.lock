@@ -1,0 +1,8 @@
+# Exact versions observed in the offline test environment.
+# Installation into a fresh environment has not been release-certified.
+jsonschema==4.26.0
+referencing==0.37.0
+jsonschema-specifications==2025.9.1
+attrs==26.1.0
+rpds-py==2026.6.3
+typing-extensions==4.16.0

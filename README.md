@@ -165,6 +165,33 @@ mypy kentaur_osps
 
 ---
 
-## License
+## MRAB-R1 Benchmark (`mrab-r1/`)
 
-MIT License.
+**MRAB-R1 (False Self-Model v1)** — a falsifiable benchmark for the correctness and corrigibility
+of an agent's self-model, shipped here as a self-contained offline runtime.
+
+- 129 executable tests, 24 invariants, 41 registered metrics, 51 fixture IDs
+- B0–B4 architecture comparison, 8 scripted trajectories, τ-costed actions
+- Fake/Replay providers, JCS/strict JSON, content-addressed calibration lifecycle
+- It is allowed to return `REDUNDANT` / `NO_STRUCTURAL_ADVANTAGE` — it can refute its own premise
+- No LLM judge: every acceptance claim rests on an executable check
+
+Methodology author: **P. P. Klabukov**. Published with his explicit permission.
+Runtime: [`mrab-r1/README.md`](mrab-r1/README.md) · A/B comparison (bare model vs. model + KentaurOSPS):
+[`mrab-r1/ab-test/REPORT.md`](mrab-r1/ab-test/REPORT.md)
+
+```bash
+cd mrab-r1
+python -m venv .venv && source .venv/bin/activate
+pip install jsonschema==4.26.0 referencing==0.37.0
+export MRAB_JCS_NODE="$(command -v node)"   # required by the hardening tests
+python -B -m mrab_r1 verify-runtime
+```
+
+---
+
+## License & authorship
+
+- Code — **MIT** ([`LICENSE`](LICENSE)), in effect since 2024 and preserved unchanged.
+- Documents and texts — **CC BY-SA 4.0** ([`LICENSE-DOCS`](LICENSE-DOCS)).
+- Authors and contribution split — [`AUTHORS.md`](AUTHORS.md).

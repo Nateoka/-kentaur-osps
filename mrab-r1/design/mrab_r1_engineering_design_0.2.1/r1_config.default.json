@@ -1,0 +1,267 @@
+{
+  "analysis_windows": {
+    "interval_mass": 0.95,
+    "min_each_side": 2,
+    "min_paired_trajectories": 6,
+    "post_update_opportunities": 4,
+    "pre_update_opportunities": 4
+  },
+  "architectures": [
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "B4"
+  ],
+  "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+  "benchmark_version": "0.1",
+  "budgets": {
+    "action_output_tokens": 1024,
+    "max_input_tokens": 16384,
+    "max_prep_calls": 1,
+    "max_repairs_per_episode": 1,
+    "max_tools_per_episode": 1,
+    "prep_output_tokens": 1024,
+    "repair_output_tokens": 512
+  },
+  "calibration_bands": {
+    "HIGH": {
+      "lower": 0.8,
+      "upper": 0.95
+    },
+    "MID": {
+      "lower": 0.55,
+      "upper": 0.7
+    }
+  },
+  "calibration_plan": {
+    "confirm_n": 200,
+    "difficulty_contract_version": "G02_G03_0.2.1",
+    "max_interval_width": 0.16,
+    "search_n": 40
+  },
+  "capability_configurations": {
+    "B0": {
+      "architecture_policy_id": "policy:0",
+      "configuration_id": "configuration:0",
+      "execution_modes": [
+        "NO_PREP_INTERFACE"
+      ],
+      "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+      "prep_policy": "NONE"
+    },
+    "B1": {
+      "architecture_policy_id": "policy:1",
+      "configuration_id": "configuration:1",
+      "execution_modes": [
+        "PREP_EXECUTED"
+      ],
+      "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+      "prep_policy": "EXACTLY_ONE"
+    },
+    "B2": {
+      "architecture_policy_id": "policy:2",
+      "configuration_id": "configuration:2",
+      "execution_modes": [
+        "PREP_EXECUTED"
+      ],
+      "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+      "prep_policy": "EXACTLY_ONE"
+    },
+    "B3": {
+      "architecture_policy_id": "policy:3",
+      "configuration_id": "configuration:3",
+      "execution_modes": [
+        "PREP_EXECUTED",
+        "PREP_SKIPPED"
+      ],
+      "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+      "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+    },
+    "B4": {
+      "architecture_policy_id": "policy:4",
+      "configuration_id": "configuration:4",
+      "execution_modes": [
+        "NO_PREP_INTERFACE"
+      ],
+      "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+      "prep_policy": "NONE"
+    }
+  },
+  "compute_settings": {
+    "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+    "reasoning_budget": null,
+    "reasoning_mode": "CONFIGURE",
+    "usage_accounting": "UNKNOWN"
+  },
+  "configuration_status": "TEMPLATE",
+  "contract_version": "0.2.1",
+  "cost_currency": "UNSPECIFIED",
+  "design_decisions": {
+    "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+    "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+  },
+  "evaluation_policy": {
+    "c1_accuracy_loss_margin": 0.05,
+    "equivalence_margin": 0.05,
+    "maximum_reach_difference": 0.25,
+    "minimum_gain": 0.05,
+    "minimum_reach": 0.5,
+    "resource_ratio_margin": 0.2,
+    "target_accuracy_loss_margin": 0.02
+  },
+  "evaluator": {
+    "behavioral_margin": 0.05,
+    "bootstrap_draws": 10000,
+    "grace_target_opportunities": 2,
+    "min_informative": 4,
+    "prior_alpha": 1,
+    "prior_beta": 1,
+    "resource_margin": 0.2,
+    "wrong_band_probability": 0.9
+  },
+  "generator_options": {
+    "constraint_weights": {
+      "EQ": 1,
+      "IMPLIES": 2,
+      "NEQ": 2,
+      "XOR": 2
+    },
+    "grid_properties": [
+      1,
+      2,
+      3
+    ],
+    "grid_sizes": [
+      3,
+      4,
+      5
+    ],
+    "max_abs_intermediate": 1000000,
+    "max_attempts": 1000,
+    "max_clue_factor": 4,
+    "max_grid_assignments": 2000000,
+    "min_clue_factor": 1,
+    "operation_weights": {
+      "ADD": 1,
+      "MOD": 1,
+      "MULTIPLY": 1,
+      "ROTATE": 1,
+      "SWAP": 1
+    },
+    "symbolic_lengths": [
+      4,
+      8,
+      12,
+      20,
+      32
+    ],
+    "symbolic_sizes": [
+      3,
+      4,
+      6
+    ]
+  },
+  "history_window": 10,
+  "main_episodes": 8,
+  "master_seed": "design-template-seed-0001",
+  "model_configuration": {
+    "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "architecture_prompt_sha256": {
+      "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+      "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+      "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+      "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+      "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+    "model_id": "CONFIGURE_BEFORE_RUN",
+    "model_revision": "CONFIGURE_BEFORE_RUN",
+    "sampling_seed_supported": false,
+    "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "temperature": 0,
+    "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+    "top_p": 1
+  },
+  "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+  "planned_run": "SMOKE",
+  "policy": {
+    "probe_expiry_episodes": 4,
+    "restart_high_midpoint": 0.8,
+    "restart_low_midpoint": 0.4,
+    "restart_new_observations": 2,
+    "solo_threshold": 0.8,
+    "tool_cost_units": 1,
+    "tracker_min_informative": 4,
+    "tracker_prior_alpha": 1,
+    "tracker_prior_beta": 1,
+    "tracker_refresh": 3,
+    "tracker_uncertain_mass_high": 0.9,
+    "tracker_uncertain_mass_low": 0.1
+  },
+  "profile_conditions": [
+    "C0",
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "profile_stimulus": {
+    "evidence_label": "HISTORICAL_ESTIMATE",
+    "evidence_n": 20,
+    "false_high_interval": {
+      "lower": 0.8,
+      "upper": 0.95
+    },
+    "false_low_interval": {
+      "lower": 0.25,
+      "upper": 0.4
+    }
+  },
+  "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+  "runtime_identity": {
+    "canonicalizer": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "grid_tool": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "output_schema_bundle": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "parser": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "prompt_bundle": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "provider_adapter": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "symbolic_tool": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "tokenizer": {
+      "identity": "CONFIGURE",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "selected_difficulty_tuples": [],
+  "structural_relations": {
+    "B3_more_complex_than_B2": true,
+    "B3_more_complex_than_B4": true
+  },
+  "timeouts": {
+    "model_call_seconds": 120,
+    "tool_seconds": 30
+  },
+  "trajectories_per_cell": 2,
+  "transfer_episodes": 4,
+  "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+}

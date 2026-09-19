@@ -1,0 +1,879 @@
+{
+  "status": "PASS",
+  "release": "MRAB_R1_Runtime_0.1.1.zip",
+  "files": [
+    {
+      "path": "MRAB_R1_RUNTIME_BOUNDARY_AUDIT_0.1.1.md",
+      "sha256": "31d6364cd7e03b821f3641ff214424a6b9bb991b61805bfa8eb79a6350f3131b",
+      "source_release_path": "mrab_r1_runtime/MRAB_R1_RUNTIME_BOUNDARY_AUDIT_0.1.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "31d6364cd7e03b821f3641ff214424a6b9bb991b61805bfa8eb79a6350f3131b",
+      "match": true
+    },
+    {
+      "path": "MRAB_R1_RUNTIME_CHANGELOG_0.1.1.md",
+      "sha256": "7a93bcb9a7316c7b113b7a0ca91d648e1fee543ca51c9585c2d46719ba6702e8",
+      "source_release_path": "mrab_r1_runtime/MRAB_R1_RUNTIME_CHANGELOG_0.1.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "7a93bcb9a7316c7b113b7a0ca91d648e1fee543ca51c9585c2d46719ba6702e8",
+      "match": true
+    },
+    {
+      "path": "MRAB_R1_RUNTIME_IMPLEMENTATION_DECISIONS_0.1.1.md",
+      "sha256": "239c38224ac379fb7b2a4260cd674478308d34106ea78e4faaec881e089e6589",
+      "source_release_path": "mrab_r1_runtime/MRAB_R1_RUNTIME_IMPLEMENTATION_DECISIONS_0.1.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "239c38224ac379fb7b2a4260cd674478308d34106ea78e4faaec881e089e6589",
+      "match": true
+    },
+    {
+      "path": "MRAB_R1_RUNTIME_INVARIANT_COVERAGE_0.1.json",
+      "sha256": "a5477777901a6c91da8e29407cb3ad32be1a722515e840b8571160b0526dcbc8",
+      "source_release_path": "mrab_r1_runtime/MRAB_R1_RUNTIME_INVARIANT_COVERAGE_0.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "a5477777901a6c91da8e29407cb3ad32be1a722515e840b8571160b0526dcbc8",
+      "match": true
+    },
+    {
+      "path": "MRAB_R1_RUNTIME_KNOWN_LIMITATIONS_0.1.md",
+      "sha256": "c9e1ec1cb03f99971688e4c3b1b69c4d7bb241e262bbd6d47fcd636aedf20378",
+      "source_release_path": "mrab_r1_runtime/MRAB_R1_RUNTIME_KNOWN_LIMITATIONS_0.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "c9e1ec1cb03f99971688e4c3b1b69c4d7bb241e262bbd6d47fcd636aedf20378",
+      "match": true
+    },
+    {
+      "path": "MRAB_R1_RUNTIME_TRACEABILITY_0.1.md",
+      "sha256": "00632d29c4b97f8c24fba09bac2025f0275e0a4e22a40c73e27bdf211cc4c977",
+      "source_release_path": "mrab_r1_runtime/MRAB_R1_RUNTIME_TRACEABILITY_0.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "00632d29c4b97f8c24fba09bac2025f0275e0a4e22a40c73e27bdf211cc4c977",
+      "match": true
+    },
+    {
+      "path": "R1_E07_HARM_01_AUTHOR_DECISION.md",
+      "sha256": "c9cfde6e76b62d4de9273b51cfac09f880a536832889acf7eb4a534a11ece35b",
+      "source_release_path": "mrab_r1_runtime/R1_E07_HARM_01_AUTHOR_DECISION.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "c9cfde6e76b62d4de9273b51cfac09f880a536832889acf7eb4a534a11ece35b",
+      "match": true
+    },
+    {
+      "path": "R1_STORAGE_REQUEST_01_AUTHOR_DECISION.md",
+      "sha256": "c70b3c858f8baedf52ea8a62fcb1b34e3f71f258c0542aca857f2d92ac4f2d65",
+      "source_release_path": "mrab_r1_runtime/R1_STORAGE_REQUEST_01_AUTHOR_DECISION.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "c70b3c858f8baedf52ea8a62fcb1b34e3f71f258c0542aca857f2d92ac4f2d65",
+      "match": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "24f7932a4f0da585226e9e8538a0fdb27bdc642643d33025a2a97f0c30707c82",
+      "source_release_path": "mrab_r1_runtime/README.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "24f7932a4f0da585226e9e8538a0fdb27bdc642643d33025a2a97f0c30707c82",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/CHANGED_FILES_0.2_TO_0.2.1.json",
+      "sha256": "af210c819cdb0b4c60a20d1d9fcdba0638ffa46f1444ead6d7d9b1d57e3e407f",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/CHANGED_FILES_0.2_TO_0.2.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "af210c819cdb0b4c60a20d1d9fcdba0638ffa46f1444ead6d7d9b1d57e3e407f",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/CHANGELOG_0.1_TO_0.2.md",
+      "sha256": "e57df13779af52b2e46ad16321a65e3ae4ee0393f4e5e5f800e7d93a8f3030a7",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/CHANGELOG_0.1_TO_0.2.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e57df13779af52b2e46ad16321a65e3ae4ee0393f4e5e5f800e7d93a8f3030a7",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/CHANGELOG_0.2_TO_0.2.1.md",
+      "sha256": "0376ffccf8a32ab0ea707f1230a964a17865f40b9ce8067a35040a6d671019d1",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/CHANGELOG_0.2_TO_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "0376ffccf8a32ab0ea707f1230a964a17865f40b9ce8067a35040a6d671019d1",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/CONTENT_MANIFEST.json",
+      "sha256": "7e4de55149617354e4032ca96d98dad953f039189b4cf49e9389223b5d828d3e",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/CONTENT_MANIFEST.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "7e4de55149617354e4032ca96d98dad953f039189b4cf49e9389223b5d828d3e",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_CROSS_FILE_REVIEW_0.2.1.md",
+      "sha256": "a7ef2daa71bfdd08dd7831ba5ec158e7cacd755242b87ba974bd60f2c0147ca3",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_CROSS_FILE_REVIEW_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "a7ef2daa71bfdd08dd7831ba5ec158e7cacd755242b87ba974bd60f2c0147ca3",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_DECISION_REGISTER_0.2.1.json",
+      "sha256": "13ac0cdb245c2c351cab014e3e07dababb03efd764086da3cceb980f75c85dc7",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_DECISION_REGISTER_0.2.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "13ac0cdb245c2c351cab014e3e07dababb03efd764086da3cceb980f75c85dc7",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_ENGINEERING_DESIGN_CHECK_0.2.1.json",
+      "sha256": "26173ab10ce2836d2aa0e0f7c004598e8ceacb4b13cf099f9e3ba60a51abbef6",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_ENGINEERING_DESIGN_CHECK_0.2.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "26173ab10ce2836d2aa0e0f7c004598e8ceacb4b13cf099f9e3ba60a51abbef6",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+      "sha256": "016684b69a45022e64cd1a950c546d01346bca796680d733870f0c819a1e0a12",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "016684b69a45022e64cd1a950c546d01346bca796680d733870f0c819a1e0a12",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_FIELD_DICTIONARY.md",
+      "sha256": "adeae3963718d12247b8dfaa0f497e9273730b24cd54a7fd5d2269ae9caf33e7",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_FIELD_DICTIONARY.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "adeae3963718d12247b8dfaa0f497e9273730b24cd54a7fd5d2269ae9caf33e7",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_FINDING_DISPOSITIONS_0.2.1.json",
+      "sha256": "ae4e161bb48a73a59b3e2d1e7883103c5599eac196168509920461f470f263dd",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_FINDING_DISPOSITIONS_0.2.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "ae4e161bb48a73a59b3e2d1e7883103c5599eac196168509920461f470f263dd",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_FIXTURE_PLAN_0.2.1.md",
+      "sha256": "e57f4105f4430b8c11fecbffed91aaba601588e3677ebcdef684d6e4b045a282",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_FIXTURE_PLAN_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e57f4105f4430b8c11fecbffed91aaba601588e3677ebcdef684d6e4b045a282",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_METRIC_REGISTER_0.2.1.json",
+      "sha256": "d97db6e8a6347c2eac04e7afeccc7582b9e5de19097d94de9683557523aa37a4",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_METRIC_REGISTER_0.2.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d97db6e8a6347c2eac04e7afeccc7582b9e5de19097d94de9683557523aa37a4",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_PROMPT_CONTRACTS_0.2.1.md",
+      "sha256": "d877dd30cc1c7ee10a29a620c40c48dc211b2d2da2e56a4ad87d4da95ff3839f",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_PROMPT_CONTRACTS_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d877dd30cc1c7ee10a29a620c40c48dc211b2d2da2e56a4ad87d4da95ff3839f",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_SMOKE_RUN_PLAN_0.2.1.md",
+      "sha256": "4a5b59400322773c182e88b02f7a8c6ace1447c9872e8db1c1698cae1e3cb7dc",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_SMOKE_RUN_PLAN_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "4a5b59400322773c182e88b02f7a8c6ace1447c9872e8db1c1698cae1e3cb7dc",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_SOURCE_REGISTER.json",
+      "sha256": "b6f6565d1703952c79add97f88a9f53a5bc1ade59c502e9bc8fb2790b2ef1ee9",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_SOURCE_REGISTER.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "b6f6565d1703952c79add97f88a9f53a5bc1ade59c502e9bc8fb2790b2ef1ee9",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_SPEC_0.2.1.md",
+      "sha256": "5ea06b5b1f20bc048282d6cbfd049809882e0834d117eb809761c86a55d499ed",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_SPEC_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "5ea06b5b1f20bc048282d6cbfd049809882e0834d117eb809761c86a55d499ed",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_TASK_GENERATOR_CONTRACT_0.2.1.md",
+      "sha256": "885c208136a9cc4fc8f31012f7c65e3dd2bbeb2f745b7fbb9d64a88363e6cd51",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_TASK_GENERATOR_CONTRACT_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "885c208136a9cc4fc8f31012f7c65e3dd2bbeb2f745b7fbb9d64a88363e6cd51",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_TRACEABILITY_MATRIX_0.2.1.md",
+      "sha256": "fadbab3865e9014f56e6562cf647572f826aaf14a6a84b7df9ce22fbf000a291",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_TRACEABILITY_MATRIX_0.2.1.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "fadbab3865e9014f56e6562cf647572f826aaf14a6a84b7df9ce22fbf000a291",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/MRAB_R1_WORK_SUMMARY.md",
+      "sha256": "e6f5cb47ce4ab49c01c3a81fb860575b1e43c00f924cd67c500586f176f9b48e",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/MRAB_R1_WORK_SUMMARY.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e6f5cb47ce4ab49c01c3a81fb860575b1e43c00f924cd67c500586f176f9b48e",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/README.md",
+      "sha256": "a96d4e9d5792a550783059da3876392ad1a7809defddc3d909f8815eef283754",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/README.md",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "a96d4e9d5792a550783059da3876392ad1a7809defddc3d909f8815eef283754",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_checks/corpus_migration.json",
+      "sha256": "0bd254c4a2efdb5b6a77c44b0141008d2abf9652776998084517f79237c3058a",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_checks/corpus_migration.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "0bd254c4a2efdb5b6a77c44b0141008d2abf9652776998084517f79237c3058a",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_checks/golden_migration_0.2_to_0.2.1.json",
+      "sha256": "5c1efd5c6f5354f495f64f285488a5e0e239c72e2224e43a9bcebe12c62227be",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_checks/golden_migration_0.2_to_0.2.1.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "5c1efd5c6f5354f495f64f285488a5e0e239c72e2224e43a9bcebe12c62227be",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_checks/goldens.json",
+      "sha256": "f1f61d10c9b5d5257e6094773af052006c8203109f4ce5250847aa87a4fe918a",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_checks/goldens.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f1f61d10c9b5d5257e6094773af052006c8203109f4ce5250847aa87a4fe918a",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_checks/lifecycle_vectors.json",
+      "sha256": "50300256e13c74d37beeb2469a461f432093186e304874d77fe5ed989f20c12a",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_checks/lifecycle_vectors.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "50300256e13c74d37beeb2469a461f432093186e304874d77fe5ed989f20c12a",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_checks/schema_specimens.json",
+      "sha256": "978c84117f72e2dc42fff99af03c8be6c0394dd12466bfd6389a097ffbfebd61",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_checks/schema_specimens.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "978c84117f72e2dc42fff99af03c8be6c0394dd12466bfd6389a097ffbfebd61",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/build_change_manifest.py",
+      "sha256": "217321b959b1a54db98fdc79b0b665c0637f83a0ee87b0bec281015a3c534129",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/build_change_manifest.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "217321b959b1a54db98fdc79b0b665c0637f83a0ee87b0bec281015a3c534129",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/build_design_vectors.py",
+      "sha256": "f05a6a5686944c18c7cc372ef3461eaedafd9b5e07c077c6bac8cdbeb1bd0cdf",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/build_design_vectors.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f05a6a5686944c18c7cc372ef3461eaedafd9b5e07c077c6bac8cdbeb1bd0cdf",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/build_registers.py",
+      "sha256": "f3a688bd4ff762d47f4272c8b5e9496fb49791e75193ef46ef07b11d1d180c33",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/build_registers.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f3a688bd4ff762d47f4272c8b5e9496fb49791e75193ef46ef07b11d1d180c33",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/build_schema_documents.py",
+      "sha256": "e4ffcaf77e48f73b4f646091ca0e5b4f5609c1e5b24b7548c794ba45251a5112",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/build_schema_documents.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e4ffcaf77e48f73b4f646091ca0e5b4f5609c1e5b24b7548c794ba45251a5112",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/contract_checks.py",
+      "sha256": "257396e604b37369756f1d4f79e8cda04b12ad335a348a03a7aae2ddd0d3e64d",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/contract_checks.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "257396e604b37369756f1d4f79e8cda04b12ad335a348a03a7aae2ddd0d3e64d",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/package_design.py",
+      "sha256": "04bc8d63203c9d3c7a73da8f566721f36e40e708bf7c9621f5278249af8b3e26",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/package_design.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "04bc8d63203c9d3c7a73da8f566721f36e40e708bf7c9621f5278249af8b3e26",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/schema_changes_02.py",
+      "sha256": "509cf2d741961f154818728fd0afe8584e2e72f9c0b9c7a7668377248672a7a6",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/schema_changes_02.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "509cf2d741961f154818728fd0afe8584e2e72f9c0b9c7a7668377248672a7a6",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/verify_design.py",
+      "sha256": "9d45cae24af8541197b248f6b45956eddb0c7d0af10011ff029f2e4de775dce8",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/verify_design.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "9d45cae24af8541197b248f6b45956eddb0c7d0af10011ff029f2e4de775dce8",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/design_tools/verify_release.py",
+      "sha256": "e6406d3ef03f6d6a6d1b0733464b24e9607b6da54afd91606d4693b4681b14f3",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/design_tools/verify_release.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e6406d3ef03f6d6a6d1b0733464b24e9607b6da54afd91606d4693b4681b14f3",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/r1_config.default.json",
+      "sha256": "2308a3b847588440527685d389bdebe8f5a20db64123c18c5812cef4031a2d1c",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/r1_config.default.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "2308a3b847588440527685d389bdebe8f5a20db64123c18c5812cef4031a2d1c",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/requirements.txt",
+      "sha256": "3fbcb28e834d2da6154d5f9ce5d837ecc2a3bb8bec1096a6228fdded6eeeb1db",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/requirements.txt",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "3fbcb28e834d2da6154d5f9ce5d837ecc2a3bb8bec1096a6228fdded6eeeb1db",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/schemas/r1_config.schema.json",
+      "sha256": "6188c0b42399391abd441b17f00b19779541da04bd01fa95ecc78b59f824d246",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/schemas/r1_config.schema.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "6188c0b42399391abd441b17f00b19779541da04bd01fa95ecc78b59f824d246",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/schemas/r1_episode_record.schema.json",
+      "sha256": "13c1d78d689c1dbdcd2f62372acf9fbe9392bccb39e1f53ebd53be8586cb13c6",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/schemas/r1_episode_record.schema.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "13c1d78d689c1dbdcd2f62372acf9fbe9392bccb39e1f53ebd53be8586cb13c6",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/schemas/r1_reflexive_record.schema.json",
+      "sha256": "f5df94b061f2c9a751b93a76a6418e8566f03094a87f3b5470389b3cd5dfd2dc",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/schemas/r1_reflexive_record.schema.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f5df94b061f2c9a751b93a76a6418e8566f03094a87f3b5470389b3cd5dfd2dc",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/schemas/r1_self_profile.schema.json",
+      "sha256": "37b901b4070be141a6c452b52bbfd6968a276431f2a847bda7a3871da4832617",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/schemas/r1_self_profile.schema.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "37b901b4070be141a6c452b52bbfd6968a276431f2a847bda7a3871da4832617",
+      "match": true
+    },
+    {
+      "path": "design/mrab_r1_engineering_design_0.2.1/schemas/r1_trajectory.schema.json",
+      "sha256": "ee87d087b26c81299adaea32e39dc52ceca1497cbd7b5b9dae9139b82f0cfe61",
+      "source_release_path": "mrab_r1_runtime/design/mrab_r1_engineering_design_0.2.1/schemas/r1_trajectory.schema.json",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "ee87d087b26c81299adaea32e39dc52ceca1497cbd7b5b9dae9139b82f0cfe61",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/__init__.py",
+      "sha256": "f0d20c28c4c849ed724a67a5f47246fe62fe4e82b0742c5f6831b6b7379663cb",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/__init__.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f0d20c28c4c849ed724a67a5f47246fe62fe4e82b0742c5f6831b6b7379663cb",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/__main__.py",
+      "sha256": "a7433f60c19dea18e1adc9113f0e1506067180c10a4429a5febfb1ca8d862ab2",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/__main__.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "a7433f60c19dea18e1adc9113f0e1506067180c10a4429a5febfb1ca8d862ab2",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/answers.py",
+      "sha256": "fe5defca25699d528b816e22cd641544abcf3e6844dbe8465b62be0689ddcbc6",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/answers.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "fe5defca25699d528b816e22cd641544abcf3e6844dbe8465b62be0689ddcbc6",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/audit.py",
+      "sha256": "0fd24decdba770c95bc75d629fa306a61fca49ab46359a73acd6f63b5d63828f",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/audit.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "0fd24decdba770c95bc75d629fa306a61fca49ab46359a73acd6f63b5d63828f",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/b4.py",
+      "sha256": "e68396a26e9e0eff8e705ff146d425b6e4d39b1308e6682cbf2c1a62b44deaf8",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/b4.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e68396a26e9e0eff8e705ff146d425b6e4d39b1308e6682cbf2c1a62b44deaf8",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/calibration.py",
+      "sha256": "abcbbb1dda19da0ca317fb9249825a74946eae0dc7e4e1d54f1dc48718c2c278",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/calibration.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "abcbbb1dda19da0ca317fb9249825a74946eae0dc7e4e1d54f1dc48718c2c278",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/calibration_artifact.py",
+      "sha256": "d0a64cff0cd65cde25dc5afd1e32d6717cb5ac74aeff17d84ee4ad1f389ad78d",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/calibration_artifact.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d0a64cff0cd65cde25dc5afd1e32d6717cb5ac74aeff17d84ee4ad1f389ad78d",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/calls.py",
+      "sha256": "6bc2c3bbecb5f42d5e0d0aa925c1b65bba03739a17a81427238d4d18d751daaa",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/calls.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "6bc2c3bbecb5f42d5e0d0aa925c1b65bba03739a17a81427238d4d18d751daaa",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/canonical.py",
+      "sha256": "32b27bf5b2a52b4892d06d5a995d38edd55725fe309be3d26ca24808da63e4e2",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/canonical.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "32b27bf5b2a52b4892d06d5a995d38edd55725fe309be3d26ca24808da63e4e2",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/classifier.py",
+      "sha256": "584562324833704124b2c9cda4d8030d2de2ed1e854d8577fd374fb570df0f7c",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/classifier.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "584562324833704124b2c9cda4d8030d2de2ed1e854d8577fd374fb570df0f7c",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/config.py",
+      "sha256": "3ecca7ef48fce82903fcfc410fdc94c6d7d08a6246d05b958179825f4c8692fc",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/config.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "3ecca7ef48fce82903fcfc410fdc94c6d7d08a6246d05b958179825f4c8692fc",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/controller.py",
+      "sha256": "890ed3c5eef2e48adbd5a01d43662558db7353b9ed556a79ab79b6a18552aa3e",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/controller.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "890ed3c5eef2e48adbd5a01d43662558db7353b9ed556a79ab79b6a18552aa3e",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/coverage.py",
+      "sha256": "1f6cc6979588f8bcd763715508390dd5d06e260d607695ab0dcc03315b90c88c",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/coverage.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "1f6cc6979588f8bcd763715508390dd5d06e260d607695ab0dcc03315b90c88c",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/errors.py",
+      "sha256": "14934ba226953d78b07b571b798fd99f2447e5869e1f62f44bfcaeb54810c509",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/errors.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "14934ba226953d78b07b571b798fd99f2447e5869e1f62f44bfcaeb54810c509",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/evaluator.py",
+      "sha256": "6d5d63173a50f41f4080e10262f771521ae6cad3109efc5e1109cc80bd4fef45",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/evaluator.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "6d5d63173a50f41f4080e10262f771521ae6cad3109efc5e1109cc80bd4fef45",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/generator_options.py",
+      "sha256": "ecd09d7bb657ed875ce17987207ab9cbfe8e1c69b8c3331c515a7a1fe12437d8",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/generator_options.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "ecd09d7bb657ed875ce17987207ab9cbfe8e1c69b8c3331c515a7a1fe12437d8",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/identity.py",
+      "sha256": "eb6b317495f7f1672436036021f8c3545a18b420548d7b7dcd0d9b0b285d4d35",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/identity.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "eb6b317495f7f1672436036021f8c3545a18b420548d7b7dcd0d9b0b285d4d35",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/invariants.py",
+      "sha256": "d4e0b7c440b6cec805ca083ec5c02299b179e8a9dc7f6dffc8ec78b308d3280b",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/invariants.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d4e0b7c440b6cec805ca083ec5c02299b179e8a9dc7f6dffc8ec78b308d3280b",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/jcs.cjs",
+      "sha256": "f3b6d8f6a29c0215e00665d527e19a91fb87ce9c011ef4f9eeda02bb7ce45da7",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/jcs.cjs",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f3b6d8f6a29c0215e00665d527e19a91fb87ce9c011ef4f9eeda02bb7ce45da7",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/manifest.py",
+      "sha256": "7a437f3bc4500900e656ac3b29864d6aa1b75110d2c7b439bd186beadfa7e4dd",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/manifest.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "7a437f3bc4500900e656ac3b29864d6aa1b75110d2c7b439bd186beadfa7e4dd",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/profiles.py",
+      "sha256": "e3d69044807c4cdc98300c10ef9301600b4f571c992afa1e01d97681f54c8796",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/profiles.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e3d69044807c4cdc98300c10ef9301600b4f571c992afa1e01d97681f54c8796",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/prompts.py",
+      "sha256": "78e3fc5678666cf0d775475ee6b4db3c23eb538fede1c10238093a812f37145c",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/prompts.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "78e3fc5678666cf0d775475ee6b4db3c23eb538fede1c10238093a812f37145c",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/provenance.py",
+      "sha256": "d2b64041b42a2ea84c32574ca73f65ddb8dded16b64ce82644e8f3fdb650e657",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/provenance.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d2b64041b42a2ea84c32574ca73f65ddb8dded16b64ce82644e8f3fdb650e657",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/provider.py",
+      "sha256": "533c9e383913e57ba9d6c0d4bc3d5765df27c2994f90f7c5218fcc01b1667945",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/provider.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "533c9e383913e57ba9d6c0d4bc3d5765df27c2994f90f7c5218fcc01b1667945",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/replay.py",
+      "sha256": "238ce5752383a9433466b495ca237ef93d556a4715337dee63669be5a3243f31",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/replay.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "238ce5752383a9433466b495ca237ef93d556a4715337dee63669be5a3243f31",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/runner.py",
+      "sha256": "1f2c7bbb588d7da68d0703ec1393129c232e27831726c321581f1ed0fe404f1f",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/runner.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "1f2c7bbb588d7da68d0703ec1393129c232e27831726c321581f1ed0fe404f1f",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/schemas.py",
+      "sha256": "41a69b2b1835d9041b2a863e190c7f78a1a92183d57a222866e7d4d165df8e31",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/schemas.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "41a69b2b1835d9041b2a863e190c7f78a1a92183d57a222866e7d4d165df8e31",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/seed.py",
+      "sha256": "d854a1021fb0cbed6105c8677851a005b47037dd222398f6c3b7c413b9d11150",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/seed.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d854a1021fb0cbed6105c8677851a005b47037dd222398f6c3b7c413b9d11150",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/state.py",
+      "sha256": "d9c6374cde1e23fa2707391b6ad0967853433a22c284798ce68873af145eca99",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/state.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "d9c6374cde1e23fa2707391b6ad0967853433a22c284798ce68873af145eca99",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/storage.py",
+      "sha256": "210b5436c88f26a0bad5b5a2ddaace0985967f49f7a9a2873dded86c616706e5",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/storage.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "210b5436c88f26a0bad5b5a2ddaace0985967f49f7a9a2873dded86c616706e5",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/surface.py",
+      "sha256": "5e36e06b632bc7b455b4b12da2f957337a6ba8dd575de1eff82c2346792ba4a3",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/surface.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "5e36e06b632bc7b455b4b12da2f957337a6ba8dd575de1eff82c2346792ba4a3",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/tasks.py",
+      "sha256": "cc0c27bc52ddd62977bf23d668e36b30607abf0f0b82b19e3a87b9fcdb9f604c",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/tasks.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "cc0c27bc52ddd62977bf23d668e36b30607abf0f0b82b19e3a87b9fcdb9f604c",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/tool_dispatch.py",
+      "sha256": "67a2f3b68e53e06e3c079ea98f6714b2d4548241b06c388d4294e06ec3ee1780",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/tool_dispatch.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "67a2f3b68e53e06e3c079ea98f6714b2d4548241b06c388d4294e06ec3ee1780",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/tool_worker.py",
+      "sha256": "7f1c224f97110f9940438661e57ad5c85362008644249439af0d88aa1266fa72",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/tool_worker.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "7f1c224f97110f9940438661e57ad5c85362008644249439af0d88aa1266fa72",
+      "match": true
+    },
+    {
+      "path": "mrab_r1/verification.py",
+      "sha256": "f554efd99bba75ecc6208f580f5e6f7780a637e9c51ef5985d2bd15eb7f7b22b",
+      "source_release_path": "mrab_r1_runtime/mrab_r1/verification.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f554efd99bba75ecc6208f580f5e6f7780a637e9c51ef5985d2bd15eb7f7b22b",
+      "match": true
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "0452fce3690bc3b6b91d9d4af268641f9fdaf32f39eca3059ae4e8c273c57bfa",
+      "source_release_path": "mrab_r1_runtime/pyproject.toml",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "0452fce3690bc3b6b91d9d4af268641f9fdaf32f39eca3059ae4e8c273c57bfa",
+      "match": true
+    },
+    {
+      "path": "requirements.lock",
+      "sha256": "7dac35b53e75cd8d371e764788dfed1785e8f158763da3772a9a13a62b21b32d",
+      "source_release_path": "mrab_r1_runtime/requirements.lock",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "7dac35b53e75cd8d371e764788dfed1785e8f158763da3772a9a13a62b21b32d",
+      "match": true
+    },
+    {
+      "path": "requirements.offline.lock",
+      "sha256": "3b193f46a20c4658e9581c3b6adf77d95407043fa2ba45a2b2b742f9b6f04df8",
+      "source_release_path": "mrab_r1_runtime/requirements.offline.lock",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "3b193f46a20c4658e9581c3b6adf77d95407043fa2ba45a2b2b742f9b6f04df8",
+      "match": true
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_release_path": "mrab_r1_runtime/tests/__init__.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "tests/chain_fixture.cjs",
+      "sha256": "3248aeb9d98262f2d9abb74151b6ce85d50cd02ad0d7bf8619fa842734ad4e38",
+      "source_release_path": "mrab_r1_runtime/tests/chain_fixture.cjs",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "3248aeb9d98262f2d9abb74151b6ce85d50cd02ad0d7bf8619fa842734ad4e38",
+      "match": true
+    },
+    {
+      "path": "tests/sealed_fixture.py",
+      "sha256": "8f1d282c723072674103a6a1ad35985dbcceb051edf9716139b5d1592bdc6eae",
+      "source_release_path": "mrab_r1_runtime/tests/sealed_fixture.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "8f1d282c723072674103a6a1ad35985dbcceb051edf9716139b5d1592bdc6eae",
+      "match": true
+    },
+    {
+      "path": "tests/test_audit.py",
+      "sha256": "5d657c5f659bfd1afc20fc1500b82addcac27ff422c3993e0ffb76427ae3571e",
+      "source_release_path": "mrab_r1_runtime/tests/test_audit.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "5d657c5f659bfd1afc20fc1500b82addcac27ff422c3993e0ffb76427ae3571e",
+      "match": true
+    },
+    {
+      "path": "tests/test_boundaries.py",
+      "sha256": "e3d0ddbbe3438df9bb6417454e651dc498ab4d1e2b4ce060cb425606281de8b8",
+      "source_release_path": "mrab_r1_runtime/tests/test_boundaries.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e3d0ddbbe3438df9bb6417454e651dc498ab4d1e2b4ce060cb425606281de8b8",
+      "match": true
+    },
+    {
+      "path": "tests/test_calibration.py",
+      "sha256": "9ace7cca30ecc6e0e122f3e76452760b114713d5914394487f41c87aad0e46b5",
+      "source_release_path": "mrab_r1_runtime/tests/test_calibration.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "9ace7cca30ecc6e0e122f3e76452760b114713d5914394487f41c87aad0e46b5",
+      "match": true
+    },
+    {
+      "path": "tests/test_collection.py",
+      "sha256": "80897e5f5501c4ee8a42bc5b3459b30f8d15e95bcc9e349b5c45fecdbfe1afb9",
+      "source_release_path": "mrab_r1_runtime/tests/test_collection.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "80897e5f5501c4ee8a42bc5b3459b30f8d15e95bcc9e349b5c45fecdbfe1afb9",
+      "match": true
+    },
+    {
+      "path": "tests/test_evaluator.py",
+      "sha256": "dfbb7adae69fe336581189a7e93f9d2ff50ff6be69402faca70b6fceadbe1924",
+      "source_release_path": "mrab_r1_runtime/tests/test_evaluator.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "dfbb7adae69fe336581189a7e93f9d2ff50ff6be69402faca70b6fceadbe1924",
+      "match": true
+    },
+    {
+      "path": "tests/test_extended.py",
+      "sha256": "0ce0ff9d1c01423fe3d15970c4e5e19862befbd8f01285a4d369ca9d3c2d5169",
+      "source_release_path": "mrab_r1_runtime/tests/test_extended.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "0ce0ff9d1c01423fe3d15970c4e5e19862befbd8f01285a4d369ca9d3c2d5169",
+      "match": true
+    },
+    {
+      "path": "tests/test_freeze.py",
+      "sha256": "70ef551019a70c0193e7f1874c3dbdfe5478e2a01439e9805e1d259250ae942d",
+      "source_release_path": "mrab_r1_runtime/tests/test_freeze.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "70ef551019a70c0193e7f1874c3dbdfe5478e2a01439e9805e1d259250ae942d",
+      "match": true
+    },
+    {
+      "path": "tests/test_hardening.py",
+      "sha256": "f74b97489e7538eb9209bbc6aaf3de7e9f88f9459bbc4f3afdc4e2a07c1c2114",
+      "source_release_path": "mrab_r1_runtime/tests/test_hardening.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f74b97489e7538eb9209bbc6aaf3de7e9f88f9459bbc4f3afdc4e2a07c1c2114",
+      "match": true
+    },
+    {
+      "path": "tests/test_independent.py",
+      "sha256": "39d7677b42c61d605ccd4d93f301c04b88742c055e75c077b528865eee8d41ae",
+      "source_release_path": "mrab_r1_runtime/tests/test_independent.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "39d7677b42c61d605ccd4d93f301c04b88742c055e75c077b528865eee8d41ae",
+      "match": true
+    },
+    {
+      "path": "tests/test_manifests.py",
+      "sha256": "3026fe6807bb565c8e833a170cd2ebdc44f2b1ea9a75db7d42183a2d206a5299",
+      "source_release_path": "mrab_r1_runtime/tests/test_manifests.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "3026fe6807bb565c8e833a170cd2ebdc44f2b1ea9a75db7d42183a2d206a5299",
+      "match": true
+    },
+    {
+      "path": "tests/test_probe32.py",
+      "sha256": "3b7b5195a414d3c55e2c43c6db2217996d57c47ba05ad7346205ef7e2eaf7e68",
+      "source_release_path": "mrab_r1_runtime/tests/test_probe32.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "3b7b5195a414d3c55e2c43c6db2217996d57c47ba05ad7346205ef7e2eaf7e68",
+      "match": true
+    },
+    {
+      "path": "tests/test_runner.py",
+      "sha256": "00e09942bafea466dc6f3fbed42aaa3df8da1e9a78393bb3b66e8f3d227c0f35",
+      "source_release_path": "mrab_r1_runtime/tests/test_runner.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "00e09942bafea466dc6f3fbed42aaa3df8da1e9a78393bb3b66e8f3d227c0f35",
+      "match": true
+    },
+    {
+      "path": "tests/test_runtime_contracts.py",
+      "sha256": "a9a1dcdbe64a5cd8140bc0b292eb3a41b8e809a9e8dc12373a0afc7b15b671ea",
+      "source_release_path": "mrab_r1_runtime/tests/test_runtime_contracts.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "a9a1dcdbe64a5cd8140bc0b292eb3a41b8e809a9e8dc12373a0afc7b15b671ea",
+      "match": true
+    },
+    {
+      "path": "tools/check_request_capacity.py",
+      "sha256": "e3d1fe3265a5ca61025e860cf4877e68e6207bb10b9f088a817602eb0d4efdc7",
+      "source_release_path": "mrab_r1_runtime/tools/check_request_capacity.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "e3d1fe3265a5ca61025e860cf4877e68e6207bb10b9f088a817602eb0d4efdc7",
+      "match": true
+    },
+    {
+      "path": "tools/collect_wheelhouse.py",
+      "sha256": "f6debb6a8898dcb75466d91ca42c1a7abc0dc6458c449d56bfdd5fdf66e4bd0f",
+      "source_release_path": "mrab_r1_runtime/tools/collect_wheelhouse.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "f6debb6a8898dcb75466d91ca42c1a7abc0dc6458c449d56bfdd5fdf66e4bd0f",
+      "match": true
+    },
+    {
+      "path": "tools/pre_release_checks.py",
+      "sha256": "886d98ac9b3ed7c36d2dae85ed36d132cf0b0afa6f18bf74eca78e58238e370e",
+      "source_release_path": "mrab_r1_runtime/tools/pre_release_checks.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "886d98ac9b3ed7c36d2dae85ed36d132cf0b0afa6f18bf74eca78e58238e370e",
+      "match": true
+    },
+    {
+      "path": "tools/release_011.py",
+      "sha256": "5e120b62a142128ca82e3f491363a23a090effcc16e0570b9fc85fe021f3c56a",
+      "source_release_path": "mrab_r1_runtime/tools/release_011.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "5e120b62a142128ca82e3f491363a23a090effcc16e0570b9fc85fe021f3c56a",
+      "match": true
+    },
+    {
+      "path": "tools/run_long_trace.py",
+      "sha256": "600612195d524cdec0f0014a4e6da097544a445d26539932be15efc6f0c3fd85",
+      "source_release_path": "mrab_r1_runtime/tools/run_long_trace.py",
+      "source_release_sha256": "e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7",
+      "source_file_sha256": "600612195d524cdec0f0014a4e6da097544a445d26539932be15efc6f0c3fd85",
+      "match": true
+    }
+  ],
+  "note": "Generated handoff navigation files are not runtime originals."
+}

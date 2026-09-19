@@ -1,0 +1,300 @@
+{
+  "base": "0.2",
+  "base_migration_history": [
+    {
+      "new_expected": true,
+      "new_id": "config-smoke",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "config-smoke"
+    },
+    {
+      "new_expected": true,
+      "new_id": "config-pilot",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "config-pilot"
+    },
+    {
+      "new_expected": true,
+      "new_id": "profile-two-slots",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "profile-two-slots"
+    },
+    {
+      "new_expected": true,
+      "new_id": "episode-structural-only",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "episode-structural-only"
+    },
+    {
+      "new_expected": true,
+      "new_id": "trajectory-planned-only",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "trajectory-planned-only"
+    },
+    {
+      "new_expected": true,
+      "new_id": "b1",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "b1"
+    },
+    {
+      "new_expected": true,
+      "new_id": "b2",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "b2"
+    },
+    {
+      "new_expected": true,
+      "new_id": "b3",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "b3"
+    },
+    {
+      "new_expected": true,
+      "new_id": "b3-prospective-active-probe",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "b3-prospective-active-probe"
+    },
+    {
+      "new_expected": true,
+      "new_id": "admissible-update-event-shape",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "admissible-update-event-shape"
+    },
+    {
+      "new_expected": true,
+      "new_id": "unknown-claim-rejection-log",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "unknown-claim-rejection-log"
+    },
+    {
+      "new_expected": false,
+      "new_id": "commit-needs-after-snapshot",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "commit-needs-after-snapshot"
+    },
+    {
+      "new_expected": false,
+      "new_id": "private-no-profile-B4",
+      "note": "A01: restored genuinely forbidden profile; expected false retained. Original delivered null defect preserved in reference ZIP.",
+      "old_expected": false,
+      "original_id": "private-no-profile-B4"
+    },
+    {
+      "new_expected": true,
+      "new_id": "private-null-profile-B4",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "private-null-profile-B4"
+    },
+    {
+      "new_expected": false,
+      "new_id": "private-no-profile-C0",
+      "note": "A01: restored genuinely forbidden profile; expected false retained. Original delivered null defect preserved in reference ZIP.",
+      "old_expected": false,
+      "original_id": "private-no-profile-C0"
+    },
+    {
+      "new_expected": true,
+      "new_id": "private-null-profile-C0",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "private-null-profile-C0"
+    },
+    {
+      "new_expected": true,
+      "new_id": "grid-grammar-positive",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "grid-grammar-positive"
+    },
+    {
+      "new_expected": false,
+      "new_id": "grid-no-prose-logic",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "grid-no-prose-logic"
+    },
+    {
+      "new_expected": true,
+      "new_id": "claim-status-QUESTIONED",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "claim-status-QUESTIONED"
+    },
+    {
+      "new_expected": true,
+      "new_id": "claim-status-REVISED",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "claim-status-REVISED"
+    },
+    {
+      "new_expected": true,
+      "new_id": "claim-status-NARROWED",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "claim-status-NARROWED"
+    },
+    {
+      "new_expected": true,
+      "new_id": "claim-status-UNKNOWN",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": true,
+      "original_id": "claim-status-UNKNOWN"
+    },
+    {
+      "new_expected": false,
+      "new_id": "unknown-with-number-rejected",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "unknown-with-number-rejected"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-profile_condition",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-profile_condition"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-architecture",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-architecture"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-seed_metadata",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-seed_metadata"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-ground_truth",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-ground_truth"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-calibration_cells",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-calibration_cells"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-evaluator_private",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-evaluator_private"
+    },
+    {
+      "new_expected": false,
+      "new_id": "agent-forbidden-posterior_wrong_before",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "agent-forbidden-posterior_wrong_before"
+    },
+    {
+      "new_expected": false,
+      "new_id": "feedback-truth-field-rejected",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "feedback-truth-field-rejected"
+    },
+    {
+      "new_expected": false,
+      "new_id": "b2-no-b3-vocabulary",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "b2-no-b3-vocabulary"
+    },
+    {
+      "new_expected": true,
+      "new_id": "probe-single-locus-bookkeeping-draft",
+      "note": "A07/OD-02 draft boundary: alternatives are not a schema certificate of discrimination. Original expectation false no longer applies to bookkeeping draft.",
+      "old_expected": false,
+      "original_id": "probe-needs-alternatives"
+    },
+    {
+      "new_expected": false,
+      "new_id": "no-chain-of-thought-field",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "no-chain-of-thought-field"
+    },
+    {
+      "new_expected": false,
+      "new_id": "SOLO-needs-preanswer",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "SOLO-needs-preanswer"
+    },
+    {
+      "new_expected": false,
+      "new_id": "VERIFY-needs-preanswer",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "VERIFY-needs-preanswer"
+    },
+    {
+      "new_expected": false,
+      "new_id": "DELEGATE-forbids-solo",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "DELEGATE-forbids-solo"
+    },
+    {
+      "new_expected": false,
+      "new_id": "ABSTAIN-forbids-solo",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "ABSTAIN-forbids-solo"
+    },
+    {
+      "new_expected": false,
+      "new_id": "matrix-reject-architectures",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "matrix-reject-architectures"
+    },
+    {
+      "new_expected": false,
+      "new_id": "matrix-reject-profile_conditions",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "matrix-reject-profile_conditions"
+    },
+    {
+      "new_expected": false,
+      "new_id": "matrix-reject-trajectories_per_cell",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "matrix-reject-trajectories_per_cell"
+    },
+    {
+      "new_expected": false,
+      "new_id": "matrix-reject-transfer_episodes",
+      "note": "Mechanical additions for contract 0.2; expectation preserved.",
+      "old_expected": false,
+      "original_id": "matrix-reject-transfer_episodes"
+    }
+  ],
+  "patch_rule": "All45 original0.2 labels retained, explicit new specimens appended; R1-PROBE-01 closes former draft scope."
+}

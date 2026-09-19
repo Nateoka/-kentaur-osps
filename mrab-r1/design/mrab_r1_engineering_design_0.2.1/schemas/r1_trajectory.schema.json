@@ -1,0 +1,570 @@
+{
+  "$defs": {
+    "agent_state": {
+      "additionalProperties": false,
+      "description": "Closed agent-facing allowlist. No architecture/profile_condition/seed/evaluator fields permitted.",
+      "properties": {
+        "capability_configuration": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/capability_configuration",
+          "description": "Public definition of the referenced capability configuration, without B/C labels."
+        },
+        "cumulative_cost": {
+          "description": "Actual total tool cost_units so far, not reward.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "current_execution_mode": {
+          "anyOf": [
+            {
+              "enum": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED",
+                "NO_PREP_INTERFACE"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Null before PREP decision, exact actual mode in ACTION payload; actual request bytes preserve both states."
+        },
+        "current_profile": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Visible current profile; null C0/B4."
+        },
+        "episode_index": {
+          "description": "Current opportunity index.",
+          "maximum": 32,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "evidence_index": {
+          "description": "All past public feedback refs, at most 32; equal information access, not B3-only memory.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/evidence_index_entry"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "evidence_ledger": {
+          "description": "All prior observable counts, common to every architecture.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_trajectory.schema.json#/$defs/ledger_entry"
+          },
+          "maxItems": 128,
+          "minItems": 0,
+          "type": "array"
+        },
+        "history_anchors": {
+          "description": "Public derivation: last numeric and scope-parent snapshots per claim; bounded, same access B0-B3.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/history_anchor"
+          },
+          "maxItems": 8,
+          "type": "array"
+        },
+        "profile_history": {
+          "description": "Last history_window attempts, COMMITTED and REJECTED; full immutable private log retained.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/update_event"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array"
+        },
+        "recent_episode_history": {
+          "description": "Latest history_window public feedback rows, no task answers.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/feedback"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array"
+        },
+        "reflection_cost": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Observed public PREP+PREP-repair input/output tokens; null when any required count unavailable, not zero."
+        },
+        "reflexive_state": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_trajectory.schema.json#/$defs/stop_state"
+              },
+              "maxItems": 128,
+              "minItems": 0,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Only B3 gets its own stop/probe latch; others null."
+        },
+        "task_view": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/task_view",
+          "description": "Only current task without ground truth."
+        },
+        "tracker_state": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/tracker_state"
+              },
+              "maxItems": 128,
+              "minItems": 0,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Only B4 gets its simple empirical tracker; others null."
+        },
+        "trajectory_id": {
+          "description": "Opaque run identity, no cell label.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trajectory_id",
+        "episode_index",
+        "task_view",
+        "current_profile",
+        "profile_history",
+        "recent_episode_history",
+        "evidence_ledger",
+        "cumulative_cost",
+        "reflection_cost",
+        "tracker_state",
+        "reflexive_state",
+        "capability_configuration",
+        "current_execution_mode",
+        "history_anchors",
+        "evidence_index"
+      ],
+      "type": "object"
+    },
+    "ledger_entry": {
+      "additionalProperties": false,
+      "description": "Common observable aggregate, same access across B0–B4.",
+      "properties": {
+        "capability_configuration_ref": {
+          "description": "Public operational partition: capability_configuration_ref. Counts are never pooled silently across keys.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "context_condition": {
+          "description": "Exact public partition field; no family-only pooling.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "difficulty_scope": {
+          "description": "Exact public partition field; no family-only pooling.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "execution_mode": {
+          "description": "Public operational partition: execution_mode. Counts are never pooled silently across keys.",
+          "enum": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED",
+            "NO_PREP_INTERFACE"
+          ],
+          "type": "string"
+        },
+        "history_class": {
+          "description": "Public operational partition: history_class. Counts are never pooled silently across keys.",
+          "enum": [
+            "EMPTY",
+            "NONEMPTY"
+          ],
+          "type": "string"
+        },
+        "n": {
+          "description": "Count informative outcomes, successes≤n.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "scope_id": {
+          "description": "Public scope.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "successes": {
+          "description": "Count observed solo success.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tool_condition": {
+          "const": "SOLO_NO_TOOL",
+          "description": "Exact public partition field; no family-only pooling."
+        }
+      },
+      "required": [
+        "scope_id",
+        "n",
+        "successes",
+        "capability_configuration_ref",
+        "execution_mode",
+        "history_class",
+        "difficulty_scope",
+        "context_condition",
+        "tool_condition"
+      ],
+      "type": "object"
+    },
+    "stop_state": {
+      "additionalProperties": false,
+      "description": "B3-only explicit state.",
+      "properties": {
+        "latched": {
+          "description": "PREP stopped for this scope.",
+          "type": "boolean"
+        },
+        "new_observations": {
+          "description": "Count since latch, not evaluator posterior.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "pending_probe": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/probe_event"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Only B3-owned pending intention, no private task schedule."
+        },
+        "scope_id": {
+          "description": "Public task scope; C0 uses scope without a numeric claim. No accidental global latch.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "since_episode": {
+          "description": "Last latch update; 0 initial.",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scope_id",
+        "latched",
+        "since_episode",
+        "new_observations",
+        "pending_probe"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://mrab.example.invalid/r1/0.2.1/r1_trajectory.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "anyOf": [
+          {
+            "properties": {
+              "profile_condition": {
+                "const": "C0"
+              }
+            }
+          },
+          {
+            "properties": {
+              "architecture": {
+                "const": "B4"
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "current_profile": {
+            "type": "null"
+          },
+          "initial_profile": {
+            "type": "null"
+          },
+          "profile_history": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "description": "Full harness-private trajectory. MUST NOT be serialized directly as model input.",
+  "properties": {
+    "architecture": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/architecture",
+      "description": "Harness-private treatment code."
+    },
+    "benchmark_version": {
+      "const": "0.1",
+      "description": "R1 version."
+    },
+    "block_id": {
+      "description": "Private matched-block key for paired analysis.",
+      "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+      "type": "string"
+    },
+    "calibration_cells": {
+      "description": "Read-only empirical reference distributions.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/calibration_cell"
+      },
+      "maxItems": 20,
+      "minItems": 2,
+      "type": "array"
+    },
+    "completion_status": {
+      "description": "Not a scientific outcome.",
+      "enum": [
+        "PLANNED",
+        "RUNNING",
+        "COMPLETED",
+        "INFRA_INVALID"
+      ],
+      "type": "string"
+    },
+    "config_sha256": {
+      "description": "Frozen complete config identity.",
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "0.2.1",
+      "description": "Serialization contract revision, distinct from benchmark identity."
+    },
+    "cumulative_cost": {
+      "description": "Total tool units, same meaning as agent field.",
+      "minimum": 0,
+      "type": "number"
+    },
+    "current_profile": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Replay-derived current profile."
+    },
+    "episodes": {
+      "description": "Ordered private records; partial during run.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json"
+      },
+      "maxItems": 32,
+      "minItems": 0,
+      "type": "array"
+    },
+    "first_family": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/family",
+      "description": "Private ordering assignment."
+    },
+    "initial_profile": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Original stimulus; null B4/C0."
+    },
+    "initial_stimulus_intervals": {
+      "description": "Kept fixed even after agent profile update.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Frozen evaluator reference.",
+        "properties": {
+          "interval": {
+            "anyOf": [
+              {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original J0, also for B4 matched evaluation; null C0."
+          },
+          "scope_id": {
+            "description": "Hidden scope mapping.",
+            "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope_id",
+          "interval"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "planned_run": {
+      "description": "Determines schedule counts.",
+      "enum": [
+        "SMOKE",
+        "PILOT"
+      ],
+      "type": "string"
+    },
+    "profile_condition": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/profile_condition",
+      "description": "Harness-private condition, never model input."
+    },
+    "profile_history": {
+      "description": "Full append-only attempts/commit log.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/update_event"
+      },
+      "maxItems": 32,
+      "minItems": 0,
+      "type": "array"
+    },
+    "recent_episode_history": {
+      "description": "Projection cache, recomputed from records using config history_window.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/feedback"
+      },
+      "maxItems": 32,
+      "minItems": 0,
+      "type": "array"
+    },
+    "reflection_cost": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Observed public PREP+PREP-repair input/output tokens; null when any required count unavailable, not zero."
+    },
+    "seed_metadata": {
+      "additionalProperties": false,
+      "description": "Private reproducibility metadata.",
+      "properties": {
+        "BOOTSTRAP": {
+          "description": "Derived private seed digest for BOOTSTRAP.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "FAMILY_ORDER": {
+          "description": "Derived private seed digest for FAMILY_ORDER.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "MODEL": {
+          "description": "Derived private seed digest for MODEL.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "PROFILE": {
+          "description": "Derived private seed digest for PROFILE.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "SURFACE": {
+          "description": "Derived private seed digest for SURFACE.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "TASK": {
+          "description": "Derived private seed digest for TASK.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "TASK_ID": {
+          "description": "Separate opaque public task-ID stream, same preimage fields as G01.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "TASK",
+        "FAMILY_ORDER",
+        "SURFACE",
+        "PROFILE",
+        "MODEL",
+        "BOOTSTRAP",
+        "TASK_ID"
+      ],
+      "type": "object"
+    },
+    "target_family": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/family",
+      "description": "Private target assignment."
+    },
+    "target_stratum": {
+      "description": "Private real capability stratum.",
+      "enum": [
+        "HIGH",
+        "MID"
+      ],
+      "type": "string"
+    },
+    "trajectory_id": {
+      "description": "Opaque unique ID.",
+      "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "benchmark_version",
+    "trajectory_id",
+    "config_sha256",
+    "architecture",
+    "profile_condition",
+    "planned_run",
+    "block_id",
+    "target_family",
+    "first_family",
+    "target_stratum",
+    "seed_metadata",
+    "calibration_cells",
+    "initial_profile",
+    "current_profile",
+    "profile_history",
+    "recent_episode_history",
+    "cumulative_cost",
+    "reflection_cost",
+    "episodes",
+    "completion_status",
+    "initial_stimulus_intervals",
+    "contract_version"
+  ],
+  "title": "r1_trajectory contract 0.2.1",
+  "type": "object"
+}

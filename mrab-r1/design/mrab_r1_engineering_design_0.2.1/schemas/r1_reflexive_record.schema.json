@@ -1,0 +1,311 @@
+{
+  "$defs": {
+    "b1": {
+      "additionalProperties": false,
+      "description": "Observable PREP record, не chain-of-thought.",
+      "properties": {
+        "confidence": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/confidence",
+          "description": "Категориальный report."
+        },
+        "memo": {
+          "description": "Краткий actionable memo, без приватного рассуждения.",
+          "maxLength": 480,
+          "minLength": 1,
+          "type": "string"
+        },
+        "recommended_action": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/action",
+          "description": "Рекомендация не считается фактическим action."
+        },
+        "record_kind": {
+          "const": "EXTRA_COMPUTE",
+          "description": "Architecture-specific decision interface, не hidden condition."
+        }
+      },
+      "required": [
+        "record_kind",
+        "memo",
+        "recommended_action",
+        "confidence"
+      ],
+      "type": "object"
+    },
+    "b2": {
+      "additionalProperties": false,
+      "description": "Observable PREP record, не chain-of-thought.",
+      "properties": {
+        "confidence": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/confidence",
+          "description": "Категориальный report."
+        },
+        "memo": {
+          "description": "Краткий actionable memo, без приватного рассуждения.",
+          "maxLength": 480,
+          "minLength": 1,
+          "type": "string"
+        },
+        "proposal": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/proposal"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Общий update adapter; null если не предлагается."
+        },
+        "recommended_action": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/action",
+          "description": "Рекомендация не считается фактическим action."
+        },
+        "record_kind": {
+          "const": "GENERIC_CRITIC",
+          "description": "Architecture-specific decision interface, не hidden condition."
+        }
+      },
+      "required": [
+        "record_kind",
+        "memo",
+        "recommended_action",
+        "confidence",
+        "proposal"
+      ],
+      "type": "object"
+    },
+    "b3": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "probe_predictions": {
+                "maxItems": 0
+              },
+              "probe_type": {
+                "const": "NONE"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "probe_needed": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "probe_type": {
+                "not": {
+                  "const": "NONE"
+                }
+              }
+            }
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "proposal": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/proposal"
+              },
+              "proposed_new_scope": {
+                "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/scope"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "profile_update_status": {
+                "const": "NO_CHANGE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "proposal": {
+                "type": "null"
+              },
+              "proposed_new_interval": {
+                "type": "null"
+              },
+              "proposed_new_scope": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ],
+      "description": "Observable PREP record, не chain-of-thought.",
+      "properties": {
+        "action": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/action",
+          "description": "PREP action suggestion, ACTION output отдельно."
+        },
+        "cancel_pending_probe": {
+          "description": "Explicit cancellation, processed before any new declaration; false does not cancel on stop.",
+          "type": "boolean"
+        },
+        "candidate_loci": {
+          "description": "Альтернативные адреса объяснения, не установленная cause.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/locus"
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "confidence": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/confidence",
+          "description": "Не primary numerical confidence."
+        },
+        "observed_mismatch": {
+          "additionalProperties": false,
+          "description": "Наблюдаемое несовпадение.",
+          "properties": {
+            "description": {
+              "description": "Краткое различие; NONE допустим как literal description.",
+              "maxLength": 240,
+              "minLength": 1,
+              "type": "string"
+            },
+            "evidence_refs": {
+              "description": "Референсы past observable feedback.",
+              "items": {
+                "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                "type": "string"
+              },
+              "maxItems": 10,
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "evidence_refs",
+            "description"
+          ],
+          "type": "object"
+        },
+        "probe_needed": {
+          "description": "Заявленная потребность, не факт исполнения.",
+          "type": "boolean"
+        },
+        "probe_predictions": {
+          "description": "Prospective annotations only; same labels or UNKNOWN allowed. No schema inference of discrimination.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/probe_prediction"
+          },
+          "maxItems": 5,
+          "minItems": 0,
+          "type": "array"
+        },
+        "probe_type": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/probe_type",
+          "description": "Тип bounded probe §9."
+        },
+        "profile_update_status": {
+          "description": "Requested status, не validated commit.",
+          "enum": [
+            "NO_CHANGE",
+            "ACTIVE",
+            "QUESTIONED",
+            "REVISED",
+            "NARROWED",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "proposal": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/proposal"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Единственный источник update для commit; зеркала должны совпадать."
+        },
+        "proposed_new_interval": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/interval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Зеркало proposal.new_interval; null при NO_CHANGE/UNKNOWN."
+        },
+        "proposed_new_scope": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/scope"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Зеркало proposal.new_scope; null при NO_CHANGE."
+        },
+        "record_kind": {
+          "const": "MATRYOSHKA_REFLEXIVE",
+          "description": "Architecture-specific decision interface, не hidden condition."
+        },
+        "relevant_self_claim": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Адрес claim; null у C0 или без relevant claim."
+        },
+        "stop_reflection": {
+          "description": "Latch future PREP; does not cancel ACTION or a pending scheduled probe.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "record_kind",
+        "relevant_self_claim",
+        "observed_mismatch",
+        "candidate_loci",
+        "probe_needed",
+        "probe_type",
+        "probe_predictions",
+        "profile_update_status",
+        "proposed_new_interval",
+        "proposed_new_scope",
+        "action",
+        "confidence",
+        "stop_reflection",
+        "proposal",
+        "cancel_pending_probe"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://mrab.example.invalid/r1/0.2.1/r1_reflexive_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "PREP interfaces; B2 is not given B3 schema/vocabulary.",
+  "oneOf": [
+    {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_reflexive_record.schema.json#/$defs/b1"
+    },
+    {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_reflexive_record.schema.json#/$defs/b2"
+    },
+    {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_reflexive_record.schema.json#/$defs/b3"
+    }
+  ],
+  "title": "r1_reflexive_record contract 0.2.1"
+}

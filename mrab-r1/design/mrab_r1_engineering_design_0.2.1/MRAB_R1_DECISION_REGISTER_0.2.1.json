@@ -1,0 +1,187 @@
+{
+  "artifact": "MRAB_R1_DECISION_REGISTER_0.2.1",
+  "package_version": "0.2.1",
+  "benchmark_identity": "R1_0.1",
+  "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+  "decisions": [
+    {
+      "id": "R1-CAPABILITY-01",
+      "classification": "AUTHOR_DECISION",
+      "status": "ACCEPTED",
+      "authority": "references/R1-CAPABILITY-01.md — latest user pasted request",
+      "decision": "R1 studies operational self-model revision, not recovery of a fixed calibration number. p_reference anchors initial manipulation; p_operational(t) is configuration dependent and not assumed known.",
+      "impact": [
+        "SPEC sections 2/5/8/10",
+        "EVAL E01-E04",
+        "scope and execution_context schemas",
+        "public evidence key",
+        "descriptive reference-distance"
+      ],
+      "configurable_field": "design_decisions.capability_estimand",
+      "supersedes": "Automatic use of reference as live truth; forced-always-PREP and mandatory per-state calibration NOT adopted"
+    },
+    {
+      "id": "OD-02",
+      "classification": "AUTHORIAL RESEARCH-SCOPE DECISION",
+      "status": "CLOSED",
+      "closed_by": "R1-PROBE-01",
+      "authority": "references/R1_PATCH_0.2.1.md#1",
+      "decision": "R1 uses BOUNDED_EVIDENCE_PROBE; labels alone do not establish causal discrimination.",
+      "blocked_nodes": []
+    },
+    {
+      "id": "AUTH-98",
+      "classification": "AUTHOR_DECISION",
+      "status": "ACCEPTED_CONVERSATION_EVIDENCE",
+      "decision": "Exclude 98_ВАЛИДАЦИЯ_И_ДОСТОВЕРНОСТЬ from required sources.",
+      "authority": "references/AUTHOR_DECISION_98.md",
+      "limit": "Exact user reply is available in current conversation; no independently exported raw-message artifact/hash is available. The new decision record is not that export."
+    },
+    {
+      "id": "BF-01",
+      "classification": "LOCAL_BUG_FIX",
+      "status": "APPLIED",
+      "decision": "Deepcopy specimen registration; restore forbidden B4/C0 profiles; keep expected=false; verify serialized bytes without rebuilding.",
+      "impact": [
+        "build_design_vectors.py",
+        "corpus_migration.json",
+        "verify_design.py"
+      ]
+    },
+    {
+      "id": "CC-01",
+      "classification": "CONTRACT_CLARIFICATION",
+      "status": "APPLIED",
+      "decision": "Common B2/B3 atomic admissibility, exact version/stage snapshots, ordered multi-probe and latch events, public C0 scope restart, no rollback of accepted commit after ACTION failure.",
+      "impact": [
+        "SPEC sections 9/10",
+        "five schemas",
+        "COMMIT and TRACE checks"
+      ]
+    },
+    {
+      "id": "OC-01",
+      "classification": "ENGINEERING DEFAULT",
+      "status": "APPLIED_WITH_ASSUMPTION",
+      "decision": "Exact family/difficulty/context/tool/configuration/actual PREP mode/history EMPTY-or-NONEMPTY evidence key.",
+      "rationale": "Do not silently pool materially different execution modes; no mandatory online calibration.",
+      "configurable_field": "protocol_revision and capability_configurations; key changes require protocol revision",
+      "impact": "Operational evidence eligibility/reach; observations within a key may remain nonstationary and action-selected. Beta is heuristic, not proof of p_live."
+    },
+    {
+      "id": "ED-01",
+      "classification": "ENGINEERING DEFAULT",
+      "status": "APPLIED",
+      "decision": "Last10 attempts and feedback plus common public evidence_index up to32; last numeric/scope-parent/restore anchors up to8; partitioned ledgers up to128.",
+      "rationale": "Address old evidence/rollback without B3-only access or unbounded transcript.",
+      "configurable_field": "history_window=10; versioned schema caps and history_policy",
+      "impact": "Visible memory policy changed for ALL arms; higher context use possible. No silent truncation, overflow stops configuration."
+    },
+    {
+      "id": "ED-02",
+      "classification": "ENGINEERING DEFAULT",
+      "status": "PRESERVED_EXPLICIT",
+      "decision": "Strict counterbalanced family alternation; surface/context-redundancy transfer; smoke8+4 and pilot24+8.",
+      "rationale": "Preserve counts and disclose limited generalization; add long scripted checks outside matrix.",
+      "configurable_field": "ordering_policy, transfer_scope, planned_run/main_episodes/transfer_episodes",
+      "impact": "No random-run family order claim, no novel skill transfer claim, no smoke MAIN post-E reach."
+    },
+    {
+      "id": "ED-03",
+      "classification": "ENGINEERING DEFAULT",
+      "status": "PRESERVED_EXPLICIT",
+      "decision": "PREP/ACTION/repair output caps1024/1024/512; input16384; one repair; model/tool timeouts120/30; expiry4, restart2; B1/B2 memo480.",
+      "rationale": "Bounded reproducible interfaces; equal ceilings do not imply equal actual compute or expressive capacity.",
+      "configurable_field": "budgets, timeouts, policy.probe_expiry_episodes/restart_new_observations; memo schema cap",
+      "impact": "Compare protocol bundle, report observed/estimated/unavailable usage separately."
+    },
+    {
+      "id": "EP-01",
+      "classification": "EVALUATION POLICY",
+      "status": "APPLIED",
+      "decision": "tau=.80; Beta(1,1), n>=4, strict q>.90; C2/C3 accuracy loss upper<=.02, C1<=.05; equivalence=.05, resource ratio=.20, reach>=.50 and difference<=.25, min pairs6, minimum gain=.05.",
+      "rationale": "Make admissible tradeoffs and uncertainty decidable, not universal Uместность or an intelligence score.",
+      "configurable_field": "policy.solo_threshold, evaluator.*, evaluation_policy.*, analysis_windows.*",
+      "impact": "Primary conditional eligibility and E07 outcomes; no threshold tuning to make B3 win. Actual operational truth not identified."
+    },
+    {
+      "id": "EP-02",
+      "classification": "EVALUATION POLICY",
+      "status": "APPLIED",
+      "decision": "Comparator findings first; REDUNDANT against B2 OR B4; formal B1 contrast for H0-COMPUTE; definite harm need not cost more; add MIXED_TRADEOFF and NO_STRUCTURAL_ADVANTAGE.",
+      "rationale": "Preserve falsifiers, avoid hiding losses in nonsignificance or uncertainty.",
+      "configurable_field": "E07 versioned decision table; protocol_revision",
+      "impact": "Evaluation taxonomy only; not a canonical model entity."
+    },
+    {
+      "id": "CC-02",
+      "classification": "CONTRACT_CLARIFICATION",
+      "status": "APPLIED",
+      "decision": "One seed preimage for TASK_ID and all streams; F1 cyclic-only coordinate symmetry; F2 private solution-anchored exact alpha-canonicalization n!*k! candidates.",
+      "rationale": "Resolve inconsistent streams/noncommuting ROTATE/factorial explosion while preserving exact alpha equivalence.",
+      "configurable_field": "protocol_revision, calibration_plan.difficulty_contract_version=G02_G03_0.2.1",
+      "impact": "Fingerprint/seed identity changes; private canonical ordering must never define public labels. No production solver implemented."
+    },
+    {
+      "id": "LIMIT-CAUSAL",
+      "classification": "CONTRACT_CLARIFICATION",
+      "status": "APPLIED",
+      "decision": "Architecture-package effect != update/action association != causal external-profile role != internal mechanism.",
+      "impact": "Future profile-yoked intervention outside480/5120; must prevent profile reconstruction through memo/history/receipts/anchors."
+    },
+    {
+      "id": "LIMIT-LOW",
+      "classification": "CONTRACT_CLARIFICATION",
+      "status": "APPLIED",
+      "decision": "LOW_ONLY_DISTRUST can remain observationally indistinguishable in current matrix; do not add accurate LOW to C1 by default.",
+      "impact": "Synthetic shortcut detection is not empirical exclusion of shortcut; future scientific change requires author decision."
+    },
+    {
+      "id": "R1-PROBE-01",
+      "classification": "AUTHORIAL RESEARCH-SCOPE DECISION",
+      "status": "ACCEPTED",
+      "authority": "references/R1_PATCH_0.2.1.md#1",
+      "decision": "BOUNDED_EVIDENCE_PROBE: mismatch -> competing explanations -> need for evidence -> bounded probe -> returned observation -> profile consequence -> behavioral consequence -> stop. Different loci/labels do not establish causal discrimination.",
+      "outside_r1": "hypothesis x scope x prediction/likelihood x observation window x revision criterion",
+      "configurable_field": "design_decisions.probe_claim (fixed scope)",
+      "closes": "OD-02"
+    },
+    {
+      "id": "R1-REDUNDANCY-01",
+      "classification": "CONTRACT CORRECTION",
+      "status": "ACCEPTED",
+      "authority": "references/R1_PATCH_0.2.1.md#2",
+      "decision": "REDUNDANT_vs_X = EQUIVALENT(B3,X) AND (STRUCTURALLY_MORE_COMPLEX(B3,X) OR MATERIALLY_MORE_EXPENSIVE(B3,X)), X in B2/B4. Fixed structural relations true for both. No computed complexity score.",
+      "resource_advantage": "Retain REDUNDANT_BY_STRUCTURE plus RESOURCE_ADVANTAGE_B3, not INSUFFICIENT_EVIDENCE.",
+      "configurable_field": "structural_relations (fixed); evaluation_policy.resource_ratio_margin (existing configurable parameter)",
+      "supersedes": "Cost-only redundancy implementation0.2; unrelated C1 harm is retained separately and can dominate overall status."
+    },
+    {
+      "id": "R1-PREP-01",
+      "classification": "ENGINEERING DEFAULT",
+      "status": "ACCEPTED",
+      "authority": "references/R1_PATCH_0.2.1.md#3",
+      "decision": "Normal B0/B4 no PREP; B1/B2 exactly one; B3 at most one with normal skip only by B3 controller. Abnormal skipped PREP requires PROTOCOL_FAILURE / INFRA_FAILURE / EXPLICIT_NONEXECUTION.",
+      "accounting": "Abnormal skip stays ITT; reason required; excluded from normal operational-mode evidence and architecture-savings claims. R1 task overrides older blanket infra exclusion for these specific PREP nonexecutions; ordinary non-PREP infra attrition remains separately reported.",
+      "configurable_field": "capability_configurations.prep_policy; episode.execution_context.prep_skip_reason/prep_call_count; no discretionary B1/B2 normal skip",
+      "limit": "Controller-driven call savings are a protocol-bundle effect, not proof of an internal autonomous mechanism."
+    },
+    {
+      "id": "R1-B4-01",
+      "classification": "ENGINEERING DEFAULT / STRONG BASELINE POLICY",
+      "status": "ACCEPTED",
+      "authority": "references/R1_PATCH_0.2.1.md#4",
+      "decision": "Intentionally preserve strengthened B4 policy0.2 as strong simple null baseline, not revert to an earlier weaker policy. Deterministic Beta tracker with mean-SOLO/uncertainty/refresh VERIFY and DELEGATE rules from0.2 SPEC11.",
+      "configurable_field": "policy.solo_threshold, tracker_prior_alpha/beta, tracker_refresh, tracker_min_informative, tracker_uncertain_mass_low/high; b4_policy_version=STRONG_TRACKER_POLICY_0.2",
+      "forbidden": [
+        "false self-profile",
+        "candidate loci",
+        "Matryoshka update protocol",
+        "B3 probe grammar",
+        "B3 stop/restart architecture"
+      ],
+      "freeze": "All parameters frozen before first model run. Post-results changes require new experimental protocol version.",
+      "limit": "Intentionally strengthened relative to early B4; no assertion of empirical superiority before runs."
+    }
+  ]
+}

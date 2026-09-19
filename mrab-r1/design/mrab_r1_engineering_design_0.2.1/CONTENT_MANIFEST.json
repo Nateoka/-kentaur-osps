@@ -1,0 +1,333 @@
+{
+  "artifact": "MRAB_R1_CONTENT_MANIFEST_0.2.1",
+  "canonical_sources_modified": false,
+  "excludes": [
+    "CONTENT_MANIFEST.json (self-reference)"
+  ],
+  "files": [
+    {
+      "bytes": 15889,
+      "path": "CHANGED_FILES_0.2_TO_0.2.1.json",
+      "sha256": "af210c819cdb0b4c60a20d1d9fcdba0638ffa46f1444ead6d7d9b1d57e3e407f"
+    },
+    {
+      "bytes": 4889,
+      "path": "CHANGELOG_0.1_TO_0.2.md",
+      "sha256": "e57df13779af52b2e46ad16321a65e3ae4ee0393f4e5e5f800e7d93a8f3030a7"
+    },
+    {
+      "bytes": 3181,
+      "path": "CHANGELOG_0.2_TO_0.2.1.md",
+      "sha256": "0376ffccf8a32ab0ea707f1230a964a17865f40b9ce8067a35040a6d671019d1"
+    },
+    {
+      "bytes": 10465,
+      "path": "design_checks/corpus_migration.json",
+      "sha256": "0bd254c4a2efdb5b6a77c44b0141008d2abf9652776998084517f79237c3058a"
+    },
+    {
+      "bytes": 435,
+      "path": "design_checks/golden_migration_0.2_to_0.2.1.json",
+      "sha256": "5c1efd5c6f5354f495f64f285488a5e0e239c72e2224e43a9bcebe12c62227be"
+    },
+    {
+      "bytes": 97127,
+      "path": "design_checks/goldens.json",
+      "sha256": "f1f61d10c9b5d5257e6094773af052006c8203109f4ce5250847aa87a4fe918a"
+    },
+    {
+      "bytes": 15552,
+      "path": "design_checks/lifecycle_vectors.json",
+      "sha256": "50300256e13c74d37beeb2469a461f432093186e304874d77fe5ed989f20c12a"
+    },
+    {
+      "bytes": 187227,
+      "path": "design_checks/schema_specimens.json",
+      "sha256": "978c84117f72e2dc42fff99af03c8be6c0394dd12466bfd6389a097ffbfebd61"
+    },
+    {
+      "bytes": 2596,
+      "path": "design_tools/build_change_manifest.py",
+      "sha256": "217321b959b1a54db98fdc79b0b665c0637f83a0ee87b0bec281015a3c534129"
+    },
+    {
+      "bytes": 10311,
+      "path": "design_tools/build_design_vectors.py",
+      "sha256": "f05a6a5686944c18c7cc372ef3461eaedafd9b5e07c077c6bac8cdbeb1bd0cdf"
+    },
+    {
+      "bytes": 19364,
+      "path": "design_tools/build_registers.py",
+      "sha256": "f3a688bd4ff762d47f4272c8b5e9496fb49791e75193ef46ef07b11d1d180c33"
+    },
+    {
+      "bytes": 42174,
+      "path": "design_tools/build_schema_documents.py",
+      "sha256": "e4ffcaf77e48f73b4f646091ca0e5b4f5609c1e5b24b7548c794ba45251a5112"
+    },
+    {
+      "bytes": 26808,
+      "path": "design_tools/contract_checks.py",
+      "sha256": "257396e604b37369756f1d4f79e8cda04b12ad335a348a03a7aae2ddd0d3e64d"
+    },
+    {
+      "bytes": 3352,
+      "path": "design_tools/package_design.py",
+      "sha256": "04bc8d63203c9d3c7a73da8f566721f36e40e708bf7c9621f5278249af8b3e26"
+    },
+    {
+      "bytes": 18591,
+      "path": "design_tools/schema_changes_02.py",
+      "sha256": "509cf2d741961f154818728fd0afe8584e2e72f9c0b9c7a7668377248672a7a6"
+    },
+    {
+      "bytes": 39478,
+      "path": "design_tools/verify_design.py",
+      "sha256": "9d45cae24af8541197b248f6b45956eddb0c7d0af10011ff029f2e4de775dce8"
+    },
+    {
+      "bytes": 4161,
+      "path": "design_tools/verify_release.py",
+      "sha256": "e6406d3ef03f6d6a6d1b0733464b24e9607b6da54afd91606d4693b4681b14f3"
+    },
+    {
+      "bytes": 4657,
+      "path": "MRAB_R1_CROSS_FILE_REVIEW_0.2.1.md",
+      "sha256": "a7ef2daa71bfdd08dd7831ba5ec158e7cacd755242b87ba974bd60f2c0147ca3"
+    },
+    {
+      "bytes": 11260,
+      "path": "MRAB_R1_DECISION_REGISTER_0.2.1.json",
+      "sha256": "13ac0cdb245c2c351cab014e3e07dababb03efd764086da3cceb980f75c85dc7"
+    },
+    {
+      "bytes": 154271,
+      "path": "MRAB_R1_ENGINEERING_DESIGN_CHECK_0.2.1.json",
+      "sha256": "26173ab10ce2836d2aa0e0f7c004598e8ceacb4b13cf099f9e3ba60a51abbef6"
+    },
+    {
+      "bytes": 25660,
+      "path": "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md",
+      "sha256": "016684b69a45022e64cd1a950c546d01346bca796680d733870f0c819a1e0a12"
+    },
+    {
+      "bytes": 60979,
+      "path": "MRAB_R1_FIELD_DICTIONARY.md",
+      "sha256": "adeae3963718d12247b8dfaa0f497e9273730b24cd54a7fd5d2269ae9caf33e7"
+    },
+    {
+      "bytes": 11636,
+      "path": "MRAB_R1_FINDING_DISPOSITIONS_0.2.1.json",
+      "sha256": "ae4e161bb48a73a59b3e2d1e7883103c5599eac196168509920461f470f263dd"
+    },
+    {
+      "bytes": 19942,
+      "path": "MRAB_R1_FIXTURE_PLAN_0.2.1.md",
+      "sha256": "e57f4105f4430b8c11fecbffed91aaba601588e3677ebcdef684d6e4b045a282"
+    },
+    {
+      "bytes": 47342,
+      "path": "MRAB_R1_METRIC_REGISTER_0.2.1.json",
+      "sha256": "d97db6e8a6347c2eac04e7afeccc7582b9e5de19097d94de9683557523aa37a4"
+    },
+    {
+      "bytes": 13946,
+      "path": "MRAB_R1_PROMPT_CONTRACTS_0.2.1.md",
+      "sha256": "d877dd30cc1c7ee10a29a620c40c48dc211b2d2da2e56a4ad87d4da95ff3839f"
+    },
+    {
+      "bytes": 11470,
+      "path": "MRAB_R1_SMOKE_RUN_PLAN_0.2.1.md",
+      "sha256": "4a5b59400322773c182e88b02f7a8c6ace1447c9872e8db1c1698cae1e3cb7dc"
+    },
+    {
+      "bytes": 8938,
+      "path": "MRAB_R1_SOURCE_REGISTER.json",
+      "sha256": "b6f6565d1703952c79add97f88a9f53a5bc1ade59c502e9bc8fb2790b2ef1ee9"
+    },
+    {
+      "bytes": 49573,
+      "path": "MRAB_R1_SPEC_0.2.1.md",
+      "sha256": "5ea06b5b1f20bc048282d6cbfd049809882e0834d117eb809761c86a55d499ed"
+    },
+    {
+      "bytes": 17191,
+      "path": "MRAB_R1_TASK_GENERATOR_CONTRACT_0.2.1.md",
+      "sha256": "885c208136a9cc4fc8f31012f7c65e3dd2bbeb2f745b7fbb9d64a88363e6cd51"
+    },
+    {
+      "bytes": 11717,
+      "path": "MRAB_R1_TRACEABILITY_MATRIX_0.2.1.md",
+      "sha256": "fadbab3865e9014f56e6562cf647572f826aaf14a6a84b7df9ce22fbf000a291"
+    },
+    {
+      "bytes": 4115,
+      "path": "MRAB_R1_WORK_SUMMARY.md",
+      "sha256": "e6f5cb47ce4ab49c01c3a81fb860575b1e43c00f924cd67c500586f176f9b48e"
+    },
+    {
+      "bytes": 7319,
+      "path": "r1_config.default.json",
+      "sha256": "2308a3b847588440527685d389bdebe8f5a20db64123c18c5812cef4031a2d1c"
+    },
+    {
+      "bytes": 4741,
+      "path": "README.md",
+      "sha256": "a96d4e9d5792a550783059da3876392ad1a7809defddc3d909f8815eef283754"
+    },
+    {
+      "bytes": 39336,
+      "path": "references/AUDIT_FINDINGS_0.1.json",
+      "sha256": "774f5dcf15d09adbb5495c48aff50aff9a1fc2ff844879bbe0c7f474dca4a1c6"
+    },
+    {
+      "bytes": 1721,
+      "path": "references/AUTHOR_DECISION_98.md",
+      "sha256": "154069956a15655662ad486f7dcb63392ff83f848257cd2998a4f18823e6f412"
+    },
+    {
+      "bytes": 54922,
+      "path": "references/MRAB_R1_AUDIT_0.1.md",
+      "sha256": "74aaeaf5bbde790bd317605a9cb2e0f251c8cb9d09d5bcfef11fc89fc396543f"
+    },
+    {
+      "bytes": 432303,
+      "path": "references/MRAB_R1_AUDIT_EVIDENCE_0.1.zip",
+      "sha256": "7ec53aa29c01ca88223a732e925e29da8d355f7271f63ac36a238831f4aaaf93"
+    },
+    {
+      "bytes": 124348,
+      "path": "references/MRAB_R1_Engineering_Design_Package_0.1.zip",
+      "sha256": "415c34c877fd9b99702a7c663d3554dc2c5d33bf86de6ad558aa049d462db57c"
+    },
+    {
+      "bytes": 12316,
+      "path": "references/MRAB_R1_Engineering_Design_Package_0.2.manifest.json",
+      "sha256": "926bc7e7f40e302b48fa47e2a0f25358f91fe58523272a8d25a6c5938e2c682a"
+    },
+    {
+      "bytes": 933632,
+      "path": "references/MRAB_R1_Engineering_Design_Package_0.2.zip",
+      "sha256": "7d82fe11f49f5b0ff4446a7e5aaa8f5ac3a5de60c9bb833199b92c2b7b5105d0"
+    },
+    {
+      "bytes": 31251,
+      "path": "references/MRAB_R1_WORK_TASK_0.2.md",
+      "sha256": "f32c0b0cf848c8d9993c60b7d730da3bc7c0d4ff5865562e8e39ea0b31ed2fde"
+    },
+    {
+      "bytes": 5445,
+      "path": "references/ORIGINAL_CORPUS_CHECK.json",
+      "sha256": "010b89161dfd9005235f2dbd56e4cc5ae47d7b35be1ec8c6745295975527101d"
+    },
+    {
+      "bytes": 2471,
+      "path": "references/ORIGINAL_INVENTORY.json",
+      "sha256": "0240c4303df97e3802f54333e8350bd6f0a6208c8147d006ace9c8ecfdfe9969"
+    },
+    {
+      "bytes": 34235,
+      "path": "references/ORIGINAL_PASTED_REQUEST.txt",
+      "sha256": "7ce36db50cc6d2f30c2d47d9106f81dc7c3ca0e76687f4a69035b39bc2594fde"
+    },
+    {
+      "bytes": 10774,
+      "path": "references/R1-CAPABILITY-01.md",
+      "sha256": "fcc4b3c7443c964aa44f4e9637503d80664f754959bec7c8bab24844dbf5e975"
+    },
+    {
+      "bytes": 11983,
+      "path": "references/R1_PATCH_0.2.1.md",
+      "sha256": "8dc2204850fae39f0567cb4ed1d9a30f4cc0e83adee88959081553a870a93df1"
+    },
+    {
+      "bytes": 33091,
+      "path": "references/sources/MRAB-R1 0.1 — False Self-Model.md",
+      "sha256": "5b62ade29391c253789de2b71619185c775bdce08bb0d2b0d0a8ec6323b21c2a"
+    },
+    {
+      "bytes": 17012,
+      "path": "references/sources/Prompt_PP_Matryoshka_2.0.md",
+      "sha256": "a9301e5550cfea8f42f90eb473f3796886ab25b336011244d3a4dbb06334a779"
+    },
+    {
+      "bytes": 46575,
+      "path": "references/sources/Инструменты_Матрёшки_0.1.md",
+      "sha256": "dec6907a494475ab111c4724b559a3c6023766378ad849952fac2394eb71d915"
+    },
+    {
+      "bytes": 71292,
+      "path": "references/sources/Матрёшка генезис формы и режимы осуществления 1.0.md",
+      "sha256": "c28fe5a008292cebdce1ec4132b3d35215dc8683360b16dcacc2b8b941321bfd"
+    },
+    {
+      "bytes": 32630,
+      "path": "references/sources/Матрёшка искусственного агента.md",
+      "sha256": "07147e3902a35c08d993fd0ee2aadf6dabc15998569b129e6f80ef8919259509"
+    },
+    {
+      "bytes": 63082,
+      "path": "references/sources/Матрёшка_искусственного_агента_0.1_архитектура_агентности_саморегуляции_и_развития.md",
+      "sha256": "5abdd3475db8a76deafadb6137c9200332821bd1de7a03495aeed364fbe147a5"
+    },
+    {
+      "bytes": 75898,
+      "path": "references/sources/Модель_Интеллекта_Матрёшки_2.0.md",
+      "sha256": "6d9f04a1cac1fe4a66b61713b74a169cc0254150afa9bbe86987517edef294c0"
+    },
+    {
+      "bytes": 50942,
+      "path": "references/sources/Практика_Матрёшки_1.1_STABLE_Конституция_и_грамматика_практического_хода.md",
+      "sha256": "74b3235eba2ccd6304c47ff92e911a2211960ac84073317c72f60db77a21b8cb"
+    },
+    {
+      "bytes": 107,
+      "path": "requirements.txt",
+      "sha256": "3fbcb28e834d2da6154d5f9ce5d837ecc2a3bb8bec1096a6228fdded6eeeb1db"
+    },
+    {
+      "bytes": 76880,
+      "path": "schemas/r1_config.schema.json",
+      "sha256": "6188c0b42399391abd441b17f00b19779541da04bd01fa95ecc78b59f824d246"
+    },
+    {
+      "bytes": 30061,
+      "path": "schemas/r1_episode_record.schema.json",
+      "sha256": "13c1d78d689c1dbdcd2f62372acf9fbe9392bccb39e1f53ebd53be8586cb13c6"
+    },
+    {
+      "bytes": 10188,
+      "path": "schemas/r1_reflexive_record.schema.json",
+      "sha256": "f5df94b061f2c9a751b93a76a6418e8566f03094a87f3b5470389b3cd5dfd2dc"
+    },
+    {
+      "bytes": 13419,
+      "path": "schemas/r1_self_profile.schema.json",
+      "sha256": "37b901b4070be141a6c452b52bbfd6968a276431f2a847bda7a3871da4832617"
+    },
+    {
+      "bytes": 17303,
+      "path": "schemas/r1_trajectory.schema.json",
+      "sha256": "ee87d087b26c81299adaea32e39dc52ceca1497cbd7b5b9dae9139b82f0cfe61"
+    },
+    {
+      "bytes": 4883,
+      "path": "verification_evidence/long_scripted_trace.json",
+      "sha256": "b2d4a45893708d60557bebdd6fb7c1ae1307c662aca27b1ce9557a3cd25b5df0"
+    },
+    {
+      "bytes": 20460,
+      "path": "verification_evidence/private_projection_request.json",
+      "sha256": "ec38e2e8ea27ceda3550bb197756b58a7f31afcc3a7135f397590e777220eb29"
+    },
+    {
+      "bytes": 58366,
+      "path": "verification_evidence/request_capture.json",
+      "sha256": "35a5d8f24730fc8653a29fa9b7855cdb4033657647c5eedbcea6241bc3e7acd0"
+    }
+  ],
+  "model_calls": 0,
+  "package_version": "0.2.1",
+  "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+  "readiness": "IMPLEMENTATION_READY_DESIGN_ONLY"
+}

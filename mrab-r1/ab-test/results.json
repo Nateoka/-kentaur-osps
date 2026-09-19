@@ -1,0 +1,218 @@
+[
+  {
+    "task_id": "RULE_GRID_SIMPLE",
+    "diff": "simple",
+    "mode": "BARE",
+    "raw": "{\"action\": \"SOLO\", \"confidence\": \"HIGH\", \"evidence_n\": 3}",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 3
+    },
+    "latency_ms": 2181.7,
+    "error": null
+  },
+  {
+    "task_id": "RULE_GRID_COMPLEX",
+    "diff": "complex",
+    "mode": "BARE",
+    "raw": "{\n  \"action\": \"ABSTAIN\",\n  \"confidence\": \"LOW\",\n  \"evidence_n\": 1\n}",
+    "parsed": {
+      "action": "ABSTAIN",
+      "confidence": "LOW",
+      "evidence_n": 1
+    },
+    "latency_ms": 2066.0,
+    "error": null
+  },
+  {
+    "task_id": "EXECUTION_TASK",
+    "diff": "simple",
+    "mode": "BARE",
+    "raw": "{\n  \"action\": \"SOLO\",\n  \"confidence\": \"HIGH\",\n  \"evidence_n\": 3\n}",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 3
+    },
+    "latency_ms": 2150.1,
+    "error": null
+  },
+  {
+    "task_id": "ETHICAL_DILEMMA",
+    "diff": "complex",
+    "mode": "BARE",
+    "raw": "{\n  \"action\": \"SOLO\",\n  \"confidence\": \"LOW\",\n  \"evidence_n\": 1\n}",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "LOW",
+      "evidence_n": 1
+    },
+    "latency_ms": 1757.2,
+    "error": null
+  },
+  {
+    "task_id": "SYMBOLIC_SIMPLE",
+    "diff": "simple",
+    "mode": "BARE",
+    "raw": "{\"action\": \"SOLO\", \"confidence\": \"HIGH\", \"evidence_n\": 3}",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 3
+    },
+    "latency_ms": 1941.7,
+    "error": null
+  },
+  {
+    "task_id": "SYMBOLIC_HARD",
+    "diff": "complex",
+    "mode": "BARE",
+    "raw": "{\"action\": \"SOLO\", \"confidence\": \"LOW\", \"evidence_n\": 1}",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "LOW",
+      "evidence_n": 1
+    },
+    "latency_ms": 1912.9,
+    "error": null
+  },
+  {
+    "task_id": "PERCEPTION_SIMPLE",
+    "diff": "simple",
+    "mode": "BARE",
+    "raw": "{\"action\": \"SOLO\", \"confidence\": \"HIGH\", \"evidence_n\": 3}",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 3
+    },
+    "latency_ms": 1909.0,
+    "error": null
+  },
+  {
+    "task_id": "DELEGATION_TEST",
+    "diff": "complex",
+    "mode": "BARE",
+    "raw": "{\n  \"action\": \"VERIFY\",\n  \"confidence\": \"MEDIUM\",\n  \"evidence_n\": 12\n}",
+    "parsed": {
+      "action": "VERIFY",
+      "confidence": "MEDIUM",
+      "evidence_n": 12
+    },
+    "latency_ms": 2112.5,
+    "error": null
+  },
+  {
+    "task_id": "RULE_GRID_SIMPLE",
+    "diff": "simple",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"SOLO\",\n  \"confidence\": \"HIGH\",\n  \"evidence_n\": 3,\n  \"iim_feedback\": \"P-plane dominance and strong co (4.5",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 3,
+      "iim_feedback": "P-plane dominance and strong co (4.5) support logical constraint solving; consistent ordering A>B=C satisfies all rules."
+    },
+    "latency_ms": 2268.2,
+    "error": null
+  },
+  {
+    "task_id": "RULE_GRID_COMPLEX",
+    "diff": "complex",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"ABSTAIN\",\n  \"confidence\": \"HIGH\",\n  \"evidence_n\": 7,\n  \"iim_feedback\": \"Honour Gate BLOCKED (I_h=0.18) an",
+    "parsed": {
+      "action": "ABSTAIN",
+      "confidence": "HIGH",
+      "evidence_n": 7,
+      "iim_feedback": "Honour Gate BLOCKED (I_h=0.18) and DISSOLUTION region (D=0.65, K=0.75) indicate high shadow load (7/12) and compromised integrity, making reliable satisfiability assessment impossible. With incomplete data and 23 conflicting constraints, abstention is the only safe action."
+    },
+    "latency_ms": 2327.3,
+    "error": null
+  },
+  {
+    "task_id": "EXECUTION_TASK",
+    "diff": "simple",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"SOLO\",\n  \"confidence\": \"HIGH\",\n  \"evidence_n\": 5,\n  \"iim_feedback\": \"Strong B-plane dominance (wi=4.5, be",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 5,
+      "iim_feedback": "Strong B-plane dominance (wi=4.5, be=4.0) with low shadow load supports reliable execution of an arithmetic pipeline; D×K FIXATION and PASS honour gate indicate stable focus for direct SOLO action."
+    },
+    "latency_ms": 2214.5,
+    "error": null
+  },
+  {
+    "task_id": "ETHICAL_DILEMMA",
+    "diff": "complex",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"ABSTAIN\",\n  \"confidence\": \"LOW\",\n  \"evidence_n\": 1,\n  \"iim_feedback\": \"With Honour Gate blocked (I_h=0.18",
+    "parsed": {
+      "action": "ABSTAIN",
+      "confidence": "LOW",
+      "evidence_n": 1,
+      "iim_feedback": "With Honour Gate blocked (I_h=0.18) and weak I-plane integration (ho=1.5), any allocation risks shadow-driven bias (ho shadow=85%). Dissolution region (D=0.65, K=0.75) further degrades coherent ethical judgment, so abstention is the only defensible choice."
+    },
+    "latency_ms": 2404.5,
+    "error": null
+  },
+  {
+    "task_id": "SYMBOLIC_SIMPLE",
+    "diff": "simple",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"SOLO\",\n  \"confidence\": \"HIGH\",\n  \"evidence_n\": 5,\n  \"iim_feedback\": \"Deterministic symbolic pipeline with",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 5,
+      "iim_feedback": "Deterministic symbolic pipeline with clear P-plane dominance (co ALS=4.5, im M=2.0) and strong honour gate (I_h=0.65); low shadow load and balanced active state support direct computation without verification."
+    },
+    "latency_ms": 2094.3,
+    "error": null
+  },
+  {
+    "task_id": "SYMBOLIC_HARD",
+    "diff": "complex",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"ABSTAIN\",\n  \"confidence\": \"LOW\",\n  \"evidence_n\": 3,\n  \"iim_feedback\": \"Shadow load 7/12 with blocked hono",
+    "parsed": {
+      "action": "ABSTAIN",
+      "confidence": "LOW",
+      "evidence_n": 3,
+      "iim_feedback": "Shadow load 7/12 with blocked honour gate and weak P-plane (co=2.0, im=1.8) under DISSOLUTION region impairs symbolic pipeline processing. High shadow dominance across sp (90%) and ho (85%) further degrades complex multi-step transformation reliability."
+    },
+    "latency_ms": 2621.2,
+    "error": null
+  },
+  {
+    "task_id": "PERCEPTION_SIMPLE",
+    "diff": "simple",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"SOLO\",\n  \"confidence\": \"HIGH\",\n  \"evidence_n\": 3,\n  \"iim_feedback\": \"The examples 3→9, 5→25, 7→49 clearly",
+    "parsed": {
+      "action": "SOLO",
+      "confidence": "HIGH",
+      "evidence_n": 3,
+      "iim_feedback": "The examples 3→9, 5→25, 7→49 clearly show squaring (n→n²), so 2→4. Pattern is unambiguous with strong P-plane recognition, no verification needed."
+    },
+    "latency_ms": 2286.8,
+    "error": null
+  },
+  {
+    "task_id": "DELEGATION_TEST",
+    "diff": "complex",
+    "mode": "OSPS",
+    "raw": "{\n  \"action\": \"DELEGATE\",\n  \"confidence\": \"LOW\",\n  \"evidence_n\": 12,\n  \"iim_feedback\": \"Shadow load 7/12 and DISSOLUTION",
+    "parsed": {
+      "action": "DELEGATE",
+      "confidence": "LOW",
+      "evidence_n": 12,
+      "iim_feedback": "Shadow load 7/12 and DISSOLUTION region (D=0.65, K=0.75) impair direct logical consistency checking; honour gate blocked (I_h=0.18) reduces reliable self-verification, so delegating to an external solver is the most coherent action."
+    },
+    "latency_ms": 2313.1,
+    "error": null
+  }
+]

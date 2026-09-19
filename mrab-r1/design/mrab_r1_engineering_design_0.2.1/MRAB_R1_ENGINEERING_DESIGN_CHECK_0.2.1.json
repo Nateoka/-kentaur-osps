@@ -1,0 +1,5188 @@
+{
+  "artifact": "MRAB_R1_ENGINEERING_DESIGN_CHECK_0.2.1",
+  "calibration_runs": 0,
+  "checks": [
+    {
+      "evidence": {
+        "metaschema": "Draft202012",
+        "resolved_refs": 32
+      },
+      "id": "SCHEMA:r1_config.schema.json",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "metaschema": "Draft202012",
+        "resolved_refs": 21
+      },
+      "id": "SCHEMA:r1_episode_record.schema.json",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "metaschema": "Draft202012",
+        "resolved_refs": 18
+      },
+      "id": "SCHEMA:r1_reflexive_record.schema.json",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "metaschema": "Draft202012",
+        "resolved_refs": 15
+      },
+      "id": "SCHEMA:r1_self_profile.schema.json",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "metaschema": "Draft202012",
+        "resolved_refs": 22
+      },
+      "id": "SCHEMA:r1_trajectory.schema.json",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:config-smoke",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:config-pilot",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:profile-two-slots",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:episode-structural-only",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:trajectory-planned-only",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:b1",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:b2",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:b3",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:b3-prospective-active-probe",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:admissible-update-event-shape",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:unknown-claim-rejection-log",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "None is not of type 'object'",
+            "path": "/after_claim"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:commit-needs-after-snapshot",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'claims': [{'capability_configuration_ref': 'configuration:a', 'claim_id': 'claim:a', 'context_condition': ['STANDARD'], 'difficulty_scope': ['difficulty:a'], 'estimated_success_interval': {'lower': 0.8, 'upper': 0.95}, 'evidence_label': '",
+            "path": "/current_profile"
+          },
+          {
+            "message": "{'claims': [{'capability_configuration_ref': 'configuration:a', 'claim_id': 'claim:a', 'context_condition': ['STANDARD'], 'difficulty_scope': ['difficulty:a'], 'estimated_success_interval': {'lower': 0.8, 'upper': 0.95}, 'evidence_label': '",
+            "path": "/initial_profile"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:private-no-profile-B4",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:private-null-profile-B4",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'claims': [{'capability_configuration_ref': 'configuration:a', 'claim_id': 'claim:a', 'context_condition': ['STANDARD'], 'difficulty_scope': ['difficulty:a'], 'estimated_success_interval': {'lower': 0.8, 'upper': 0.95}, 'evidence_label': '",
+            "path": "/current_profile"
+          },
+          {
+            "message": "{'claims': [{'capability_configuration_ref': 'configuration:a', 'claim_id': 'claim:a', 'context_condition': ['STANDARD'], 'difficulty_scope': ['difficulty:a'], 'estimated_success_interval': {'lower': 0.8, 'upper': 0.95}, 'evidence_label': '",
+            "path": "/initial_profile"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:private-no-profile-C0",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:private-null-profile-C0",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:grid-grammar-positive",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'atom': {'entity': 'e0', 'property': 'a0', 'value': 'v1'}, 'kind': 'NATURAL_LANGUAGE'} is not valid under any of the given schemas",
+            "path": "/constraints/0"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:grid-no-prose-logic",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:claim-status-QUESTIONED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:claim-status-REVISED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:claim-status-NARROWED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:claim-status-UNKNOWN",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'lower': 0.8, 'upper': 0.95} is not of type 'null'",
+            "path": "/claims/0/estimated_success_interval"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:unknown-with-number-rejected",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('profile_condition' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-profile_condition",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('architecture' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-architecture",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('seed_metadata' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-seed_metadata",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('ground_truth' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-ground_truth",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('calibration_cells' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-calibration_cells",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('evaluator_private' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-evaluator_private",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('posterior_wrong_before' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:agent-forbidden-posterior_wrong_before",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "Additional properties are not allowed ('correct_answer' was unexpected)",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:feedback-truth-field-rejected",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'candidate_loci': ['SELF_CAPABILITY'], 'confidence': 'UNSPECIFIED', 'memo': 'No update proposed.', 'proposal': None, 'recommended_action': 'SOLO', 'record_kind': 'GENERIC_CRITIC'} is not valid under any of the given schemas",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:b2-no-b3-vocabulary",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:probe-single-locus-bookkeeping-draft",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'action': 'SOLO', 'cancel_pending_probe': False, 'candidate_loci': ['UNKNOWN'], 'chain_of_thought': 'not allowed', 'confidence': 'UNSPECIFIED', 'observed_mismatch': {'description': 'NONE', 'evidence_refs': []}, 'probe_needed': False, 'prob",
+            "path": "/"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:no-chain-of-thought-field",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "None is not valid under any of the given schemas",
+            "path": "/solo_answer"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:SOLO-needs-preanswer",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "None is not valid under any of the given schemas",
+            "path": "/solo_answer"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:VERIFY-needs-preanswer",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'family': 'SYMBOLIC_PIPELINE', 'result': [3, 3]} is not of type 'null'",
+            "path": "/solo_answer"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:DELEGATE-forbids-solo",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "{'family': 'SYMBOLIC_PIPELINE', 'result': [3, 3]} is not of type 'null'",
+            "path": "/solo_answer"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:ABSTAIN-forbids-solo",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "['B0', 'B1', 'B2', 'B3', 'B4'] was expected",
+            "path": "/architectures"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:matrix-reject-architectures",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "['C0', 'C1', 'C2', 'C3'] was expected",
+            "path": "/profile_conditions"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:matrix-reject-profile_conditions",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "2 was expected",
+            "path": "/trajectories_per_cell"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:matrix-reject-trajectories_per_cell",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "4 was expected",
+            "path": "/transfer_episodes"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:matrix-reject-transfer_episodes",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:timeout-retains-call",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:c0-stop-public-scope",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "None is not of type 'string'",
+            "path": "/scope_id"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:c0-stop-no-null-latch",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "['PREP_EXECUTED'] was expected",
+            "path": "/capability_configurations/B1/execution_modes"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:B1-config-reject-normal-skip",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "'EXACTLY_ONE' was expected",
+            "path": "/capability_configurations/B2/prep_policy"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:B2-config-reject-controller-policy",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "True was expected",
+            "path": "/structural_relations/B3_more_complex_than_B4"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:predeclared-structure-not-configurable-score",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:execution-context-normal-b3",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:execution-context-abnormal-protocol",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:execution-context-abnormal-infra",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": true,
+        "errors": [],
+        "expected": true
+      },
+      "id": "CORPUS:execution-context-abnormal-explicit",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": false,
+        "errors": [
+          {
+            "message": "None is not of type 'string'",
+            "path": "/prep_skip_reason"
+          }
+        ],
+        "expected": false
+      },
+      "id": "CORPUS:execution-context-skip-needs-reason",
+      "status": "PASS"
+    },
+    {
+      "evidence": 53,
+      "id": "CORPUS:unique-ids",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "mismatches": [
+          "private-no-profile-B4",
+          "private-no-profile-C0"
+        ],
+        "original_matches": 40,
+        "total": 42
+      },
+      "id": "A01:old-delivered-40-of-42",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "inspection": "Source tokens plus reproduced serialized mismatch; not execution of original builder",
+        "source": "references/original ZIP/design_tools/audit_design.py"
+      },
+      "id": "A01:original-alias-cause",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "expected_schema_valid": false,
+          "instance": {
+            "nested": {
+              "profile": 1
+            }
+          },
+          "revision_note": "R1 patch021 authored vector",
+          "schema": "schema",
+          "specimen_id": "mutation"
+        }
+      ],
+      "id": "A01:deepcopy-registration",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual_fields": 492,
+        "expected_fields": 492
+      },
+      "id": "SCHEMA:dictionary-exact",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5"
+        ],
+        "conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ]
+      },
+      "id": "SCHEMA:reserved-enums",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "r1_config.schema.json": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json",
+        "r1_episode_record.schema.json": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json",
+        "r1_reflexive_record.schema.json": "https://mrab.example.invalid/r1/0.2.1/r1_reflexive_record.schema.json",
+        "r1_self_profile.schema.json": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json",
+        "r1_trajectory.schema.json": "https://mrab.example.invalid/r1/0.2.1/r1_trajectory.schema.json"
+      },
+      "id": "SCHEMA:version-identity",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            },
+            {
+              "comparator": "B2",
+              "kind": "BENEFIT",
+              "reason": "C2,C3 with accuracy/completion guards"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_COST",
+              "reason": "Materially greater observed resource cost"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:NEG-B4-OR",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "NO_STRUCTURAL_ADVANTAGE",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "NO_STRUCTURAL_ADVANTAGE",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:NEG-B1",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B2 structural relation, not a score"
+            },
+            {
+              "comparator": "B4",
+              "kind": "HARM",
+              "reason": "C2,C3 definite adverse outcome; does not require increased cost"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "COUNTERPRODUCTIVE",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "COUNTERPRODUCTIVE",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:NEG-B4-DOMINATES",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            },
+            {
+              "comparator": "B2",
+              "kind": "HARM",
+              "reason": "C3 definite adverse outcome; does not require increased cost"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "COUNTERPRODUCTIVE",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "COUNTERPRODUCTIVE",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:NEG-EQUAL-COST-HARM",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            },
+            {
+              "comparator": "B2",
+              "kind": "HARM",
+              "reason": "C3 definite adverse outcome; does not require increased cost"
+            },
+            {
+              "comparator": "B2",
+              "kind": "BENEFIT",
+              "reason": "C2 with accuracy/completion guards"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "MIXED_TRADEOFF",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "MIXED_TRADEOFF",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:MIX-C2-C3",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            },
+            {
+              "comparator": "B2",
+              "kind": "HARM",
+              "reason": "C2 definite adverse outcome; does not require increased cost"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "COUNTERPRODUCTIVE",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "COUNTERPRODUCTIVE",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:C2-TOOL-ACCURACY-LOSS",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B0/B2:C1",
+              "kind": "HARM",
+              "reason": "Accuracy loss exceeds C1 margin; extra cost is not required"
+            },
+            {
+              "comparator": "B1",
+              "kind": "NO_STRUCTURAL_ADVANTAGE",
+              "reason": "Extra compute is sufficient/effective at comparable observed resources"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B2 structural relation, not a score"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "COUNTERPRODUCTIVE",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "COUNTERPRODUCTIVE",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:C1-HARM-EQUAL-COST",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [],
+          "decision_status": "INSUFFICIENT_EVIDENCE",
+          "outcome_class": null,
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [
+            "CI_OR_GUARD_UNRESOLVED"
+          ],
+          "unit": "TRAJECTORY"
+        },
+        "expected": null,
+        "forbidden_finding_present": false
+      },
+      "id": "E07:WIDE-CI",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [],
+          "decision_status": "INSUFFICIENT_EVIDENCE",
+          "outcome_class": null,
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [
+            "B1:C2:LOW_PAIRED_N",
+            "B1:C3:LOW_PAIRED_N",
+            "B2:C2:LOW_PAIRED_N",
+            "B2:C3:LOW_PAIRED_N",
+            "B4:C2:LOW_PAIRED_N",
+            "B4:C3:LOW_PAIRED_N"
+          ],
+          "unit": "TRAJECTORY"
+        },
+        "expected": null,
+        "forbidden_finding_present": false
+      },
+      "id": "E07:LOW-PAIRED-N",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [],
+          "decision_status": "INSUFFICIENT_EVIDENCE",
+          "outcome_class": null,
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [
+            "B1:C2:LOW_OR_DIFFERENTIAL_REACH",
+            "B1:C3:LOW_OR_DIFFERENTIAL_REACH",
+            "B2:C2:LOW_OR_DIFFERENTIAL_REACH",
+            "B2:C3:LOW_OR_DIFFERENTIAL_REACH",
+            "B4:C2:LOW_OR_DIFFERENTIAL_REACH",
+            "B4:C3:LOW_OR_DIFFERENTIAL_REACH"
+          ],
+          "unit": "TRAJECTORY"
+        },
+        "expected": null,
+        "forbidden_finding_present": false
+      },
+      "id": "E07:LOW-REACH",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [],
+          "decision_status": "INSUFFICIENT_EVIDENCE",
+          "outcome_class": null,
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [
+            "B1:C2:LOW_OR_DIFFERENTIAL_REACH",
+            "B1:C3:LOW_OR_DIFFERENTIAL_REACH",
+            "B2:C2:LOW_OR_DIFFERENTIAL_REACH",
+            "B2:C3:LOW_OR_DIFFERENTIAL_REACH",
+            "B4:C2:LOW_OR_DIFFERENTIAL_REACH",
+            "B4:C3:LOW_OR_DIFFERENTIAL_REACH"
+          ],
+          "unit": "TRAJECTORY"
+        },
+        "expected": null,
+        "forbidden_finding_present": false
+      },
+      "id": "E07:DIFFERENTIAL-REACH",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B2 structural relation, not a score"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [
+            "B1:UNKNOWN_USAGE",
+            "B2:UNKNOWN_USAGE",
+            "B4:UNKNOWN_USAGE"
+          ],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:UNKNOWN-USAGE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B1",
+              "kind": "BENEFIT",
+              "reason": "C2,C3 with accuracy/completion guards"
+            },
+            {
+              "comparator": "B2",
+              "kind": "BENEFIT",
+              "reason": "C2,C3 with accuracy/completion guards"
+            },
+            {
+              "comparator": "B4",
+              "kind": "BENEFIT",
+              "reason": "C2,C3 with accuracy/completion guards"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "PROMISING",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "PROMISING",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:POSITIVE-BOUNDED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:RED21-B4-EQUAL-COMPUTE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B2 structural relation, not a score"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT_BY_COST",
+              "reason": "Materially greater observed resource cost"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:RED21-B2-MORE-EXPENSIVE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            },
+            {
+              "comparator": "B4",
+              "kind": "RESOURCE_ADVANTAGE_B3",
+              "reason": "Material observed resource advantage with no opposing material resource loss; retained alongside structural redundancy"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:RED21-B4-B3-CHEAPER",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B2",
+              "kind": "BENEFIT",
+              "reason": "C2,C3 with accuracy/completion guards"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:RED21-WEAK-B2-INDEPENDENT",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B2",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B2 structural relation, not a score"
+            },
+            {
+              "comparator": "B4",
+              "kind": "BENEFIT",
+              "reason": "C2,C3 with accuracy/completion guards"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:RED21-WEAK-B4-INDEPENDENT",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "comparator_findings": [
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT",
+              "reason": "R1-REDUNDANCY-01: EQUIVALENT AND (structurally more complex OR materially more expensive)"
+            },
+            {
+              "comparator": "B4",
+              "kind": "REDUNDANT_BY_STRUCTURE",
+              "reason": "Predeclared B3 > B4 structural relation, not a score"
+            }
+          ],
+          "decision_status": "CLASSIFIABLE",
+          "outcome_class": "REDUNDANT",
+          "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+          "uncertainty_reasons": [],
+          "unit": "TRAJECTORY"
+        },
+        "expected": "REDUNDANT",
+        "forbidden_finding_present": false
+      },
+      "id": "E07:RED21-NONEXECUTION-NOT-SAVING",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "annotations_recorded": 2,
+        "causal_discrimination_established": false,
+        "labels_differ": true,
+        "loci_differ": true,
+        "probe_construct": "BOUNDED_EVIDENCE_PROBE",
+        "reason": "R1_PROBE_01_LABELS_DO_NOT_ESTABLISH_CAUSAL_DISCRIMINATION"
+      },
+      "id": "PROBE21:LABELS-DIFFER-NOT-CAUSAL",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "annotations_recorded": 2,
+        "causal_discrimination_established": false,
+        "labels_differ": false,
+        "loci_differ": true,
+        "probe_construct": "BOUNDED_EVIDENCE_PROBE",
+        "reason": "R1_PROBE_01_LABELS_DO_NOT_ESTABLISH_CAUSAL_DISCRIMINATION"
+      },
+      "id": "PROBE21:LABELS-SAME-NOT-CAUSAL",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "annotations_recorded": 0,
+        "causal_discrimination_established": false,
+        "labels_differ": false,
+        "loci_differ": false,
+        "probe_construct": "BOUNDED_EVIDENCE_PROBE",
+        "reason": "R1_PROBE_01_LABELS_DO_NOT_ESTABLISH_CAUSAL_DISCRIMINATION"
+      },
+      "id": "PROBE21:UNKNOWN-NO-FORCED-PREDICTION",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": true,
+          "errors": [],
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": true,
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B0",
+          "controller_authorized": false,
+          "mode": "NO_PREP_INTERFACE",
+          "prep_calls": 0,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B0-NORMAL-NO-PREP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "PREP_FORBIDDEN"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B0",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 1,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B0-FORBIDDEN-PREP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": true,
+          "errors": [],
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": true,
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B4",
+          "controller_authorized": false,
+          "mode": "NO_PREP_INTERFACE",
+          "prep_calls": 0,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B4-NORMAL-NO-PREP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "PREP_FORBIDDEN"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B4",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 1,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B4-FORBIDDEN-PREP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": true,
+          "errors": [],
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": true,
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 1,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B1-NORMAL-EXACTLY-ONE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "MANDATORY_PREP_NOT_EXECUTED_OR_INVALID_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B1-UNRECORDED-SKIP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "MANDATORY_PREP_NOT_EXECUTED_OR_INVALID_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": true,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "B3_STOP_CONTROLLER"
+        }
+      },
+      "id": "PREP21:B1-CONTROLLER-NOT-ALLOWED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "MANDATORY_PREP_NOT_EXECUTED_OR_INVALID_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 2,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B1-TWO-PREP-FORBIDDEN",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "PROTOCOL_FAILURE",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "PROTOCOL_FAILURE"
+        }
+      },
+      "id": "PREP21:B1-ABNORMAL-PROTOCOL_FAILURE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "INFRA_FAILURE",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "INFRA_FAILURE"
+        }
+      },
+      "id": "PREP21:B1-ABNORMAL-INFRA_FAILURE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "EXPLICIT_NONEXECUTION",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B1",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "EXPLICIT_NONEXECUTION"
+        }
+      },
+      "id": "PREP21:B1-ABNORMAL-EXPLICIT_NONEXECUTION",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": true,
+          "errors": [],
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": true,
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 1,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B2-NORMAL-EXACTLY-ONE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "MANDATORY_PREP_NOT_EXECUTED_OR_INVALID_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B2-UNRECORDED-SKIP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "MANDATORY_PREP_NOT_EXECUTED_OR_INVALID_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": true,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "B3_STOP_CONTROLLER"
+        }
+      },
+      "id": "PREP21:B2-CONTROLLER-NOT-ALLOWED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "MANDATORY_PREP_NOT_EXECUTED_OR_INVALID_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 2,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B2-TWO-PREP-FORBIDDEN",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "PROTOCOL_FAILURE",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "PROTOCOL_FAILURE"
+        }
+      },
+      "id": "PREP21:B2-ABNORMAL-PROTOCOL_FAILURE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "INFRA_FAILURE",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "INFRA_FAILURE"
+        }
+      },
+      "id": "PREP21:B2-ABNORMAL-INFRA_FAILURE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "EXPLICIT_NONEXECUTION",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B2",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "EXPLICIT_NONEXECUTION"
+        }
+      },
+      "id": "PREP21:B2-ABNORMAL-EXPLICIT_NONEXECUTION",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": true,
+          "errors": [],
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": true,
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B3",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 1,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B3-NORMAL-PREP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": true,
+          "errors": [],
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": true,
+          "itt_included": true,
+          "normal": true,
+          "operational_evidence_eligible": true,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B3",
+          "controller_authorized": true,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "B3_STOP_CONTROLLER"
+        }
+      },
+      "id": "PREP21:B3-NORMAL-CONTROLLER-SKIP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "B3_SKIP_REQUIRES_CONTROLLER_OR_ABNORMAL_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B3",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "B3_STOP_CONTROLLER"
+        }
+      },
+      "id": "PREP21:B3-UNAUTHORIZED-SKIP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "B3_SKIP_REQUIRES_CONTROLLER_OR_ABNORMAL_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B3",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B3-UNRECORDED-SKIP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": null,
+          "architecture_saving_eligible": false,
+          "errors": [
+            "B3_SKIP_REQUIRES_CONTROLLER_OR_ABNORMAL_REASON"
+          ],
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": false,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": false
+        },
+        "input": {
+          "architecture": "B3",
+          "controller_authorized": false,
+          "mode": "PREP_EXECUTED",
+          "prep_calls": 2,
+          "skip_reason": null
+        }
+      },
+      "id": "PREP21:B3-TWO-PREP-FORBIDDEN",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": {
+          "abnormal_reason": "EXPLICIT_NONEXECUTION",
+          "architecture_saving_eligible": false,
+          "errors": [],
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "expected": {
+          "architecture_saving_eligible": false,
+          "itt_included": true,
+          "normal": false,
+          "operational_evidence_eligible": false,
+          "valid": true
+        },
+        "input": {
+          "architecture": "B3",
+          "controller_authorized": false,
+          "mode": "PREP_SKIPPED",
+          "prep_calls": 0,
+          "skip_reason": "EXPLICIT_NONEXECUTION"
+        }
+      },
+      "id": "PREP21:B3-ABNORMAL-NONEXECUTION",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "VERIFY",
+        "expected": "VERIFY",
+        "input": {
+          "failures": 0,
+          "opportunity": 1,
+          "successes": 0
+        }
+      },
+      "id": "B4-21:PRIOR-VERIFY",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "SOLO",
+        "expected": "SOLO",
+        "input": {
+          "failures": 1,
+          "opportunity": 11,
+          "successes": 9
+        }
+      },
+      "id": "B4-21:MEAN-SOLO",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "DELEGATE",
+        "expected": "DELEGATE",
+        "input": {
+          "failures": 4,
+          "opportunity": 5,
+          "successes": 0
+        }
+      },
+      "id": "B4-21:LOW-CONFIDENT-DELEGATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "VERIFY",
+        "expected": "VERIFY",
+        "input": {
+          "failures": 4,
+          "opportunity": 6,
+          "successes": 0
+        }
+      },
+      "id": "B4-21:PERIODIC-REFRESH-VERIFY",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "VERIFY",
+        "expected": "VERIFY",
+        "input": {
+          "failures": 1,
+          "opportunity": 7,
+          "successes": 5
+        }
+      },
+      "id": "B4-21:UNCERTAIN-VERIFY",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "ABSTAIN",
+        "expected": "ABSTAIN",
+        "input": {
+          "failures": 0,
+          "opportunity": 1,
+          "successes": 0,
+          "tool_available": false
+        }
+      },
+      "id": "B4-21:NO-TOOL-ABSTAIN",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actual": "SOLO",
+        "expected": "SOLO",
+        "input": {
+          "failures": 1,
+          "opportunity": 11,
+          "successes": 9,
+          "tool_available": false
+        }
+      },
+      "id": "B4-21:NO-TOOL-SOLO",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "above_point_eight": 0.26272,
+        "above_point_four": 0.91296,
+        "mean": 0.6666666666666666
+      },
+      "id": "BETA:4-2",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "downward": 0.015625,
+        "mismatch": true,
+        "n": 4,
+        "posterior_mean": 0.6666666666666666,
+        "probability_above_tau": 0.26272,
+        "solo_support": false,
+        "upward": 0.91296,
+        "wrong_band": 0.928585
+      },
+      "id": "BETA:mismatch-not-solo",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "first_all_success_support_n": 10,
+        "pilot_main_family_opportunities": 12,
+        "pilot_post_support_after_grace": 0,
+        "pilot_post_support_opportunities": 2,
+        "smoke_main_family_opportunities": 4
+      },
+      "id": "FINITE:gate-reach",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "confirmation_calls": 6400,
+        "confirmation_measurements": 4000,
+        "pilot_episodes": 5120,
+        "pilot_trajectories": 160,
+        "smoke_episodes": 480,
+        "smoke_trajectories": 40
+      },
+      "id": "COUNTS:matrix-and-calibration",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "excludes": "repairs, abnormal calls/nonexecutions, calibration",
+        "pilot_normal_max": 8192,
+        "pilot_normal_min": 6144,
+        "smoke_by_arm": {
+          "B0": 96,
+          "B1": 192,
+          "B2": 192,
+          "B3_max": 192,
+          "B3_min": 96,
+          "B4_max": 96,
+          "B4_min": 0
+        },
+        "smoke_normal_max": 768,
+        "smoke_normal_min": 576
+      },
+      "id": "COUNTS21:mandatory-prep-normal",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "pilot_post_support": [
+          21,
+          22,
+          23,
+          24
+        ],
+        "smoke_post_e": 0
+      },
+      "id": "FINITE:long-trace-not-smoke",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "hypothetical_live": 0.625,
+        "label": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+        "live_distances": [
+          0.25,
+          0.0
+        ],
+        "reference_180_of_200_posterior_mean": 0.8960396039603961,
+        "reference_distances": [
+          0.02103960396039604,
+          0.27103960396039606
+        ]
+      },
+      "id": "CAPABILITY:reference-live-counterexample",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "DECLARED:p1",
+          "LATCHED",
+          "ACTION:VERIFY",
+          "EVIDENCE_RETURNED:p1",
+          "END_NO_PENDING"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:CURRENT-STOP",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "DECLARED:p1",
+          "LATCHED",
+          "ACTION:ABSTAIN",
+          "CANCELLED:p1:ACTION_NOT_EXECUTED",
+          "END_NO_PENDING"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:CURRENT-NOT-EXECUTED",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "DECLARED:p2",
+          "LATCHED",
+          "PREP_SKIPPED",
+          "ACTION:SOLO",
+          "PREP_SKIPPED",
+          "ACTION:VERIFY",
+          "EVIDENCE_RETURNED:p2",
+          "END_NO_PENDING"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:NEXT-STOP-WAIT",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "DECLARED:old",
+          "CANCELLED:old",
+          "DECLARED:new",
+          "END_PENDING"
+        ],
+        "pending": {
+          "event": "DECLARE",
+          "id": "new"
+        }
+      },
+      "id": "TRACE:CANCEL-AND-DECLARE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "DECLARED:old",
+          "CANCELLED:old",
+          "DECLARED:new"
+        ],
+        "pending": {
+          "event": "DECLARE",
+          "id": "new"
+        }
+      },
+      "id": "TRACE:REPLACE-LOSSLESS",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "DECLARED:p",
+          "LATCHED",
+          "EXPIRED:p",
+          "END_NO_PENDING"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:EXPIRY-STRICT",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "LATCHED",
+          "PREP_SKIPPED",
+          "RESTART",
+          "PREP_EXECUTED"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:C0-RESTART",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": false,
+        "log": [
+          "LATCHED",
+          "RESTART",
+          "PREP_EXECUTED"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:UNKNOWN-RESTART",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 0,
+        "latched": true,
+        "log": [
+          "DECLARED:last",
+          "LATCHED",
+          "END_PENDING"
+        ],
+        "pending": {
+          "event": "DECLARE",
+          "expires": 36,
+          "id": "last"
+        }
+      },
+      "id": "TRACE:LAST-PENDING",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "commits": 1,
+        "latched": false,
+        "log": [
+          "COMMITTED",
+          "PROTOCOL_FAILURE_WITH_COMMIT_1",
+          "END_NO_PENDING"
+        ],
+        "pending": null
+      },
+      "id": "TRACE:COMMIT-ACTION-FAILURE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "evidence_index_count": 14,
+        "recent10": [
+          "e:5",
+          "e:6",
+          "e:7",
+          "e:8",
+          "e:9",
+          "e:10",
+          "e:11",
+          "e:12",
+          "e:13",
+          "e:14"
+        ],
+        "retained": [
+          "e:1",
+          "e:2",
+          "e:3",
+          "e:5",
+          "e:8",
+          "e:9",
+          "e:10",
+          "e:11",
+          "e:12",
+          "e:13",
+          "e:14"
+        ]
+      },
+      "id": "EVIDENCE:operational-partition",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [],
+        "event": {
+          "after_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 15,
+            "scope_id": "scope:sample-a",
+            "status": "REVISED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 3
+          },
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "ACTIVE",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          "effective_episode": 15,
+          "profile_version_after": 2,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:a",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 1,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [],
+          "sequence": 2,
+          "stage_snapshots": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "QUESTIONED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 2
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.55,
+                "upper": 0.7
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "REVISED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 3
+            }
+          ],
+          "transition_path": [
+            "ACTIVE",
+            "QUESTIONED",
+            "REVISED"
+          ],
+          "validation_status": "COMMITTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.55,
+                "upper": 0.7
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "REVISED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 3
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 2
+        },
+        "stages": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 15,
+            "scope_id": "scope:sample-a",
+            "status": "QUESTIONED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 2
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 15,
+            "scope_id": "scope:sample-a",
+            "status": "REVISED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 3
+          }
+        ],
+        "status": "COMMITTED"
+      },
+      "id": "COMMIT:common-atomic",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [
+          "UNAUTHORIZED_ACTOR"
+        ],
+        "event": {
+          "after_claim": null,
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "ACTIVE",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          "effective_episode": 15,
+          "profile_version_after": 1,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:a",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 1,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [
+            "UNAUTHORIZED_ACTOR"
+          ],
+          "sequence": 2,
+          "stage_snapshots": [],
+          "transition_path": [],
+          "validation_status": "REJECTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "stages": [],
+        "status": "REJECTED"
+      },
+      "id": "COMMIT:reject-readonly-B1",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [
+          "UNAUTHORIZED_ACTOR"
+        ],
+        "event": {
+          "after_claim": null,
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "ACTIVE",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          "effective_episode": 15,
+          "profile_version_after": 1,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:a",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 1,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [
+            "UNAUTHORIZED_ACTOR"
+          ],
+          "sequence": 2,
+          "stage_snapshots": [],
+          "transition_path": [],
+          "validation_status": "REJECTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "stages": [],
+        "status": "REJECTED"
+      },
+      "id": "COMMIT:reject-readonly-B0",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [
+          "STALE_VERSION"
+        ],
+        "event": {
+          "after_claim": null,
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "ACTIVE",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          "effective_episode": 15,
+          "profile_version_after": 1,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:a",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 9,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [
+            "STALE_VERSION"
+          ],
+          "sequence": 2,
+          "stage_snapshots": [],
+          "transition_path": [],
+          "validation_status": "REJECTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "stages": [],
+        "status": "REJECTED"
+      },
+      "id": "COMMIT:reject-stale",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [
+          "FUTURE_EVIDENCE",
+          "NO_LOCAL_EVIDENCE"
+        ],
+        "event": {
+          "after_claim": null,
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "ACTIVE",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          "effective_episode": 15,
+          "profile_version_after": 1,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:a",
+            "evidence_refs": [
+              "future"
+            ],
+            "expected_version": 1,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [
+            "FUTURE_EVIDENCE",
+            "NO_LOCAL_EVIDENCE"
+          ],
+          "sequence": 2,
+          "stage_snapshots": [],
+          "transition_path": [],
+          "validation_status": "REJECTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "stages": [],
+        "status": "REJECTED"
+      },
+      "id": "COMMIT:reject-future",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [
+          "SCOPE_VIOLATION"
+        ],
+        "event": {
+          "after_claim": null,
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          "effective_episode": 15,
+          "profile_version_after": 1,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:b",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 1,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [
+            "SCOPE_VIOLATION"
+          ],
+          "sequence": 2,
+          "stage_snapshots": [],
+          "transition_path": [],
+          "validation_status": "REJECTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "stages": [],
+        "status": "REJECTED"
+      },
+      "id": "COMMIT:reject-foreign-family",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [
+          "UNKNOWN_CLAIM"
+        ],
+        "event": {
+          "after_claim": null,
+          "before_claim": null,
+          "effective_episode": 15,
+          "profile_version_after": 1,
+          "profile_version_before": 1,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "missing",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 1,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [
+            "UNKNOWN_CLAIM"
+          ],
+          "sequence": 2,
+          "stage_snapshots": [],
+          "transition_path": [],
+          "validation_status": "REJECTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "stages": [],
+        "status": "REJECTED"
+      },
+      "id": "COMMIT:reject-unknown-claim",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "NO_LOCAL_EVIDENCE",
+        "SCOPE_VIOLATION"
+      ],
+      "id": "COMMIT:no-configuration-relabel",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "SCOPE_VIOLATION"
+      ],
+      "id": "COMMIT:scope-address-immutable",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "narrow": {
+          "codes": [],
+          "event": {
+            "after_claim": {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "NARROWED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 3
+            },
+            "before_claim": {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            "effective_episode": 15,
+            "profile_version_after": 2,
+            "profile_version_before": 1,
+            "proposal": {
+              "basis": "Authored scoped evidence",
+              "claim_id": "claim:a",
+              "evidence_refs": [
+                "e:1"
+              ],
+              "expected_version": 1,
+              "new_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "new_scope": {
+                "capability_configuration_ref": "configuration:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "execution_modes": [
+                  "PREP_EXECUTED"
+                ],
+                "scope_id": "scope:sample-a",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL"
+              },
+              "new_status": "NARROWED",
+              "proposal_id": "proposal:1",
+              "restore_version": null
+            },
+            "rejection_codes": [],
+            "sequence": 2,
+            "stage_snapshots": [
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "OBSERVED_OUTCOMES",
+                "evidence_n": 1,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 15,
+                "scope_id": "scope:sample-a",
+                "status": "QUESTIONED",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 2
+              },
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "OBSERVED_OUTCOMES",
+                "evidence_n": 1,
+                "execution_modes": [
+                  "PREP_EXECUTED"
+                ],
+                "last_updated_episode": 15,
+                "scope_id": "scope:sample-a",
+                "status": "NARROWED",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 3
+              }
+            ],
+            "transition_path": [
+              "ACTIVE",
+              "QUESTIONED",
+              "NARROWED"
+            ],
+            "validation_status": "COMMITTED"
+          },
+          "profile": {
+            "claims": [
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "OBSERVED_OUTCOMES",
+                "evidence_n": 1,
+                "execution_modes": [
+                  "PREP_EXECUTED"
+                ],
+                "last_updated_episode": 15,
+                "scope_id": "scope:sample-a",
+                "status": "NARROWED",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 3
+              },
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:b",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:b"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "HISTORICAL_ESTIMATE",
+                "evidence_n": 20,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 0,
+                "scope_id": "scope:sample-b",
+                "status": "ACTIVE",
+                "task_family": "RULE_GRID",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 1
+              }
+            ],
+            "contract_version": "0.2.1",
+            "profile_id": "profile:sample",
+            "version": 2
+          },
+          "stages": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "QUESTIONED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 2
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "NARROWED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 3
+            }
+          ],
+          "status": "COMMITTED"
+        },
+        "restore": {
+          "codes": [],
+          "event": {
+            "after_claim": {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 16,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 5
+            },
+            "before_claim": {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED"
+              ],
+              "last_updated_episode": 15,
+              "scope_id": "scope:sample-a",
+              "status": "NARROWED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 3
+            },
+            "effective_episode": 16,
+            "profile_version_after": 3,
+            "profile_version_before": 2,
+            "proposal": {
+              "basis": "Authored scoped evidence",
+              "claim_id": "claim:a",
+              "evidence_refs": [
+                "e:1"
+              ],
+              "expected_version": 3,
+              "new_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "new_scope": {
+                "capability_configuration_ref": "configuration:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "scope_id": "scope:sample-a",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL"
+              },
+              "new_status": "ACTIVE",
+              "proposal_id": "proposal:1",
+              "restore_version": 1
+            },
+            "rejection_codes": [],
+            "sequence": 2,
+            "stage_snapshots": [
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "OBSERVED_OUTCOMES",
+                "evidence_n": 1,
+                "execution_modes": [
+                  "PREP_EXECUTED"
+                ],
+                "last_updated_episode": 16,
+                "scope_id": "scope:sample-a",
+                "status": "QUESTIONED",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 4
+              },
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "OBSERVED_OUTCOMES",
+                "evidence_n": 1,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 16,
+                "scope_id": "scope:sample-a",
+                "status": "ACTIVE",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 5
+              }
+            ],
+            "transition_path": [
+              "NARROWED",
+              "QUESTIONED",
+              "ACTIVE"
+            ],
+            "validation_status": "COMMITTED"
+          },
+          "profile": {
+            "claims": [
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "OBSERVED_OUTCOMES",
+                "evidence_n": 1,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 16,
+                "scope_id": "scope:sample-a",
+                "status": "ACTIVE",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 5
+              },
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:b",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:b"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "HISTORICAL_ESTIMATE",
+                "evidence_n": 20,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 0,
+                "scope_id": "scope:sample-b",
+                "status": "ACTIVE",
+                "task_family": "RULE_GRID",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 1
+              }
+            ],
+            "contract_version": "0.2.1",
+            "profile_id": "profile:sample",
+            "version": 3
+          },
+          "stages": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED"
+              ],
+              "last_updated_episode": 16,
+              "scope_id": "scope:sample-a",
+              "status": "QUESTIONED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 4
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 16,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 5
+            }
+          ],
+          "status": "COMMITTED"
+        }
+      },
+      "id": "COMMIT:narrow-and-restore",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "codes": [],
+        "event": {
+          "after_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 16,
+            "scope_id": "scope:sample-a",
+            "status": "REVISED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 5
+          },
+          "before_claim": {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": null,
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 15,
+            "scope_id": "scope:sample-a",
+            "status": "UNKNOWN",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 3
+          },
+          "effective_episode": 16,
+          "profile_version_after": 3,
+          "profile_version_before": 2,
+          "proposal": {
+            "basis": "Authored scoped evidence",
+            "claim_id": "claim:a",
+            "evidence_refs": [
+              "e:1"
+            ],
+            "expected_version": 3,
+            "new_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "new_scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "new_status": "REVISED",
+            "proposal_id": "proposal:1",
+            "restore_version": null
+          },
+          "rejection_codes": [],
+          "sequence": 2,
+          "stage_snapshots": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 16,
+              "scope_id": "scope:sample-a",
+              "status": "QUESTIONED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 4
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.55,
+                "upper": 0.7
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 16,
+              "scope_id": "scope:sample-a",
+              "status": "REVISED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 5
+            }
+          ],
+          "transition_path": [
+            "UNKNOWN",
+            "QUESTIONED",
+            "REVISED"
+          ],
+          "validation_status": "COMMITTED"
+        },
+        "profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.55,
+                "upper": 0.7
+              },
+              "evidence_label": "OBSERVED_OUTCOMES",
+              "evidence_n": 1,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 16,
+              "scope_id": "scope:sample-a",
+              "status": "REVISED",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 5
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 3
+        },
+        "stages": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 16,
+            "scope_id": "scope:sample-a",
+            "status": "QUESTIONED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 4
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.55,
+              "upper": 0.7
+            },
+            "evidence_label": "OBSERVED_OUTCOMES",
+            "evidence_n": 1,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 16,
+            "scope_id": "scope:sample-a",
+            "status": "REVISED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 5
+          }
+        ],
+        "status": "COMMITTED"
+      },
+      "id": "COMMIT:unknown-return",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "expected_sha256": "834f50619fe584d6b638e6c6c3b590a8b6fa0d7c0b6032b3f0a7ad9dd13a8eb6",
+        "replayed_sha256": "834f50619fe584d6b638e6c6c3b590a8b6fa0d7c0b6032b3f0a7ad9dd13a8eb6"
+      },
+      "id": "COMMIT:replay",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "limit": "Test builder, NOT future runtime",
+        "repair_sha256": "5f5cb00eaa120e6977ac62c6803712d1e246fbae69d7935a2ac4bb2c08bc7ceb",
+        "request_sha256": "0c223e40f30c2a5b3f814cd40ca4a4471cfd96cb64d8467d4ff6eeff81bae323"
+      },
+      "id": "LEAK:request-noninterference",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "hidden_metadata_not_in_committer_signature": true,
+        "limit": "Bounded pure function only"
+      },
+      "id": "LEAK:committer-blind",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "positive_control": "Public input changes request"
+      },
+      "id": "LEAK:public-mutation-sensitive",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "bundle_bytes": 8419
+      },
+      "id": "LEAK:answer-free-output-schema",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "boundary": "Exact authored private-episode projection; future adapter not executed",
+        "bytes": 11388,
+        "receipt_keys": [
+          "effective_episode",
+          "rejection_codes",
+          "validation_status"
+        ]
+      },
+      "id": "LEAK:private-allowlist-payload",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "TEMPLATE_NOT_RUNNABLE"
+      ],
+      "id": "FREEZE:template",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "CONTENT_MANIFEST_NOT_PROVIDED",
+        "UNRESOLVED_SETTING:/compute_settings/reasoning_mode",
+        "PLACEHOLDER_HASH:/model_configuration/action_prompt_sha256",
+        "PLACEHOLDER_HASH:/model_configuration/architecture_prompt_sha256/B0",
+        "PLACEHOLDER_HASH:/model_configuration/architecture_prompt_sha256/B1",
+        "PLACEHOLDER_HASH:/model_configuration/architecture_prompt_sha256/B2",
+        "PLACEHOLDER_HASH:/model_configuration/architecture_prompt_sha256/B3",
+        "PLACEHOLDER_HASH:/model_configuration/architecture_prompt_sha256/B4",
+        "UNRESOLVED_SETTING:/model_configuration/model_id",
+        "UNRESOLVED_SETTING:/model_configuration/model_revision",
+        "PLACEHOLDER_HASH:/model_configuration/system_prompt_sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/canonicalizer/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/canonicalizer/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/grid_tool/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/grid_tool/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/output_schema_bundle/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/output_schema_bundle/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/parser/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/parser/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/prompt_bundle/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/prompt_bundle/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/provider_adapter/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/provider_adapter/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/symbolic_tool/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/symbolic_tool/sha256",
+        "UNRESOLVED_SETTING:/runtime_identity/tokenizer/identity",
+        "PLACEHOLDER_HASH:/runtime_identity/tokenizer/sha256",
+        "MISSING_SELECTED_DIFFICULTY_TUPLES"
+      ],
+      "id": "FREEZE:reject-placeholders",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "choice_is_fixture_only": true,
+        "errors": [],
+        "not_runtime_ready": true
+      },
+      "id": "FREEZE:resolved-synthetic-presence",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "UNRESOLVED_CONTENT:/model_configuration/action_prompt_sha256",
+        "UNRESOLVED_CONTENT:/selected_difficulty_tuples/0/tuple_sha256",
+        "UNRESOLVED_CONTENT:/selected_difficulty_tuples/1/tuple_sha256",
+        "UNRESOLVED_CONTENT:/selected_difficulty_tuples/2/tuple_sha256",
+        "UNRESOLVED_CONTENT:/selected_difficulty_tuples/3/tuple_sha256"
+      ],
+      "id": "FREEZE:wrong-resolved-bytes",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "call_count": 1,
+        "errors": [],
+        "exact_tokens": null,
+        "reflection_tokens": null
+      },
+      "id": "USAGE:timeout-no-zero",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "call_count": 1,
+        "errors": [
+          "UNAVAILABLE_NOT_NULL:output_tokens"
+        ],
+        "exact_tokens": null,
+        "reflection_tokens": null
+      },
+      "id": "USAGE:unavailable-no-fake-zero",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "call_count": 2,
+        "errors": [],
+        "exact_tokens": 280,
+        "reflection_tokens": 280
+      },
+      "id": "USAGE:no-double-count",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "call_count": 1,
+        "errors": [],
+        "exact_tokens": 150,
+        "reflection_tokens": 140
+      },
+      "id": "USAGE:reasoning-excluded-output",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "accuracy": {
+          "denominator": 4,
+          "missing_reason": null,
+          "numerator": 2,
+          "value": 0.5
+        },
+        "autonomous_error": {
+          "denominator": 4,
+          "missing_reason": null,
+          "numerator": 1,
+          "value": 0.25
+        },
+        "completion": {
+          "denominator": 4,
+          "missing_reason": null,
+          "numerator": 3,
+          "value": 0.75
+        },
+        "excluded_infra": 0,
+        "tools": {
+          "denominator": 4,
+          "missing_reason": null,
+          "numerator": 1,
+          "value": 0.25
+        }
+      },
+      "id": "METRIC:four-outcomes",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "accuracy": {
+          "denominator": 3,
+          "missing_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "autonomous_error": {
+          "denominator": 3,
+          "missing_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "completion": {
+          "denominator": 3,
+          "missing_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "excluded_infra": 0,
+        "tools": {
+          "denominator": 3,
+          "missing_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        }
+      },
+      "id": "PREP21:abnormal-remains-ITT",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "denominator": 0,
+        "missing_reason": "NO_ELIGIBLE_EPISODES",
+        "numerator": 0,
+        "value": null
+      },
+      "id": "METRIC:zero",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "damage": null,
+        "damage_reason": "NOT_INFERRED_FROM_COUNT",
+        "events_per_claim": 2,
+        "touched_proportion": 1
+      },
+      "id": "METRIC:control-repeat",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "censored": {
+          "censored": true,
+          "early": false,
+          "post_grace_denominator": 6,
+          "reason": "RIGHT_CENSORED",
+          "value": 7
+        },
+        "early": {
+          "censored": false,
+          "early": true,
+          "post_grace_denominator": 6,
+          "reason": null,
+          "value": 0
+        },
+        "never": {
+          "censored": false,
+          "early": false,
+          "post_grace_denominator": 0,
+          "reason": "NOT_AT_RISK",
+          "value": null
+        }
+      },
+      "id": "METRIC:early-censor-grace",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "denominator": 0,
+        "missing_reason": "NO_NUMERIC_APPLICABLE_CLAIMS",
+        "numerator": 0,
+        "value": null
+      },
+      "id": "METRIC:ALL_UNKNOWN",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "denominator": 0,
+        "missing_reason": "NOT_APPLICABLE_NO_PROFILE",
+        "numerator": 0,
+        "value": null
+      },
+      "id": "METRIC:B4",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "denominator": 0,
+        "missing_reason": "OPERATIONAL_TRUTH_NOT_IDENTIFIED",
+        "numerator": 0,
+        "value": null
+      },
+      "id": "METRIC:OPERATIONAL_TRUTH",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "actions": [
+          "KEEP",
+          "QUESTION",
+          "KEEP"
+        ],
+        "identified_as_genuine_revision": false,
+        "limitation": "Current C1 not expanded",
+        "matrix_has_accurate_low": false
+      },
+      "id": "GAMING:LOW_ONLY_DISTRUST",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "admissibility_with_empty_evidence": "REJECTED",
+        "attempts": [
+          "REVISE",
+          "REVISE",
+          "REVISE"
+        ],
+        "is_sufficient_evidence_of_learning": false
+      },
+      "id": "GAMING:EVIDENCE_INDEPENDENT_REVISION",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "assessment": "MANUAL_CONCEPTUAL_COUNTEREXAMPLE",
+        "bernoulli_06_vs_09_same_support": [
+          "SUCCESS",
+          "FAILURE"
+        ],
+        "contrasting_labels_without_likelihood": "NOT_IDENTIFIED",
+        "likelihood_ratio_one_success": 1.5,
+        "scope_authority": "R1-PROBE-01"
+      },
+      "id": "PROBE:labels-not-discrimination",
+      "status": "MANUAL_REVIEW"
+    },
+    {
+      "evidence": {
+        "splits": [
+          "03b4651f96aa72b0d135871489f93820866c15f98bbb08785649fd80cffb0459",
+          "8e4ca22394c71b6802addd03365198f130fb3c85473dfafe4e6d5c39f9122fae",
+          "f30b05c012bd61add4e4c53dc0a2fab121562066578e83fd72ccc64ae6387d39",
+          "cd0855020c1b5df1198998cae358a24797c7aa56f70576e288fdcb8f6d5169f0"
+        ],
+        "streams": {
+          "BOOTSTRAP": "b93af719739fee1361b6b6e036a28a0545399298a3878a2c6b5a0cfe37b537ba",
+          "FAMILY_ORDER": "5305ae9f05fb547abf77389d04db268811057767a15e7fa7b5ae22540e58c2fc",
+          "MODEL": "b7a65e4ee996f351d558ae4740b22f34bf642b914d930fe6e302930a42da5a0f",
+          "PROFILE": "92baed8c7d8b796a9f1f7480702938c00ff3dc8509f100052552bb37e84f68b6",
+          "SURFACE": "157cf9375638d19c9c758f073e2144557d542e65ddfa6eddf7f97a27800e2e50",
+          "TASK": "f30b05c012bd61add4e4c53dc0a2fab121562066578e83fd72ccc64ae6387d39",
+          "TASK_ID": "89994a52967dddea8b077eee7120c57bb49a743009ab6dc87b49155f48b72ce8"
+        }
+      },
+      "id": "GEN:seed-domains",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "k": 1,
+        "key_sha256": "291168382058565b19d46736df6f37f715320df2cce4aef938cd8c4684af3819",
+        "n": 2,
+        "production_solver_executed": false
+      },
+      "id": "GEN:F2-tiny-alpha",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "k": 2,
+        "n": 2,
+        "original": "2affe8b0350a4861da45081d07c296b2a0982a51367a5b35fd03baeca021fd4b",
+        "permuted": "2affe8b0350a4861da45081d07c296b2a0982a51367a5b35fd03baeca021fd4b",
+        "reversed_implies": "7cff08819b525e1767cf692f6a53d9be7fd8d1d2f023218e8393fcd3ef120230"
+      },
+      "id": "GEN:F2-order-XOR-not-IMPLIES",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "new_candidates": 720,
+        "old_candidates": 1244160000,
+        "solver_assignment_cap": 1728000
+      },
+      "id": "GEN:F2-complexity",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "allowed_group": "cyclic rotations only",
+        "cyclic_witness": [
+          1,
+          2,
+          3
+        ],
+        "rotate_swap": [
+          3,
+          2,
+          1
+        ],
+        "swap_rotate": [
+          1,
+          3,
+          2
+        ]
+      },
+      "id": "GEN:F1-noncommuting-permutation",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "missing": []
+      },
+      "id": "DELIVERY:required-documents",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "R1-B4-01": "ACCEPTED",
+        "R1-PREP-01": "ACCEPTED",
+        "R1-PROBE-01": "ACCEPTED",
+        "R1-REDUNDANCY-01": "ACCEPTED"
+      },
+      "id": "CLOSURE21:four-author-decisions",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "od02": {
+          "authority": "references/R1_PATCH_0.2.1.md#1",
+          "blocked_nodes": [],
+          "classification": "AUTHORIAL RESEARCH-SCOPE DECISION",
+          "closed_by": "R1-PROBE-01",
+          "decision": "R1 uses BOUNDED_EVIDENCE_PROBE; labels alone do not establish causal discrimination.",
+          "id": "OD-02",
+          "status": "CLOSED"
+        },
+        "open": []
+      },
+      "id": "CLOSURE21:OD-02",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "decision": "R1-CAPABILITY-01",
+        "unchanged": true
+      },
+      "id": "CLOSURE21:capability-unchanged",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "parameters": {
+          "solo_threshold": 0.8,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "version": "STRONG_TRACKER_POLICY_0.2"
+      },
+      "id": "B4-21:strong-policy-preserved",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "allowed": false,
+        "changed": true,
+        "reason": "NEW_EXPERIMENTAL_PROTOCOL_REQUIRED"
+      },
+      "id": "B4-21:no-post-result-silent-tuning",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "new_baselines": false
+      },
+      "id": "CLOSURE21:matrix-unchanged",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "b3_prep": false,
+        "b3_stop_state": false,
+        "b3_update_protocol": false,
+        "false_profile": false,
+        "limit": "Authored request builder, not runtime",
+        "output_schema": "action_record only"
+      },
+      "id": "B4-21:no-rich-self-model-payload",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "complexity_score_created": false,
+        "relation": {
+          "B2": true,
+          "B4": true
+        }
+      },
+      "id": "RED21:fixed-structural-relation",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A16"
+      ],
+      "id": "DELIVERY:A01-A16-coverage",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "metric_count": 41,
+        "new_metrics": []
+      },
+      "id": "CLOSURE21:no-new-metrics",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "metrics": 41,
+        "missing": {}
+      },
+      "id": "METRIC:register-contract",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "bad": [],
+        "resolved": 106
+      },
+      "id": "METRIC:input-pointers",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "id": "AUX:0",
+          "matches": true
+        },
+        {
+          "id": "AUX:1",
+          "matches": true
+        },
+        {
+          "id": "AUX:2",
+          "matches": true
+        },
+        {
+          "id": "S4",
+          "matches": true
+        },
+        {
+          "id": "AUX:4",
+          "matches": true
+        },
+        {
+          "id": "S1",
+          "matches": true
+        },
+        {
+          "id": "S3",
+          "matches": true
+        },
+        {
+          "id": "S2",
+          "matches": true
+        },
+        {
+          "id": "INPUT:AUDIT_FINDINGS_0.1",
+          "matches": true
+        },
+        {
+          "id": "INPUT:AUTHOR_DECISION_98",
+          "matches": true
+        },
+        {
+          "id": "INPUT:MRAB_R1_AUDIT_0.1",
+          "matches": true
+        },
+        {
+          "id": "INPUT:MRAB_R1_AUDIT_EVIDENCE_0.1",
+          "matches": true
+        },
+        {
+          "id": "INPUT:MRAB_R1_Engineering_Design_Package_0.1",
+          "matches": true
+        },
+        {
+          "id": "INPUT:MRAB_R1_Engineering_Design_Package_0.2.manifest",
+          "matches": true
+        },
+        {
+          "id": "INPUT:MRAB_R1_Engineering_Design_Package_0.2",
+          "matches": true
+        },
+        {
+          "id": "INPUT:MRAB_R1_WORK_TASK_0.2",
+          "matches": true
+        },
+        {
+          "id": "INPUT:ORIGINAL_CORPUS_CHECK",
+          "matches": true
+        },
+        {
+          "id": "INPUT:ORIGINAL_INVENTORY",
+          "matches": true
+        },
+        {
+          "id": "INPUT:ORIGINAL_PASTED_REQUEST",
+          "matches": true
+        },
+        {
+          "id": "INPUT:R1-CAPABILITY-01",
+          "matches": true
+        },
+        {
+          "id": "INPUT:R1_PATCH_0.2.1",
+          "matches": true
+        }
+      ],
+      "id": "SOURCE:hashes",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "canonical_matches": {
+          "S1": true,
+          "S2": true,
+          "S3": true,
+          "S4": true
+        },
+        "original_request_matches": true
+      },
+      "id": "SOURCE:original-register-match",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "limit": "Lexical regression plus separate MANUAL_REVIEW, not proof by keywords",
+        "scanned": 12,
+        "stale": []
+      },
+      "id": "DOC21:no-stale-normative-fragments",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "no_hardcoded_count": true,
+        "summary_uses_final_report": true
+      },
+      "id": "DOC21:actual-final-report-reference",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "files": 59,
+        "unchanged": true
+      },
+      "id": "READONLY:input-byte-identity",
+      "status": "PASS"
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "long_scripted_trace.json",
+      "sha256": "b2d4a45893708d60557bebdd6fb7c1ae1307c662aca27b1ce9557a3cd25b5df0"
+    },
+    {
+      "path": "request_capture.json",
+      "sha256": "35a5d8f24730fc8653a29fa9b7855cdb4033657647c5eedbcea6241bc3e7acd0"
+    },
+    {
+      "path": "private_projection_request.json",
+      "sha256": "ec38e2e8ea27ceda3550bb197756b58a7f31afcc3a7135f397590e777220eb29"
+    }
+  ],
+  "executed_fail": 0,
+  "executed_pass": 194,
+  "failures": [],
+  "input_hashes": {
+    "CHANGELOG_0.1_TO_0.2.md": "e57df13779af52b2e46ad16321a65e3ae4ee0393f4e5e5f800e7d93a8f3030a7",
+    "CHANGELOG_0.2_TO_0.2.1.md": "0376ffccf8a32ab0ea707f1230a964a17865f40b9ce8067a35040a6d671019d1",
+    "MRAB_R1_CROSS_FILE_REVIEW_0.2.1.md": "a7ef2daa71bfdd08dd7831ba5ec158e7cacd755242b87ba974bd60f2c0147ca3",
+    "MRAB_R1_DECISION_REGISTER_0.2.1.json": "13ac0cdb245c2c351cab014e3e07dababb03efd764086da3cceb980f75c85dc7",
+    "MRAB_R1_EVALUATOR_CONTRACT_0.2.1.md": "016684b69a45022e64cd1a950c546d01346bca796680d733870f0c819a1e0a12",
+    "MRAB_R1_FIELD_DICTIONARY.md": "adeae3963718d12247b8dfaa0f497e9273730b24cd54a7fd5d2269ae9caf33e7",
+    "MRAB_R1_FINDING_DISPOSITIONS_0.2.1.json": "ae4e161bb48a73a59b3e2d1e7883103c5599eac196168509920461f470f263dd",
+    "MRAB_R1_FIXTURE_PLAN_0.2.1.md": "e57f4105f4430b8c11fecbffed91aaba601588e3677ebcdef684d6e4b045a282",
+    "MRAB_R1_METRIC_REGISTER_0.2.1.json": "d97db6e8a6347c2eac04e7afeccc7582b9e5de19097d94de9683557523aa37a4",
+    "MRAB_R1_PROMPT_CONTRACTS_0.2.1.md": "d877dd30cc1c7ee10a29a620c40c48dc211b2d2da2e56a4ad87d4da95ff3839f",
+    "MRAB_R1_SMOKE_RUN_PLAN_0.2.1.md": "4a5b59400322773c182e88b02f7a8c6ace1447c9872e8db1c1698cae1e3cb7dc",
+    "MRAB_R1_SOURCE_REGISTER.json": "b6f6565d1703952c79add97f88a9f53a5bc1ade59c502e9bc8fb2790b2ef1ee9",
+    "MRAB_R1_SPEC_0.2.1.md": "5ea06b5b1f20bc048282d6cbfd049809882e0834d117eb809761c86a55d499ed",
+    "MRAB_R1_TASK_GENERATOR_CONTRACT_0.2.1.md": "885c208136a9cc4fc8f31012f7c65e3dd2bbeb2f745b7fbb9d64a88363e6cd51",
+    "MRAB_R1_TRACEABILITY_MATRIX_0.2.1.md": "fadbab3865e9014f56e6562cf647572f826aaf14a6a84b7df9ce22fbf000a291",
+    "MRAB_R1_WORK_SUMMARY.md": "e6f5cb47ce4ab49c01c3a81fb860575b1e43c00f924cd67c500586f176f9b48e",
+    "README.md": "a96d4e9d5792a550783059da3876392ad1a7809defddc3d909f8815eef283754",
+    "design_checks/corpus_migration.json": "0bd254c4a2efdb5b6a77c44b0141008d2abf9652776998084517f79237c3058a",
+    "design_checks/golden_migration_0.2_to_0.2.1.json": "5c1efd5c6f5354f495f64f285488a5e0e239c72e2224e43a9bcebe12c62227be",
+    "design_checks/goldens.json": "f1f61d10c9b5d5257e6094773af052006c8203109f4ce5250847aa87a4fe918a",
+    "design_checks/lifecycle_vectors.json": "50300256e13c74d37beeb2469a461f432093186e304874d77fe5ed989f20c12a",
+    "design_checks/schema_specimens.json": "978c84117f72e2dc42fff99af03c8be6c0394dd12466bfd6389a097ffbfebd61",
+    "design_tools/build_change_manifest.py": "217321b959b1a54db98fdc79b0b665c0637f83a0ee87b0bec281015a3c534129",
+    "design_tools/build_design_vectors.py": "f05a6a5686944c18c7cc372ef3461eaedafd9b5e07c077c6bac8cdbeb1bd0cdf",
+    "design_tools/build_registers.py": "f3a688bd4ff762d47f4272c8b5e9496fb49791e75193ef46ef07b11d1d180c33",
+    "design_tools/build_schema_documents.py": "e4ffcaf77e48f73b4f646091ca0e5b4f5609c1e5b24b7548c794ba45251a5112",
+    "design_tools/contract_checks.py": "257396e604b37369756f1d4f79e8cda04b12ad335a348a03a7aae2ddd0d3e64d",
+    "design_tools/package_design.py": "04bc8d63203c9d3c7a73da8f566721f36e40e708bf7c9621f5278249af8b3e26",
+    "design_tools/schema_changes_02.py": "509cf2d741961f154818728fd0afe8584e2e72f9c0b9c7a7668377248672a7a6",
+    "design_tools/verify_design.py": "9d45cae24af8541197b248f6b45956eddb0c7d0af10011ff029f2e4de775dce8",
+    "design_tools/verify_release.py": "e6406d3ef03f6d6a6d1b0733464b24e9607b6da54afd91606d4693b4681b14f3",
+    "r1_config.default.json": "2308a3b847588440527685d389bdebe8f5a20db64123c18c5812cef4031a2d1c",
+    "references/AUDIT_FINDINGS_0.1.json": "774f5dcf15d09adbb5495c48aff50aff9a1fc2ff844879bbe0c7f474dca4a1c6",
+    "references/AUTHOR_DECISION_98.md": "154069956a15655662ad486f7dcb63392ff83f848257cd2998a4f18823e6f412",
+    "references/MRAB_R1_AUDIT_0.1.md": "74aaeaf5bbde790bd317605a9cb2e0f251c8cb9d09d5bcfef11fc89fc396543f",
+    "references/MRAB_R1_AUDIT_EVIDENCE_0.1.zip": "7ec53aa29c01ca88223a732e925e29da8d355f7271f63ac36a238831f4aaaf93",
+    "references/MRAB_R1_Engineering_Design_Package_0.1.zip": "415c34c877fd9b99702a7c663d3554dc2c5d33bf86de6ad558aa049d462db57c",
+    "references/MRAB_R1_Engineering_Design_Package_0.2.manifest.json": "926bc7e7f40e302b48fa47e2a0f25358f91fe58523272a8d25a6c5938e2c682a",
+    "references/MRAB_R1_Engineering_Design_Package_0.2.zip": "7d82fe11f49f5b0ff4446a7e5aaa8f5ac3a5de60c9bb833199b92c2b7b5105d0",
+    "references/MRAB_R1_WORK_TASK_0.2.md": "f32c0b0cf848c8d9993c60b7d730da3bc7c0d4ff5865562e8e39ea0b31ed2fde",
+    "references/ORIGINAL_CORPUS_CHECK.json": "010b89161dfd9005235f2dbd56e4cc5ae47d7b35be1ec8c6745295975527101d",
+    "references/ORIGINAL_INVENTORY.json": "0240c4303df97e3802f54333e8350bd6f0a6208c8147d006ace9c8ecfdfe9969",
+    "references/ORIGINAL_PASTED_REQUEST.txt": "7ce36db50cc6d2f30c2d47d9106f81dc7c3ca0e76687f4a69035b39bc2594fde",
+    "references/R1-CAPABILITY-01.md": "fcc4b3c7443c964aa44f4e9637503d80664f754959bec7c8bab24844dbf5e975",
+    "references/R1_PATCH_0.2.1.md": "8dc2204850fae39f0567cb4ed1d9a30f4cc0e83adee88959081553a870a93df1",
+    "references/sources/MRAB-R1 0.1 — False Self-Model.md": "5b62ade29391c253789de2b71619185c775bdce08bb0d2b0d0a8ec6323b21c2a",
+    "references/sources/Prompt_PP_Matryoshka_2.0.md": "a9301e5550cfea8f42f90eb473f3796886ab25b336011244d3a4dbb06334a779",
+    "references/sources/Инструменты_Матрёшки_0.1.md": "dec6907a494475ab111c4724b559a3c6023766378ad849952fac2394eb71d915",
+    "references/sources/Матрёшка генезис формы и режимы осуществления 1.0.md": "c28fe5a008292cebdce1ec4132b3d35215dc8683360b16dcacc2b8b941321bfd",
+    "references/sources/Матрёшка искусственного агента.md": "07147e3902a35c08d993fd0ee2aadf6dabc15998569b129e6f80ef8919259509",
+    "references/sources/Матрёшка_искусственного_агента_0.1_архитектура_агентности_саморегуляции_и_развития.md": "5abdd3475db8a76deafadb6137c9200332821bd1de7a03495aeed364fbe147a5",
+    "references/sources/Модель_Интеллекта_Матрёшки_2.0.md": "6d9f04a1cac1fe4a66b61713b74a169cc0254150afa9bbe86987517edef294c0",
+    "references/sources/Практика_Матрёшки_1.1_STABLE_Конституция_и_грамматика_практического_хода.md": "74b3235eba2ccd6304c47ff92e911a2211960ac84073317c72f60db77a21b8cb",
+    "requirements.txt": "3fbcb28e834d2da6154d5f9ce5d837ecc2a3bb8bec1096a6228fdded6eeeb1db",
+    "schemas/r1_config.schema.json": "6188c0b42399391abd441b17f00b19779541da04bd01fa95ecc78b59f824d246",
+    "schemas/r1_episode_record.schema.json": "13c1d78d689c1dbdcd2f62372acf9fbe9392bccb39e1f53ebd53be8586cb13c6",
+    "schemas/r1_reflexive_record.schema.json": "f5df94b061f2c9a751b93a76a6418e8566f03094a87f3b5470389b3cd5dfd2dc",
+    "schemas/r1_self_profile.schema.json": "37b901b4070be141a6c452b52bbfd6968a276431f2a847bda7a3871da4832617",
+    "schemas/r1_trajectory.schema.json": "ee87d087b26c81299adaea32e39dc52ceca1497cbd7b5b9dae9139b82f0cfe61"
+  },
+  "model_calls": 0,
+  "open_decisions": [],
+  "outside_r1": [
+    "Strong likelihood-based causal discrimination construct",
+    "Causal external self-model role and internal mechanism"
+  ],
+  "pilot_runs": 0,
+  "production_runtime_created": false,
+  "readiness": "IMPLEMENTATION_READY_DESIGN_ONLY",
+  "result_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+  "smoke_runs": 0,
+  "specified_only": [
+    "Full generator/solver dual execution",
+    "Provider adapter non-interference",
+    "Bootstrap from real trajectories",
+    "Run manifests with actual model identities",
+    "Power/real evidence reach"
+  ],
+  "verification_stage": "PRE_SEAL"
+}

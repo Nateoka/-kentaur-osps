@@ -1,0 +1,14 @@
+[
+  {
+    "authority": "R1-REDUNDANCY-01",
+    "id": "NEG-B1",
+    "reason": "Isolate B1 equivalence without newly-authorized structural redundancy vs B2/B4. Expected B1 finding/outcome retained."
+  },
+  {
+    "authority": "R1-REDUNDANCY-01",
+    "id": "UNKNOWN-USAGE",
+    "new_expected": "REDUNDANT",
+    "old_expected": null,
+    "reason": "Unknown usage remains a reason but cannot cancel established structural redundancy."
+  }
+]

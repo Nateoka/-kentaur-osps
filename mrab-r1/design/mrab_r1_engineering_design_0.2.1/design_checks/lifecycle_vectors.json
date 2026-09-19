@@ -1,0 +1,685 @@
+{
+  "artifact": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+  "authority": "R1-PREP-01",
+  "prep_paths": [
+    {
+      "expected": {
+        "architecture_saving_eligible": true,
+        "itt_included": true,
+        "normal": true,
+        "operational_evidence_eligible": true,
+        "valid": true
+      },
+      "id": "B0-NORMAL-NO-PREP",
+      "input": {
+        "architecture": "B0",
+        "controller_authorized": false,
+        "mode": "NO_PREP_INTERFACE",
+        "prep_calls": 0,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B0-FORBIDDEN-PREP",
+      "input": {
+        "architecture": "B0",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 1,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": true,
+        "itt_included": true,
+        "normal": true,
+        "operational_evidence_eligible": true,
+        "valid": true
+      },
+      "id": "B4-NORMAL-NO-PREP",
+      "input": {
+        "architecture": "B4",
+        "controller_authorized": false,
+        "mode": "NO_PREP_INTERFACE",
+        "prep_calls": 0,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B4-FORBIDDEN-PREP",
+      "input": {
+        "architecture": "B4",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 1,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": true,
+        "itt_included": true,
+        "normal": true,
+        "operational_evidence_eligible": true,
+        "valid": true
+      },
+      "id": "B1-NORMAL-EXACTLY-ONE",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 1,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B1-UNRECORDED-SKIP",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B1-CONTROLLER-NOT-ALLOWED",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": true,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "B3_STOP_CONTROLLER"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B1-TWO-PREP-FORBIDDEN",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 2,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B1-ABNORMAL-PROTOCOL_FAILURE",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "PROTOCOL_FAILURE"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B1-ABNORMAL-INFRA_FAILURE",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "INFRA_FAILURE"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B1-ABNORMAL-EXPLICIT_NONEXECUTION",
+      "input": {
+        "architecture": "B1",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "EXPLICIT_NONEXECUTION"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": true,
+        "itt_included": true,
+        "normal": true,
+        "operational_evidence_eligible": true,
+        "valid": true
+      },
+      "id": "B2-NORMAL-EXACTLY-ONE",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 1,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B2-UNRECORDED-SKIP",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B2-CONTROLLER-NOT-ALLOWED",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": true,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "B3_STOP_CONTROLLER"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B2-TWO-PREP-FORBIDDEN",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 2,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B2-ABNORMAL-PROTOCOL_FAILURE",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "PROTOCOL_FAILURE"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B2-ABNORMAL-INFRA_FAILURE",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "INFRA_FAILURE"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B2-ABNORMAL-EXPLICIT_NONEXECUTION",
+      "input": {
+        "architecture": "B2",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "EXPLICIT_NONEXECUTION"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": true,
+        "itt_included": true,
+        "normal": true,
+        "operational_evidence_eligible": true,
+        "valid": true
+      },
+      "id": "B3-NORMAL-PREP",
+      "input": {
+        "architecture": "B3",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 1,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": true,
+        "itt_included": true,
+        "normal": true,
+        "operational_evidence_eligible": true,
+        "valid": true
+      },
+      "id": "B3-NORMAL-CONTROLLER-SKIP",
+      "input": {
+        "architecture": "B3",
+        "controller_authorized": true,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "B3_STOP_CONTROLLER"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B3-UNAUTHORIZED-SKIP",
+      "input": {
+        "architecture": "B3",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "B3_STOP_CONTROLLER"
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B3-UNRECORDED-SKIP",
+      "input": {
+        "architecture": "B3",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": false,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": false
+      },
+      "id": "B3-TWO-PREP-FORBIDDEN",
+      "input": {
+        "architecture": "B3",
+        "controller_authorized": false,
+        "mode": "PREP_EXECUTED",
+        "prep_calls": 2,
+        "skip_reason": null
+      }
+    },
+    {
+      "expected": {
+        "architecture_saving_eligible": false,
+        "itt_included": true,
+        "normal": false,
+        "operational_evidence_eligible": false,
+        "valid": true
+      },
+      "id": "B3-ABNORMAL-NONEXECUTION",
+      "input": {
+        "architecture": "B3",
+        "controller_authorized": false,
+        "mode": "PREP_SKIPPED",
+        "prep_calls": 0,
+        "skip_reason": "EXPLICIT_NONEXECUTION"
+      }
+    }
+  ],
+  "traces": [
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "id": "p1",
+          "type": "CURRENT"
+        },
+        {
+          "event": "STOP"
+        },
+        {
+          "action": "VERIFY",
+          "event": "ACTION"
+        },
+        {
+          "event": "FEEDBACK",
+          "informative": true
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "CURRENT-STOP",
+      "latched": false,
+      "required": [
+        "LATCHED",
+        "ACTION:VERIFY",
+        "EVIDENCE_RETURNED:p1",
+        "END_NO_PENDING"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "id": "p1",
+          "type": "CURRENT"
+        },
+        {
+          "event": "STOP"
+        },
+        {
+          "action": "ABSTAIN",
+          "event": "ACTION",
+          "matches": false
+        },
+        {
+          "event": "END_EPISODE"
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "CURRENT-NOT-EXECUTED",
+      "latched": false,
+      "required": [
+        "CANCELLED:p1:ACTION_NOT_EXECUTED",
+        "END_NO_PENDING"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "expires": 5,
+          "id": "p2",
+          "type": "NEXT_MATCHED"
+        },
+        {
+          "event": "STOP"
+        },
+        {
+          "event": "PREP",
+          "waiting": true
+        },
+        {
+          "action": "SOLO",
+          "event": "ACTION",
+          "matches": false
+        },
+        {
+          "event": "PREP",
+          "waiting": true
+        },
+        {
+          "action": "VERIFY",
+          "event": "ACTION"
+        },
+        {
+          "event": "FEEDBACK",
+          "informative": true
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "NEXT-STOP-WAIT",
+      "latched": false,
+      "required": [
+        "PREP_SKIPPED",
+        "EVIDENCE_RETURNED:p2",
+        "END_NO_PENDING"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "id": "old"
+        },
+        {
+          "event": "CANCEL"
+        },
+        {
+          "event": "DECLARE",
+          "id": "new"
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "CANCEL-AND-DECLARE",
+      "latched": false,
+      "required": [
+        "CANCELLED:old",
+        "DECLARED:new",
+        "END_PENDING"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "id": "old"
+        },
+        {
+          "event": "DECLARE",
+          "id": "new"
+        }
+      ],
+      "id": "REPLACE-LOSSLESS",
+      "latched": false,
+      "required": [
+        "DECLARED:old",
+        "CANCELLED:old",
+        "DECLARED:new"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "expires": 5,
+          "id": "p"
+        },
+        {
+          "event": "STOP"
+        },
+        {
+          "episode": 5,
+          "event": "EXPIRE"
+        },
+        {
+          "episode": 6,
+          "event": "EXPIRE"
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "EXPIRY-STRICT",
+      "latched": false,
+      "required": [
+        "EXPIRED:p",
+        "END_NO_PENDING"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "STOP"
+        },
+        {
+          "event": "FEEDBACK",
+          "informative": true
+        },
+        {
+          "event": "PREP"
+        },
+        {
+          "event": "FEEDBACK",
+          "informative": true
+        },
+        {
+          "event": "PREP"
+        }
+      ],
+      "id": "C0-RESTART",
+      "latched": false,
+      "required": [
+        "PREP_SKIPPED",
+        "RESTART",
+        "PREP_EXECUTED"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "STOP"
+        },
+        {
+          "event": "FEEDBACK",
+          "informative": true
+        },
+        {
+          "event": "FEEDBACK",
+          "informative": true
+        },
+        {
+          "event": "PREP"
+        }
+      ],
+      "id": "UNKNOWN-RESTART",
+      "latched": false,
+      "required": [
+        "RESTART",
+        "PREP_EXECUTED"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "DECLARE",
+          "expires": 36,
+          "id": "last"
+        },
+        {
+          "event": "STOP"
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "LAST-PENDING",
+      "latched": true,
+      "required": [
+        "END_PENDING"
+      ]
+    },
+    {
+      "events": [
+        {
+          "event": "COMMIT"
+        },
+        {
+          "event": "ACTION_PROTOCOL_FAILURE"
+        },
+        {
+          "event": "END"
+        }
+      ],
+      "id": "COMMIT-ACTION-FAILURE",
+      "latched": false,
+      "required": [
+        "COMMITTED",
+        "PROTOCOL_FAILURE_WITH_COMMIT_1",
+        "END_NO_PENDING"
+      ]
+    }
+  ]
+}

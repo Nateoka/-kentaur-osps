@@ -1,0 +1,683 @@
+{
+  "status": "PASS",
+  "invariants": [
+    {
+      "invariant_id": "I01",
+      "implementation_component": "profiles, invariants, replay",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_commit_survives_failed_ACTION_and_replay",
+        "tests.test_runner.RunnerTests.test_full_scripted_B0_trajectory_and_replay"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I02",
+      "implementation_component": "profiles, state, invariants",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_B0_real_episode_record",
+        "tests.test_runner.RunnerTests.test_B1_B2_exact_one_prep",
+        "tests.test_runner.RunnerTests.test_B4_full_strong_tracker_no_profile",
+        "tests.test_independent.ContractTests.test_all_frozen_schema_specimens"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I03",
+      "implementation_component": "runner._initial_profile, schemas",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_B3_declaration_free_normal_episode",
+        "tests.test_runner.RunnerTests.test_B4_full_strong_tracker_no_profile",
+        "tests.test_independent.ContractTests.test_all_frozen_schema_specimens"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I04",
+      "implementation_component": "profiles.commit, schemas",
+      "test_ids": [
+        "tests.test_runtime_contracts.RuntimeContractTests.test_unknown_return_and_restore",
+        "tests.test_runner.RunnerTests.test_A01_A03_M07_all_UNKNOWN_not_perfect_calibration"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I05",
+      "implementation_component": "profiles.commit, invariants",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_A04_X02_X04_reject_not_mutate"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I06",
+      "implementation_component": "profiles.commit, invariants",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F09_rollback_versions_history_monotone",
+        "tests.test_extended.ExtendedTests.test_F10_scope_strict_subset_and_X03_stale",
+        "tests.test_runtime_contracts.RuntimeContractTests.test_shared_committer_one_sample_allowed"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I07",
+      "implementation_component": "profiles.commit",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_X05_hidden_blind_and_X01_label_blind",
+        "tests.test_runtime_contracts.RuntimeContractTests.test_commit_rejections_and_local_control"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I08",
+      "implementation_component": "runner, tool_dispatch, invariants",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_VERIFY_seal_then_tool",
+        "tests.test_runner.RunnerTests.test_tool_exception_is_infra_not_agent_error"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I09",
+      "implementation_component": "runner, invariants",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_F12_wrong_VERIFY_remains_informative_failure"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I10",
+      "implementation_component": "runner, schemas, invariants",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_B0_real_episode_record",
+        "tests.test_runner.RunnerTests.test_DELEGATE_does_not_supply_solo_evidence",
+        "tests.test_runner.RunnerTests.test_ABSTAIN_null_answer_and_no_tool"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I11",
+      "implementation_component": "runner, evaluator, tool_dispatch",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_tool_exception_is_infra_not_agent_error",
+        "tests.test_boundaries.BoundaryTests.test_enforced_tool_timeout_typed_and_no_retry",
+        "tests.test_runner.RunnerTests.test_F12_wrong_VERIFY_remains_informative_failure"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I12",
+      "implementation_component": "calls, prompts",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_F14_repair_sees_no_fresh_context",
+        "tests.test_runner.RunnerTests.test_F15_second_invalid_no_second_repair"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I13",
+      "implementation_component": "runner, invariants, replay",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_commit_survives_failed_ACTION_and_replay",
+        "tests.test_extended.Scripted32MetricTests.test_M06_action_vector_and_A05_text_only"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I14",
+      "implementation_component": "state, prompts, schemas",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_A09_hidden_canaries_leave_B4_requests_unchanged",
+        "tests.test_boundaries.BoundaryTests.test_private_schema_error_receipt_history_probe_canaries",
+        "tests.test_independent.ContractTests.test_public_reachable_bundles"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I15",
+      "implementation_component": "state, calls, schemas",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_full_scripted_B0_trajectory_and_replay",
+        "tests.test_extended.ExtendedTests.test_storage_patch_exact_single_removal_and_witness"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I16",
+      "implementation_component": "manifest, calibration, tasks",
+      "test_ids": [
+        "tests.test_manifests.ManifestTests.test_I16_I18_reproducible_480_separate_splits",
+        "tests.test_manifests.ManifestTests.test_I16_previous_calibration_fingerprint_is_regenerated",
+        "tests.test_manifests.ManifestTests.test_A11_transfer_latent_duplicate_rejected_before_run"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I17",
+      "implementation_component": "tasks, tool_worker, answers",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_F1_independent_random_vectors",
+        "tests.test_independent.TaskTests.test_F2_independent_exhaustive_crosscheck",
+        "tests.test_independent.TaskTests.test_F03_unique",
+        "tests.test_independent.TaskTests.test_F04_ambiguous",
+        "tests.test_independent.TaskTests.test_F05_unsat"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I18",
+      "implementation_component": "manifest, runner, seed, invariants",
+      "test_ids": [
+        "tests.test_manifests.ManifestTests.test_I16_I18_reproducible_480_separate_splits",
+        "tests.test_independent.CoreTests.test_seed_exact_preimage",
+        "tests.test_runtime_contracts.RuntimeContractTests.test_PREP_24_paths"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I19",
+      "implementation_component": "calls, state, evaluator",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_accounting_no_double_count_and_unknown",
+        "tests.test_runner.RunnerTests.test_F14_repair_sees_no_fresh_context",
+        "tests.test_runner.RunnerTests.test_accepted_PREP_timeout_counts_one_no_free_skip"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I20",
+      "implementation_component": "evaluator.rate, opportunity, resource_ratio",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_M01_four_outcomes",
+        "tests.test_evaluator.EvaluatorTests.test_M02_tools_and_zero",
+        "tests.test_evaluator.EvaluatorTests.test_M03_F16_empty_conditional_retains_fixed_TOOL_ITT",
+        "tests.test_extended.ExtendedTests.test_M08_missing_zero_distinct"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I21",
+      "implementation_component": "manifest, runner, evaluator, b4",
+      "test_ids": [
+        "tests.test_independent.ContractTests.test_X11_B4_counts_and_X10_dedup",
+        "tests.test_manifests.ManifestTests.test_A11_transfer_latent_duplicate_rejected_before_run",
+        "tests.test_runner.RunnerTests.test_DELEGATE_does_not_supply_solo_evidence"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I22",
+      "implementation_component": "runner.evidence_before, evaluator",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_I22_earliest_gates_use_only_previous_observations",
+        "tests.test_extended.ExtendedTests.test_F06_C1_preserve_and_F07_F08_gates",
+        "tests.test_extended.Scripted32MetricTests.test_mode_change_cannot_borrow_old_evidence_response"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I23",
+      "implementation_component": "evaluator.bootstrap_pairs, evaluate_dataset",
+      "test_ids": [
+        "tests.test_collection.CollectionTests.test_I23_joint_matched_block_and_structural_redundancy",
+        "tests.test_collection.CollectionTests.test_duplicates_refused_not_double_n",
+        "tests.test_evaluator.EvaluatorTests.test_seeded_paired_bootstrap"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    },
+    {
+      "invariant_id": "I24",
+      "implementation_component": "classifier, evaluator",
+      "test_ids": [
+        "tests.test_runtime_contracts.RuntimeContractTests.test_all_19_goldens_runtime",
+        "tests.test_runtime_contracts.RuntimeContractTests.test_R1_E07_HARM_01_counterproductive_missing",
+        "tests.test_runtime_contracts.RuntimeContractTests.test_R1_E07_HARM_01_mixed_missing",
+        "tests.test_collection.CollectionTests.test_I24_missing_conditional_not_save_known_fixed_harm"
+      ],
+      "status": "COVERED",
+      "missing_or_failed": [],
+      "failure_type": "INFRA_FAILURE_OR_TYPED_CONTRACT_REJECTION",
+      "notes": "Executable regression coverage, not proof against all possible defects."
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture_id": "A01",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_A01_A03_M07_all_UNKNOWN_not_perfect_calibration"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A02",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_A02_A12_32_episode_controlled_arithmetic"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A03",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_A01_A03_M07_all_UNKNOWN_not_perfect_calibration"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A04",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_A04_X02_X04_reject_not_mutate"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A05",
+      "test_ids": [
+        "tests.test_extended.Scripted32MetricTests.test_M06_action_vector_and_A05_text_only"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A06",
+      "test_ids": [
+        "tests.test_runtime_contracts.RuntimeContractTests.test_shared_committer_one_sample_allowed"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A07",
+      "test_ids": [
+        "tests.test_extended.Scripted32MetricTests.test_A07_never_revise_right_censored"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A08",
+      "test_ids": [
+        "tests.test_runtime_contracts.RuntimeContractTests.test_commit_rejections_and_local_control"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A09",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_A09_hidden_canaries_leave_B4_requests_unchanged",
+        "tests.test_boundaries.BoundaryTests.test_private_schema_error_receipt_history_probe_canaries"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A10",
+      "test_ids": [
+        "tests.test_independent.ContractTests.test_all_frozen_schema_specimens",
+        "tests.test_runner.RunnerTests.test_F12_wrong_VERIFY_remains_informative_failure"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A11",
+      "test_ids": [
+        "tests.test_manifests.ManifestTests.test_A11_transfer_latent_duplicate_rejected_before_run"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "A12",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_A02_A12_32_episode_controlled_arithmetic",
+        "tests.test_probe32.Probe32Tests.test_32_next_matched_stop_pending_expiry_and_end_pending"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F01",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_F01_hand_vector"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F02",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_F02_invalid_tasks"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F03",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_F03_unique"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F04",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_F04_ambiguous"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F05",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_F05_unsat"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F06",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F06_C1_preserve_and_F07_F08_gates"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F07",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F06_C1_preserve_and_F07_F08_gates",
+        "tests.test_runtime_contracts.RuntimeContractTests.test_shared_committer_one_sample_allowed"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F08",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F06_C1_preserve_and_F07_F08_gates",
+        "tests.test_extended.Scripted32MetricTests.test_M05_post_E_response_grace_target_opportunities"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F09",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F09_rollback_versions_history_monotone"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F10",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F10_scope_strict_subset_and_X03_stale"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F11",
+      "test_ids": [
+        "tests.test_runtime_contracts.RuntimeContractTests.test_unknown_return_and_restore"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F12",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_F12_wrong_VERIFY_remains_informative_failure"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F13",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_DELEGATE_does_not_supply_solo_evidence"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F14",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_F14_repair_sees_no_fresh_context"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F15",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_F15_second_invalid_no_second_repair",
+        "tests.test_runner.RunnerTests.test_commit_survives_failed_ACTION_and_replay"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F16",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_M03_F16_empty_conditional_retains_fixed_TOOL_ITT"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F17",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_accounting_no_double_count_and_unknown"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F18",
+      "test_ids": [
+        "tests.test_freeze.FreezeTests.test_F18_reserved_and_protocol_tuning_rejected"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "F19",
+      "test_ids": [
+        "tests.test_probe32.Probe32Tests.test_PROBE21_labels_never_causal_discrimination"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M01",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_M01_four_outcomes"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M02",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_M02_tools_and_zero"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M03",
+      "test_ids": [
+        "tests.test_evaluator.EvaluatorTests.test_M03_F16_empty_conditional_retains_fixed_TOOL_ITT"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M04",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_M04_rejected_attempt_not_numeric_distance_denominator"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M05",
+      "test_ids": [
+        "tests.test_extended.Scripted32MetricTests.test_M05_post_E_response_grace_target_opportunities"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M06",
+      "test_ids": [
+        "tests.test_extended.Scripted32MetricTests.test_M06_action_vector_and_A05_text_only"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M07",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_A01_A03_M07_all_UNKNOWN_not_perfect_calibration"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "M08",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_M08_missing_zero_distinct"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X01",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_X05_hidden_blind_and_X01_label_blind"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X02",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_A04_X02_X04_reject_not_mutate"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X03",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_F10_scope_strict_subset_and_X03_stale"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X04",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_A04_X02_X04_reject_not_mutate"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X05",
+      "test_ids": [
+        "tests.test_extended.ExtendedTests.test_X05_hidden_blind_and_X01_label_blind"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X06",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_B1_B2_exact_one_prep",
+        "tests.test_runner.RunnerTests.test_B3_declaration_free_normal_episode",
+        "tests.test_freeze.FreezeTests.test_F18_reserved_and_protocol_tuning_rejected"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X07",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_full_scripted_B0_trajectory_and_replay"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X08",
+      "test_ids": [
+        "tests.test_runner.RunnerTests.test_commit_survives_failed_ACTION_and_replay",
+        "tests.test_independent.CoreTests.test_store_detects_mutation_and_truncation"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X09",
+      "test_ids": [
+        "tests.test_independent.TaskTests.test_X09_alpha_and_conjunction"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X10",
+      "test_ids": [
+        "tests.test_independent.ContractTests.test_X11_B4_counts_and_X10_dedup"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X11",
+      "test_ids": [
+        "tests.test_independent.ContractTests.test_X11_B4_counts_and_X10_dedup"
+      ],
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "X12",
+      "test_ids": [
+        "tests.test_runtime_contracts.RuntimeContractTests.test_all_19_goldens_runtime"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "invariant_count": 24,
+  "fixture_count": 51,
+  "evidence_kind": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+  "source": "SPEC I01-I24 and Fixture Plan F01-F19/A01-A12/X01-X12/M01-M08"
+}

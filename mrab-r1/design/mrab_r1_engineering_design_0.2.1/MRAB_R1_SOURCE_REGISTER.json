@@ -1,0 +1,215 @@
+{
+  "actual_request_hash": "7ce36db50cc6d2f30c2d47d9106f81dc7c3ca0e76687f4a69035b39bc2594fde",
+  "artifact": "MRAB_R1_SOURCE_REGISTER_0.2.1",
+  "canonical_documents_modified": false,
+  "external_technical_references": [
+    {
+      "role": "JSON Schema standard only; not Matryoshka canon",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-core"
+    },
+    {
+      "role": "Canonical serialization of runtime state/config hashes; artifact hashes remain raw-byte SHA-256",
+      "url": "https://www.rfc-editor.org/rfc/rfc8785.html"
+    },
+    {
+      "role": "Beta CDF/inverse-CDF operation contract only; thresholds authorial engineering defaults",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.beta.html"
+    }
+  ],
+  "original_request_hash": "7ce36db50cc6d2f30c2d47d9106f81dc7c3ca0e76687f4a69035b39bc2594fde",
+  "original_request_matches": true,
+  "removed_source": {
+    "authority": "references/AUTHOR_DECISION_98.md",
+    "name": "98_ВАЛИДАЦИЯ_И_ДОСТОВЕРНОСТЬ",
+    "original_message_export_sha256": null,
+    "status": "NOT_REQUIRED"
+  },
+  "sources": [
+    {
+      "id": "AUX:0",
+      "original_hash_matches": null,
+      "original_register_sha256": null,
+      "path": "references/sources/MRAB-R1 0.1 — False Self-Model.md",
+      "role": "Task or additional read-only reference; not interchangeable with architectural canon",
+      "sha256": "5b62ade29391c253789de2b71619185c775bdce08bb0d2b0d0a8ec6323b21c2a",
+      "used_sections": [
+        "Read as named by Design Closure task"
+      ]
+    },
+    {
+      "id": "AUX:1",
+      "original_hash_matches": null,
+      "original_register_sha256": null,
+      "path": "references/sources/Prompt_PP_Matryoshka_2.0.md",
+      "role": "Task or additional read-only reference; not interchangeable with architectural canon",
+      "sha256": "a9301e5550cfea8f42f90eb473f3796886ab25b336011244d3a4dbb06334a779",
+      "used_sections": [
+        "Read as named by Design Closure task"
+      ]
+    },
+    {
+      "id": "AUX:2",
+      "original_hash_matches": null,
+      "original_register_sha256": null,
+      "path": "references/sources/Инструменты_Матрёшки_0.1.md",
+      "role": "Task or additional read-only reference; not interchangeable with architectural canon",
+      "sha256": "dec6907a494475ab111c4724b559a3c6023766378ad849952fac2394eb71d915",
+      "used_sections": [
+        "Read as named by Design Closure task"
+      ]
+    },
+    {
+      "id": "S4",
+      "original_hash_matches": true,
+      "original_register_sha256": "c28fe5a008292cebdce1ec4132b3d35215dc8683360b16dcacc2b8b941321bfd",
+      "path": "references/sources/Матрёшка генезис формы и режимы осуществления 1.0.md",
+      "role": "Form/temporal scales/nonrepresented participation",
+      "sha256": "c28fe5a008292cebdce1ec4132b3d35215dc8683360b16dcacc2b8b941321bfd",
+      "used_sections": [
+        "§1–2",
+        "§3.3",
+        "§4",
+        "§6",
+        "§10"
+      ]
+    },
+    {
+      "id": "AUX:4",
+      "original_hash_matches": null,
+      "original_register_sha256": null,
+      "path": "references/sources/Матрёшка искусственного агента.md",
+      "role": "Task or additional read-only reference; not interchangeable with architectural canon",
+      "sha256": "07147e3902a35c08d993fd0ee2aadf6dabc15998569b129e6f80ef8919259509",
+      "used_sections": [
+        "Read as named by Design Closure task"
+      ]
+    },
+    {
+      "id": "S1",
+      "original_hash_matches": true,
+      "original_register_sha256": "5abdd3475db8a76deafadb6137c9200332821bd1de7a03495aeed364fbe147a5",
+      "path": "references/sources/Матрёшка_искусственного_агента_0.1_архитектура_агентности_саморегуляции_и_развития.md",
+      "role": "AI architecture",
+      "sha256": "5abdd3475db8a76deafadb6137c9200332821bd1de7a03495aeed364fbe147a5",
+      "used_sections": [
+        "I–XII",
+        "XVI–XXI",
+        "XXVII–XXX",
+        "XXXIV",
+        "XLI–LVI"
+      ]
+    },
+    {
+      "id": "S3",
+      "original_hash_matches": true,
+      "original_register_sha256": "6d9f04a1cac1fe4a66b61713b74a169cc0254150afa9bbe86987517edef294c0",
+      "path": "references/sources/Модель_Интеллекта_Матрёшки_2.0.md",
+      "role": "Fit/permeability/fate/Dark Intelligence",
+      "sha256": "6d9f04a1cac1fe4a66b61713b74a169cc0254150afa9bbe86987517edef294c0",
+      "used_sections": [
+        "§2–5",
+        "§15–19",
+        "§21",
+        "§42–43",
+        "§48–50"
+      ]
+    },
+    {
+      "id": "S2",
+      "original_hash_matches": true,
+      "original_register_sha256": "74b3235eba2ccd6304c47ff92e911a2211960ac84073317c72f60db77a21b8cb",
+      "path": "references/sources/Практика_Матрёшки_1.1_STABLE_Конституция_и_грамматика_практического_хода.md",
+      "role": "Practice/probe/stop/UNKNOWN",
+      "sha256": "74b3235eba2ccd6304c47ff92e911a2211960ac84073317c72f60db77a21b8cb",
+      "used_sections": [
+        "I–VIII",
+        "XV",
+        "XVIII–XXV",
+        "XXXI"
+      ]
+    },
+    {
+      "id": "INPUT:AUDIT_FINDINGS_0.1",
+      "path": "references/AUDIT_FINDINGS_0.1.json",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "774f5dcf15d09adbb5495c48aff50aff9a1fc2ff844879bbe0c7f474dca4a1c6"
+    },
+    {
+      "id": "INPUT:AUTHOR_DECISION_98",
+      "path": "references/AUTHOR_DECISION_98.md",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "154069956a15655662ad486f7dcb63392ff83f848257cd2998a4f18823e6f412"
+    },
+    {
+      "id": "INPUT:MRAB_R1_AUDIT_0.1",
+      "path": "references/MRAB_R1_AUDIT_0.1.md",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "74aaeaf5bbde790bd317605a9cb2e0f251c8cb9d09d5bcfef11fc89fc396543f"
+    },
+    {
+      "id": "INPUT:MRAB_R1_AUDIT_EVIDENCE_0.1",
+      "path": "references/MRAB_R1_AUDIT_EVIDENCE_0.1.zip",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "7ec53aa29c01ca88223a732e925e29da8d355f7271f63ac36a238831f4aaaf93"
+    },
+    {
+      "id": "INPUT:MRAB_R1_Engineering_Design_Package_0.1",
+      "path": "references/MRAB_R1_Engineering_Design_Package_0.1.zip",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "415c34c877fd9b99702a7c663d3554dc2c5d33bf86de6ad558aa049d462db57c"
+    },
+    {
+      "id": "INPUT:MRAB_R1_Engineering_Design_Package_0.2.manifest",
+      "path": "references/MRAB_R1_Engineering_Design_Package_0.2.manifest.json",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "926bc7e7f40e302b48fa47e2a0f25358f91fe58523272a8d25a6c5938e2c682a"
+    },
+    {
+      "id": "INPUT:MRAB_R1_Engineering_Design_Package_0.2",
+      "path": "references/MRAB_R1_Engineering_Design_Package_0.2.zip",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "7d82fe11f49f5b0ff4446a7e5aaa8f5ac3a5de60c9bb833199b92c2b7b5105d0"
+    },
+    {
+      "id": "INPUT:MRAB_R1_WORK_TASK_0.2",
+      "path": "references/MRAB_R1_WORK_TASK_0.2.md",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "f32c0b0cf848c8d9993c60b7d730da3bc7c0d4ff5865562e8e39ea0b31ed2fde"
+    },
+    {
+      "id": "INPUT:ORIGINAL_CORPUS_CHECK",
+      "path": "references/ORIGINAL_CORPUS_CHECK.json",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "010b89161dfd9005235f2dbd56e4cc5ae47d7b35be1ec8c6745295975527101d"
+    },
+    {
+      "id": "INPUT:ORIGINAL_INVENTORY",
+      "path": "references/ORIGINAL_INVENTORY.json",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "0240c4303df97e3802f54333e8350bd6f0a6208c8147d006ace9c8ecfdfe9969"
+    },
+    {
+      "id": "INPUT:ORIGINAL_PASTED_REQUEST",
+      "path": "references/ORIGINAL_PASTED_REQUEST.txt",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "7ce36db50cc6d2f30c2d47d9106f81dc7c3ca0e76687f4a69035b39bc2594fde"
+    },
+    {
+      "id": "INPUT:R1-CAPABILITY-01",
+      "path": "references/R1-CAPABILITY-01.md",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "fcc4b3c7443c964aa44f4e9637503d80664f754959bec7c8bab24844dbf5e975"
+    },
+    {
+      "id": "INPUT:R1_PATCH_0.2.1",
+      "path": "references/R1_PATCH_0.2.1.md",
+      "role": "Preserved task/audit/authority/reproduction input",
+      "sha256": "8dc2204850fae39f0567cb4ed1d9a30f4cc0e83adee88959081553a870a93df1"
+    }
+  ],
+  "unavailable_scope": "Not found in supplied workspace and named Desktop transmission materials; not a whole-computer search",
+  "unavailable_supplemental": [
+    "MRAB_R1_Hard_Audit_0.1.md",
+    "MRAB_R1_Audit_Evidence.zip"
+  ]
+}

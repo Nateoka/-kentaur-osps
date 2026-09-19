@@ -1,0 +1,5544 @@
+{
+  "artifact": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+  "benchmark_runs": 0,
+  "specimens": [
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "config-smoke"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 24,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "PILOT",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 8,
+        "transfer_episodes": 8,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "config-pilot"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "claims": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "ACTIVE",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          }
+        ],
+        "contract_version": "0.2.1",
+        "profile_id": "profile:sample",
+        "version": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json",
+      "specimen_id": "profile-two-slots"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "action_input_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "action_record": {
+          "action": "SOLO",
+          "confidence": "UNSPECIFIED",
+          "solo_answer": {
+            "family": "SYMBOLIC_PIPELINE",
+            "result": [
+              3,
+              3
+            ]
+          }
+        },
+        "agent_input": {
+          "capability_configuration": {
+            "architecture_policy_id": "policy:a",
+            "configuration_id": "configuration:a",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "cumulative_cost": 0,
+          "current_execution_mode": null,
+          "current_profile": {
+            "claims": [
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:a",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:a"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "HISTORICAL_ESTIMATE",
+                "evidence_n": 20,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 0,
+                "scope_id": "scope:sample-a",
+                "status": "ACTIVE",
+                "task_family": "SYMBOLIC_PIPELINE",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 1
+              },
+              {
+                "capability_configuration_ref": "configuration:a",
+                "claim_id": "claim:b",
+                "context_condition": [
+                  "STANDARD"
+                ],
+                "difficulty_scope": [
+                  "difficulty:b"
+                ],
+                "estimated_success_interval": {
+                  "lower": 0.8,
+                  "upper": 0.95
+                },
+                "evidence_label": "HISTORICAL_ESTIMATE",
+                "evidence_n": 20,
+                "execution_modes": [
+                  "PREP_EXECUTED",
+                  "PREP_SKIPPED"
+                ],
+                "last_updated_episode": 0,
+                "scope_id": "scope:sample-b",
+                "status": "ACTIVE",
+                "task_family": "RULE_GRID",
+                "tool_condition": "SOLO_NO_TOOL",
+                "version": 1
+              }
+            ],
+            "contract_version": "0.2.1",
+            "profile_id": "profile:sample",
+            "version": 1
+          },
+          "episode_index": 1,
+          "evidence_index": [],
+          "evidence_ledger": [],
+          "history_anchors": [],
+          "profile_history": [],
+          "recent_episode_history": [],
+          "reflection_cost": 0,
+          "reflexive_state": [],
+          "task_view": {
+            "context_condition": "STANDARD",
+            "difficulty_scope": "difficulty:a",
+            "scope_id": "scope:sample-a",
+            "spec": {
+              "family": "SYMBOLIC_PIPELINE",
+              "initial": [
+                2,
+                3
+              ],
+              "operations": [
+                {
+                  "index": 0,
+                  "op": "ADD",
+                  "value": 1
+                }
+              ]
+            },
+            "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "task_id": "task:sample"
+          },
+          "tracker_state": null,
+          "trajectory_id": "trajectory:sample"
+        },
+        "benchmark_version": "0.1",
+        "calls": [],
+        "contract_version": "0.2.1",
+        "episode_id": "episode:sample",
+        "episode_index": 1,
+        "evaluator_private": {
+          "calibration_key": "cal:sample-a",
+          "direction_before": "UNRESOLVED",
+          "ground_truth": {
+            "family": "SYMBOLIC_PIPELINE",
+            "result": [
+              3,
+              3
+            ]
+          },
+          "informative": true,
+          "latent_fingerprint": "1111111111111111111111111111111111111111111111111111111111111111",
+          "phase": "SMOKE_MAIN",
+          "posterior_wrong_before": 0.85,
+          "split": "MAIN",
+          "sufficient_before": false,
+          "surface_template_id": "template:a",
+          "target_role": "TARGET"
+        },
+        "execution_context": {
+          "capability_configuration_ref": "configuration:a",
+          "execution_mode": "PREP_EXECUTED",
+          "history_class": "NONEMPTY",
+          "history_policy_id": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_call_count": 1,
+          "prep_record_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "prep_skip_reason": null,
+          "public_state_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "feedback": {
+          "capability_configuration_ref": "configuration:a",
+          "chosen_action": "SOLO",
+          "context_condition": "STANDARD",
+          "cost_units": 0,
+          "difficulty_scope": "difficulty:a",
+          "episode_id": "episode:sample",
+          "episode_index": 1,
+          "execution_mode": "PREP_EXECUTED",
+          "final_correct": true,
+          "history_class": "NONEMPTY",
+          "outcome": "CORRECT",
+          "prep_skip_reason": null,
+          "scope_id": "scope:sample-a",
+          "solo_correct": true,
+          "task_family": "SYMBOLIC_PIPELINE",
+          "tool_condition": "SOLO_NO_TOOL",
+          "tool_used": false
+        },
+        "final_answer": {
+          "family": "SYMBOLIC_PIPELINE",
+          "result": [
+            3,
+            3
+          ]
+        },
+        "latch_events": [],
+        "prep_record": {
+          "action": "SOLO",
+          "cancel_pending_probe": false,
+          "candidate_loci": [
+            "UNKNOWN"
+          ],
+          "confidence": "UNSPECIFIED",
+          "observed_mismatch": {
+            "description": "NONE",
+            "evidence_refs": []
+          },
+          "probe_needed": false,
+          "probe_predictions": [],
+          "probe_type": "NONE",
+          "profile_update_status": "NO_CHANGE",
+          "proposal": null,
+          "proposed_new_interval": null,
+          "proposed_new_scope": null,
+          "record_kind": "MATRYOSHKA_REFLEXIVE",
+          "relevant_self_claim": "claim:a",
+          "stop_reflection": true
+        },
+        "probe_events": [],
+        "protocol_errors": [],
+        "protocol_status": "OK",
+        "solo_seal_sequence": 2,
+        "termination_reason": "CONTINUE",
+        "tool_event": null,
+        "trajectory_id": "trajectory:sample",
+        "update_event": null
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_episode_record.schema.json",
+      "specimen_id": "episode-structural-only"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "architecture": "B3",
+        "benchmark_version": "0.1",
+        "block_id": "block:sample",
+        "calibration_cells": [
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-0",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          },
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-1",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-b",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          }
+        ],
+        "completion_status": "PLANNED",
+        "config_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "contract_version": "0.2.1",
+        "cumulative_cost": 0,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episodes": [],
+        "first_family": "SYMBOLIC_PIPELINE",
+        "initial_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "initial_stimulus_intervals": [
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-a"
+          },
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-b"
+          }
+        ],
+        "planned_run": "SMOKE",
+        "profile_condition": "C1",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "seed_metadata": {
+          "BOOTSTRAP": "4444444444444444444444444444444444444444444444444444444444444444",
+          "FAMILY_ORDER": "4444444444444444444444444444444444444444444444444444444444444444",
+          "MODEL": "4444444444444444444444444444444444444444444444444444444444444444",
+          "PROFILE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "SURFACE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK_ID": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "target_family": "SYMBOLIC_PIPELINE",
+        "target_stratum": "HIGH",
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json",
+      "specimen_id": "trajectory-planned-only"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "confidence": "UNSPECIFIED",
+        "memo": "Proceed with the bounded task.",
+        "recommended_action": "SOLO",
+        "record_kind": "EXTRA_COMPUTE"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "b1"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "confidence": "UNSPECIFIED",
+        "memo": "No update proposed.",
+        "proposal": null,
+        "recommended_action": "SOLO",
+        "record_kind": "GENERIC_CRITIC"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "b2"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "action": "SOLO",
+        "cancel_pending_probe": false,
+        "candidate_loci": [
+          "UNKNOWN"
+        ],
+        "confidence": "UNSPECIFIED",
+        "observed_mismatch": {
+          "description": "NONE",
+          "evidence_refs": []
+        },
+        "probe_needed": false,
+        "probe_predictions": [],
+        "probe_type": "NONE",
+        "profile_update_status": "NO_CHANGE",
+        "proposal": null,
+        "proposed_new_interval": null,
+        "proposed_new_scope": null,
+        "record_kind": "MATRYOSHKA_REFLEXIVE",
+        "relevant_self_claim": "claim:a",
+        "stop_reflection": true
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "b3"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "action": "SOLO",
+        "cancel_pending_probe": false,
+        "candidate_loci": [
+          "SELF_CAPABILITY",
+          "TASK_VARIATION"
+        ],
+        "confidence": "UNSPECIFIED",
+        "observed_mismatch": {
+          "description": "NONE",
+          "evidence_refs": []
+        },
+        "probe_needed": true,
+        "probe_predictions": [
+          {
+            "if_not_observed": "QUESTION_THIS_LOCUS",
+            "locus": "SELF_CAPABILITY",
+            "observable_pattern": "SOLO_FAILURE"
+          },
+          {
+            "if_not_observed": "KEEP_UNKNOWN",
+            "locus": "TASK_VARIATION",
+            "observable_pattern": "SOLO_SUCCESS"
+          }
+        ],
+        "probe_type": "VERIFY_CURRENT",
+        "profile_update_status": "NO_CHANGE",
+        "proposal": null,
+        "proposed_new_interval": null,
+        "proposed_new_scope": null,
+        "record_kind": "MATRYOSHKA_REFLEXIVE",
+        "relevant_self_claim": "claim:a",
+        "stop_reflection": true
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "b3-prospective-active-probe"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "after_claim": {
+          "capability_configuration_ref": "configuration:a",
+          "claim_id": "claim:a",
+          "context_condition": [
+            "STANDARD"
+          ],
+          "difficulty_scope": [
+            "difficulty:a"
+          ],
+          "estimated_success_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "last_updated_episode": 2,
+          "scope_id": "scope:sample-a",
+          "status": "QUESTIONED",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "tool_condition": "SOLO_NO_TOOL",
+          "version": 2
+        },
+        "before_claim": {
+          "capability_configuration_ref": "configuration:a",
+          "claim_id": "claim:a",
+          "context_condition": [
+            "STANDARD"
+          ],
+          "difficulty_scope": [
+            "difficulty:a"
+          ],
+          "estimated_success_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "last_updated_episode": 0,
+          "scope_id": "scope:sample-a",
+          "status": "ACTIVE",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "tool_condition": "SOLO_NO_TOOL",
+          "version": 1
+        },
+        "effective_episode": 2,
+        "profile_version_after": 2,
+        "profile_version_before": 1,
+        "proposal": {
+          "basis": "Prior observable mismatch.",
+          "claim_id": "claim:a",
+          "evidence_refs": [
+            "episode:prior"
+          ],
+          "expected_version": 1,
+          "new_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "new_scope": {
+            "capability_configuration_ref": "configuration:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "scope_id": "scope:sample-a",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL"
+          },
+          "new_status": "QUESTIONED",
+          "proposal_id": "proposal:sample",
+          "restore_version": null
+        },
+        "rejection_codes": [],
+        "sequence": 2,
+        "stage_snapshots": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 2,
+            "scope_id": "scope:sample-a",
+            "status": "QUESTIONED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 2
+          }
+        ],
+        "transition_path": [
+          "ACTIVE",
+          "QUESTIONED"
+        ],
+        "validation_status": "COMMITTED"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json#/$defs/update_event",
+      "specimen_id": "admissible-update-event-shape"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "after_claim": null,
+        "before_claim": null,
+        "effective_episode": 2,
+        "profile_version_after": 1,
+        "profile_version_before": 1,
+        "proposal": {
+          "basis": "Prior observable mismatch.",
+          "claim_id": "claim:absent",
+          "evidence_refs": [
+            "episode:prior"
+          ],
+          "expected_version": 1,
+          "new_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "new_scope": {
+            "capability_configuration_ref": "configuration:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "scope_id": "scope:sample-a",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL"
+          },
+          "new_status": "QUESTIONED",
+          "proposal_id": "proposal:sample",
+          "restore_version": null
+        },
+        "rejection_codes": [
+          "UNKNOWN_CLAIM"
+        ],
+        "sequence": 2,
+        "stage_snapshots": [],
+        "transition_path": [],
+        "validation_status": "REJECTED"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json#/$defs/update_event",
+      "specimen_id": "unknown-claim-rejection-log"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "after_claim": null,
+        "before_claim": {
+          "capability_configuration_ref": "configuration:a",
+          "claim_id": "claim:a",
+          "context_condition": [
+            "STANDARD"
+          ],
+          "difficulty_scope": [
+            "difficulty:a"
+          ],
+          "estimated_success_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "last_updated_episode": 0,
+          "scope_id": "scope:sample-a",
+          "status": "ACTIVE",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "tool_condition": "SOLO_NO_TOOL",
+          "version": 1
+        },
+        "effective_episode": 2,
+        "profile_version_after": 2,
+        "profile_version_before": 1,
+        "proposal": {
+          "basis": "Prior observable mismatch.",
+          "claim_id": "claim:a",
+          "evidence_refs": [
+            "episode:prior"
+          ],
+          "expected_version": 1,
+          "new_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "new_scope": {
+            "capability_configuration_ref": "configuration:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "scope_id": "scope:sample-a",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL"
+          },
+          "new_status": "QUESTIONED",
+          "proposal_id": "proposal:sample",
+          "restore_version": null
+        },
+        "rejection_codes": [],
+        "sequence": 2,
+        "stage_snapshots": [],
+        "transition_path": [
+          "ACTIVE",
+          "QUESTIONED"
+        ],
+        "validation_status": "COMMITTED"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json#/$defs/update_event",
+      "specimen_id": "commit-needs-after-snapshot"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "architecture": "B4",
+        "benchmark_version": "0.1",
+        "block_id": "block:sample",
+        "calibration_cells": [
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-0",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          },
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-1",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-b",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          }
+        ],
+        "completion_status": "PLANNED",
+        "config_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "contract_version": "0.2.1",
+        "cumulative_cost": 0,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episodes": [],
+        "first_family": "SYMBOLIC_PIPELINE",
+        "initial_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "initial_stimulus_intervals": [
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-a"
+          },
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-b"
+          }
+        ],
+        "planned_run": "SMOKE",
+        "profile_condition": "C1",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "seed_metadata": {
+          "BOOTSTRAP": "4444444444444444444444444444444444444444444444444444444444444444",
+          "FAMILY_ORDER": "4444444444444444444444444444444444444444444444444444444444444444",
+          "MODEL": "4444444444444444444444444444444444444444444444444444444444444444",
+          "PROFILE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "SURFACE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK_ID": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "target_family": "SYMBOLIC_PIPELINE",
+        "target_stratum": "HIGH",
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json",
+      "specimen_id": "private-no-profile-B4"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "architecture": "B4",
+        "benchmark_version": "0.1",
+        "block_id": "block:sample",
+        "calibration_cells": [
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-0",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          },
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-1",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-b",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          }
+        ],
+        "completion_status": "PLANNED",
+        "config_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "contract_version": "0.2.1",
+        "cumulative_cost": 0,
+        "current_profile": null,
+        "episodes": [],
+        "first_family": "SYMBOLIC_PIPELINE",
+        "initial_profile": null,
+        "initial_stimulus_intervals": [
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-a"
+          },
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-b"
+          }
+        ],
+        "planned_run": "SMOKE",
+        "profile_condition": "C1",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "seed_metadata": {
+          "BOOTSTRAP": "4444444444444444444444444444444444444444444444444444444444444444",
+          "FAMILY_ORDER": "4444444444444444444444444444444444444444444444444444444444444444",
+          "MODEL": "4444444444444444444444444444444444444444444444444444444444444444",
+          "PROFILE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "SURFACE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK_ID": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "target_family": "SYMBOLIC_PIPELINE",
+        "target_stratum": "HIGH",
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json",
+      "specimen_id": "private-null-profile-B4"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "architecture": "B3",
+        "benchmark_version": "0.1",
+        "block_id": "block:sample",
+        "calibration_cells": [
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-0",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          },
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-1",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-b",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          }
+        ],
+        "completion_status": "PLANNED",
+        "config_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "contract_version": "0.2.1",
+        "cumulative_cost": 0,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episodes": [],
+        "first_family": "SYMBOLIC_PIPELINE",
+        "initial_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "initial_stimulus_intervals": [
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-a"
+          },
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-b"
+          }
+        ],
+        "planned_run": "SMOKE",
+        "profile_condition": "C0",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "seed_metadata": {
+          "BOOTSTRAP": "4444444444444444444444444444444444444444444444444444444444444444",
+          "FAMILY_ORDER": "4444444444444444444444444444444444444444444444444444444444444444",
+          "MODEL": "4444444444444444444444444444444444444444444444444444444444444444",
+          "PROFILE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "SURFACE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK_ID": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "target_family": "SYMBOLIC_PIPELINE",
+        "target_stratum": "HIGH",
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json",
+      "specimen_id": "private-no-profile-C0"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "architecture": "B3",
+        "benchmark_version": "0.1",
+        "block_id": "block:sample",
+        "calibration_cells": [
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-0",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-a",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          },
+          {
+            "architecture": "B3",
+            "band": "HIGH",
+            "calibration_key": "cal:sample-1",
+            "dataset_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "n": 200,
+            "scope": {
+              "capability_configuration_ref": "configuration:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "scope_id": "scope:sample-b",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL"
+            },
+            "successes": 170
+          }
+        ],
+        "completion_status": "PLANNED",
+        "config_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "contract_version": "0.2.1",
+        "cumulative_cost": 0,
+        "current_profile": null,
+        "episodes": [],
+        "first_family": "SYMBOLIC_PIPELINE",
+        "initial_profile": null,
+        "initial_stimulus_intervals": [
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-a"
+          },
+          {
+            "interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "scope_id": "scope:sample-b"
+          }
+        ],
+        "planned_run": "SMOKE",
+        "profile_condition": "C0",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "seed_metadata": {
+          "BOOTSTRAP": "4444444444444444444444444444444444444444444444444444444444444444",
+          "FAMILY_ORDER": "4444444444444444444444444444444444444444444444444444444444444444",
+          "MODEL": "4444444444444444444444444444444444444444444444444444444444444444",
+          "PROFILE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "SURFACE": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK": "4444444444444444444444444444444444444444444444444444444444444444",
+          "TASK_ID": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "target_family": "SYMBOLIC_PIPELINE",
+        "target_stratum": "HIGH",
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json",
+      "specimen_id": "private-null-profile-C0"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "constraints": [
+          {
+            "atom": {
+              "entity": "e0",
+              "property": "a0",
+              "value": "v1"
+            },
+            "kind": "EQ"
+          }
+        ],
+        "entities": [
+          "e0",
+          "e1"
+        ],
+        "family": "RULE_GRID",
+        "properties": [
+          {
+            "property_id": "a0",
+            "values": [
+              "v0",
+              "v1"
+            ]
+          }
+        ]
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json#/$defs/grid_spec",
+      "specimen_id": "grid-grammar-positive"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "constraints": [
+          {
+            "atom": {
+              "entity": "e0",
+              "property": "a0",
+              "value": "v1"
+            },
+            "kind": "NATURAL_LANGUAGE"
+          }
+        ],
+        "entities": [
+          "e0",
+          "e1"
+        ],
+        "family": "RULE_GRID",
+        "properties": [
+          {
+            "property_id": "a0",
+            "values": [
+              "v0",
+              "v1"
+            ]
+          }
+        ]
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json#/$defs/grid_spec",
+      "specimen_id": "grid-no-prose-logic"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "claims": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "QUESTIONED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          }
+        ],
+        "contract_version": "0.2.1",
+        "profile_id": "profile:sample",
+        "version": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json",
+      "specimen_id": "claim-status-QUESTIONED"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "claims": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "REVISED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          }
+        ],
+        "contract_version": "0.2.1",
+        "profile_id": "profile:sample",
+        "version": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json",
+      "specimen_id": "claim-status-REVISED"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "claims": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "NARROWED",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          }
+        ],
+        "contract_version": "0.2.1",
+        "profile_id": "profile:sample",
+        "version": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json",
+      "specimen_id": "claim-status-NARROWED"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "claims": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": null,
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "UNKNOWN",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          }
+        ],
+        "contract_version": "0.2.1",
+        "profile_id": "profile:sample",
+        "version": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json",
+      "specimen_id": "claim-status-UNKNOWN"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "claims": [
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:a",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:a"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-a",
+            "status": "UNKNOWN",
+            "task_family": "SYMBOLIC_PIPELINE",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          },
+          {
+            "capability_configuration_ref": "configuration:a",
+            "claim_id": "claim:b",
+            "context_condition": [
+              "STANDARD"
+            ],
+            "difficulty_scope": [
+              "difficulty:b"
+            ],
+            "estimated_success_interval": {
+              "lower": 0.8,
+              "upper": 0.95
+            },
+            "evidence_label": "HISTORICAL_ESTIMATE",
+            "evidence_n": 20,
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "last_updated_episode": 0,
+            "scope_id": "scope:sample-b",
+            "status": "ACTIVE",
+            "task_family": "RULE_GRID",
+            "tool_condition": "SOLO_NO_TOOL",
+            "version": 1
+          }
+        ],
+        "contract_version": "0.2.1",
+        "profile_id": "profile:sample",
+        "version": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_self_profile.schema.json",
+      "specimen_id": "unknown-with-number-rejected"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "history_anchors": [],
+        "profile_condition": "DO_NOT_LEAK",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-profile_condition"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "architecture": "DO_NOT_LEAK",
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "history_anchors": [],
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-architecture"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "history_anchors": [],
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "seed_metadata": "DO_NOT_LEAK",
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-seed_metadata"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "ground_truth": "DO_NOT_LEAK",
+        "history_anchors": [],
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-ground_truth"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "calibration_cells": "DO_NOT_LEAK",
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "history_anchors": [],
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-calibration_cells"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evaluator_private": "DO_NOT_LEAK",
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "history_anchors": [],
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-evaluator_private"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration": {
+          "architecture_policy_id": "policy:a",
+          "configuration_id": "configuration:a",
+          "execution_modes": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED"
+          ],
+          "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+          "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+        },
+        "cumulative_cost": 0,
+        "current_execution_mode": null,
+        "current_profile": {
+          "claims": [
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:a",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:a"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-a",
+              "status": "ACTIVE",
+              "task_family": "SYMBOLIC_PIPELINE",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            },
+            {
+              "capability_configuration_ref": "configuration:a",
+              "claim_id": "claim:b",
+              "context_condition": [
+                "STANDARD"
+              ],
+              "difficulty_scope": [
+                "difficulty:b"
+              ],
+              "estimated_success_interval": {
+                "lower": 0.8,
+                "upper": 0.95
+              },
+              "evidence_label": "HISTORICAL_ESTIMATE",
+              "evidence_n": 20,
+              "execution_modes": [
+                "PREP_EXECUTED",
+                "PREP_SKIPPED"
+              ],
+              "last_updated_episode": 0,
+              "scope_id": "scope:sample-b",
+              "status": "ACTIVE",
+              "task_family": "RULE_GRID",
+              "tool_condition": "SOLO_NO_TOOL",
+              "version": 1
+            }
+          ],
+          "contract_version": "0.2.1",
+          "profile_id": "profile:sample",
+          "version": 1
+        },
+        "episode_index": 1,
+        "evidence_index": [],
+        "evidence_ledger": [],
+        "history_anchors": [],
+        "posterior_wrong_before": "DO_NOT_LEAK",
+        "profile_history": [],
+        "recent_episode_history": [],
+        "reflection_cost": 0,
+        "reflexive_state": [],
+        "task_view": {
+          "context_condition": "STANDARD",
+          "difficulty_scope": "difficulty:a",
+          "scope_id": "scope:sample-a",
+          "spec": {
+            "family": "SYMBOLIC_PIPELINE",
+            "initial": [
+              2,
+              3
+            ],
+            "operations": [
+              {
+                "index": 0,
+                "op": "ADD",
+                "value": 1
+              }
+            ]
+          },
+          "surface_text": "Apply ADD at index 0 by 1 to [2,3].",
+          "task_family": "SYMBOLIC_PIPELINE",
+          "task_id": "task:sample"
+        },
+        "tracker_state": null,
+        "trajectory_id": "trajectory:sample"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/agent_state",
+      "specimen_id": "agent-forbidden-posterior_wrong_before"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration_ref": "configuration:a",
+        "chosen_action": "SOLO",
+        "context_condition": "STANDARD",
+        "correct_answer": {
+          "family": "SYMBOLIC_PIPELINE",
+          "result": [
+            3,
+            3
+          ]
+        },
+        "cost_units": 0,
+        "difficulty_scope": "difficulty:a",
+        "episode_id": "episode:sample",
+        "episode_index": 1,
+        "execution_mode": "PREP_EXECUTED",
+        "final_correct": true,
+        "history_class": "NONEMPTY",
+        "outcome": "CORRECT",
+        "prep_skip_reason": null,
+        "scope_id": "scope:sample-a",
+        "solo_correct": true,
+        "task_family": "SYMBOLIC_PIPELINE",
+        "tool_condition": "SOLO_NO_TOOL",
+        "tool_used": false
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_episode_record.schema.json#/$defs/feedback",
+      "specimen_id": "feedback-truth-field-rejected"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "candidate_loci": [
+          "SELF_CAPABILITY"
+        ],
+        "confidence": "UNSPECIFIED",
+        "memo": "No update proposed.",
+        "proposal": null,
+        "recommended_action": "SOLO",
+        "record_kind": "GENERIC_CRITIC"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "b2-no-b3-vocabulary"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "action": "SOLO",
+        "cancel_pending_probe": false,
+        "candidate_loci": [
+          "UNKNOWN"
+        ],
+        "confidence": "UNSPECIFIED",
+        "observed_mismatch": {
+          "description": "NONE",
+          "evidence_refs": []
+        },
+        "probe_needed": true,
+        "probe_predictions": [],
+        "probe_type": "VERIFY_CURRENT",
+        "profile_update_status": "NO_CHANGE",
+        "proposal": null,
+        "proposed_new_interval": null,
+        "proposed_new_scope": null,
+        "record_kind": "MATRYOSHKA_REFLEXIVE",
+        "relevant_self_claim": "claim:a",
+        "stop_reflection": true
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "probe-single-locus-bookkeeping-draft"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "action": "SOLO",
+        "cancel_pending_probe": false,
+        "candidate_loci": [
+          "UNKNOWN"
+        ],
+        "chain_of_thought": "not allowed",
+        "confidence": "UNSPECIFIED",
+        "observed_mismatch": {
+          "description": "NONE",
+          "evidence_refs": []
+        },
+        "probe_needed": false,
+        "probe_predictions": [],
+        "probe_type": "NONE",
+        "profile_update_status": "NO_CHANGE",
+        "proposal": null,
+        "proposed_new_interval": null,
+        "proposed_new_scope": null,
+        "record_kind": "MATRYOSHKA_REFLEXIVE",
+        "relevant_self_claim": "claim:a",
+        "stop_reflection": true
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_reflexive_record.schema.json",
+      "specimen_id": "no-chain-of-thought-field"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "action": "SOLO",
+        "confidence": "UNSPECIFIED",
+        "solo_answer": null
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json#/$defs/action_record",
+      "specimen_id": "SOLO-needs-preanswer"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "action": "VERIFY",
+        "confidence": "UNSPECIFIED",
+        "solo_answer": null
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json#/$defs/action_record",
+      "specimen_id": "VERIFY-needs-preanswer"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "action": "DELEGATE",
+        "confidence": "UNSPECIFIED",
+        "solo_answer": {
+          "family": "SYMBOLIC_PIPELINE",
+          "result": [
+            3,
+            3
+          ]
+        }
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json#/$defs/action_record",
+      "specimen_id": "DELEGATE-forbids-solo"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "action": "ABSTAIN",
+        "confidence": "UNSPECIFIED",
+        "solo_answer": {
+          "family": "SYMBOLIC_PIPELINE",
+          "result": [
+            3,
+            3
+          ]
+        }
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json#/$defs/action_record",
+      "specimen_id": "ABSTAIN-forbids-solo"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "matrix-reject-architectures"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "matrix-reject-profile_conditions"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 8,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "matrix-reject-trajectories_per_cell"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 8,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "matrix-reject-transfer_episodes"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "cached_tokens": null,
+        "call_id": "call:timeout",
+        "input_sha256": "3cea7cb279d0df7701d9a6cf86efb98ba80092c813c3c304f3aad832aa65f0ee",
+        "input_tokens": 12,
+        "latency_ms": 120000,
+        "model_revision": "DESIGN_ONLY",
+        "monetary_cost": null,
+        "output_includes_reasoning": null,
+        "output_sha256": null,
+        "output_tokens": null,
+        "phase": "PREP",
+        "reasoning_tokens": null,
+        "repair_of": null,
+        "request_bytes": "{\"instruction\":\"DESIGN_TEST_VECTOR_NOT_MODEL_RESULT\"}",
+        "response_status": "TIMEOUT",
+        "sequence": 1,
+        "usage_availability": {
+          "cached_tokens": "UNAVAILABLE",
+          "input_tokens": "OBSERVED",
+          "latency_ms": "OBSERVED",
+          "monetary_cost": "UNAVAILABLE",
+          "output_tokens": "UNAVAILABLE",
+          "reasoning_tokens": "UNAVAILABLE"
+        },
+        "usage_reason": {
+          "cached_tokens": "Provider did not return usage; no estimate asserted",
+          "input_tokens": "",
+          "latency_ms": "",
+          "monetary_cost": "Provider did not return usage; no estimate asserted",
+          "output_tokens": "Provider did not return usage; no estimate asserted",
+          "reasoning_tokens": "Provider did not return usage; no estimate asserted"
+        },
+        "visible_output": null
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_episode_record.schema.json#/$defs/call_usage",
+      "specimen_id": "timeout-retains-call"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "latched": true,
+        "new_observations": 0,
+        "pending_probe": null,
+        "scope_id": "scope:c0",
+        "since_episode": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/stop_state",
+      "specimen_id": "c0-stop-public-scope"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "latched": true,
+        "new_observations": 0,
+        "pending_probe": null,
+        "scope_id": null,
+        "since_episode": 1
+      },
+      "revision_note": "0.2 expectation retained; required021 fields migrated; R1-PROBE-01 confirms bounded evidence scope",
+      "schema": "r1_trajectory.schema.json#/$defs/stop_state",
+      "specimen_id": "c0-stop-no-null-latch"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "B1-config-reject-normal-skip"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": true
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "B2-config-reject-controller-policy"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "analysis_windows": {
+          "interval_mass": 0.95,
+          "min_each_side": 2,
+          "min_paired_trajectories": 6,
+          "post_update_opportunities": 4,
+          "pre_update_opportunities": 4
+        },
+        "architectures": [
+          "B0",
+          "B1",
+          "B2",
+          "B3",
+          "B4"
+        ],
+        "b4_policy_version": "STRONG_TRACKER_POLICY_0.2",
+        "benchmark_version": "0.1",
+        "budgets": {
+          "action_output_tokens": 1024,
+          "max_input_tokens": 16384,
+          "max_prep_calls": 1,
+          "max_repairs_per_episode": 1,
+          "max_tools_per_episode": 1,
+          "prep_output_tokens": 1024,
+          "repair_output_tokens": 512
+        },
+        "calibration_bands": {
+          "HIGH": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "MID": {
+            "lower": 0.55,
+            "upper": 0.7
+          }
+        },
+        "calibration_plan": {
+          "confirm_n": 200,
+          "difficulty_contract_version": "G02_G03_0.2.1",
+          "max_interval_width": 0.16,
+          "search_n": 40
+        },
+        "capability_configurations": {
+          "B0": {
+            "architecture_policy_id": "policy:0",
+            "configuration_id": "configuration:0",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          },
+          "B1": {
+            "architecture_policy_id": "policy:1",
+            "configuration_id": "configuration:1",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B2": {
+            "architecture_policy_id": "policy:2",
+            "configuration_id": "configuration:2",
+            "execution_modes": [
+              "PREP_EXECUTED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "EXACTLY_ONE"
+          },
+          "B3": {
+            "architecture_policy_id": "policy:3",
+            "configuration_id": "configuration:3",
+            "execution_modes": [
+              "PREP_EXECUTED",
+              "PREP_SKIPPED"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "AT_MOST_ONE_WITH_CONTROLLER"
+          },
+          "B4": {
+            "architecture_policy_id": "policy:4",
+            "configuration_id": "configuration:4",
+            "execution_modes": [
+              "NO_PREP_INTERFACE"
+            ],
+            "history_policy": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+            "prep_policy": "NONE"
+          }
+        },
+        "compute_settings": {
+          "prep_interface": "PREP_THEN_ACTION_BUNDLE",
+          "reasoning_budget": null,
+          "reasoning_mode": "CONFIGURE",
+          "usage_accounting": "UNKNOWN"
+        },
+        "configuration_status": "TEMPLATE",
+        "contract_version": "0.2.1",
+        "cost_currency": "UNSPECIFIED",
+        "design_decisions": {
+          "capability_estimand": "OPERATIONAL_SELF_MODEL_REFERENCE_ANCHORED",
+          "probe_claim": "BOUNDED_EVIDENCE_PROBE"
+        },
+        "evaluation_policy": {
+          "c1_accuracy_loss_margin": 0.05,
+          "equivalence_margin": 0.05,
+          "maximum_reach_difference": 0.25,
+          "minimum_gain": 0.05,
+          "minimum_reach": 0.5,
+          "resource_ratio_margin": 0.2,
+          "target_accuracy_loss_margin": 0.02
+        },
+        "evaluator": {
+          "behavioral_margin": 0.05,
+          "bootstrap_draws": 10000,
+          "grace_target_opportunities": 2,
+          "min_informative": 4,
+          "prior_alpha": 1,
+          "prior_beta": 1,
+          "resource_margin": 0.2,
+          "wrong_band_probability": 0.9
+        },
+        "generator_options": {
+          "constraint_weights": {
+            "EQ": 1,
+            "IMPLIES": 2,
+            "NEQ": 2,
+            "XOR": 2
+          },
+          "grid_properties": [
+            1,
+            2,
+            3
+          ],
+          "grid_sizes": [
+            3,
+            4,
+            5
+          ],
+          "max_abs_intermediate": 1000000,
+          "max_attempts": 1000,
+          "max_clue_factor": 4,
+          "max_grid_assignments": 2000000,
+          "min_clue_factor": 1,
+          "operation_weights": {
+            "ADD": 1,
+            "MOD": 1,
+            "MULTIPLY": 1,
+            "ROTATE": 1,
+            "SWAP": 1
+          },
+          "symbolic_lengths": [
+            4,
+            8,
+            12,
+            20,
+            32
+          ],
+          "symbolic_sizes": [
+            3,
+            4,
+            6
+          ]
+        },
+        "history_window": 10,
+        "main_episodes": 8,
+        "master_seed": "design-template-seed-0001",
+        "model_configuration": {
+          "action_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "architecture_prompt_sha256": {
+            "B0": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B1": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B2": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B3": "0000000000000000000000000000000000000000000000000000000000000000",
+            "B4": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "context_policy": "EXPLICIT_STATE_NO_HIDDEN_HISTORY",
+          "model_id": "CONFIGURE_BEFORE_RUN",
+          "model_revision": "CONFIGURE_BEFORE_RUN",
+          "sampling_seed_supported": false,
+          "system_prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "temperature": 0,
+          "tool_configuration": "DETERMINISTIC_FAMILY_TOOL_V1",
+          "top_p": 1
+        },
+        "ordering_policy": "STRICT_ALTERNATION_COUNTERBALANCED",
+        "planned_run": "SMOKE",
+        "policy": {
+          "probe_expiry_episodes": 4,
+          "restart_high_midpoint": 0.8,
+          "restart_low_midpoint": 0.4,
+          "restart_new_observations": 2,
+          "solo_threshold": 0.8,
+          "tool_cost_units": 1,
+          "tracker_min_informative": 4,
+          "tracker_prior_alpha": 1,
+          "tracker_prior_beta": 1,
+          "tracker_refresh": 3,
+          "tracker_uncertain_mass_high": 0.9,
+          "tracker_uncertain_mass_low": 0.1
+        },
+        "profile_conditions": [
+          "C0",
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "profile_stimulus": {
+          "evidence_label": "HISTORICAL_ESTIMATE",
+          "evidence_n": 20,
+          "false_high_interval": {
+            "lower": 0.8,
+            "upper": 0.95
+          },
+          "false_low_interval": {
+            "lower": 0.25,
+            "upper": 0.4
+          }
+        },
+        "protocol_revision": "R1_0.1_DESIGN_PATCH_0.2.1",
+        "runtime_identity": {
+          "canonicalizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "grid_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "output_schema_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "parser": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "prompt_bundle": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "provider_adapter": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "symbolic_tool": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "tokenizer": {
+            "identity": "CONFIGURE",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "selected_difficulty_tuples": [],
+        "structural_relations": {
+          "B3_more_complex_than_B2": true,
+          "B3_more_complex_than_B4": false
+        },
+        "timeouts": {
+          "model_call_seconds": 120,
+          "tool_seconds": 30
+        },
+        "trajectories_per_cell": 2,
+        "transfer_episodes": 4,
+        "transfer_scope": "SURFACE_CONTEXT_REDUNDANCY"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json",
+      "specimen_id": "predeclared-structure-not-configurable-score"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "capability_configuration_ref": "configuration:a",
+        "execution_mode": "PREP_SKIPPED",
+        "history_class": "NONEMPTY",
+        "history_policy_id": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+        "prep_call_count": 0,
+        "prep_record_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "prep_skip_reason": "B3_STOP_CONTROLLER",
+        "public_state_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json#/$defs/execution_context",
+      "specimen_id": "execution-context-normal-b3"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "capability_configuration_ref": "configuration:a",
+        "execution_mode": "PREP_SKIPPED",
+        "history_class": "NONEMPTY",
+        "history_policy_id": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+        "prep_call_count": 0,
+        "prep_record_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "prep_skip_reason": "PROTOCOL_FAILURE",
+        "public_state_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json#/$defs/execution_context",
+      "specimen_id": "execution-context-abnormal-protocol"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "capability_configuration_ref": "configuration:a",
+        "execution_mode": "PREP_SKIPPED",
+        "history_class": "NONEMPTY",
+        "history_policy_id": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+        "prep_call_count": 0,
+        "prep_record_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "prep_skip_reason": "INFRA_FAILURE",
+        "public_state_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json#/$defs/execution_context",
+      "specimen_id": "execution-context-abnormal-infra"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": true,
+      "instance": {
+        "capability_configuration_ref": "configuration:a",
+        "execution_mode": "PREP_SKIPPED",
+        "history_class": "NONEMPTY",
+        "history_policy_id": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+        "prep_call_count": 0,
+        "prep_record_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "prep_skip_reason": "EXPLICIT_NONEXECUTION",
+        "public_state_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json#/$defs/execution_context",
+      "specimen_id": "execution-context-abnormal-explicit"
+    },
+    {
+      "classification": "DESIGN_TEST_VECTOR_NOT_MODEL_RESULT",
+      "expected_schema_valid": false,
+      "instance": {
+        "capability_configuration_ref": "configuration:a",
+        "execution_mode": "PREP_SKIPPED",
+        "history_class": "NONEMPTY",
+        "history_policy_id": "PUBLIC_BOUNDED_WITH_COMMON_EVIDENCE_INDEX_V02",
+        "prep_call_count": 0,
+        "prep_record_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "prep_skip_reason": null,
+        "public_state_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "revision_note": "R1 patch021 authored vector",
+      "schema": "r1_config.schema.json#/$defs/execution_context",
+      "specimen_id": "execution-context-skip-needs-reason"
+    }
+  ]
+}

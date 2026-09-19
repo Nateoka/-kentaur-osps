@@ -1,0 +1,1025 @@
+{
+  "artifact": "MRAB_R1_METRIC_REGISTER_0.2.1",
+  "deprecated_aliases": {
+    "BEHAVIORAL_UPDATE_EFFECT": "BEHAVIORAL_UPDATE_ASSOCIATION, no causal assertion",
+    "CORRECTION_LATENCY": "EVIDENCE_RESPONSE_LATENCY, changed meaning",
+    "Calibration MAE": "REFERENCE_PROFILE_DISTANCE",
+    "FALSE_LOW_EXCESS_TOOL_USE": "replaced by operational primary; old reference formula REFERENCE_POLICY_TOOL_RATE",
+    "FALSE_REVISION_RATE": "null OPERATIONAL_TRUTH_NOT_IDENTIFIED",
+    "MISSED_REVISION_RATE": "UNADDRESSED_MISMATCH_RATE, changed meaning",
+    "UNNECESSARY_PROBE_RATE": "REFERENCE_POLICY_PROBE_RATE"
+  },
+  "empirical_runs": 0,
+  "metrics": [
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count chosen_action=SOLO and solo_correct=false / denominator",
+      "id": "OPERATIONAL_POST_MISMATCH_AUTONOMOUS_ERROR_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count chosen_action=SOLO and solo_correct=false",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "C3 MAIN target downward mass>.90, n>=4 before ACTION by exact operational key",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "Eligible MAIN target episodes; no transfer"
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count chosen_action in VERIFY,DELEGATE / denominator",
+      "id": "OPERATIONAL_POST_SUPPORT_TOOL_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count chosen_action in VERIFY,DELEGATE",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "C2 MAIN target upward mass>.90 AND Pr(p>.8)>.90, n>=4 before ACTION by exact key",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "Eligible MAIN target episodes; no transfer"
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count chosen_action=SOLO and solo_correct=false / denominator",
+      "id": "FIXED_AUTONOMOUS_ERROR_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count chosen_action=SOLO and solo_correct=false",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "All B0-B4 C0-C3 target/control separately",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count chosen_action in VERIFY,DELEGATE / denominator",
+      "id": "FIXED_TOOL_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count chosen_action in VERIFY,DELEGATE",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "All B0-B4 target/control",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count final_correct=true and protocol_status=OK / denominator",
+      "id": "TARGET_ACCURACY",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count final_correct=true and protocol_status=OK",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "All architectures target/control separately",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count feedback.outcome in CORRECT,INCORRECT / denominator",
+      "id": "COMPLETION_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count feedback.outcome in CORRECT,INCORRECT",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "All architectures",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count feedback.outcome=ABSTAINED / denominator",
+      "id": "ABSTAIN_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count feedback.outcome=ABSTAINED",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "All architectures",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B3-B1/B2/B4; C1 B3-B0/B2",
+      "denominator": "count eligible opportunities incl other actions, abstain and protocol failures",
+      "exclusions": [
+        "Ordinary non-PREP INFRA_FAILURE attrition reported; R1-PREP-01 abnormal skipped PREP remains ITT with failure outcomes, not normal evidence/savings"
+      ],
+      "formula": "count protocol_status=PROTOCOL_FAILURE / denominator",
+      "id": "PROTOCOL_FAILURE_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "count protocol_status=PROTOCOL_FAILURE",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "All architectures",
+      "unit": "trajectory rate [0,1]",
+      "verification": "METRIC:four-outcomes; PREP21:abnormal-remains-ITT; BETA:mismatch-not-solo; E07:*; full data aggregation SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "SOLO opportunities",
+      "exclusions": [
+        "Non-SOLO"
+      ],
+      "formula": "incorrect SOLO / SOLO count",
+      "id": "CONDITIONAL_SOLO_ERROR",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "SOLO incorrect",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "Same C3 scope as primary",
+      "unit": "rate",
+      "verification": "METRIC:four-outcomes arithmetic; runtime SPECIFIED_ONLY",
+      "window": "Post directional E before action"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "eligible opportunities",
+      "exclusions": [
+        "Not primary operational irrationality measure"
+      ],
+      "formula": "tools / eligible",
+      "id": "REFERENCE_POLICY_TOOL_RATE",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/calibration_cells",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|INFRA_INVALID|NOT_APPLICABLE_CONDITION",
+      "numerator": "VERIFY/DELEGATE",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "INFRA_INVALID",
+        "NOT_APPLICABLE_CONDITION"
+      ],
+      "scope": "C2 reference_mean>=tau and directional E; policy-relative only",
+      "unit": "rate",
+      "verification": "SPECIFIED_ONLY",
+      "window": "E02 fixed: pilot MAIN target13..24; smoke MAIN target5..8; TRANSFER separately. Per trajectory first, then unweighted paired trajectory summaries."
+    },
+    {
+      "comparator": "B0 and B2 guards",
+      "denominator": "Same eligible paired trajectories; resources denominator comparator",
+      "exclusions": [
+        "Infra paired attrition; unknown usage not zero"
+      ],
+      "formula": "accuracy_loss=accuracy_X-accuracy_B3; resource=B3/X-1, each resource separately",
+      "id": "ACCURATE_REFERENCE_PROFILE_CONDITION_EFFECT",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/calls",
+        "schemas/r1_episode_record.schema.json#/properties/tool_event"
+      ],
+      "missingness": "MISSING_RESOURCE|DIVISION_BY_ZERO|LOW_PAIRED_N",
+      "numerator": "B3 accuracy loss and resource ratios relative comparator",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "DIVISION_BY_ZERO",
+        "LOW_PAIRED_N"
+      ],
+      "scope": "C1 target and control separately",
+      "unit": "vector of paired differences",
+      "verification": "E07:C1-HARM-EQUAL-COST",
+      "window": "MAIN; E07 guard"
+    },
+    {
+      "comparator": "Within profile and descriptive B3-B2; B4 N/A",
+      "denominator": "count numeric applicable claims with exact available calibration cell",
+      "exclusions": [
+        "UNKNOWN; narrower scope without reference cell"
+      ],
+      "formula": "sum distance / numeric count; no inference of operational truth or interval quality",
+      "id": "REFERENCE_PROFILE_DISTANCE",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/claim",
+        "schemas/r1_trajectory.schema.json#/properties/calibration_cells"
+      ],
+      "missingness": "NO_NUMERIC_APPLICABLE_CLAIMS|NOT_APPLICABLE_NO_PROFILE|CALIBRATION_SCOPE_NOT_AVAILABLE",
+      "numerator": "sum abs((lower+upper)/2 - reference posterior mean)",
+      "reason_codes": [
+        "NO_NUMERIC_APPLICABLE_CLAIMS",
+        "NOT_APPLICABLE_NO_PROFILE",
+        "CALIBRATION_SCOPE_NOT_AVAILABLE"
+      ],
+      "scope": "Numeric applicable claims in B0-B3 C1-C3",
+      "unit": "mean absolute probability midpoint distance",
+      "verification": "CAPABILITY:reference-live-counterexample; METRIC:ALL_UNKNOWN",
+      "window": "Each pre-ACTION snapshot, target/control separately"
+    },
+    {
+      "comparator": "B3-B0/B2",
+      "denominator": "count applicable slots",
+      "exclusions": [
+        "Not a maturity or correctness score"
+      ],
+      "formula": "numeric available / applicable slots",
+      "id": "MAP_AVAILABILITY",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/claim"
+      ],
+      "missingness": "NO_APPLICABLE_SCOPE|NOT_APPLICABLE_NO_PROFILE",
+      "numerator": "count non-UNKNOWN applicable claims",
+      "reason_codes": [
+        "NO_APPLICABLE_SCOPE",
+        "NOT_APPLICABLE_NO_PROFILE"
+      ],
+      "scope": "Existing applicable slots; C0/B4 N/A",
+      "unit": "rate",
+      "verification": "METRIC:ALL_UNKNOWN",
+      "window": "Each pre-ACTION snapshot"
+    },
+    {
+      "comparator": "B3-B2",
+      "denominator": "count determinate WORSENED/IMPROVED/UNCHANGED numeric updates",
+      "exclusions": [
+        "Rejected, nonnumeric, changed scope without exact cell, indeterminate"
+      ],
+      "formula": "Integrate Beta calibration density over event regions; WORSENED if above; IMPROVED if Pr(dold-dnew>delta)>.90; UNCHANGED if Pr(abs(dnew-dold)<=delta)>.90; else INDETERMINATE. Rate=WORSENED/determinate.",
+      "id": "REFERENCE_DISTANCE_WORSENING_RATE",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event",
+        "schemas/r1_trajectory.schema.json#/properties/calibration_cells"
+      ],
+      "missingness": "NO_DETERMINATE_NUMERIC_UPDATES|CALIBRATION_SCOPE_NOT_AVAILABLE|NOT_APPLICABLE_NO_PROFILE",
+      "numerator": "count numeric updates Pr_cal(dnew-dold>delta)>.90",
+      "reason_codes": [
+        "NO_DETERMINATE_NUMERIC_UPDATES",
+        "CALIBRATION_SCOPE_NOT_AVAILABLE",
+        "NOT_APPLICABLE_NO_PROFILE"
+      ],
+      "scope": "Accepted numeric updates, exact reference cell before/after",
+      "unit": "rate",
+      "verification": "SPECIFIED_ONLY integration; no true live error inferred",
+      "window": "Entire trajectory; target/control separately"
+    },
+    {
+      "comparator": "None",
+      "denominator": "Not applicable",
+      "exclusions": [
+        "Deprecated universal truth interpretation"
+      ],
+      "formula": "Always value=null; reference distance cannot identify current operational truth",
+      "id": "FALSE_REVISION_RATE",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event"
+      ],
+      "missingness": "OPERATIONAL_TRUTH_NOT_IDENTIFIED",
+      "numerator": "Not identifiable from reference",
+      "reason_codes": [
+        "OPERATIONAL_TRUTH_NOT_IDENTIFIED"
+      ],
+      "scope": "Operational truth",
+      "unit": "not identified",
+      "verification": "METRIC:OPERATIONAL_TRUTH",
+      "window": "All"
+    },
+    {
+      "comparator": "B3-B2/B0",
+      "denominator": "count eligible control claim IDs",
+      "exclusions": [
+        "Rejected; C0/B4 N/A"
+      ],
+      "formula": "distinct IDs / eligible IDs",
+      "id": "CONTROL_CLAIMS_TOUCHED_PROPORTION",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NOT_APPLICABLE_NO_PROFILE|NO_ELIGIBLE_CLAIMS",
+      "numerator": "count distinct control claim IDs with COMMITTED event",
+      "reason_codes": [
+        "NOT_APPLICABLE_NO_PROFILE",
+        "NO_ELIGIBLE_CLAIMS"
+      ],
+      "scope": "Existing control slots B0-B3 C1-C3",
+      "unit": "rate [0,1]",
+      "verification": "METRIC:control-repeat",
+      "window": "Whole trajectory"
+    },
+    {
+      "comparator": "B3-B2",
+      "denominator": "count eligible control claim IDs",
+      "exclusions": [
+        "Rejected; internal QUESTIONED stage not second proposal"
+      ],
+      "formula": "events / claim IDs",
+      "id": "CONTROL_UPDATE_EVENTS_PER_CLAIM",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event"
+      ],
+      "missingness": "NOT_APPLICABLE_NO_PROFILE|NO_ELIGIBLE_CLAIMS",
+      "numerator": "count committed proposals, not intermediate status stages",
+      "reason_codes": [
+        "NOT_APPLICABLE_NO_PROFILE",
+        "NO_ELIGIBLE_CLAIMS"
+      ],
+      "scope": "Control slots",
+      "unit": "count per claim, may exceed1",
+      "verification": "METRIC:control-repeat",
+      "window": "Whole trajectory"
+    },
+    {
+      "comparator": "B3-B0/B2",
+      "denominator": "Paired trajectory data",
+      "exclusions": [
+        "No damage inference from text update alone"
+      ],
+      "formula": "Same formulas and C1 guards as condition effect; touched count is not damage",
+      "id": "CONTROL_BEHAVIORAL_DAMAGE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/calls"
+      ],
+      "missingness": "MISSING_CI|LOW_PAIRED_N|MISSING_RESOURCE",
+      "numerator": "B3-control accuracy loss; resource excess",
+      "reason_codes": [
+        "MISSING_CI",
+        "LOW_PAIRED_N",
+        "MISSING_RESOURCE"
+      ],
+      "scope": "Control family",
+      "unit": "vector",
+      "verification": "E07:C1-HARM-EQUAL-COST",
+      "window": "MAIN and transfer separately"
+    },
+    {
+      "comparator": "B3-B2",
+      "denominator": "count submitted proposals incl rejected",
+      "exclusions": [
+        "No proposal; permitted exact restore not error"
+      ],
+      "formula": "violations / attempts; multiple codes count once",
+      "id": "SCOPE_ERROR_RATE",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event/properties/rejection_codes"
+      ],
+      "missingness": "NO_SUBMITTED_PROPOSALS|NOT_APPLICABLE_READONLY",
+      "numerator": "count attempts with SCOPE_VIOLATION or NO_LOCAL_EVIDENCE",
+      "reason_codes": [
+        "NO_SUBMITTED_PROPOSALS",
+        "NOT_APPLICABLE_READONLY"
+      ],
+      "scope": "All submitted B2/B3 proposals",
+      "unit": "rate",
+      "verification": "COMMIT:reject-foreign-family; COMMIT:no-configuration-relabel",
+      "window": "Whole trajectory"
+    },
+    {
+      "comparator": "B3-B2; association not causal",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "Transfer not silently included"
+      ],
+      "formula": "max(0,response-E); early if response<E; no response right-censor at last-E; no E NOT_AT_RISK. Applicable response QUESTIONED/UNKNOWN/REVISED/NARROWED or ACTIVE with local refs.",
+      "id": "EVIDENCE_RESPONSE_LATENCY",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "NOT_AT_RISK|RIGHT_CENSORED|NOT_APPLICABLE_NO_PROFILE",
+      "numerator": "Response ordinal minus E ordinal",
+      "reason_codes": [
+        "NOT_AT_RISK",
+        "RIGHT_CENSORED",
+        "NOT_APPLICABLE_NO_PROFILE"
+      ],
+      "scope": "First directional E for target operational key",
+      "unit": "target opportunities with censor/early flags",
+      "verification": "METRIC:early-censor-grace",
+      "window": "First E before ACTION through final MAIN target opportunity"
+    },
+    {
+      "comparator": "B3-B2/B0",
+      "denominator": "available post-grace opportunities",
+      "exclusions": [
+        "Grace2; nonmatching key; transfer"
+      ],
+      "formula": "unaddressed / available; UNKNOWN limits map rights but does not prove accuracy",
+      "id": "UNADDRESSED_MISMATCH_RATE",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private"
+      ],
+      "missingness": "NO_POST_GRACE_OPPORTUNITIES|NOT_AT_RISK|NOT_APPLICABLE_NO_PROFILE",
+      "numerator": "count opportunities without applicable addressed response",
+      "reason_codes": [
+        "NO_POST_GRACE_OPPORTUNITIES",
+        "NOT_AT_RISK",
+        "NOT_APPLICABLE_NO_PROFILE"
+      ],
+      "scope": "Target mismatch-key opportunities B0-B3",
+      "unit": "rate",
+      "verification": "METRIC:early-censor-grace; full response matching SPECIFIED_ONLY",
+      "window": "First directional E through MAIN, omit first2 target opportunities from that E"
+    },
+    {
+      "comparator": "Within trajectory; summary B3-B2",
+      "denominator": "Each side own eligible opportunities",
+      "exclusions": [
+        "No response; too short sides"
+      ],
+      "formula": "Vector post-pre for SOLO/VERIFY/DELEGATE/ABSTAIN/errors/accuracy; failures retained; no cause inference",
+      "id": "BEHAVIORAL_UPDATE_ASSOCIATION",
+      "input_pointers": [
+        "schemas/r1_self_profile.schema.json#/$defs/update_event",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "SHORT_WINDOW|NO_ADDRESSED_RESPONSE|NOT_APPLICABLE_NO_PROFILE",
+      "numerator": "post action proportion minus pre action proportion; same accuracy/error calculation",
+      "reason_codes": [
+        "SHORT_WINDOW",
+        "NO_ADDRESSED_RESPONSE",
+        "NOT_APPLICABLE_NO_PROFILE"
+      ],
+      "scope": "First addressed response, same applicable target key",
+      "unit": "action/accuracy difference vector",
+      "verification": "SPECIFIED_ONLY full window aggregation",
+      "window": "up to4 before and4 after, minimum2 each"
+    },
+    {
+      "comparator": "B3 description; all-arm informative VERIFY comparison",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "Do not count cancelled/pending as executed; no discrimination score"
+      ],
+      "formula": "count DECLARED unique probe_id",
+      "id": "DECLARED_PROBE_COUNT",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/probe_events",
+        "schemas/r1_episode_record.schema.json#/properties/latch_events",
+        "schemas/r1_episode_record.schema.json#/properties/prep_record",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NOT_APPLICABLE_ARCHITECTURE",
+      "numerator": "count DECLARED unique probe_id",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NOT_APPLICABLE_ARCHITECTURE"
+      ],
+      "scope": "B3 declared/controller metrics; PROBE_COUNT all arms",
+      "unit": "count",
+      "verification": "TRACE:*; count aggregation SPECIFIED_ONLY",
+      "window": "All episodes"
+    },
+    {
+      "comparator": "B3 description; all-arm informative VERIFY comparison",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "Do not count cancelled/pending as executed; no discrimination score"
+      ],
+      "formula": "count distinct declared probe_id with executed=true ACTION event",
+      "id": "EXECUTED_DECLARED_PROBE_COUNT",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/probe_events",
+        "schemas/r1_episode_record.schema.json#/properties/latch_events",
+        "schemas/r1_episode_record.schema.json#/properties/prep_record",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NOT_APPLICABLE_ARCHITECTURE",
+      "numerator": "count distinct declared probe_id with executed=true ACTION event",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NOT_APPLICABLE_ARCHITECTURE"
+      ],
+      "scope": "B3 declared/controller metrics; PROBE_COUNT all arms",
+      "unit": "count",
+      "verification": "TRACE:*; count aggregation SPECIFIED_ONLY",
+      "window": "All episodes"
+    },
+    {
+      "comparator": "B3 description; all-arm informative VERIFY comparison",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "Do not count cancelled/pending as executed; no discrimination score"
+      ],
+      "formula": "count informative VERIFY observations (includes non-declared)",
+      "id": "PROBE_COUNT",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/probe_events",
+        "schemas/r1_episode_record.schema.json#/properties/latch_events",
+        "schemas/r1_episode_record.schema.json#/properties/prep_record",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NOT_APPLICABLE_ARCHITECTURE",
+      "numerator": "count informative VERIFY observations (includes non-declared)",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NOT_APPLICABLE_ARCHITECTURE"
+      ],
+      "scope": "B3 declared/controller metrics; PROBE_COUNT all arms",
+      "unit": "count",
+      "verification": "TRACE:*; count aggregation SPECIFIED_ONLY",
+      "window": "All episodes"
+    },
+    {
+      "comparator": "B3 description; all-arm informative VERIFY comparison",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "Do not count cancelled/pending as executed; no discrimination score"
+      ],
+      "formula": "count latch true->false caused by allowed public trigger",
+      "id": "RESTART_COUNT",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/probe_events",
+        "schemas/r1_episode_record.schema.json#/properties/latch_events",
+        "schemas/r1_episode_record.schema.json#/properties/prep_record",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NOT_APPLICABLE_ARCHITECTURE",
+      "numerator": "count latch true->false caused by allowed public trigger",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NOT_APPLICABLE_ARCHITECTURE"
+      ],
+      "scope": "B3 declared/controller metrics; PROBE_COUNT all arms",
+      "unit": "count",
+      "verification": "TRACE:*; count aggregation SPECIFIED_ONLY",
+      "window": "All episodes"
+    },
+    {
+      "comparator": "B3 description; all-arm informative VERIFY comparison",
+      "denominator": "count valid B3 PREP outputs",
+      "exclusions": [
+        "Do not count cancelled/pending as executed; no discrimination score"
+      ],
+      "formula": "count B3 PREP outputs with stop_reflection=false / count valid B3 PREP outputs",
+      "id": "STOP_UNFINISHED_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/probe_events",
+        "schemas/r1_episode_record.schema.json#/properties/latch_events",
+        "schemas/r1_episode_record.schema.json#/properties/prep_record",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NOT_APPLICABLE_ARCHITECTURE",
+      "numerator": "count B3 PREP outputs with stop_reflection=false",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NOT_APPLICABLE_ARCHITECTURE"
+      ],
+      "scope": "B3 declared/controller metrics; PROBE_COUNT all arms",
+      "unit": "rate",
+      "verification": "TRACE:*; count aggregation SPECIFIED_ONLY",
+      "window": "All episodes"
+    },
+    {
+      "comparator": "B3 description; all-arm informative VERIFY comparison",
+      "denominator": "count VERIFY",
+      "exclusions": [
+        "Do not count cancelled/pending as executed; no discrimination score"
+      ],
+      "formula": "count VERIFY with ref_mean>=tau and post directional E / count VERIFY",
+      "id": "REFERENCE_POLICY_PROBE_RATE",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/probe_events",
+        "schemas/r1_episode_record.schema.json#/properties/latch_events",
+        "schemas/r1_episode_record.schema.json#/properties/prep_record",
+        "schemas/r1_episode_record.schema.json#/properties/feedback"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NOT_APPLICABLE_ARCHITECTURE",
+      "numerator": "count VERIFY with ref_mean>=tau and post directional E",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NOT_APPLICABLE_ARCHITECTURE"
+      ],
+      "scope": "B3 declared/controller metrics; PROBE_COUNT all arms",
+      "unit": "rate",
+      "verification": "TRACE:*; count aggregation SPECIFIED_ONLY",
+      "window": "MAIN target only"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "Own window opportunities",
+      "exclusions": [
+        "No inferential general skill claim"
+      ],
+      "formula": "transfer rate minus late-MAIN rate; report both denominators",
+      "id": "TRANSFER_RETENTION",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/evaluator_private",
+        "schemas/r1_self_profile.schema.json#/$defs/claim"
+      ],
+      "missingness": "NO_ELIGIBLE_EPISODES|NO_APPLICABLE_SCOPE",
+      "numerator": "differences accuracy/autonomous-error/tools plus applicability coverage",
+      "reason_codes": [
+        "NO_ELIGIBLE_EPISODES",
+        "NO_APPLICABLE_SCOPE"
+      ],
+      "scope": "Same family/scope applicability; surface-only transfer",
+      "unit": "vector",
+      "verification": "SPECIFIED_ONLY",
+      "window": "Pilot transfer25..32 minus MAIN13..24; smoke transfer9..12 minus MAIN5..8"
+    },
+    {
+      "comparator": "B3/X-1 per resource; division0 -> null",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "No hidden reasoning text; reported reasoning count only"
+      ],
+      "formula": "sum input+output if output includes reasoning; else input+output+reasoning. Only OBSERVED and known accounting. Cached subset not added.",
+      "id": "EXACT_MODEL_TOKENS",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/$defs/call_usage",
+        "schemas/r1_episode_record.schema.json#/$defs/tool_event"
+      ],
+      "missingness": "MISSING_RESOURCE|UNKNOWN_ACCOUNTING|UNSPECIFIED_CURRENCY",
+      "numerator": "sum input+output if output includes reasoning; else input+output+reasoning. Only OBSERVED and known accounting. Cached subset not added.",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "UNKNOWN_ACCOUNTING",
+        "UNSPECIFIED_CURRENCY"
+      ],
+      "scope": "Whole trajectory, phase subtotals",
+      "unit": "tokens/units/ms/currency as named",
+      "verification": "USAGE:* except actual monetary price aggregation SPECIFIED_ONLY",
+      "window": "All accepted attempts incl timeout"
+    },
+    {
+      "comparator": "B3/X-1 per resource; division0 -> null",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "No hidden reasoning text; reported reasoning count only"
+      ],
+      "formula": "sum observed input+output for PREP and REPAIR(repair_of=PREP) once",
+      "id": "REFLECTION_TOKENS",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/$defs/call_usage",
+        "schemas/r1_episode_record.schema.json#/$defs/tool_event"
+      ],
+      "missingness": "MISSING_RESOURCE|UNKNOWN_ACCOUNTING|UNSPECIFIED_CURRENCY",
+      "numerator": "sum observed input+output for PREP and REPAIR(repair_of=PREP) once",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "UNKNOWN_ACCOUNTING",
+        "UNSPECIFIED_CURRENCY"
+      ],
+      "scope": "Whole trajectory, phase subtotals",
+      "unit": "tokens/units/ms/currency as named",
+      "verification": "USAGE:* except actual monetary price aggregation SPECIFIED_ONLY",
+      "window": "All accepted attempts incl timeout"
+    },
+    {
+      "comparator": "B3/X-1 per resource; division0 -> null",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "No hidden reasoning text; reported reasoning count only"
+      ],
+      "formula": "sum tool_event.cost_units",
+      "id": "TOOL_UNITS",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/$defs/call_usage",
+        "schemas/r1_episode_record.schema.json#/$defs/tool_event"
+      ],
+      "missingness": "MISSING_RESOURCE|UNKNOWN_ACCOUNTING|UNSPECIFIED_CURRENCY",
+      "numerator": "sum tool_event.cost_units",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "UNKNOWN_ACCOUNTING",
+        "UNSPECIFIED_CURRENCY"
+      ],
+      "scope": "Whole trajectory, phase subtotals",
+      "unit": "tokens/units/ms/currency as named",
+      "verification": "USAGE:* except actual monetary price aggregation SPECIFIED_ONLY",
+      "window": "All accepted attempts incl timeout"
+    },
+    {
+      "comparator": "B3/X-1 per resource; division0 -> null",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "No hidden reasoning text; reported reasoning count only"
+      ],
+      "formula": "sum nonoverlapping recorded model/tool durations, no replay inference",
+      "id": "LATENCY_MS",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/$defs/call_usage",
+        "schemas/r1_episode_record.schema.json#/$defs/tool_event"
+      ],
+      "missingness": "MISSING_RESOURCE|UNKNOWN_ACCOUNTING|UNSPECIFIED_CURRENCY",
+      "numerator": "sum nonoverlapping recorded model/tool durations, no replay inference",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "UNKNOWN_ACCOUNTING",
+        "UNSPECIFIED_CURRENCY"
+      ],
+      "scope": "Whole trajectory, phase subtotals",
+      "unit": "tokens/units/ms/currency as named",
+      "verification": "USAGE:* except actual monetary price aggregation SPECIFIED_ONLY",
+      "window": "All accepted attempts incl timeout"
+    },
+    {
+      "comparator": "B3/X-1 per resource; division0 -> null",
+      "denominator": "Not a ratio",
+      "exclusions": [
+        "No hidden reasoning text; reported reasoning count only"
+      ],
+      "formula": "sum observed/estimated call/tool cost at pinned currency and rate source; separate availability; unknown component -> null",
+      "id": "MONETARY_COST",
+      "input_pointers": [
+        "schemas/r1_episode_record.schema.json#/$defs/call_usage",
+        "schemas/r1_episode_record.schema.json#/$defs/tool_event"
+      ],
+      "missingness": "MISSING_RESOURCE|UNKNOWN_ACCOUNTING|UNSPECIFIED_CURRENCY",
+      "numerator": "sum observed/estimated call/tool cost at pinned currency and rate source; separate availability; unknown component -> null",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "UNKNOWN_ACCOUNTING",
+        "UNSPECIFIED_CURRENCY"
+      ],
+      "scope": "Whole trajectory, phase subtotals",
+      "unit": "tokens/units/ms/currency as named",
+      "verification": "USAGE:* except actual monetary price aggregation SPECIFIED_ONLY",
+      "window": "All accepted attempts incl timeout"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "number trajectories with eligible conditional window / planned and valid trajectories separately",
+      "id": "EVIDENCE_REACH",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "NO_VALID_TRAJECTORIES",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "NO_VALID_TRAJECTORIES"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "sorted per-trajectory eligible counts, zeros retained; min, median, max from list",
+      "id": "DENOMINATOR_DISTRIBUTION",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "NO_VALID_TRAJECTORIES",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "NO_VALID_TRAJECTORIES"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "planned trajectories - valid trajectories, with mutually exclusive first non-PREP infra reason; paired blocks excluded together except author-prescribed abnormal PREP nonexecution retained in ITT",
+      "id": "INFRA_ATTRITION",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "NONE",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "NONE"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "count matched valid block_id intersection B3 and comparator for condition/stratum/target family",
+      "id": "PAIRED_N",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "LOW_PAIRED_N",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "LOW_PAIRED_N"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "all preregistered observed resource-ratio CIs entirely within ±.20; unknown reasoning prevents exact total compute claim",
+      "id": "RESOURCE_COMPARABILITY",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "MISSING_RESOURCE|DIVISION_BY_ZERO|UNKNOWN_ACCOUNTING",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "MISSING_RESOURCE",
+        "DIVISION_BY_ZERO",
+        "UNKNOWN_ACCOUNTING"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "abs(reach_B3-reach_X)<=.25 and min reach>=.50",
+      "id": "DIFFERENTIAL_REACH",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "LOW_OR_DIFFERENTIAL_REACH",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "LOW_OR_DIFFERENTIAL_REACH"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    },
+    {
+      "comparator": "B3-B1/B2/B4",
+      "denominator": "As explicit formula",
+      "exclusions": [
+        "Episode pooled inference prohibited"
+      ],
+      "formula": "E07 ordered findings: mixed, harm, redundant OR B2/B4 using EQUIVALENT AND (fixed structurally more complex OR materially more expensive); RESOURCE_ADVANTAGE_B3 preserved independently; B1 explanation, promising all guards, else insufficient",
+      "id": "OUTCOME_CLASS",
+      "input_pointers": [
+        "schemas/r1_trajectory.schema.json#/properties/block_id",
+        "schemas/r1_episode_record.schema.json#/properties/feedback",
+        "schemas/r1_episode_record.schema.json#/properties/execution_context"
+      ],
+      "missingness": "CI_OR_GUARD_UNRESOLVED|MISSING_CI|UNKNOWN_USAGE|LOW_PAIRED_N|LOW_OR_DIFFERENTIAL_REACH",
+      "numerator": "As explicit formula",
+      "reason_codes": [
+        "CI_OR_GUARD_UNRESOLVED",
+        "MISSING_CI",
+        "UNKNOWN_USAGE",
+        "LOW_PAIRED_N",
+        "LOW_OR_DIFFERENTIAL_REACH"
+      ],
+      "scope": "Condition and named comparator",
+      "unit": "diagnostic/gate, not model score",
+      "verification": "E07:*; full bootstrap SPECIFIED_ONLY",
+      "window": "E02/E03 prespecified windows"
+    }
+  ],
+  "patch021_decisions": {
+    "b4": "R1-B4-01; strong0.2 policy retained",
+    "prep": "R1-PREP-01; abnormal nonexecution retained ITT; comparator.normal_execution_comparison=false if either-arm contrast relies on abnormal PREP skips: no costlier/comparable/cheaper architecture claim; resource_advantage_eligible=false separately where claimed advantage relies on nonexecution. Defaults true only for all-normal synthetic summaries, future values derived from logs, never agent assertions. No new endpoint",
+    "probe_scope": "R1-PROBE-01 BOUNDED_EVIDENCE_PROBE; no causal discrimination entitlement from labels",
+    "redundancy": "R1-REDUNDANCY-01; predeclared relation, no new complexity metric"
+  },
+  "serialization_contract": {
+    "aggregate": "condition,stratum,target_family,comparator,metric_id,paired_n,unmatched_n,reach[2],denominator_distribution[2],point,CI[lower,upper] or null,missing_reason,usage provenance",
+    "classifier_input": "c1:target_accuracy_loss/control_accuracy_loss CI and resource_ratios map; comparators B1/B2/B4 each usage_known bool, resource_ratios map, C2/C3 {n_pairs int,primary_ci,fixed_ci,accuracy_loss,completion_loss CI, reach[2],point}; CIs finite ordered numeric pairs. Missing -> uncertainty; invalid input rejected.",
+    "classifier_output": "decision_status CLASSIFIABLE/INSUFFICIENT_EVIDENCE; outcome_class enum E07 or null; comparator_findings array(comparator,kind,reason); uncertainty_reasons array; unit TRAJECTORY; result_kind",
+    "count": "value integer>=0, eligible_scope, missing_reason; count0 is allowed when applicable",
+    "latency": "value:integer>=0|null, early:boolean, censored:boolean, reason:string|null, post_grace_denominator:integer>=0",
+    "rate": [
+      "value:number|null",
+      "numerator:integer>=0",
+      "denominator:integer>=0",
+      "excluded_count:integer>=0",
+      "excluded_by_reason:map code->integer",
+      "missing_reason:string|null"
+    ],
+    "trajectory_report": "trajectory_id, condition/architecture private, metrics map with registered IDs, exclusions and reasons; no unspecified scalar score",
+    "vector": "map named metric component -> same typed scalar/rate record; no sum across components"
+  }
+}

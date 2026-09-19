@@ -1,0 +1,1020 @@
+{
+  "$defs": {
+    "call_usage": {
+      "additionalProperties": false,
+      "description": "Immutable usage/observable output; не hidden chain-of-thought.",
+      "properties": {
+        "cached_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Observed cached count либо null."
+        },
+        "call_id": {
+          "description": "Call event ID.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "input_sha256": {
+          "description": "Хеш фактически отправленного payload.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "input_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Observed/estimated count or null; availability and reason are explicit per category."
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Измеренная latency либо null."
+        },
+        "model_revision": {
+          "description": "Observed serving revision.",
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "monetary_cost": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Денежная стоимость в configured currency либо null."
+        },
+        "output_includes_reasoning": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Provider accounting contract; null prevents an exact token total."
+        },
+        "output_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Null if no public response bytes, never a fabricated empty response hash."
+        },
+        "output_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Observed/estimated count or null; availability and reason are explicit per category."
+        },
+        "phase": {
+          "description": "Назначение вызова.",
+          "enum": [
+            "PREP",
+            "ACTION",
+            "REPAIR"
+          ],
+          "type": "string"
+        },
+        "reasoning_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Provider usage count либо null, никогда reasoning text."
+        },
+        "repair_of": {
+          "anyOf": [
+            {
+              "enum": [
+                "PREP",
+                "ACTION"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Для REPAIR — исходная фаза, иначе null."
+        },
+        "request_bytes": {
+          "description": "Exact sent public UTF-8 request string. input_sha256 hashes these recoverable bytes.",
+          "maxLength": 20000,
+          "type": "string"
+        },
+        "response_status": {
+          "description": "Accepted call remains in the log on failure.",
+          "enum": [
+            "RETURNED",
+            "TIMEOUT",
+            "CANCELLED",
+            "TRANSPORT_FAILURE"
+          ],
+          "type": "string"
+        },
+        "sequence": {
+          "description": "Monotone event sequence для проверки ordering.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "usage_availability": {
+          "additionalProperties": false,
+          "description": "Availability per resource.",
+          "properties": {
+            "cached_tokens": {
+              "description": "Availability of cached_tokens; UNAVAILABLE requires null, ESTIMATED requires method.",
+              "enum": [
+                "OBSERVED",
+                "ESTIMATED",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            },
+            "input_tokens": {
+              "description": "Availability of input_tokens; UNAVAILABLE requires null, ESTIMATED requires method.",
+              "enum": [
+                "OBSERVED",
+                "ESTIMATED",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            },
+            "latency_ms": {
+              "description": "Availability of latency_ms; UNAVAILABLE requires null, ESTIMATED requires method.",
+              "enum": [
+                "OBSERVED",
+                "ESTIMATED",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            },
+            "monetary_cost": {
+              "description": "Availability of monetary_cost; UNAVAILABLE requires null, ESTIMATED requires method.",
+              "enum": [
+                "OBSERVED",
+                "ESTIMATED",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            },
+            "output_tokens": {
+              "description": "Availability of output_tokens; UNAVAILABLE requires null, ESTIMATED requires method.",
+              "enum": [
+                "OBSERVED",
+                "ESTIMATED",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            },
+            "reasoning_tokens": {
+              "description": "Availability of reasoning_tokens; UNAVAILABLE requires null, ESTIMATED requires method.",
+              "enum": [
+                "OBSERVED",
+                "ESTIMATED",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "input_tokens",
+            "output_tokens",
+            "reasoning_tokens",
+            "cached_tokens",
+            "latency_ms",
+            "monetary_cost"
+          ],
+          "type": "object"
+        },
+        "usage_reason": {
+          "additionalProperties": false,
+          "description": "Usage provenance.",
+          "properties": {
+            "cached_tokens": {
+              "description": "Reason/estimation method; empty only for observed values.",
+              "maxLength": 20000,
+              "type": "string"
+            },
+            "input_tokens": {
+              "description": "Reason/estimation method; empty only for observed values.",
+              "maxLength": 20000,
+              "type": "string"
+            },
+            "latency_ms": {
+              "description": "Reason/estimation method; empty only for observed values.",
+              "maxLength": 20000,
+              "type": "string"
+            },
+            "monetary_cost": {
+              "description": "Reason/estimation method; empty only for observed values.",
+              "maxLength": 20000,
+              "type": "string"
+            },
+            "output_tokens": {
+              "description": "Reason/estimation method; empty only for observed values.",
+              "maxLength": 20000,
+              "type": "string"
+            },
+            "reasoning_tokens": {
+              "description": "Reason/estimation method; empty only for observed values.",
+              "maxLength": 20000,
+              "type": "string"
+            }
+          },
+          "required": [
+            "input_tokens",
+            "output_tokens",
+            "reasoning_tokens",
+            "cached_tokens",
+            "latency_ms",
+            "monetary_cost"
+          ],
+          "type": "object"
+        },
+        "visible_output": {
+          "anyOf": [
+            {
+              "maxLength": 20000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Captured final-channel output, including malformed JSON; null when unavailable. No hidden reasoning."
+        }
+      },
+      "required": [
+        "call_id",
+        "phase",
+        "repair_of",
+        "input_sha256",
+        "output_sha256",
+        "visible_output",
+        "input_tokens",
+        "output_tokens",
+        "reasoning_tokens",
+        "cached_tokens",
+        "latency_ms",
+        "monetary_cost",
+        "model_revision",
+        "sequence",
+        "request_bytes",
+        "response_status",
+        "usage_availability",
+        "usage_reason",
+        "output_includes_reasoning"
+      ],
+      "type": "object"
+    },
+    "evaluator_private": {
+      "additionalProperties": false,
+      "description": "Private evaluator data; forbidden under every agent-state projection.",
+      "properties": {
+        "calibration_key": {
+          "description": "Private calibration reference.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "direction_before": {
+          "description": "Hidden directional sufficient-evidence conclusion.",
+          "enum": [
+            "UPWARD",
+            "DOWNWARD",
+            "UNRESOLVED",
+            "NOT_APPLICABLE"
+          ],
+          "type": "string"
+        },
+        "ground_truth": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/answer",
+          "description": "Answer secret before tool/feedback."
+        },
+        "informative": {
+          "description": "Post-episode admissible unique solo observation according to E01.",
+          "type": "boolean"
+        },
+        "latent_fingerprint": {
+          "description": "Split dedup key.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/phase",
+          "description": "Evaluator-only experimental phase."
+        },
+        "posterior_wrong_before": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "q_it, null C0."
+        },
+        "split": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/split",
+          "description": "Dataset split; never agent payload."
+        },
+        "sufficient_before": {
+          "description": "E computed from prior observations, hidden.",
+          "type": "boolean"
+        },
+        "surface_template_id": {
+          "description": "Hidden rendering provenance.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "target_role": {
+          "description": "Hidden manipulated/control slot role.",
+          "enum": [
+            "TARGET",
+            "CONTROL"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase",
+        "target_role",
+        "split",
+        "latent_fingerprint",
+        "surface_template_id",
+        "calibration_key",
+        "ground_truth",
+        "sufficient_before",
+        "posterior_wrong_before",
+        "direction_before",
+        "informative"
+      ],
+      "type": "object"
+    },
+    "feedback": {
+      "additionalProperties": false,
+      "description": "Единственная разрешённая feedback projection; correct content не раскрывается автоматически.",
+      "properties": {
+        "capability_configuration_ref": {
+          "description": "Public operational partition: capability_configuration_ref. Counts are never pooled silently across keys.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "chosen_action": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/action"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "null если не получен valid action."
+        },
+        "context_condition": {
+          "description": "Observable context ID текущего item; не hidden calibration band.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "cost_units": {
+          "description": "Фактические units инструмента, не composite reward.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "difficulty_scope": {
+          "description": "Observable difficulty ID текущего item; нужен для subset evidence.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "episode_id": {
+          "description": "Opaque завершённый episode.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "episode_index": {
+          "description": "Past index, needed for admissibility without hidden schedule.",
+          "maximum": 32,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "execution_mode": {
+          "description": "Public operational partition: execution_mode. Counts are never pooled silently across keys.",
+          "enum": [
+            "PREP_EXECUTED",
+            "PREP_SKIPPED",
+            "NO_PREP_INTERFACE"
+          ],
+          "type": "string"
+        },
+        "final_correct": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact task correctness; null для no answer."
+        },
+        "history_class": {
+          "description": "Public operational partition: history_class. Counts are never pooled silently across keys.",
+          "enum": [
+            "EMPTY",
+            "NONEMPTY"
+          ],
+          "type": "string"
+        },
+        "outcome": {
+          "description": "Стандартный исход без hidden cause.",
+          "enum": [
+            "CORRECT",
+            "INCORRECT",
+            "ABSTAINED",
+            "PROTOCOL_FAILURE",
+            "INFRA_FAILURE"
+          ],
+          "type": "string"
+        },
+        "prep_skip_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "B3_STOP_CONTROLLER",
+                "PROTOCOL_FAILURE",
+                "INFRA_FAILURE",
+                "EXPLICIT_NONEXECUTION"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Public abnormal/normal skip provenance, no hidden evaluator inference."
+        },
+        "scope_id": {
+          "description": "Стабильный capability scope наблюдения.",
+          "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+          "type": "string"
+        },
+        "solo_correct": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "true/false только наблюдаемое SOLO/pre-tool VERIFY; иначе null."
+        },
+        "task_family": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/family",
+          "description": "Family наблюдения."
+        },
+        "tool_condition": {
+          "const": "SOLO_NO_TOOL",
+          "description": "Observable tool availability for exact scope matching."
+        },
+        "tool_used": {
+          "description": "Фактически выполнен tool call.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "episode_id",
+        "task_family",
+        "scope_id",
+        "difficulty_scope",
+        "context_condition",
+        "chosen_action",
+        "solo_correct",
+        "final_correct",
+        "tool_used",
+        "cost_units",
+        "outcome",
+        "prep_skip_reason",
+        "capability_configuration_ref",
+        "execution_mode",
+        "history_class",
+        "episode_index",
+        "tool_condition"
+      ],
+      "type": "object"
+    },
+    "probe_event": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "declared_episode": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "predictions": {
+                "minItems": 0
+              },
+              "scope_id": {
+                "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                "type": "string"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "probe_type": {
+                "const": "NONE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "executed": {
+                "const": false
+              },
+              "predictions": {
+                "maxItems": 0
+              },
+              "reference_episode": {
+                "type": "null"
+              },
+              "scope_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "reference_episode": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "probe_type": {
+                "const": "VERIFY_NEXT_MATCHED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reference_episode": {
+                "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "description": "Observable probe bookkeeping, не дополнительный task.",
+      "properties": {
+        "declared_episode": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Начало probe intention."
+        },
+        "event_kind": {
+          "description": "One event in ordered probe_events; stopping PREP does not cancel.",
+          "enum": [
+            "NONE",
+            "DECLARED",
+            "CANCELLED",
+            "ACTION",
+            "FEEDBACK",
+            "EXPIRED",
+            "END_PENDING"
+          ],
+          "type": "string"
+        },
+        "executed": {
+          "description": "Совпадение фактического action и допустимой probe.",
+          "type": "boolean"
+        },
+        "expires_episode": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Expiry NEXT_MATCHED, иначе null."
+        },
+        "predictions": {
+          "description": "Sealed predictions; copied from B3 declaration, [] для NONE.",
+          "items": {
+            "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/probe_prediction"
+          },
+          "maxItems": 5,
+          "minItems": 0,
+          "type": "array"
+        },
+        "probe_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Stable declaration address; null only for NONE."
+        },
+        "probe_type": {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/probe_type",
+          "description": "Declared probe NONE если не B3/не объявлена."
+        },
+        "reason": {
+          "description": "Explicit cancellation/expiry/action mismatch reason, no evaluator truth.",
+          "maxLength": 20000,
+          "type": "string"
+        },
+        "reference_episode": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Past matching feedback for NEXT_MATCHED comparison; иначе null."
+        },
+        "resolution": {
+          "description": "Не утверждает причинную идентификацию.",
+          "enum": [
+            "NONE",
+            "PENDING",
+            "EVIDENCE_RETURNED",
+            "CANCELLED",
+            "EXPIRED"
+          ],
+          "type": "string"
+        },
+        "scope_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Scope intention, null для NONE."
+        },
+        "sequence": {
+          "description": "Total order shared with commit/call/tool/seal events.",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "probe_type",
+        "predictions",
+        "reference_episode",
+        "scope_id",
+        "declared_episode",
+        "expires_episode",
+        "executed",
+        "resolution",
+        "probe_id",
+        "event_kind",
+        "sequence",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "tool_event": {
+      "additionalProperties": false,
+      "description": "Tool event; не содержит calibration/condition.",
+      "properties": {
+        "cost_units": {
+          "description": "Фактический tool cost.",
+          "minimum": 0,
+          "type": "number"
+        },
+        "end_sequence": {
+          "description": "Порядок завершения event.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "input_spec_sha256": {
+          "description": "Должен совпасть с task spec.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "result": {
+          "anyOf": [
+            {
+              "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/answer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Correct canonical output либо null при infra error."
+        },
+        "start_sequence": {
+          "description": "После solo seal у VERIFY.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "status": {
+          "description": "Tool failure не изменение capability.",
+          "enum": [
+            "OK",
+            "INFRA_FAILURE"
+          ],
+          "type": "string"
+        },
+        "tool_name": {
+          "description": "Только tool текущей family.",
+          "enum": [
+            "run_symbolic_pipeline",
+            "solve_rule_grid"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "tool_name",
+        "input_spec_sha256",
+        "result",
+        "status",
+        "start_sequence",
+        "end_sequence",
+        "cost_units"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Full private log record, not agent-facing payload.",
+  "properties": {
+    "action_input_profile": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Profile after commit actually supplied to ACTION."
+    },
+    "action_record": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/action_record"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Sealed ACTION output, null on failure."
+    },
+    "agent_input": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_trajectory.schema.json#/$defs/agent_state",
+      "description": "Exact allowlisted state at PREP start."
+    },
+    "benchmark_version": {
+      "const": "0.1",
+      "description": "Record version."
+    },
+    "calls": {
+      "description": "Actual PREP/ACTION/one REPAIR, not hidden provider reasoning.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/call_usage"
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "type": "array"
+    },
+    "contract_version": {
+      "const": "0.2.1",
+      "description": "Serialization contract revision, distinct from benchmark identity."
+    },
+    "episode_id": {
+      "description": "Unique opaque episode ID.",
+      "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+      "type": "string"
+    },
+    "episode_index": {
+      "description": "1-based within trajectory.",
+      "maximum": 32,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evaluator_private": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/evaluator_private",
+      "description": "Never sent to model."
+    },
+    "execution_context": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/execution_context",
+      "description": "State immediately before ACTION; operational evidence partition key derives from this record."
+    },
+    "feedback": {
+      "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/feedback",
+      "description": "Only public observable feedback."
+    },
+    "final_answer": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/answer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Final output from action/tool; never retroactive solo answer."
+    },
+    "latch_events": {
+      "description": "Latch transitions separate from probe lifecycle.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_config.schema.json#/$defs/latch_event"
+      },
+      "maxItems": 16,
+      "type": "array"
+    },
+    "prep_record": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_reflexive_record.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "null if not called or invalid after repair."
+    },
+    "probe_events": {
+      "description": "Append-only events; replacement records CANCELLED then DECLARED.",
+      "items": {
+        "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/probe_event"
+      },
+      "maxItems": 16,
+      "type": "array"
+    },
+    "protocol_errors": {
+      "description": "Machine-checkable validation error codes/messages, no hidden truth.",
+      "items": {
+        "maxLength": 240,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "protocol_status": {
+      "description": "Explicit technical outcome class.",
+      "enum": [
+        "OK",
+        "PROTOCOL_FAILURE",
+        "INFRA_FAILURE"
+      ],
+      "type": "string"
+    },
+    "solo_seal_sequence": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Pre-tool event order or null when no solo answer."
+    },
+    "termination_reason": {
+      "description": "Deterministic episode/controller termination reason. Final trajectory state derivable by order.",
+      "enum": [
+        "CONTINUE",
+        "STOP_DECLARED",
+        "WAITING_FEEDBACK",
+        "PROTOCOL_FAILURE",
+        "INFRA_FAILURE",
+        "END_PENDING",
+        "END_NO_PENDING"
+      ],
+      "type": "string"
+    },
+    "tool_event": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_episode_record.schema.json#/$defs/tool_event"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "At most one tool event."
+    },
+    "trajectory_id": {
+      "description": "Opaque trajectory ID.",
+      "pattern": "^[a-zA-Z0-9_:.-]{1,96}$",
+      "type": "string"
+    },
+    "update_event": {
+      "anyOf": [
+        {
+          "$ref": "https://mrab.example.invalid/r1/0.2.1/r1_self_profile.schema.json#/$defs/update_event"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Profile update separate from answer; null if none."
+    }
+  },
+  "required": [
+    "benchmark_version",
+    "trajectory_id",
+    "episode_id",
+    "episode_index",
+    "agent_input",
+    "action_input_profile",
+    "prep_record",
+    "action_record",
+    "solo_seal_sequence",
+    "final_answer",
+    "tool_event",
+    "update_event",
+    "feedback",
+    "calls",
+    "protocol_status",
+    "protocol_errors",
+    "evaluator_private",
+    "probe_events",
+    "latch_events",
+    "termination_reason",
+    "execution_context",
+    "contract_version"
+  ],
+  "title": "r1_episode_record contract 0.2.1",
+  "type": "object"
+}

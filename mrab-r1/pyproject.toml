@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mrab-r1-runtime"
+version = "0.1.1"
+description = "MRAB-R1 offline runtime and executable design-contract verification"
+requires-python = ">=3.12"
+dependencies = ["jsonschema==4.26.0", "referencing==0.37.0"]
+
+[project.scripts]
+mrab-r1 = "mrab_r1.__main__:main"
+
+[tool.setuptools.package-data]
+mrab_r1 = ["jcs.cjs"]
+
+[tool.setuptools.packages.find]
+include = ["mrab_r1*"]
