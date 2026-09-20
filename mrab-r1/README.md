@@ -129,3 +129,18 @@ ProviderAdapter допускает реальную реализацию без 
 
 Реальные SEARCH/CONFIRM, model smoke480, pilot5120 и сравнение B0–B4 не запускались.
 Планы 480/5120 — планы, а не выполненные исследования.
+
+## Sealed release 0.1.1
+
+Полный runtime (с offline wheelhouse и scripted traces) — во вложениях GitHub Release:
+<https://github.com/Nateoka/-kentaur-osps/releases/tag/mrab-r1-runtime-0.1.1>
+
+SHA-256 архива `MRAB_R1_Runtime_0.1.1.zip`:
+
+```text
+e9ba08c88aa08958404af5e8e512917a00b01cb4467a29387c4169d3e02bbab7
+```
+
+Совпадает с контрольной суммой, снятой автором методологии до передачи архива.
+Дерево в этом каталоге побайтово совпадает с содержимым архива, кроме `wheelhouse/`
+и больших сгенерированных traces (см. `OMITTED_FROM_WORKSPACE.md`).
